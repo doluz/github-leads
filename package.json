@@ -1,0 +1,17 @@
+{
+  "name": "gitleads",
+  "private": true,
+  "version": "0.1.0",
+  "description": "GitHub signal detection and developer outreach SaaS",
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r run build",
+    "lint": "pnpm -r run lint",
+    "typecheck": "pnpm -r run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
+  }
+}
