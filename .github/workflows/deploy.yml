@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_DEPLOY_KEY }}
+          script: |
+            set -euo pipefail
+            cd /opt/gitleads
+            git pull origin main
+            pnpm install --frozen-lockfile
+            pnpm build
+            cd /opt/gitleads/packages/api && pnpm migrate
+            cd /opt/gitleads
+            pm2 startOrRestart deploy/ecosystem.config.cjs --update-env && pm2 save
+            sleep 5
+            curl -f https://gitleads.app || exit 1
