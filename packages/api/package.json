@@ -10,9 +10,11 @@
     "start": "node dist/index.js",
     "migrate": "tsx src/db/migrate.ts",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "setup-stripe": "tsx src/scripts/setup-stripe.ts"
   },
   "dependencies": {
+    "@gitleads/shared": "workspace:*",
     "express": "^4.21.0",
     "express-session": "^1.18.1",
     "cors": "^2.8.5",
@@ -20,6 +22,7 @@
     "pg": "^8.13.1",
     "passport": "^0.7.0",
     "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0",
     "stripe": "^17.5.0",
     "axios": "^1.7.9"
   },
@@ -31,6 +34,7 @@
     "@types/pg": "^8.11.10",
     "@types/passport": "^1.0.16",
     "@types/passport-github2": "^1.2.9",
+    "@types/passport-google-oauth20": "^2.0.16",
     "tsx": "^4.19.0",
     "typescript": "^5.6.2"
   }
