@@ -9110,6 +9110,494 @@ Used by [similar founder/company]. Worth 15 minutes?
       },
     ],
   },
+  {
+    slug: 'push-github-leads-to-clay',
+    title: 'How to Push GitHub Leads to Clay (2026 Guide)',
+    description:
+      'Step-by-step guide to routing GitHub developer leads into Clay for enrichment and multi-channel outreach. Connect GitLeads to Clay via webhook and build automated lead workflows.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 8,
+    keywords: [
+      'push github leads to clay',
+      'clay github leads',
+      'github leads clay enrichment',
+      'clay developer leads',
+      'clay github integration',
+      'github lead generation clay',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Clay is one of the most powerful GTM enrichment tools available today — it lets you pull data from dozens of sources and run AI-powered research on any list of leads. GitLeads captures developer intent signals from GitHub in real time. Together, they form a genuinely powerful stack: GitLeads finds the signal, Clay enriches the profile with company data, LinkedIn info, and AI-written personalization, and your outreach tool sends the message.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Clay + GitLeads Is a Powerful Combination',
+      },
+      {
+        type: 'p',
+        content:
+          "Clay excels at enrichment and waterfalling — running a lead through multiple data providers until you find an email, company size, or funding stage. But Clay needs a lead list to start with. GitLeads provides that list automatically, populated by real GitHub activity: a developer who just starred your competitor's repo, or who mentioned \"looking for a better observability tool\" in an open GitHub issue. That is not a cold lead — it is a warm signal.",
+      },
+      {
+        type: 'ul',
+        items: [
+          'GitLeads captures: name, GitHub username, public email, bio, company, location, top languages, follower count, signal type, signal context',
+          'Clay enriches: LinkedIn profile, verified business email, company size, funding, job title, AI-generated personalization',
+          'Outreach tool (Smartlead, Instantly, Lemlist) handles: sequence enrollment, delivery, reply tracking',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Method 1: GitLeads Webhook → Clay HTTP API Source',
+      },
+      {
+        type: 'p',
+        content:
+          'Clay supports an "HTTP API" source that exposes a webhook endpoint you can POST leads to. This is the simplest way to get GitLeads data into Clay in real time.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'In Clay, create a new Table and add an "HTTP API" data source. Clay will give you a unique webhook URL.',
+          'In GitLeads, go to Integrations → Webhooks and paste the Clay webhook URL.',
+          'Map the GitLeads payload fields to Clay columns: name → Name, github_username → GitHub Handle, email → Email (Raw), signal_type → Signal Type, signal_context → Signal Context.',
+          'Test by triggering a GitHub star on a tracked repo — the lead should appear in your Clay table within seconds.',
+          'Add Clay enrichment columns: Clearbit Company, LinkedIn Profile, Verified Email (waterfall), AI Personalization.',
+        ],
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `// GitLeads webhook payload sent to Clay
+{
+  "event": "lead.captured",
+  "signal_type": "stargazer",
+  "signal_context": "Starred: competitor-repo/awesome-tool",
+  "lead": {
+    "name": "Alex Chen",
+    "github_username": "alexchen",
+    "email": "alex@example.com",
+    "bio": "Building developer infrastructure at Series B startup",
+    "company": "DevInfra Inc",
+    "location": "San Francisco, CA",
+    "followers": 1840,
+    "top_languages": ["Go", "Rust", "TypeScript"],
+    "github_url": "https://github.com/alexchen",
+    "captured_at": "2026-04-24T14:23:00Z"
+  }
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Method 2: GitLeads CSV Export → Clay Table Upload',
+      },
+      {
+        type: 'p',
+        content:
+          "If you prefer batch workflows, GitLeads supports CSV export from the Leads dashboard. You can filter by signal type, date range, or keyword, then export and import to Clay manually or via a scheduled Zapier/Make automation.",
+      },
+      {
+        type: 'ol',
+        items: [
+          'In GitLeads, filter leads by date, signal type, or tracked repo.',
+          'Click Export CSV — the file includes all enriched fields.',
+          'In Clay, create a table and upload the CSV as a data source.',
+          'Set up Clay enrichment columns and run the table.',
+          "Push enriched rows to Smartlead, Instantly, or your CRM via Clay's native integrations.",
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building a Clay Enrichment Waterfall for GitHub Leads',
+      },
+      {
+        type: 'p',
+        content:
+          "Many GitHub developers have public emails — but not all. For those without a public address, Clay's enrichment waterfall is ideal. Here is a column sequence that works well for developer leads:",
+      },
+      {
+        type: 'ol',
+        items: [
+          'Email (Raw) — use the GitLeads-provided email if present',
+          'Hunter.io Email — search by GitHub username + company domain',
+          'Snov.io Email — fallback if Hunter finds nothing',
+          'Apollo.io Email — third waterfall tier',
+          'LinkedIn Profile — enrich via Proxycurl or Clearbit',
+          'Company Size / Funding — Clearbit Enrichment or PeopleDataLabs',
+          'AI Personalization — Claude/GPT column using signal_context + bio + company',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Pro tip: set the AI Personalization column to reference the signal_context field from GitLeads. A message referencing "I noticed you starred open-telemetry-go-sdk last week — are you evaluating observability tooling?" converts 3–5x better than generic cold outreach.',
+      },
+      {
+        type: 'h2',
+        content: 'Clay Table Structure for GitHub Lead Generation',
+      },
+      {
+        type: 'p',
+        content: 'Here is a recommended column structure for a GitLeads → Clay workflow:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Name (from GitLeads)',
+          'GitHub Username (from GitLeads)',
+          'Email Raw (from GitLeads)',
+          'Signal Type (stargazer | keyword | issue)',
+          'Signal Context (the specific repo or keyword that matched)',
+          'Company (from GitLeads, enriched by Clearbit)',
+          'LinkedIn URL (Proxycurl enrichment)',
+          'Verified Email (waterfall: Hunter → Snov → Apollo)',
+          'Company Size (Clearbit)',
+          'Funding Stage (Clearbit / Crunchbase)',
+          'Top Languages (from GitLeads)',
+          'AI Intro Line (Claude/GPT using signal context)',
+          'Sequence Enrolled (checkbox — prevent double sends)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Pushing Clay-Enriched GitHub Leads to Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'Once enriched, Clay can push leads directly to Smartlead, Instantly, or Lemlist via native integrations. Set a trigger: "When Verified Email is found AND Sequence Enrolled is false → enroll in Smartlead sequence → set Sequence Enrolled = true." This prevents duplicates and ensures every lead with an email gets sequenced automatically.',
+      },
+      {
+        type: 'h2',
+        content: 'Cost Estimate for a GitLeads + Clay Stack',
+      },
+      {
+        type: 'ul',
+        items: [
+          'GitLeads Starter ($49/mo) — up to 500 leads/month with HubSpot, Slack, and webhook integrations',
+          'Clay Starter ($149/mo) — includes 2,000 enrichment credits/month',
+          'Smartlead ($59/mo) — unlimited email sending accounts',
+          'Total: ~$257/month for a fully automated GitHub → Clay → email outreach pipeline',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads is the signal source. Clay is the enrichment layer. Your outreach tool is the execution layer. GitLeads does not send emails — it finds the leads and delivers them to your stack. Start free with 50 leads/month. Related: how to push GitHub leads to HubSpot, GitHub keyword monitoring for sales, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+  {
+    slug: 'github-pull-request-signals',
+    title: 'GitHub Pull Request Signals: A Hidden Source of Developer Leads',
+    description:
+      'How to use GitHub pull request activity as a buying signal for developer tool sales. PR titles, descriptions, and review patterns reveal technology decisions before they are finalized.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 7,
+    keywords: [
+      'github pull request signals',
+      'github pr monitoring',
+      'github pr lead generation',
+      'pull request buying signals',
+      'github signals for sales',
+      'github developer intent signals',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub Issues get most of the attention in developer lead generation — and for good reason. But pull requests are an equally rich, and often overlooked, source of buying signals. When a developer opens a PR that adds a new observability library, migrates from one database to another, or integrates a new payment provider, they are making a technology decision in real time. That decision is a buying signal.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Pull Requests Are High-Intent Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'An Issue might describe a problem a team is thinking about. A Pull Request describes a problem being actively solved. The developer has already done enough research to write the code, and they are committing it. That is the highest-intent moment before a purchase decision. If your product is the alternative they should have used, or the complement they are about to need, a PR is the precise moment to reach out.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'PR title: "feat: migrate from Datadog to Prometheus" → signal for Datadog competitors and observability tools',
+          'PR description: "adds Stripe webhook handling for subscription events" → signal for billing and payment tools',
+          'PR file changes: adding a new dependency in package.json or requirements.txt → signal for tool categories',
+          'PR review requests: who is reviewing tells you who the decision-makers are',
+          'PR merge patterns: merged PRs show completed decisions; open PRs show active evaluation',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Types of PR Signals and What They Mean',
+      },
+      {
+        type: 'h3',
+        content: 'Migration PRs',
+      },
+      {
+        type: 'p',
+        content:
+          'PRs that migrate from one tool to another are explicit signals of vendor switching. Keywords like "migrate from", "replace X with Y", "remove X, add Y" in PR titles indicate a team that has already decided to change vendors. If they are migrating away from a competitor, they are a perfect ICP. If they are migrating toward an adjacent tool, they may be ready to buy your product next.',
+      },
+      {
+        type: 'h3',
+        content: 'Integration PRs',
+      },
+      {
+        type: 'p',
+        content:
+          'PRs that add a new integration reveal what tools a team is adopting. "feat: add Clerk authentication", "add Sentry error tracking", "integrate PostHog analytics" — each of these signals a technology decision. If your product sits in the same category or a complementary one, this developer just revealed their buying intent.',
+      },
+      {
+        type: 'h3',
+        content: 'Dependency Addition PRs',
+      },
+      {
+        type: 'p',
+        content:
+          'PR diffs that show additions to package.json, requirements.txt, go.mod, or Cargo.toml are technology signals. A PR that adds opentelemetry-sdk signals the team is investing in observability. A PR that adds prisma signals they are adopting a new ORM. Monitoring dependency changes across public repos surfaces these signals at scale.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# GitHub Search API: find PRs mentioning your keyword
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=is:pr+is:open+migrate+from+datadog&sort=created&order=desc"
+
+# Find PRs that add a specific dependency in public repos
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/code?q=opentelemetry+filename:package.json"`,
+      },
+      {
+        type: 'h2',
+        content: 'How GitLeads Monitors GitHub PR Signals',
+      },
+      {
+        type: 'p',
+        content:
+          "GitLeads keyword monitoring covers GitHub Issues, Pull Requests, Discussions, code, and commit messages. When you add a keyword like \"migrate from datadog\" or \"looking for better observability\", GitLeads scans PR titles and descriptions across public repos and fires a lead record when a match is found — including the PR author's name, GitHub username, public email, company, location, and the exact PR where the signal fired.",
+      },
+      {
+        type: 'ol',
+        items: [
+          'Add a keyword in GitLeads (e.g., "migrate from datadog", "add honeycomb", "replace sentry")',
+          'GitLeads scans public GitHub PRs continuously for matches',
+          "When a match fires, GitLeads enriches the PR author's profile",
+          'The lead — with PR context attached — is pushed to your CRM, Slack, or outreach tool',
+          'Your sales team reaches out with context: "I saw your PR migrating from Datadog — we help teams with exactly that transition"',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'PR Signal Outreach: What to Say',
+      },
+      {
+        type: 'p',
+        content:
+          'Pull request signals give you specific, non-creepy context for outreach. You are not referencing a website visit. You are referencing a publicly visible technical decision on a public repository. The outreach writes itself:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"Noticed you\'re adding OpenTelemetry to [repo] — we work with a lot of teams making that exact transition and have a guide that might help."',
+          '"Saw your PR replacing Datadog with Prometheus — if you haven\'t evaluated [product] yet, worth a look. Happy to share how similar-sized teams have done it."',
+          '"Your PR adding Stripe webhooks caught my eye — we build [product] specifically for teams hitting exactly that problem. 5-minute demo?"',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Prioritizing PR Signals by Lead Quality',
+      },
+      {
+        type: 'p',
+        content: 'Not all PR signals are equal. Here is a prioritization framework:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'High priority: PR author has 100+ GitHub followers, works at a company with 10–500 employees, and the PR is in an active repo with recent commits',
+          'Medium priority: PR is from a smaller personal repo but the author is active on GitHub with multiple recent contributions',
+          'Lower priority: bot-authored PRs, PRs from archived repos, PRs from accounts with zero followers',
+          'Skip: fork PRs (often automated), PRs in tutorial/course repositories',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub PRs (and Issues, Discussions, and code) for your keywords in real time. Leads include the signal context — the exact PR that matched — so your outreach is specific and relevant. Start free with 50 leads/month. Related: GitHub keyword monitoring for sales, monitor GitHub issues for sales, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+  {
+    slug: 'find-saas-customers-on-github',
+    title: 'How to Find SaaS Customers on GitHub (2026 Playbook)',
+    description:
+      'A complete playbook for B2B SaaS companies selling to developers. Use GitHub signals — stargazers, keyword mentions, PR activity — to identify and convert developer buyers before your competitors do.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 9,
+    keywords: [
+      'find saas customers on github',
+      'github b2b saas lead generation',
+      'find developer customers github',
+      'github developer sales',
+      'b2b saas github prospecting',
+      'developer tool sales github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Selling B2B SaaS to developers is unlike any other sales motion. Developers do not respond to cold email sequences referencing a job title. They respond to specificity, technical credibility, and relevance. GitHub is where developers announce their intent publicly — through the repos they star, the issues they open, the PRs they merge. If you sell developer tools, GitHub is your highest-signal prospecting channel.',
+      },
+      {
+        type: 'h2',
+        content: 'The Developer Buying Journey on GitHub',
+      },
+      {
+        type: 'p',
+        content:
+          "Developers discover tools differently than traditional buyers. The buying journey typically looks like this: a developer encounters a problem → searches GitHub or Google for solutions → stars relevant repos while evaluating → opens issues asking about use cases → forks and experiments → brings the tool to their team. Each step leaves a public GitHub signal you can capture.",
+      },
+      {
+        type: 'ul',
+        items: [
+          "Discovery signal: stars your repo or a competitor's repo",
+          'Evaluation signal: opens an issue asking "does this support X?" or "how does this compare to Y?"',
+          'Adoption signal: forks the repo, opens a PR, or references the tool in their own code',
+          'Champion signal: stars multiple repos in the same category, has high followers, works at a target account',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 1: Stargazers of Your Repo',
+      },
+      {
+        type: 'p',
+        content:
+          "Every developer who stars your GitHub repo is a warm lead. They found your product, evaluated it enough to click the star, and chose to save it. The conversion rate from repo stargazer to paying customer is dramatically higher than cold outbound. GitLeads monitors your repo for new stars in real time and pushes each stargazer's profile — name, email, company, location, GitHub stats — to your CRM within seconds.",
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 2: Stargazers of Competitor Repos',
+      },
+      {
+        type: 'p',
+        content:
+          "Developers who star a competitor's repo are evaluating your category. They have a problem your product solves — they just do not know about you yet. Tracking competitor repo stargazers is one of the highest-ROI prospecting activities available to a developer tool company. GitLeads lets you track any public GitHub repo, including competitor repos, and receive their stargazers as leads.",
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 3: Keyword Mentions in Issues and PRs',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers ask for help publicly on GitHub. When someone opens an issue on a popular repo saying "we\'re evaluating observability tools — does anyone have experience with Honeycomb vs Datadog?", that is a high-intent signal. GitLeads keyword monitoring surfaces these mentions across GitHub Issues, Pull Requests, Discussions, and code — giving you a direct line to developers actively researching your category.',
+      },
+      {
+        type: 'h2',
+        content: 'Building Your GitHub Prospecting Keyword List',
+      },
+      {
+        type: 'p',
+        content:
+          'Your keyword list should cover three categories: evaluation phrases, pain point phrases, and competitor mentions.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Evaluation phrases: "looking for alternatives to [competitor]", "evaluating [category] tools", "comparing [competitor] vs [competitor]"',
+          'Pain point phrases: specific problems your product solves — "struggling with [pain]", "X is too slow", "X doesn\'t support Y"',
+          "Competitor mentions: your direct competitors' names in the context of evaluation or frustration",
+          'Category keywords: "observability tool", "feature flags", "API gateway", "developer portal" — your product category keywords',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The GitHub-to-CRM Pipeline for SaaS Companies',
+      },
+      {
+        type: 'p',
+        content:
+          'Here is the full pipeline architecture for a B2B SaaS company using GitHub as a prospecting channel:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'GitLeads monitors your repos, competitor repos, and keyword list continuously',
+          'When a signal fires, GitLeads enriches the developer profile (name, email, company, location, GitHub stats, signal context)',
+          'The enriched lead is pushed to HubSpot (or Pipedrive, Salesforce, Clay) via native integration',
+          'CRM automation sets lifecycle stage to Lead and enrolls in a developer-specific nurture sequence',
+          'Sales development rep reviews leads in CRM with signal context visible — reaches out referencing the specific GitHub activity',
+          'High-quality leads (senior engineers at target accounts) get prioritized for direct SDR outreach; others enter email sequences',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'ICP Scoring for GitHub Leads',
+      },
+      {
+        type: 'p',
+        content: 'Not all GitHub leads are equal. Score them against your ICP before routing to sales:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '+20 points: developer works at a company in your target segment (based on GitHub bio/company field)',
+          '+15 points: developer has 500+ GitHub followers (indicates influence within engineering community)',
+          '+15 points: signal was a keyword mention (higher intent than a passive star)',
+          '+10 points: developer uses your target tech stack (check top languages)',
+          '+10 points: developer is in your target geography',
+          '-10 points: developer has no public email and no company in profile',
+          '-20 points: developer is a student or has only educational repos',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Outreach That Works for Developer Buyers',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer outreach fails when it is generic. It succeeds when it is specific, brief, and technically credible. The GitHub signal context GitLeads provides is the ingredient that makes outreach specific:',
+      },
+      {
+        type: 'ul',
+        items: [
+          "Reference the exact repo they starred: \"Noticed you starred [competitor-repo] last week — we're an alternative with [specific differentiator].\"",
+          '"Reference the specific issue or PR: "Saw your issue on [repo] about [pain point] — that\'s exactly the use case [product] was built for."',
+          'Keep it short: 3 sentences max. Developers delete long emails immediately.',
+          'No marketing language: no "revolutionizing", "best-in-class", "game-changing". Just what the product does and why it is relevant to them.',
+          'Include a technical link: a docs page, a quickstart, or a demo video — not a generic homepage.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Benchmarks: GitHub Prospecting vs Cold Outbound',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Cold outbound email open rate (developer audience): 15–22%',
+          'GitHub signal-triggered outreach open rate: 38–52%',
+          'Cold outbound reply rate (developer audience): 1–3%',
+          'GitHub signal-triggered reply rate: 6–12%',
+          'Time to first meeting: cold outbound ~14 days, GitHub-triggered ~4 days',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads captures GitHub developer buying signals and pushes them to your existing sales stack. We do not send emails — we find the leads. Free plan: 50 leads/month. Related: how to sell to developers, GitHub buying signals for sales teams, ICP for developer tools, GitHub keyword monitoring for sales.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
