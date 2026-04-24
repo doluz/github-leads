@@ -3901,6 +3901,548 @@ Security tools: "dependency vulnerability", "supply chain attack", "SBOM"`,
     ],
   },
   {
+    slug: 'github-prospecting-guide',
+    title: 'GitHub Prospecting: The Complete Guide for Developer Sales Teams',
+    description:
+      'GitHub prospecting is the practice of finding and qualifying developer leads directly on GitHub. This guide covers every technique: stargazer mining, keyword signal monitoring, issue scanning, and automating the pipeline into your CRM.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 9,
+    keywords: ['github prospecting', 'github prospecting tool', 'prospect on github', 'github sales prospecting', 'developer prospecting'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub prospecting is the practice of identifying and qualifying potential customers directly from GitHub activity. Unlike traditional outbound prospecting — buying contact lists, scraping LinkedIn, or guessing from job boards — GitHub prospecting finds developers at the exact moment they signal interest in your product category. This guide covers every technique available in 2026, from manual GitHub searches to fully automated real-time pipelines.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Prospecting Works Where Other Methods Fail',
+      },
+      {
+        type: 'p',
+        content:
+          'The core problem with traditional developer outreach is timing. Cold lists are compiled weeks or months before you contact someone. LinkedIn InMail goes to people who may have been interested in your category six months ago. GitHub prospecting is different because it is event-driven. You reach out when a developer just starred a competitor\'s repo, or right after they opened an issue asking about a problem your product solves. That timing difference is the entire game.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazers: developers who explicitly bookmarked a repo in your category — warm signal, confirmed interest',
+          'Keyword mentions: developers who wrote your target keywords in a public GitHub issue, PR, or discussion — intent in their own words',
+          'Issue openers: developers who created issues describing a pain point your product solves — highest-intent signal available',
+          'Fork activity: developers who forked a repo to evaluate or build on top of it — deep engagement signal',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Manual GitHub Prospecting Techniques',
+      },
+      {
+        type: 'h3',
+        content: '1. Mine Competitor Repository Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'Navigate to any GitHub repository and click the stargazers count. GitHub shows you every user who starred the repo, paginated. For smaller repos (under 5,000 stars), you can manually review profiles. Look for: public email in bio, company affiliation, relevant job title, recent activity (last pushed within 30 days). This is time-consuming but produces highly qualified leads because these are people who already evaluated your competitor.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Fetch stargazers for a competitor repo via GitHub API
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  -H "Accept: application/vnd.github.star+json" \\
+  "https://api.github.com/repos/OWNER/REPO/stargazers?per_page=100&page=1"
+
+# The starred_at timestamp tells you WHEN they bookmarked it
+# Sort by recent stars to find developers actively evaluating now`,
+      },
+      {
+        type: 'h3',
+        content: '2. GitHub Keyword Search for Intent Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub\'s search UI (github.com/search) lets you search across Issues, Pull Requests, Discussions, and code. For sales prospecting, Issues and Discussions are the most valuable because they contain natural language expressions of pain. Search for: the name of your product, common pain points your product solves, competitor names, and category keywords.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# GitHub code search via API — find keyword mentions in Issues
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=YOUR+KEYWORD+type:issue+state:open&sort=created&order=desc"
+
+# Examples of high-intent keyword patterns:
+# "looking for a tool to monitor github"
+# "how do I get notified when someone stars"
+# "need to track github leads"
+# "competitor_name alternative"`,
+      },
+      {
+        type: 'h3',
+        content: '3. GitHub User Search for ICP Targeting',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Users search API lets you filter by language, location, company, and follower count. This is useful for proactive prospecting when you know your ICP precisely — e.g., "Go engineers with 100+ followers at companies in San Francisco." You\'re not finding people who have signaled intent, but you are finding people who match your exact buyer profile.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find Go engineers at Series A+ companies
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/users?q=language:go+followers:>50+location:\"San Francisco\"&per_page=30"
+
+# Find Python ML engineers who have been active recently
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/users?q=language:python+topic:machine-learning+pushed:>2026-01-01"`,
+      },
+      {
+        type: 'h2',
+        content: 'Why Manual GitHub Prospecting Breaks at Scale',
+      },
+      {
+        type: 'p',
+        content:
+          'Manual GitHub prospecting works for your first 50 leads. After that, the operational cost becomes prohibitive. Consider the pipeline: you need to paginate through stargazers, call the /users endpoint for each one to get their email, deduplicate against your CRM, check if they\'re already a customer, and then push to your outreach tool. That\'s 4–5 API calls per lead, rate-limited at 5,000 requests/hour for authenticated apps. For a repo with 10,000 stargazers, that\'s hours of processing — and it doesn\'t catch any new signals that arrive after you run the script.',
+      },
+      {
+        type: 'h2',
+        content: 'Automated GitHub Prospecting with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads automates the entire GitHub prospecting pipeline. You configure which repos to monitor and which keywords to track, and GitLeads watches GitHub continuously. Every new stargazer, every new keyword mention in an issue or PR, every new discussion — captured in real time, enriched with full profile data, and pushed into your sales stack automatically.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Connect up to 50 repos to monitor (Pro plan) — including competitor repos',
+          'Set up keyword monitors for your product name, competitor names, and pain-point phrases',
+          'Every new signal is enriched: name, email (if public), company, location, GitHub bio, top languages, follower count',
+          'Push directly to HubSpot, Slack, Smartlead, Instantly, Lemlist, Apollo, or via webhook to any tool',
+          'No API key juggling — GitLeads handles GitHub API authentication and rate limiting',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Qualifying GitHub Leads: What to Look For',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every GitHub signal is a qualified prospect. Here\'s a framework for prioritizing:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'High priority: developer with public email + company name + stars competitor repo + >100 followers',
+          'High priority: issue opener who explicitly describes a problem your product solves',
+          'Medium priority: developer with public email who starred a complementary tool',
+          'Medium priority: keyword mention in a PR (they\'re actively building something)',
+          'Lower priority: anonymous star with no public email or company',
+          'Disqualify: bots (no profile picture, username pattern like "user123456"), organizations (not individual developers)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Prospecting for Specific Use Cases',
+      },
+      {
+        type: 'h3',
+        content: 'DevTool Companies',
+      },
+      {
+        type: 'p',
+        content:
+          'Monitor 3–5 competitor or complementary repos. Set up keyword monitors for your category terms and pain points. When a developer stars a competing CLI tool or opens an issue asking how to migrate from it, that\'s a purchase-ready prospect.',
+      },
+      {
+        type: 'h3',
+        content: 'API-First SaaS',
+      },
+      {
+        type: 'p',
+        content:
+          'Monitor repos for SDKs and libraries in your integration ecosystem. A developer who stars the Stripe Python SDK is likely building a payment-related product. A developer who opens an issue in the Twilio repository about rate limits may be evaluating alternatives.',
+      },
+      {
+        type: 'h3',
+        content: 'Infrastructure and DevOps Tools',
+      },
+      {
+        type: 'p',
+        content:
+          'Monitor Kubernetes operators, Terraform providers, Helm charts. These repos attract practitioners who are actively deploying and evaluating tooling. A star on the Prometheus Helm chart from a DevOps engineer at a 200-person company is a warm prospect for observability tooling.',
+      },
+      {
+        type: 'h2',
+        content: 'Building the GitHub Prospecting Workflow',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Identify 3–5 repos whose stargazers match your ICP (competitors, complements, ecosystem tools)',
+          'Configure keyword monitors for your brand, competitors, and category pain points',
+          'Set up a GitLeads → HubSpot or GitLeads → Smartlead connection',
+          'Create sequences in your outreach tool referencing the specific signal (e.g., "saw you starred {repo}")',
+          'Review new leads weekly — prioritize those with public email + company alignment',
+          'Track which signal types convert best; double down on the highest performers',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Start GitHub prospecting free at gitleads.app — 50 leads/month, no credit card required. Related reading: how to find leads on GitHub, turn GitHub stargazers into leads, GitHub keyword monitoring for sales.',
+      },
+    ],
+  },
+  {
+    slug: 'monitor-github-issues-for-sales',
+    title: 'How to Monitor GitHub Issues for Sales Signals (2026 Guide)',
+    description:
+      'GitHub Issues contain the highest-intent buyer signals on the platform: developers describing specific problems they need to solve. Learn how to monitor GitHub issues for sales signals at scale, including keyword patterns, API methods, and automation.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 8,
+    keywords: ['monitor github issues', 'github issue monitoring sales', 'github issues for leads', 'github issue scanner', 'github sales signals'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub Issues are the highest-intent buyer signal source on the platform. When a developer opens a GitHub issue, they are describing a real problem they are actively trying to solve. Unlike a star (which indicates interest) or a fork (which indicates evaluation), an issue is a declaration: "I have this problem right now and I need help." For sales teams selling developer tools, monitoring GitHub issues for relevant keywords produces leads that are often one conversation away from becoming customers.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Issues Beat Other Prospecting Sources',
+      },
+      {
+        type: 'p',
+        content:
+          'Most developer intent signals are implicit. A star means "I noticed this." A fork means "I\'m experimenting." An issue, by contrast, is explicit: the developer wrote out their problem in natural language. They named the tool they\'re using, described what broke, asked how to do something, or requested a feature. Every one of those sentences is a keyword opportunity for you to identify.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Issue opener is active right now — the problem was important enough to file publicly',
+          'Natural language context tells you exactly what they\'re building and what\'s blocking them',
+          'The GitHub profile of the issue author is public — name, company, email, and tech stack',
+          'Issues on competitor repos reveal developers who are frustrated with the competitor\'s product',
+          'Issues on complementary repos reveal developers who are building in your integration ecosystem',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How to Search GitHub Issues via the API',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Search API supports filtering by issue type, state, and keyword. Here is how to find recently opened issues mentioning target keywords:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Search all public issues for a keyword, sorted by newest first
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=KEYWORD+type:issue+state:open&sort=created&order=desc&per_page=30"
+
+# Narrow to issues on a specific repo
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=KEYWORD+repo:OWNER/REPO+type:issue&sort=created&order=desc"
+
+# Find issues mentioning a competitor from the last 7 days
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=competitor_name+type:issue+created:>2026-04-17&sort=created&order=desc"`,
+      },
+      {
+        type: 'p',
+        content:
+          'The response includes the full issue body and the user object for the author. The user.login field gives you the GitHub username, which you can then use to fetch the full profile (GET /users/{username}) to retrieve their email, company, location, and bio.',
+      },
+      {
+        type: 'h2',
+        content: 'High-Intent Keyword Patterns to Monitor',
+      },
+      {
+        type: 'p',
+        content:
+          'Not all keywords are created equal. These patterns produce the highest-quality leads:',
+      },
+      {
+        type: 'h3',
+        content: 'Competitor Dissatisfaction Signals',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"[competitor] alternative" — actively shopping for a replacement',
+          '"[competitor] is too expensive" — budget-driven switch',
+          '"[competitor] doesn\'t support [feature]" — feature gap driving evaluation',
+          '"migrating from [competitor]" — late-stage switch in progress',
+          '"[competitor] vs" — comparative evaluation underway',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Problem Category Signals',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"how do I track github leads" — exact bottom-of-funnel for GitLeads',
+          '"notify me when someone stars" — specific feature need',
+          '"find developers who starred" — intent to mine stargazers',
+          '"github webhook for new stars" — DIY approach that automation replaces',
+          '"monitor github issues for keywords" — the very signal you\'re monitoring',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Ecosystem Adjacency Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'Monitor issues in repos that are adjacent to your product — tools your target customers use alongside yours. If someone opens an issue in a HubSpot integration library asking how to sync GitHub events to contacts, they are a near-perfect prospect for a tool that does exactly that.',
+      },
+      {
+        type: 'h2',
+        content: 'What to Do with a GitHub Issue Lead',
+      },
+      {
+        type: 'p',
+        content:
+          'Once you\'ve identified an issue author as a prospect, here\'s the right playbook:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Read the full issue body — understand their exact problem before reaching out',
+          'Check their GitHub profile for email, company, and recent activity',
+          'Reference the specific issue in your outreach: "Saw you opened an issue about X on [repo] — we built GitLeads specifically to solve this"',
+          'Link to a relevant blog post or docs page, not just a signup link',
+          'If they\'re still active on the issue thread, you can also comment with a helpful answer that positions your tool naturally',
+          'Do not reach out to issues that are already closed and resolved — the urgency is gone',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Monitoring GitHub Issues at Scale: The Automation Problem',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Search API imposes a 30 requests/minute rate limit on authenticated requests. More importantly, it only returns results matching your search at query time — if a new issue is opened 10 minutes after you run the query, you miss it until you poll again. For a company that wants continuous coverage of GitHub issues, you need a polling loop that runs on a schedule, deduplicates against previously seen issues, enriches authors, and routes to your CRM — without getting rate-limited or missing any signals.',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+import time
+from datetime import datetime, timedelta
+
+GITHUB_TOKEN = "YOUR_TOKEN"
+KEYWORDS = ["your_product", "competitor_name", "category_pain_point"]
+SEEN_ISSUE_IDS = set()
+
+def poll_github_issues(keyword: str) -> list[dict]:
+    since = (datetime.utcnow() - timedelta(minutes=15)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    url = f"https://api.github.com/search/issues"
+    params = {
+        "q": f"{keyword} type:issue created:>{since}",
+        "sort": "created",
+        "order": "desc",
+        "per_page": 30,
+    }
+    r = requests.get(url, headers={"Authorization": f"Bearer {GITHUB_TOKEN}"}, params=params)
+    r.raise_for_status()
+    return r.json().get("items", [])
+
+def run_scanner():
+    while True:
+        for keyword in KEYWORDS:
+            issues = poll_github_issues(keyword)
+            for issue in issues:
+                if issue["id"] not in SEEN_ISSUE_IDS:
+                    SEEN_ISSUE_IDS.add(issue["id"])
+                    enrich_and_push(issue)  # your CRM push logic
+            time.sleep(2)  # avoid rate limits between keyword queries
+        time.sleep(900)  # 15-minute poll cycle`,
+      },
+      {
+        type: 'p',
+        content:
+          'This is the core loop GitLeads runs for every customer — minus the manual maintenance. GitLeads handles the deduplication, enrichment (fetching full user profiles), rate limit management, and routing to your sales stack automatically. You configure the keywords and destination; the scanner runs continuously.',
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Discussions: The Underused Signal',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Discussions is a newer forum-style feature that many repositories have enabled alongside Issues. Discussions tend to attract longer-form questions and feature requests — often from more senior developers. You can search Discussions via the GitHub GraphQL API (it\'s not in REST yet). The signal quality is high: someone opening a Discussion typically has a substantial project or workflow they\'re trying to figure out, not just a one-off bug.',
+      },
+      {
+        type: 'h2',
+        content: 'Pull Requests as Intent Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'Pull requests are often overlooked as a prospecting source because they feel more technical than commercial. But PRs contain valuable signal: a developer who opens a PR to add support for your product\'s API to a popular library is a power user who cares enough to contribute. A PR description that references your competitor by name while proposing a migration is a high-value lead. The same API endpoint works for PR search (type:pr instead of type:issue).',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub Issues, PRs, and Discussions for your keywords in real time, enriches each lead, and pushes to your sales stack automatically. Start free at gitleads.app — 50 leads/month. Related reading: GitHub buying signals for sales teams, GitHub keyword monitoring for sales, push GitHub leads to CRM.',
+      },
+    ],
+  },
+  {
+    slug: 'github-lead-generation-agencies',
+    title: 'GitHub Lead Generation for Agencies: Build Developer Lead Pipelines for Clients',
+    description:
+      'How growth agencies and lead gen firms can use GitHub signal monitoring to build scalable developer lead pipelines for B2B SaaS clients. Covers the Agency workflow, multi-client management, and white-label delivery via CSV and webhooks.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 7,
+    keywords: ['github lead generation agency', 'developer lead generation agency', 'github leads for agencies', 'b2b developer lead pipeline agency', 'github prospecting agency'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Growth agencies and lead generation firms increasingly serve B2B SaaS clients who sell to developers. The challenge: traditional B2B lead gen methods — LinkedIn scraping, trade show lists, web visitor identification — produce weak results for developer-tool companies. Developers don\'t engage with LinkedIn content, rarely attend enterprise trade shows, and use ad blockers that defeat web visitor tracking. GitHub is where developers actually live. This guide covers how agencies can build a GitHub signal monitoring practice for developer-tool clients.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Agencies Struggle with Developer-Tool Clients',
+      },
+      {
+        type: 'p',
+        content:
+          'The standard agency playbook — list purchase from ZoomInfo, enrichment via Clearbit, sequence in Apollo — fails for developer-tool clients for three reasons: (1) the best developer contacts are not in ZoomInfo because senior engineers don\'t have complete LinkedIn profiles; (2) generic enrichment doesn\'t capture tech stack or GitHub activity, the two most relevant signals for developer tools; (3) sequences written for enterprise buyers sound wrong to developers who are allergic to sales copy.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub changes all three variables. The best developer leads are discoverable via their GitHub activity. GitHub profiles provide real tech stack data (languages, repos, stars). And outreach referencing a specific GitHub signal — "saw you starred Prometheus last week" — reads as research, not a template.',
+      },
+      {
+        type: 'h2',
+        content: 'The Agency GitHub Lead Gen Workflow',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Onboard client: identify their top 5–10 target repositories (competitor repos, ecosystem repos, complementary tools)',
+          'Identify keyword signals: product name, competitor names, pain-point phrases their ICP uses on GitHub',
+          'Configure monitoring in GitLeads under the Agency plan (up to 10 client workspaces)',
+          'Connect lead delivery: CSV for weekly batch delivery, or webhook/CRM integration for real-time push to client\'s stack',
+          'Deliver weekly lead reports with signal context: which repo they starred, what keyword they used, what they wrote in the issue',
+          'Help client craft signal-specific outreach templates that reference the GitHub activity',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Multi-Client Management with GitLeads Agency Plan',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitLeads Agency plan ($499/month) supports up to 10 separate client workspaces, each with their own repo monitoring lists, keyword monitors, and lead destinations. This means you can run the following for 10 clients simultaneously:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Client A (observability tool): monitoring Prometheus, Grafana, and Datadog repos + keywords "too expensive to monitor", "prometheus alternative"',
+          'Client B (API gateway): monitoring Kong, Traefik repos + keywords "api rate limiting", "api gateway migration"',
+          'Client C (security scanner): monitoring Snyk, Trivy repos + keywords "cve scanning", "container security tool"',
+          'Each client gets their own HubSpot or Smartlead integration — leads go directly to their CRM',
+          'Agency admin has visibility across all client workspaces from a single login',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Lead Delivery Formats for Agency Clients',
+      },
+      {
+        type: 'h3',
+        content: 'CSV Export (Batch Delivery)',
+      },
+      {
+        type: 'p',
+        content:
+          'The simplest delivery format: export leads weekly as a CSV with columns for name, email, GitHub username, company, location, signal type, signal context (which repo was starred, or what the keyword match was), and timestamp. Agencies typically include this in a weekly reporting cadence alongside their other lead gen deliverables.',
+      },
+      {
+        type: 'h3',
+        content: 'Webhook → Client CRM (Real-Time)',
+      },
+      {
+        type: 'p',
+        content:
+          'For clients with an active sales team, real-time delivery is more valuable. Configure GitLeads to POST each new lead to a webhook endpoint, then use an n8n or Make workflow to route the lead to the client\'s HubSpot, Salesforce, or Pipedrive instance. The webhook payload includes the full lead profile and signal context. The entire pipeline — GitHub signal captured to CRM contact created — runs in under 30 seconds.',
+      },
+      {
+        type: 'h3',
+        content: 'Direct Integration (Client Owns the Tool)',
+      },
+      {
+        type: 'p',
+        content:
+          'For larger clients, provision the GitLeads account under their own organization and connect their existing sales tools directly: HubSpot OAuth, Smartlead API key, Instantly. The agency manages the monitoring configuration while the client owns the data flow. This is cleaner for enterprise clients who have data governance requirements.',
+      },
+      {
+        type: 'h2',
+        content: 'Pricing GitHub Lead Gen as an Agency Service',
+      },
+      {
+        type: 'p',
+        content:
+          'Most agencies charge clients $2,000–$5,000/month for developer lead generation as a managed service. The GitLeads Agency plan at $499/month covers up to 10 clients, making the unit economics favorable: $499 spread across 10 clients = $50/client in tool cost. A 10-client agency at $3,000/month per client generates $30,000 MRR against $499 in tooling. The primary cost is analyst time: reviewing leads, writing signal-specific copy, and tuning keyword monitors.',
+      },
+      {
+        type: 'h2',
+        content: 'What to Include in a GitHub Lead Report',
+      },
+      {
+        type: 'p',
+        content:
+          'A weekly GitHub lead report for an agency client should include:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Lead count by signal type (stargazers vs keyword mentions) and trend vs prior week',
+          'Top 10 highest-quality leads with full profile data and signal context',
+          'Email availability rate (what % of leads have a public GitHub email)',
+          'Notable signals: any leads from companies in the client\'s ICP account list',
+          'Recommended outreach: a draft personalized opener for the top 3 leads',
+          'Monitor performance: which keywords and repos are generating the most leads',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building a GitHub Prospecting Practice from Scratch',
+      },
+      {
+        type: 'p',
+        content:
+          'If your agency is launching a developer lead gen practice for the first time, start with one client and one signal type: stargazers on a single competitor repo. This produces a steady, predictable stream of warm leads with clear signal context. Once you\'ve built the reporting workflow and the client sees results, expand to keyword monitoring and additional repos. Most agencies find that 3–5 repos per client and 5–10 keywords per client produces enough leads to keep an outreach team busy without overwhelming the client\'s sales team.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads Agency plan ($499/month) supports up to 10 client workspaces with dedicated repo monitoring, keyword signals, and direct integration to any sales tool. Start at gitleads.app/pricing. Related reading: how to find leads on GitHub, push GitHub leads to CRM, GitHub keyword monitoring for sales.',
+      },
+    ],
+  },
+  {
     slug: 'what-is-github-intent-data',
     title: 'What Is GitHub Intent Data? Why It Converts Better Than Web Signals',
     description:
@@ -4031,6 +4573,533 @@ Security tools: "dependency vulnerability", "supply chain attack", "SBOM"`,
         type: 'callout',
         content:
           'Start capturing GitHub intent data free at gitleads.app — 50 leads/month, no credit card. Related reading: GitHub buying signals for sales teams, how to find leads on GitHub, turn GitHub stargazers into leads.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-sell-to-developers',
+    title: 'How to Sell to Developers: The Complete GTM Playbook (2026)',
+    description:
+      'Developers hate being sold to — but they buy constantly. This guide covers the exact GTM motions, channels, and messaging that convert developers into paying customers without burning your brand.',
+    publishedAt: '2026-04-20',
+    updatedAt: '2026-04-24',
+    readingTime: 12,
+    keywords: [
+      'how to sell to developers',
+      'developer gtm',
+      'selling to developers',
+      'developer marketing',
+      'developer led growth',
+      'b2b developer sales',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Selling to developers is different from selling to any other buyer. Developers distrust traditional sales tactics, can smell a marketing pitch from a mile away, and will dismiss your product publicly on Hacker News if you annoy them. But they also buy software constantly — cloud infrastructure, developer tools, APIs, databases, monitoring platforms. The difference between success and failure is understanding why developers buy and aligning your GTM motion accordingly.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Traditional Sales Funnels Fail With Developers',
+      },
+      {
+        type: 'p',
+        content:
+          'Traditional B2B sales assumes a top-down buying process: identify decision-makers, schedule demos, send proposals, close. Developers subvert this model entirely. They discover products through GitHub repos, Hacker News, technical blog posts, and peer recommendations. They evaluate by running code, not watching demos. They purchase on self-serve paths. The "enterprise sales" motion — outbound emails, SDR calls, procurement processes — is the single fastest way to get blocked and publicly ridiculed in developer communities.',
+      },
+      {
+        type: 'h2',
+        content: 'The Developer Buying Journey',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer purchases follow a predictable pattern: awareness through technical content or community discovery, evaluation through hands-on trial (free tier, open source, or sandbox), advocacy through internal recommendation to their team, and purchase once value is proven. Your GTM must serve each of these stages, not shortcut them.',
+      },
+      {
+        type: 'ul',
+        content: '',
+        items: [
+          'Awareness: GitHub repos, Hacker News, technical blog posts, open-source visibility',
+          'Evaluation: Free tier, sandbox environments, clear documentation, working code examples',
+          'Advocacy: Easy internal sharing, team workspaces, usage-based pricing that scales',
+          'Purchase: Self-serve checkout, transparent pricing, no "contact sales" walls',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Channel 1: GitHub as a Distribution Channel',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub is the most underutilized distribution channel in B2B SaaS. Every open-source project, client library, or CLI tool you publish on GitHub is a permanent discovery surface. Developers search GitHub before they search Google. A well-maintained repo with a quality README, clear setup instructions, and active issues is a 24/7 sales asset. Beyond your own repos, monitor competitor repos and related projects — developers who star a competing tool are actively evaluating solutions in your space.',
+      },
+      {
+        type: 'p',
+        content:
+          'Tools like GitLeads automate this signal capture: when a developer stars a repo in your category (competitor or complementary), or mentions a problem your product solves in a GitHub Issue or PR, that intent signal is captured and pushed into your CRM or Slack automatically. These are warm leads — developers who have already demonstrated active interest in your problem space.',
+      },
+      {
+        type: 'h2',
+        content: 'Channel 2: Technical Content That Ranks',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers find products through technical problem-solving content, not thought leadership. "How to set up observability for a Node.js service" converts. "The future of DevOps" does not. Your content strategy should map directly to the questions your target developers type into search engines when they hit the exact problem your product solves. Long-form, technically accurate guides that genuinely answer these questions build trust and generate qualified inbound traffic.',
+      },
+      {
+        type: 'h3',
+        content: 'Content types that work for developer audiences',
+      },
+      {
+        type: 'ul',
+        content: '',
+        items: [
+          'How-to tutorials with working code examples and real error messages',
+          'Comparison posts ("X vs Y") written with honest acknowledgments of where the competitor wins',
+          'Benchmark posts with methodology and reproducible results',
+          'Explainers on standards, protocols, and architectural decisions relevant to your product',
+          'Migration guides from competing solutions',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Channel 3: Community-Led Growth',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer communities have immune systems against overt marketing. The right approach is genuine contribution: answer questions on Stack Overflow, participate in relevant GitHub issues and discussions, sponsor open-source projects your users depend on, contribute to shared standards. DevRel teams that operate from a "give first" model consistently outperform those that treat communities as distribution channels.',
+      },
+      {
+        type: 'h2',
+        content: 'Pricing: Remove Friction at Every Stage',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer products that require a credit card to try lose 70–80% of potential evaluators before they experience any value. Usage-based or freemium models with genuine free tiers are not charity — they are the highest-converting top-of-funnel motion for developer products. Developers expect to self-serve the full purchase path. If your pricing page says "Contact sales for pricing," you have already lost most developers.',
+      },
+      {
+        type: 'h2',
+        content: 'Outreach: When and How to Do It',
+      },
+      {
+        type: 'p',
+        content:
+          'Cold outreach to developers can work, but only if it is (1) triggered by genuine intent signals, (2) technically credible, and (3) immediately relevant. Mass cold emails to developers with generic pitches are deleted immediately. Outreach triggered by a specific GitHub event — "I noticed you starred [repo], thought you might find [specific feature] relevant because it solves [specific problem]" — converts meaningfully because it is relevant by construction. The signal is everything.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Bad: Generic cold email
+Subject: Re: Growing your developer stack
+
+Hey John, I saw you work at Acme. We help companies like yours...
+
+# Good: Intent-triggered outreach
+Subject: Saw you starred [telemetry-sdk] — we solve X differently
+
+Hey Sarah, noticed you starred [telemetry-sdk] last week.
+We built [product] specifically because [specific problem with that approach].
+Worth 10 minutes? Here's the free tier: [link]`,
+      },
+      {
+        type: 'h2',
+        content: 'Identifying Developer Intent Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'The most actionable developer intent signals are GitHub-native: new stars on repos in your category, keyword mentions in Issues and PRs where developers describe the exact problem you solve, forks of competing projects. These signals indicate active evaluation — the developer is in-market right now, not a cold contact from a database.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads monitors GitHub continuously for these signals and routes enriched lead profiles into HubSpot, Slack, Apollo, Clay, and other sales tools automatically. Free tier includes 50 leads per month — enough to validate whether GitHub signal capture belongs in your pipeline before committing to a paid plan. See also: the GitHub buying signals guide and how to turn stargazers into leads.',
+      },
+      {
+        type: 'h2',
+        content: 'What Not to Do',
+      },
+      {
+        type: 'ul',
+        content: '',
+        items: [
+          'Do not gate documentation behind a signup wall — developers will go to a competitor',
+          'Do not send drip campaigns to developers who signed up for a free trial and never triggered an outreach-worthy signal',
+          'Do not call developers on the phone without permission — this destroys trust immediately',
+          'Do not promise "no credit card required" and then ask for a credit card',
+          'Do not underestimate the Hacker News / dev Twitter blast radius of a bad experience',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Start capturing developer intent from GitHub free at gitleads.app. Related reading: GitHub buying signals for sales teams, how to find leads on GitHub, GitHub prospecting guide for B2B founders.',
+      },
+    ],
+  },
+  {
+    slug: 'monitor-github-for-brand-mentions',
+    title: 'How to Monitor GitHub for Brand and Keyword Mentions (2026)',
+    description:
+      'Learn how to monitor GitHub Issues, PRs, discussions, and commit messages for brand mentions, competitor comparisons, and problem keywords. Includes API methods, rate limit strategies, and automated pipeline setup.',
+    publishedAt: '2026-04-21',
+    updatedAt: '2026-04-24',
+    readingTime: 9,
+    keywords: [
+      'monitor github mentions',
+      'github brand monitoring',
+      'github keyword monitoring',
+      'github mention alerts',
+      'track github mentions',
+      'github signal monitoring',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub is one of the richest sources of unfiltered developer intent available publicly. When a developer opens an issue saying "looking for an alternative to X," comments on a PR asking "does anyone have experience with Y," or writes a commit message mentioning a specific technology stack — those are buying signals. Monitoring GitHub for brand and keyword mentions gives you a real-time window into what developers are actively thinking about, evaluating, and deciding to buy.',
+      },
+      {
+        type: 'h2',
+        content: 'What to Monitor on GitHub',
+      },
+      {
+        type: 'ul',
+        content: '',
+        items: [
+          'Issues: Developers describe problems, ask for tool recommendations, compare solutions',
+          'Pull Requests: Code comments often mention specific tools being adopted or replaced',
+          'Discussions: GitHub Discussions are used for community Q&A and architectural decisions',
+          'Commit messages: Indicate tools being adopted (e.g., "migrate from X to Y")',
+          'README files: Track when projects add or remove your tool from their stack lists',
+          'Code: Direct imports, package.json entries, requirements.txt — real adoption signals',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Method 1: GitHub Search API for Keyword Monitoring',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Search API supports searching across Issues, PRs, discussions, and code. The key endpoint for monitoring is /search/issues, which covers both Issues and Pull Requests:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Search Issues and PRs for brand mention in the last 24 hours
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=YOUR_BRAND+created:>2026-04-23&sort=created&order=desc"
+
+# Search for competitor comparison mentions
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=%22alternative+to+YOUR_COMPETITOR%22+is:open"
+
+# Search code for direct import/usage
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/code?q=YOUR_PACKAGE+in:file+language:javascript"`,
+      },
+      {
+        type: 'h3',
+        content: 'Rate Limits and Pagination',
+      },
+      {
+        type: 'p',
+        content:
+          'The Search API allows 30 requests per minute for authenticated requests. Results are capped at 1,000 per query. For ongoing monitoring, page through results using the Link header and track the highest created_at timestamp from your last poll to avoid re-processing results. Store the cursor server-side.',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+import time
+
+def poll_github_mentions(keyword: str, token: str, since: str) -> list:
+    """Poll GitHub Issues/PRs for keyword mentions since a given timestamp."""
+    headers = {"Authorization": f"Bearer {token}"}
+    results = []
+    page = 1
+
+    while True:
+        resp = requests.get(
+            "https://api.github.com/search/issues",
+            params={
+                "q": f"{keyword} created:>{since}",
+                "sort": "created",
+                "order": "asc",
+                "per_page": 100,
+                "page": page,
+            },
+            headers=headers,
+        )
+
+        # Respect rate limits
+        if resp.status_code == 403:
+            reset_time = int(resp.headers.get("X-RateLimit-Reset", time.time() + 60))
+            time.sleep(reset_time - time.time() + 1)
+            continue
+
+        data = resp.json()
+        results.extend(data["items"])
+
+        if "next" not in resp.links:
+            break
+        page += 1
+
+    return results`,
+      },
+      {
+        type: 'h2',
+        content: 'Method 2: GitHub Webhook Events',
+      },
+      {
+        type: 'p',
+        content:
+          'For repos you own or administer, GitHub Webhooks deliver real-time events for issues, pull_request, discussion, and create events. This is faster and cheaper than polling the Search API, but limited to repos where you have admin access.',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// Express webhook handler for GitHub issue events
+import crypto from 'crypto';
+
+function verifySignature(payload: string, signature: string, secret: string): boolean {
+  const expected = 'sha256=' + crypto
+    .createHmac('sha256', secret)
+    .update(payload)
+    .digest('hex');
+  return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected));
+}
+
+app.post('/webhook/github', (req, res) => {
+  const sig = req.headers['x-hub-signature-256'] as string;
+  if (!verifySignature(JSON.stringify(req.body), sig, process.env.WEBHOOK_SECRET!)) {
+    return res.status(401).send('Invalid signature');
+  }
+
+  const event = req.headers['x-github-event'];
+  const payload = req.body;
+
+  if (event === 'issues' && ['opened', 'edited'].includes(payload.action)) {
+    const body = payload.issue.body || '';
+    const KEYWORDS = ['your-brand', 'competitor-name', 'problem-keyword'];
+    const matched = KEYWORDS.filter(k => body.toLowerCase().includes(k));
+
+    if (matched.length > 0) {
+      // Push to your CRM or Slack
+      notifyTeam(payload.issue, matched);
+    }
+  }
+
+  res.status(200).send('OK');
+});`,
+      },
+      {
+        type: 'h2',
+        content: 'Method 3: GraphQL API for Discussion Monitoring',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Discussions are not covered by the REST Search API. To monitor discussions, use the GraphQL API with a search query:',
+      },
+      {
+        type: 'code',
+        language: 'graphql',
+        content: `query MonitorDiscussions($keyword: String!) {
+  search(query: $keyword, type: DISCUSSION, first: 20) {
+    nodes {
+      ... on Discussion {
+        id
+        title
+        body
+        url
+        createdAt
+        author {
+          login
+        }
+        repository {
+          nameWithOwner
+        }
+      }
+    }
+  }
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Building an Automated Monitoring Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'A production-grade GitHub monitoring pipeline needs: (1) a polling scheduler that runs every 5–15 minutes, (2) deduplication to avoid re-processing seen items, (3) keyword matching with context extraction, (4) lead enrichment from the GitHub user profile, and (5) delivery to your CRM or Slack. This is a non-trivial engineering project — expect 2–4 weeks to build reliably, or use GitLeads to skip the build entirely.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads provides this pipeline out of the box: configure your brand keywords and competitor names, connect your CRM or Slack destination, and receive enriched lead profiles whenever a relevant mention fires on GitHub. The free tier covers 50 leads/month — more than enough to validate the signal before scaling. See also: how to find leads on GitHub, GitHub intent data for B2B sales.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Monitor GitHub for your brand and product keywords free at gitleads.app. Related reading: GitHub buying signals for sales teams, push GitHub leads to your CRM, monitor GitHub Issues for sales signals.',
+      },
+    ],
+  },
+  {
+    slug: 'free-github-lead-generation-tools',
+    title: 'Free GitHub Lead Generation Tools: What Works in 2026',
+    description:
+      'A technical review of every free tool and method available for generating leads from GitHub in 2026 — from the GitHub Search API to open-source scrapers, phantom scripts, and GitLeads free tier.',
+    publishedAt: '2026-04-22',
+    updatedAt: '2026-04-24',
+    readingTime: 8,
+    keywords: [
+      'free github lead generation',
+      'github lead generation free',
+      'free github leads',
+      'free github prospecting tools',
+      'github lead finder free',
+      'github lead generation tools',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub lead generation does not require an expensive tool subscription to start. A significant portion of what paid tools offer can be replicated with free methods — GitHub Search API, open-source scripts, and free tiers of commercial products. This guide covers every free approach available, what each one actually delivers, and where the practical limits are.',
+      },
+      {
+        type: 'h2',
+        content: 'Option 1: GitHub Search API (Completely Free)',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Search API is free for authenticated requests up to 30/minute. It covers users, repositories, issues, PRs, code, commits, and discussions. For basic lead generation — finding developers who work with a specific technology, contribute to certain repos, or mention relevant keywords in issues — the Search API is fully sufficient.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find developers with Go + Kubernetes in their profile, 100+ followers
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/users?q=language:go+kubernetes+followers:>100"
+
+# Find developers who opened issues mentioning "looking for X alternative"
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=%22looking+for+alternative%22+YOUR_KEYWORD+is:open"
+
+# List stargazers of a repo (potential warm leads)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/repos/OWNER/REPO/stargazers?per_page=100"`,
+      },
+      {
+        type: 'p',
+        content:
+          'Limitations: the Search API caps results at 1,000 per query, does not provide real-time monitoring (you must poll), and the index has a lag of minutes to hours. For one-time list building, this is excellent. For ongoing monitoring, you need either a polling job or a dedicated tool.',
+      },
+      {
+        type: 'h2',
+        content: 'Option 2: GitLeads Free Tier (50 Leads/Month)',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads offers a permanent free tier covering 50 enriched leads per month with no credit card required. The free tier monitors one GitHub repo for new stargazers and one keyword across GitHub Issues and PRs. Leads are pushed to Slack or exported as CSV. For early-stage companies validating whether GitHub signals belong in their pipeline, this is the lowest-friction starting point.',
+      },
+      {
+        type: 'ul',
+        content: '',
+        items: [
+          '50 leads/month, no credit card required',
+          'One repo for stargazer monitoring',
+          'One keyword for Issues/PR monitoring',
+          'Lead enrichment: name, email (if public), GitHub username, bio, company, location, followers, top languages',
+          'Delivery: Slack notification or CSV export',
+          'Upgrade to Starter ($49/mo) for 500 leads and unlimited repos/keywords',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Option 3: GitHub CLI + Scripts',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub CLI (gh) installed locally can script against the API without managing OAuth tokens manually. Combined with jq for JSON parsing and a cron job, you can build a basic monitoring pipeline at zero cost:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `#!/bin/bash
+# Basic stargazer monitor using gh CLI
+# Run every 15 minutes via cron
+
+REPO="owner/repo"
+OUTPUT_FILE="stargazers_$(date +%Y%m%d).csv"
+
+gh api /repos/$REPO/stargazers \\
+  --paginate \\
+  --jq '.[] | [.login, .html_url, .type] | @csv' >> $OUTPUT_FILE
+
+echo "Stargazers exported to $OUTPUT_FILE"`,
+      },
+      {
+        type: 'p',
+        content:
+          'The downside: this gives you raw GitHub usernames only. To get email, company, and bio, you need a second API call per user. At 30 requests/minute rate limit, processing 100 new stargazers takes 3–4 minutes of sequential calls. For small repos this is fine; for repos getting 50+ stars daily, the manual enrichment becomes a bottleneck.',
+      },
+      {
+        type: 'h2',
+        content: 'Option 4: PhantomBuster Free Plan',
+      },
+      {
+        type: 'p',
+        content:
+          'PhantomBuster offers a limited free plan with a small time credit each month. Their GitHub phantoms can scrape repo stargazers and basic profile data. The free tier runs phantom executions for ~2 hours/month total. For occasional manual exports this works; for continuous monitoring it runs out quickly. Outputs are CSV-only — no CRM integration on the free plan.',
+      },
+      {
+        type: 'h2',
+        content: 'Option 5: Manual GitHub Search + Enrichment',
+      },
+      {
+        type: 'p',
+        content:
+          'For very small volumes (10–30 leads per week), manual GitHub search is viable. Use github.com/search to find relevant issues, repos, or user profiles. Click through to public GitHub profiles for email, company, and bio. Export to a spreadsheet. This is time-intensive but has zero tool cost and is the most compliant approach since you are only reading publicly-visible data.',
+      },
+      {
+        type: 'h2',
+        content: 'Comparison: Free GitHub Lead Generation Methods',
+      },
+      {
+        type: 'ul',
+        content: '',
+        items: [
+          'GitHub Search API: Best for one-time list building, 1,000 results/query cap, no enrichment',
+          'GitLeads free tier: Best for ongoing monitoring with enrichment, limited to 50 leads/month',
+          'GitHub CLI scripts: Best if you have engineering time, no enrichment without extra API calls',
+          'PhantomBuster free: Best for occasional exports, CSV-only output, ~2 hours compute/month',
+          'Manual search: Best for very low volume (<30/week), no automation, fully compliant',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'When to Move Beyond Free',
+      },
+      {
+        type: 'p',
+        content:
+          'Free methods make sense for validation: testing whether GitHub signals produce useful leads for your specific product and ICP. Once you confirm the signal quality (typically after 2–4 weeks of data), the time cost of manual methods and the lead cap on free tiers become the bottleneck. At that point, a paid plan at $49–$149/month typically costs less than one hour of SDR time per week.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Start generating GitHub leads free at gitleads.app — 50 enriched leads/month, no credit card. Related reading: how to find leads on GitHub, GitHub prospecting guide, push GitHub leads to HubSpot.',
       },
     ],
   },

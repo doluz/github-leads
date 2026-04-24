@@ -25,6 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/docs`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/find`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/tools`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${baseUrl}/tools/profile-analyzer`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/integrations`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     ...INTEGRATION_SLUGS.map(slug => ({
       url: `${baseUrl}/integrations/${slug}`,

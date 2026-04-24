@@ -663,6 +663,171 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
   },
+  {
+    slug: 'waalaxy',
+    name: 'Waalaxy',
+    tagline: 'LinkedIn and email automation for outbound prospecting',
+    metaTitle: 'GitLeads vs Waalaxy — GitHub Signal Capture vs LinkedIn Automation',
+    metaDescription:
+      'Compare GitLeads and Waalaxy for reaching developers. GitLeads captures real-time GitHub buying signals and enriches leads automatically. Waalaxy automates LinkedIn connection requests and email sequences.',
+    intro:
+      'Waalaxy is a LinkedIn and email automation tool popular with sales teams running outbound sequences. It lets you import LinkedIn profiles, automate connection requests, and enroll prospects in multi-step campaigns. GitLeads is a GitHub signal monitoring platform that captures developer intent events — new repo stars, keyword mentions in Issues and PRs — and pushes enriched developer leads into HubSpot, Slack, Smartlead, and 15+ other tools in real time. The two tools target the same buyer (B2B SaaS sellers) but operate on completely different channels.',
+    ourOneLiner:
+      'Waalaxy automates LinkedIn outreach to cold contacts. GitLeads captures GitHub intent signals from warm developers who are actively evaluating solutions in your space — then routes them into the same outreach tools you already use.',
+    theyWin: [
+      'LinkedIn-first workflows — Waalaxy is purpose-built for LinkedIn Sales Navigator exports',
+      'Multi-channel campaigns: LinkedIn + email in one sequence builder',
+      'Large template library for cold connection requests and follow-ups',
+      'Chrome extension makes manual LinkedIn prospecting faster',
+    ],
+    weWin: [
+      'GitHub signals are warmer than cold LinkedIn contacts — developers who star a repo are actively evaluating, not just matching a title filter',
+      'No LinkedIn account required — GitHub data is fully public and API-accessible',
+      'Real-time lead delivery to HubSpot, Slack, Clay, Smartlead, and 12+ other tools with zero manual export',
+      'Lead enrichment includes tech stack, languages, repos, and GitHub bio — far richer than a LinkedIn title',
+      'GitHub keyword monitoring finds developers who mention your problem or competitor in Issues/PRs — intent you cannot find on LinkedIn',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs)', gitleads: true, competitor: false },
+      { feature: 'Real-time lead alerts (< 1 min)', gitleads: true, competitor: false },
+      { feature: 'LinkedIn automation', gitleads: false, competitor: true },
+      { feature: 'Email sequence builder', gitleads: false, competitor: true },
+      { feature: 'Auto-push to HubSpot / CRM', gitleads: true, competitor: 'CSV export only' },
+      { feature: 'Lead enrichment (bio, languages, company)', gitleads: true, competitor: 'LinkedIn fields only' },
+      { feature: 'Slack lead notifications', gitleads: true, competitor: false },
+      { feature: 'Signal context (why the lead fired)', gitleads: true, competitor: false },
+      { feature: 'Developer-specific signals', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Waalaxy is the right choice if your buyers are primarily found on LinkedIn, you want a combined LinkedIn + email sequence builder, and your ICP is not specifically developer-focused.',
+    forUs:
+      'GitLeads is the right choice if your product is built for developers and your buyers live on GitHub. GitHub signals — stars, keyword mentions, repo evaluations — are significantly warmer than a cold LinkedIn connection request to a developer.',
+    faq: [
+      {
+        q: 'Can Waalaxy find developers on GitHub?',
+        a: 'No. Waalaxy is LinkedIn-focused. It works with LinkedIn profiles, not GitHub profiles. GitLeads is purpose-built for GitHub signal monitoring and developer lead generation.',
+      },
+      {
+        q: 'Do I need to combine GitLeads and Waalaxy?',
+        a: 'Many teams use GitLeads to generate warm developer leads from GitHub and then route those leads into Smartlead or Instantly for email outreach — skipping LinkedIn entirely. If your buyers are developers, GitHub + email typically outperforms LinkedIn automation.',
+      },
+      {
+        q: 'How much does Waalaxy cost vs GitLeads?',
+        a: 'Waalaxy pricing starts around $40–60/mo per seat. GitLeads starts free (50 leads/month), with Starter at $49/month. The key difference is that GitLeads generates leads from intent signals rather than automating cold outreach.',
+      },
+    ],
+  },
+  {
+    slug: 'cognism',
+    name: 'Cognism',
+    tagline: 'Enterprise B2B contact database with phone-verified mobile numbers',
+    metaTitle: 'GitLeads vs Cognism — GitHub Intent Signals vs B2B Contact Database',
+    metaDescription:
+      'Compare GitLeads and Cognism for developer lead generation. GitLeads captures real-time GitHub buying signals. Cognism is an enterprise B2B contact database with phone numbers and email addresses.',
+    intro:
+      'Cognism is an enterprise B2B data platform known for its phone-verified mobile numbers and GDPR-compliant contact database covering over 400 million B2B profiles. It is designed for outbound sales teams that need reliable contact data for cold calling and emailing. GitLeads is a GitHub signal monitoring platform that identifies developers actively showing buying intent on GitHub — new stars on competitor repos, keyword mentions in Issues and PRs — and routes enriched lead profiles into your existing sales stack. The fundamental difference: Cognism sells you a list; GitLeads delivers developers who are already in-market.',
+    ourOneLiner:
+      'Cognism gives you a database of contacts to cold-call. GitLeads gives you a stream of developers who are actively signaling purchase intent on GitHub right now — no cold outreach required.',
+    theyWin: [
+      'Massive database — 400M+ B2B profiles across all industries and job functions',
+      'Phone-verified mobile numbers for SDR cold calling workflows',
+      'Strong GDPR/CCPA compliance documentation and DPA agreements',
+      'Enterprise-grade team permissions, API access, and CRM sync',
+    ],
+    weWin: [
+      'GitHub signals are warm, not cold — developers showing intent are 10–20x more likely to respond than cold contacts',
+      'Real-time delivery — leads push into your CRM within seconds of a GitHub event, not from a stale database',
+      'Developer-specific enrichment: GitHub username, tech stack, languages, repos, OSS contributions',
+      'No minimum contract — start free with 50 leads/month, no sales call required',
+      'Signal context tells you exactly why each developer is relevant (starred X, mentioned Y in an issue)',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs)', gitleads: true, competitor: false },
+      { feature: 'Real-time lead alerts (< 1 min)', gitleads: true, competitor: false },
+      { feature: 'B2B contact database (400M+)', gitleads: false, competitor: true },
+      { feature: 'Phone-verified mobile numbers', gitleads: false, competitor: true },
+      { feature: 'Auto-push to HubSpot / CRM', gitleads: true, competitor: true },
+      { feature: 'Developer-specific data (stack, repos)', gitleads: true, competitor: false },
+      { feature: 'Slack lead notifications', gitleads: true, competitor: false },
+      { feature: 'Signal context (why the lead fired)', gitleads: true, competitor: false },
+      { feature: 'Self-serve / no sales call required', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Cognism is the right choice if you need broad outbound coverage across all industries, your SDRs rely on cold calling, or you need verified mobile numbers and enterprise compliance guarantees.',
+    forUs:
+      'GitLeads is the right choice if your product is built for developers and you want inbound-quality leads delivered automatically — developers who are already evaluating solutions in your space on GitHub, not cold contacts who may or may not match your ICP.',
+    faq: [
+      {
+        q: 'Does Cognism have GitHub data or developer signals?',
+        a: 'No. Cognism is a general B2B contact database. It does not monitor GitHub activity, capture repo star events, or track keyword mentions in Issues and PRs. GitLeads is built specifically for developer-focused GTM teams.',
+      },
+      {
+        q: 'Is GitLeads a Cognism alternative for developer tools companies?',
+        a: 'For developer-focused B2B SaaS, GitLeads is a more targeted alternative. Instead of paying for broad database access and cold outreach, GitLeads delivers developers who are actively showing interest on GitHub — a significantly warmer lead pool for developer tool companies.',
+      },
+      {
+        q: 'What does Cognism cost vs GitLeads?',
+        a: 'Cognism pricing is enterprise — typically $15,000+ per year with a sales call required. GitLeads starts free (50 leads/month) with paid plans from $49/month. For developer-focused teams, GitLeads delivers more relevant leads at a fraction of the cost.',
+      },
+    ],
+  },
+  {
+    slug: 'leadiq',
+    name: 'LeadIQ',
+    tagline: 'Sales prospecting platform for finding and sequencing B2B contacts',
+    metaTitle: 'GitLeads vs LeadIQ — GitHub Intent Signals vs Sales Prospecting Database',
+    metaDescription:
+      'Compare GitLeads and LeadIQ for developer lead generation. GitLeads captures real-time GitHub buying signals. LeadIQ is a B2B prospecting platform for finding verified contact data from LinkedIn.',
+    intro:
+      'LeadIQ is a B2B sales prospecting platform that lets SDRs capture contact data from LinkedIn profiles and export directly to Salesforce, HubSpot, and Outreach for sequencing. It is designed to accelerate SDR prospecting workflows. GitLeads is a GitHub signal monitoring platform that captures developer intent events — new repo stars, keyword mentions in GitHub Issues and PRs — and delivers enriched developer lead profiles to your sales tools automatically. Where LeadIQ finds contacts to cold-prospect, GitLeads finds developers who are already signaling that they are in the market.',
+    ourOneLiner:
+      'LeadIQ captures LinkedIn profiles for cold outreach. GitLeads surfaces developers who have already raised their hand on GitHub — starring a repo, mentioning a problem keyword — so your outreach starts warm.',
+    theyWin: [
+      'Seamless LinkedIn Chrome extension for fast prospect capture during LinkedIn browsing',
+      'Native integrations with Salesforce, HubSpot, Outreach, and Salesloft',
+      'AI-generated personalized first lines for cold email sequences',
+      'Team prospecting features for coordinating SDR outreach across accounts',
+    ],
+    weWin: [
+      'GitHub signals are inherently warm — a developer who starred a competitor repo is evaluating; a LinkedIn contact captured manually may not be',
+      'Real-time delivery — leads appear in your CRM within seconds of a GitHub event',
+      'Developer-specific enrichment: GitHub profile, tech stack, top languages, OSS contributions, follower count',
+      'Keyword monitoring finds developers actively describing your ICP problem in GitHub Issues and PRs',
+      'No browser extension required — monitoring runs 24/7 without any manual intervention',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs)', gitleads: true, competitor: false },
+      { feature: 'Real-time lead alerts (< 1 min)', gitleads: true, competitor: false },
+      { feature: 'LinkedIn profile capture (Chrome ext)', gitleads: false, competitor: true },
+      { feature: 'Auto-push to HubSpot / CRM', gitleads: true, competitor: true },
+      { feature: 'Developer-specific data (stack, repos)', gitleads: true, competitor: false },
+      { feature: 'AI-personalized first lines', gitleads: false, competitor: true },
+      { feature: 'Slack lead notifications', gitleads: true, competitor: false },
+      { feature: 'Signal context (why the lead fired)', gitleads: true, competitor: false },
+      { feature: 'Runs 24/7 without manual prospecting', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'LeadIQ is the right choice if your SDRs actively prospect on LinkedIn and need a fast workflow for capturing and sequencing profiles, or if your ICP is not primarily technical/developer roles.',
+    forUs:
+      'GitLeads is the right choice if your product is built for developers and you want a continuous, automated lead stream from GitHub instead of manual LinkedIn prospecting sessions. GitLeads runs 24/7 and delivers leads with signal context your SDRs can use immediately.',
+    faq: [
+      {
+        q: 'Can LeadIQ find developer leads from GitHub?',
+        a: 'No. LeadIQ is LinkedIn-focused. It does not monitor GitHub repos, capture stargazer events, or track keyword mentions in Issues and PRs. For GitHub-native developer lead generation, GitLeads is purpose-built for this use case.',
+      },
+      {
+        q: 'Is GitLeads a good LeadIQ alternative for developer tools companies?',
+        a: 'Yes — for developer-focused B2B SaaS, GitLeads captures higher-intent leads than manual LinkedIn prospecting. GitHub signals (stars, keyword mentions) indicate active evaluation, which is inherently warmer than a cold LinkedIn connection.',
+      },
+      {
+        q: 'How much does LeadIQ cost vs GitLeads?',
+        a: 'LeadIQ pricing starts around $75–105/user/month for paid plans. GitLeads starts free (50 leads/month, no credit card), with paid plans from $49/month. GitLeads also includes enrichment and CRM delivery in the base price.',
+      },
+    ],
+  },
 ];
 
 export function getCompetitor(slug: string): Competitor | undefined {
