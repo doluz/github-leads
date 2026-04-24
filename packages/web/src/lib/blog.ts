@@ -8508,6 +8508,608 @@ Worth a quick call?
       },
     ],
   },
+  {
+    slug: 'find-beta-testers-on-github',
+    title: 'How to Find Beta Testers on GitHub (2026 Guide)',
+    description:
+      'Recruit beta testers directly from GitHub. Find developers who are already using tools like yours — signal-based targeting beats cold outreach every time.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 8,
+    keywords: [
+      'find beta testers github',
+      'github beta testers',
+      'beta user recruitment github',
+      'recruit beta users developers',
+      'developer beta program',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Recruiting beta testers is one of the hardest parts of early-stage product development. The usual advice — post in Discord servers, tweet into the void, buy a ProductHunt beta tester list — generates low-quality responses from people who beta test everything and give you no usable signal. GitHub is different. On GitHub, you can find developers who are actively using tools in your category, dealing with the exact problem you solve, and are likely to give you honest technical feedback. This guide shows you exactly how.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Is the Best Place to Find Beta Testers',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub beta tester recruitment works because the platform exposes genuine intent signals. When a developer stars a repo in your category, opens an issue on a competitor\'s project, or mentions your problem domain in a discussion, they are telling you they care about this space. That is a far stronger signal than someone who fills out a "beta tester wanted" form to get a free T-shirt.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazers on competing or adjacent repos are already aware of the problem',
+          'Developers who open issues on alternatives are frustrated with the status quo — exactly your target',
+          'Keyword mentions in issues/PRs show active engagement with the problem domain',
+          'GitHub profiles include tech stack, activity level, company, and often email — everything you need to qualify quickly',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Strategy 1: Mine Stargazers from Competitor and Adjacent Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'Start by listing 5–10 GitHub repos that are directly competitive or in the same problem space. These are the repos your ideal beta tester has almost certainly starred.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Get stargazers for a competing repo
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/repos/{owner}/{repo}/stargazers" \\
+  -H "Accept: application/vnd.github.star+json"
+
+# Response includes starred_at timestamp — prioritize recent stars
+# Recent = they are actively evaluating options right now`,
+      },
+      {
+        type: 'p',
+        content:
+          'Sort stargazers by recency. A developer who starred a competing tool last week is in active evaluation mode. One who starred it three years ago may have moved on. Focus your outreach on the last 90 days of stars.',
+      },
+      {
+        type: 'h3',
+        content: 'Qualifying Stargazers as Beta Candidates',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every stargazer is a good beta tester. Run each profile through a quick qualification filter before reaching out:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Active recently: has committed code or starred something in the last 30 days',
+          'Tech stack match: their top languages match what your product targets',
+          'Company fit: works at a company in your ICP (startup, scale-up, enterprise, agency)',
+          'Problem evidence: bio or pinned repos reference the problem domain',
+          'Contact info: public email or a findable LinkedIn — you need a way to reach them',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Strategy 2: GitHub Issue Mining',
+      },
+      {
+        type: 'p',
+        content:
+          'Issues are the highest-intent signal on GitHub. A developer who opens an issue titled "Feature request: support for X" or "Bug: Y doesn\'t work with Z" is actively engaged with the problem your product addresses. Use the GitHub Search API to find these developers:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find issues mentioning your problem space
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=YOUR+KEYWORDS+is:issue+is:open&sort=created&order=desc"
+
+# Example: finding people who need better observability tooling
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=observability+tracing+is:issue+created:>2026-01-01&sort=updated"`,
+      },
+      {
+        type: 'p',
+        content:
+          'For each matching issue, retrieve the issue author\'s GitHub profile. These are your warmest beta candidates — they are not just aware of the problem, they are actively trying to solve it and publicly asking for help.',
+      },
+      {
+        type: 'h2',
+        content: 'Strategy 3: Keyword Monitoring for Real-Time Beta Recruitment',
+      },
+      {
+        type: 'p',
+        content:
+          'One-off searches give you a batch of leads. Real-time monitoring gives you a continuous pipeline of beta candidates as they appear. Set up keyword monitoring for terms that signal someone is in the market for your type of tool:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Problem-description keywords: "struggling with X", "looking for alternative to Y", "need a tool that does Z"',
+          'Your category keywords: "observability tool", "API testing framework", "developer analytics"',
+          'Competitor brand mentions: "switching from [competitor]", "[competitor] is too expensive"',
+          'Pain point phrases: keywords that describe the exact problem your product solves',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Tools like GitLeads let you configure these keyword monitors and receive real-time alerts when a developer mentions them in GitHub Issues, PRs, Discussions, or commit messages. Each match is a warm beta tester candidate delivered to your Slack or CRM.',
+      },
+      {
+        type: 'h2',
+        content: 'How to Reach Out Without Being Spammy',
+      },
+      {
+        type: 'p',
+        content:
+          'The context is everything. When you reach out to a GitHub beta candidate, reference the specific signal that brought them to your attention. Generic "we\'d love your feedback" messages get ignored. Specific, relevant messages get responses.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Quick question about [problem they mentioned]
+
+Hi [name],
+
+Saw your issue on [repo] about [specific problem]. We're building [product] to solve exactly that — [one-sentence explanation].
+
+We're looking for beta testers who deal with this in production. Would take 20 minutes of your time, and you'd get [specific benefit: early access, direct line to the team, free lifetime account, etc.].
+
+Interested?
+
+[Your name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Keep it short. Reference the signal. Make the ask specific. Offer something concrete in return. Developer beta testers are busy — they will not fill out a five-question form before deciding if they want to participate.',
+      },
+      {
+        type: 'h2',
+        content: 'Automating the Beta Tester Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'Once you have validated the outreach message, the process should be automated. Manual GitHub scraping does not scale — you will miss signals the moment you stop checking. The systematic approach:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Configure GitLeads to monitor competitor repos and relevant keywords',
+          'Each new signal (star, keyword match, issue) is enriched with profile data and pushed to HubSpot or your CRM',
+          'A sequence in Smartlead or Lemlist fires automatically with the beta recruitment message',
+          'Qualified responses get routed to a Slack channel for your team to handle personally',
+          'Beta feedback flows into your product roadmap',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What to Offer Beta Testers',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Free lifetime access to the product (strongest offer for self-serve tools)',
+          'Significant discount on first year (50–80% off)',
+          'Direct line to founders — many engineers value this more than discounts',
+          'Public credit: mention them in your launch post, README, or changelog',
+          'Exclusive early features before general availability',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Avoid: cash payments, gift cards, or swag as primary incentives. These attract the wrong beta testers — people who want the incentive, not your product. The best beta testers need your product to work on their actual problems. Make sure they know that.',
+      },
+      {
+        type: 'h2',
+        content: 'Measuring Beta Tester Recruitment Success',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Outreach response rate: 20–35% is achievable with GitHub signal-based targeting',
+          'Onboarding rate: percentage of responses that complete initial setup',
+          'Engagement rate: percentage of beta users who use the product more than once',
+          'Feedback quality: are you getting specific, actionable feedback?',
+          'Conversion rate: percentage of beta users who convert to paid at launch',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads automates GitHub beta tester recruitment. Monitor competitor repos and keywords, capture developer signals in real-time, and push enriched profiles to your CRM or outreach tool. Free plan includes 50 leads/month. Related: how to find leads on GitHub, GitHub keyword monitoring for sales, developer outreach email templates.',
+      },
+    ],
+  },
+  {
+    slug: 'github-lead-generation-roi',
+    title: 'GitHub Lead Generation ROI: What to Expect and How to Measure It',
+    description:
+      'Real benchmarks for GitHub lead generation — reply rates, pipeline conversion, and CAC compared to paid channels. How to measure and optimize ROI from GitHub signals.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 9,
+    keywords: [
+      'github lead generation roi',
+      'developer lead generation benchmarks',
+      'github outreach results',
+      'github signal conversion rate',
+      'developer sales roi',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Every growth experiment needs a measurement framework. GitHub lead generation is no different. Before you can optimize, you need to know what good looks like — what reply rates are realistic, what pipeline conversion you should expect, and how GitHub signal-sourced leads compare to other channels on CAC and LTV. This post covers real benchmarks from teams running GitHub lead generation programs, and how to build the measurement infrastructure to track them.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Leads Convert Differently',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub leads are intent-based, not list-based. A developer who just starred a repo similar to your product, or mentioned a problem your product solves in a GitHub issue, is not a cold contact. They have demonstrated active interest in the problem domain. That changes the conversion funnel at every stage:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Higher reply rates: relevant context beats generic outreach',
+          'Shorter sales cycles: prospect is already educated on the problem',
+          'Higher technical fit: GitHub data gives you precise ICP matching (languages, repos, company)',
+          'Lower churn: customers who found you because of genuine need stay longer',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Benchmark: Reply Rates',
+      },
+      {
+        type: 'p',
+        content:
+          'Industry benchmarks for cold outreach sit around 1–3% for purchased lists. LinkedIn InMail averages 10–25% depending on personalization. Here is what teams running GitHub signal-based outreach report:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer outreach (recent, <30 days): 18–32% reply rate',
+          'Issue/PR mention outreach (keyword match): 22–38% reply rate',
+          'Competitor repo stargazers (recent): 15–28% reply rate',
+          'Generic developer list (no signal context): 2–6% reply rate',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'The signal is the differentiator. When your outreach references a specific action the developer took ("saw you starred X", "noticed you opened an issue about Y"), reply rates jump significantly. Without the signal context, you are back to cold outreach territory.',
+      },
+      {
+        type: 'h2',
+        content: 'Benchmark: Pipeline Conversion',
+      },
+      {
+        type: 'p',
+        content:
+          'Once a GitHub lead replies, how often do they convert to a paid customer? Conversion rates vary significantly by product type:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Self-serve products (<$500/year ACV): 8–15% of replies convert to trial, 25–40% of trials convert to paid',
+          'Mid-market products ($500–$5,000/year): 12–20% of replies convert to discovery call, 30–50% of calls convert to paid',
+          'Enterprise products (>$5,000/year): 5–10% of replies convert to qualified pipeline, 40–60% of pipeline closes',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'The key driver is ICP filtering. Teams that filter GitHub leads through a strict ICP before outreach (company size, tech stack match, role, activity level) see conversion rates 2–3x higher than teams that reach out to all signal matches indiscriminately.',
+      },
+      {
+        type: 'h2',
+        content: 'Benchmark: CAC Comparison',
+      },
+      {
+        type: 'p',
+        content:
+          'Customer acquisition cost from GitHub signals versus other channels:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Google Ads (developer tools): $200–$800 CAC depending on keyword competition',
+          'LinkedIn Ads: $300–$1,200 CAC for B2B developer tools',
+          'Content/SEO (fully attributed): $50–$300 CAC, but 6–18 month ramp time',
+          'GitHub signal outreach: $30–$150 CAC for teams with a systematic process',
+          'GitHub signal + automation (GitLeads): $15–$80 CAC at scale',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub signal outreach has low CAC because the primary cost is operational (tooling + time), not media spend. Once the pipeline is automated, marginal cost per lead approaches near zero. The setup cost — configuring repos, keywords, and sequences — is typically recovered within the first 2–3 customers acquired.',
+      },
+      {
+        type: 'h2',
+        content: 'How to Build Your Measurement Stack',
+      },
+      {
+        type: 'p',
+        content:
+          'To track GitHub lead ROI properly, you need attribution from signal capture to closed revenue. The minimal measurement stack:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Source tagging: tag every GitHub lead with source="github-signal" and signal_type=("star"|"keyword"|"issue") in your CRM from the moment of capture',
+          'UTM parameters: if GitHub leads are directed to a trial page, use UTMs to track web conversion separately from outreach conversion',
+          'Sequence tracking: use your outreach tool (Smartlead, Lemlist, Instantly) to track opens, clicks, and replies per sequence per signal type',
+          'Opportunity source: when an opportunity is created in your CRM, ensure the source attribute flows from the lead source, not just the last touch',
+          'Closed-won attribution: report CAC and LTV by source at the account level, not just the lead level',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Key Metrics to Track Weekly',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Signals captured: total GitHub events captured (stars, keyword mentions, issues) per week',
+          'ICP match rate: % of signals that pass your qualification filter (target: 20–40%)',
+          'Outreach sent: number of personalized messages sent to qualified leads',
+          'Reply rate: outreach replies / messages sent (target: 18%+ for signal-based outreach)',
+          'Meetings booked: from GitHub outreach specifically',
+          'Pipeline created ($): value of opps sourced from GitHub signals this week',
+          'Closed-won ($): revenue attributed to GitHub signal source, trailing 90 days',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Common ROI Mistakes',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Not tagging source at capture: if you do not tag leads at the point of capture, attribution is lost downstream',
+          'Attributing to last touch: a GitHub signal sourced lead that also visits your pricing page should not be attributed to "organic search"',
+          'Ignoring time-to-close: GitHub leads often close faster than inbound — factor that into LTV calculations',
+          'Measuring volume, not quality: 100 unfiltered leads outreach is not better than 20 qualified leads outreach',
+          'Skipping ICP filtering: no filter = low conversion = poor ROI even with good signal data',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What a Healthy GitHub Lead Gen Program Looks Like at 90 Days',
+      },
+      {
+        type: 'p',
+        content:
+          'A realistic ramp for a developer tool company running a systematic GitHub lead generation program:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Week 1–2: configure repos and keywords, set up CRM tagging, write and test outreach sequence',
+          'Week 3–4: first batch of signals, refine ICP filter based on early replies',
+          'Month 2: 50–150 leads/month, 10–30 replies, 2–8 meetings, 1–3 opportunities',
+          'Month 3: pipeline from month 1–2 closes, first GitHub-sourced revenue, CAC calculation becomes meaningful',
+          '90-day outcome: most teams report GitHub signals as their highest-quality lead source by close rate and lowest CAC by month 3',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads captures GitHub signals in real-time and pushes enriched leads to your CRM, Slack, or outreach tool. Free plan: 50 leads/month. Paid plans from $49/month. Related: how to find leads on GitHub, GitHub intent data for B2B sales, GitHub signals for sales teams.',
+      },
+    ],
+  },
+  {
+    slug: 'find-technical-founders-on-github',
+    title: 'How to Find Technical Founders on GitHub',
+    description:
+      'GitHub is the best database of technical founders. Learn how to identify founder-led companies, find CTOs and technical co-founders, and reach them with signal-based outreach.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 8,
+    keywords: [
+      'find technical founders github',
+      'github founder leads',
+      'find CTOs github',
+      'technical co-founder leads',
+      'github startup founders',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Technical founders are the hardest buyers to reach and the most valuable customers for developer tool companies. They evaluate products themselves, make decisions fast, and when they find something that works, they never leave. The problem is that they do not respond to LinkedIn InMail, they do not click on ads, and they are deeply allergic to marketing copy. But they do push code to GitHub — often daily. This guide shows you how to find them there.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Is the Best Database of Technical Founders',
+      },
+      {
+        type: 'p',
+        content:
+          'Most startup founder databases (Crunchbase, AngelList, Apollo) index companies, not people. GitHub indexes activity. A technical founder or CTO who is actively building will leave a trail of public signals: repositories, commits, stars on tools they are evaluating, and issues they open when something breaks. That activity is a far more reliable ICP signal than a job title in a database that was last updated six months ago.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Active commits signal who is still hands-on technical (not just a title)',
+          'Repository topics reveal what they are building (infrastructure, AI, API, fintech)',
+          'Starred repos reveal what tools they are evaluating this week',
+          'Issues they open reveal frustrations with their current stack',
+          'Bio and profile URL often links directly to their startup or LinkedIn',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How to Identify Founder Profiles on GitHub',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub does not have a "founder" tag, so you need to infer founder status from profile signals. The most reliable indicators:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Company field matches a startup (not a FAANG, consulting firm, or university)',
+          'Profile URL points to a startup website or Y Combinator batch page',
+          'Bio contains "founder", "CTO", "CEO", "co-founder", or "building [product]"',
+          'Has multiple repos in a single coherent product area (not a mix of tutorials and random projects)',
+          'Contributes heavily to one or two repos that look like a real product (not a portfolio)',
+          'Has a public email and is contactable — founders who want inbound keep their contact info public',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Search Queries for Technical Founders',
+      },
+      {
+        type: 'p',
+        content:
+          'Use the GitHub Search API to find profiles matching founder characteristics:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Search for CTOs and founders by bio
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/users?q=founder+in:bio+followers:>10&sort=joined&order=desc"
+
+# Technical co-founders building AI/ML products
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/users?q=CTO+in:bio+language:python+followers:>20"
+
+# Founders who recently created repos (actively building)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/users?q=founder+in:bio+created:>2024-01-01"`,
+      },
+      {
+        type: 'p',
+        content:
+          'These searches return up to 1,000 results per query. Paginate through them and filter further by: tech stack match, company profile, activity recency, and presence of a public email. GitHub API rate limits are 30 authenticated requests per minute — build rate limiting into any automation.',
+      },
+      {
+        type: 'h2',
+        content: 'Using Stargazer Signals to Find Active Technical Founders',
+      },
+      {
+        type: 'p',
+        content:
+          'The most effective method is not searching for founders directly — it is monitoring who stars repos relevant to your product. When a technical founder stars your repo or a competitor\'s, they are in active evaluation mode. That is a far warmer signal than a profile that matches founder criteria but has shown no recent relevant activity.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Your own repo: stargazers are your warmest leads, filter for founder profiles',
+          'Direct competitor repos: evaluate recently starred founder profiles for ICP fit',
+          'Adjacent open-source tools: if you sell a monitoring tool, watch observability repos',
+          'Infrastructure repos: founders building on top of Postgres, Redis, or Kafka are building real products',
+          'API and SDK repos: founders starring SDK repos are often evaluating integrations',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Keyword Signals for Founder Discovery',
+      },
+      {
+        type: 'p',
+        content:
+          'Founders are vocal in GitHub issues and discussions when they hit problems. Keyword monitoring for founder-specific language surfaces high-intent contacts:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"looking for a tool that" — founder evaluating solutions',
+          '"we\'re building" — founder describing their product',
+          '"switching from [competitor]" — active migration signal',
+          '"anyone recommend" — founder seeking peer advice',
+          '"we need something that scales" — growth-stage founder hitting infrastructure limits',
+          '"open to sponsorships" — founder building open source, potential partnership signal',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Qualifying Technical Founders Before Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every technical founder is your ICP. Before reaching out, run a quick three-point qualification check:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Stage fit: is their company at the stage where your product is relevant? Early-stage might not have the budget; series B+ might have already standardized on a competitor.',
+          'Tech stack fit: does their GitHub repo language mix match what your product integrates with?',
+          'Problem evidence: do they show any signal that they are actively dealing with the problem your product solves?',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'If all three pass, the founder is a high-priority outreach target. Skip the generic email sequence — send a single personalized note that references the specific GitHub signal that qualified them.',
+      },
+      {
+        type: 'h2',
+        content: 'Outreach That Works for Technical Founders',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: [product] + [their use case]
+
+Hi [name],
+
+Noticed you starred [repo] — we're building [product] for teams in exactly that space.
+
+[One sentence on specific technical benefit relevant to their stack/problem.]
+
+Used by [similar founder/company]. Worth 15 minutes?
+
+[Name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Rules for founder outreach: no HTML, no marketing language, no unsubscribe footer. One specific technical claim. One ask. Founders respond to brevity and specificity. A three-paragraph email gets deleted. Four lines get a reply.',
+      },
+      {
+        type: 'h2',
+        content: 'Automating Technical Founder Lead Generation',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Configure GitLeads to monitor relevant repos and keywords',
+          'Filter captured leads: bio contains "founder", "CTO", "co-founder", or company field is a startup',
+          'Push qualified founder leads to HubSpot or your CRM with the GitHub signal as context',
+          'Trigger a short (2–3 step) personalized outreach sequence via Smartlead or Lemlist',
+          'Route replies directly to a founder or sales lead for personal follow-up',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'With this setup, founder leads arrive automatically, are pre-qualified against your ICP, and hit your outreach tool with signal context already attached. The manual work collapses to reading replies and booking calls.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub for stargazer events, keyword mentions, and issue signals, then pushes enriched developer profiles to your CRM or outreach tool. Free plan: 50 leads/month. Paid plans from $49/month. Related: how to find leads on GitHub, turn GitHub stargazers into leads, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
