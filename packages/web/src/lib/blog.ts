@@ -7856,6 +7856,658 @@ Happy to answer specific questions if you have them.
       },
     ],
   },
+  // ─── NEW POST: push-github-leads-to-slack ───────────────────────────────────
+  {
+    slug: 'push-github-leads-to-slack',
+    title: 'Push GitHub Leads to Slack: Real-Time Developer Intent Alerts',
+    description:
+      'Learn how to push enriched GitHub developer leads directly into Slack channels the moment a signal fires — no code required using GitLeads native Slack integration.',
+    publishedAt: '2026-04-22',
+    updatedAt: '2026-04-22',
+    readingTime: 7,
+    keywords: [
+      'push github leads to slack',
+      'github leads slack',
+      'github signals slack',
+      'slack github lead notifications',
+      'developer lead alerts slack',
+      'github signal monitoring slack',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Your sales team lives in Slack. Your GitHub signals fire in real time. The gap between those two facts is where deals go cold. This guide shows you how to close that gap — routing enriched developer leads from GitHub directly into Slack channels the moment a stargazer, keyword mention, or issue signal lands.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Slack Is the Right Place for GitHub Lead Alerts',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub intent signals have a short half-life. A developer who just starred your competitor\'s repo, mentioned a pain point in a public issue, or opened a PR integrating a tool you sell is in active discovery mode right now. Routing that lead to a CRM queue that gets reviewed once a day wastes the window. A Slack message surfaces the lead in the flow where your team already works — and gets a faster response.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Average Slack response time for internal messages is under 90 minutes — far faster than email-based CRM notifications',
+          'Sales reps can immediately research the lead, check their GitHub profile, and craft a personalized first touch',
+          'DevRel teams can route community-relevant signals to a separate channel without polluting the sales pipeline',
+          'Founder-led sales setups get a live ticker of warm prospects without any dashboard-checking discipline required',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What a GitLeads → Slack Lead Alert Looks Like',
+      },
+      {
+        type: 'p',
+        content:
+          'When GitLeads detects a qualifying GitHub signal, it assembles an enriched lead profile and posts it to your configured Slack channel. A typical alert includes:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Developer name and GitHub username (linked to their profile)',
+          'Company and job title (from public bio and enrichment)',
+          'Signal context: which repo they starred, which keyword matched, which issue they commented on',
+          'Public email address if available',
+          'Tech stack signals: top languages, notable repos, follower count',
+          'Direct link to the signal source (the starred repo, issue, PR, or discussion)',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads sends structured Slack messages — not wall-of-text blobs. Each alert has a clean layout your team can scan in seconds and act on in one click.',
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up the GitLeads Slack Integration',
+      },
+      {
+        type: 'p',
+        content:
+          'The Slack integration requires no code. From your GitLeads dashboard, navigate to Integrations → Slack and click Connect. You\'ll authorize GitLeads to post to your Slack workspace using OAuth, then select which channel (or channels) receive alerts.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Go to GitLeads dashboard → Integrations → Slack',
+          'Click "Connect Slack" — you\'ll be redirected to Slack OAuth',
+          'Authorize GitLeads to post messages to your workspace',
+          'Select the target channel (e.g. #github-leads or #dev-prospects)',
+          'Configure which signal types trigger Slack alerts: stargazer signals, keyword signals, or both',
+          'Optionally set filters: minimum follower count, required company domain, or specific repo targets',
+          'Save — alerts start flowing immediately',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Routing Strategy: Which Signals Go to Which Channels',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every GitHub signal belongs in the same Slack channel. A structured routing strategy keeps your team focused and prevents alert fatigue:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '#github-warm-leads — stargazers of your own repo with 100+ GitHub followers and a company email domain. These are your highest-intent prospects.',
+          '#competitor-watchers — developers who starred competitor repos. Good for outbound sequencing, slightly colder than your own repo stars.',
+          '#keyword-signals — issue/PR/discussion mentions of your tracked keywords. Often contains developers actively describing a problem you solve.',
+          '#devrel-signals — mentions of your product name, documentation requests, or integration asks. Route to your DevRel team, not sales.',
+          '#recruiting-signals — developers with matching tech stacks who are active on GitHub. For engineering hiring, not sales.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Adding Slack to a Multi-Tool Lead Workflow',
+      },
+      {
+        type: 'p',
+        content:
+          'Slack is a notification layer, not a CRM. The most effective teams use GitLeads to push leads to multiple destinations simultaneously:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Slack for real-time awareness and immediate outreach decisions',
+          'HubSpot or Pipedrive for deal tracking and follow-up sequences',
+          'Smartlead or Instantly for automated email cadences triggered by the signal',
+          'Clay for additional enrichment before the lead hits your CRM',
+          'Notion or Airtable via Zapier for lightweight tracking without a full CRM',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads supports all of these destinations in parallel — a single signal event can trigger a Slack alert, create a HubSpot contact, and enqueue a Smartlead sequence at the same time. Configure each integration independently in your dashboard.',
+      },
+      {
+        type: 'h2',
+        content: 'Slack Alert Filtering to Avoid Noise',
+      },
+      {
+        type: 'p',
+        content:
+          'Raw GitHub signal volume can be overwhelming. GitLeads lets you filter before the alert fires — so only leads that meet your ICP criteria reach Slack:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Minimum follower threshold: only alert on developers with 50+ followers (filters out bots and throwaway accounts)',
+          'Company domain filter: only push leads with a company email or bio matching your target segments',
+          'Location filter: restrict alerts to specific countries or regions for geo-focused outbound',
+          'Language filter: only surface developers whose top GitHub languages match your product\'s stack',
+          'Exclude bots: GitLeads automatically filters GitHub bot accounts and CI/CD service accounts',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Example: What a High-Signal Slack Alert Looks Like',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `⚡ New GitHub Lead — Stargazer Signal
+
+👤 Sarah Chen (@sarahchen-dev)
+🏢 Stripe · Senior Platform Engineer
+📧 s.chen@stripe.com
+📍 San Francisco, CA
+
+Signal: Starred vercel/turborepo (2 min ago)
+Also stars: shadcn/ui, t3-oss/create-t3-app, prisma/prisma
+
+Top languages: TypeScript, Go, Rust
+Followers: 1,847 · Public repos: 43
+
+🔗 View GitHub profile → github.com/sarahchen-dev
+🔗 Signal source → github.com/vercel/turborepo/stargazers`,
+      },
+      {
+        type: 'p',
+        content:
+          'That alert takes 10 seconds to read and gives a rep everything they need to decide whether to reach out and what angle to take. No CRM login required, no tab-switching, no context loss.',
+      },
+      {
+        type: 'h2',
+        content: 'Frequently Asked Questions',
+      },
+      {
+        type: 'h3',
+        content: 'Can I post to multiple Slack channels?',
+      },
+      {
+        type: 'p',
+        content:
+          'Yes. GitLeads supports multiple Slack channel configurations. You can route different signal types — stargazer signals vs keyword signals — to separate channels, or route high-follower-count leads to a priority channel while lower-signal leads go to a secondary one.',
+      },
+      {
+        type: 'h3',
+        content: 'Does GitLeads require a Slack bot token or app installation?',
+      },
+      {
+        type: 'p',
+        content:
+          'No. The connection uses Slack\'s standard OAuth flow. GitLeads appears as an authorized app in your Slack workspace settings and can be removed at any time without affecting your data.',
+      },
+      {
+        type: 'h3',
+        content: 'Will I get alerts for every GitHub star in real time?',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads polls tracked repositories continuously and processes signals as fast as GitHub\'s API allows — typically within minutes of the event. For high-volume repos, you can configure batching to receive a digest rather than per-star alerts.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads is free to start — 50 leads/month, no credit card required. The Slack integration is available on all plans. Connect your first repo and see live developer signals in your Slack channel within 5 minutes. Related: push GitHub leads to HubSpot, GitHub signal monitoring, find leads on GitHub.',
+      },
+    ],
+  },
+  // ─── NEW POST: github-discussions-monitoring ─────────────────────────────────
+  {
+    slug: 'github-discussions-monitoring',
+    title: 'GitHub Discussions Monitoring for Sales: Find Buyers Before They Google You',
+    description:
+      'GitHub Discussions is an underused lead source. Developers describe their exact problems in public. Learn how to monitor GitHub Discussions to identify high-intent prospects before they ever hit your website.',
+    publishedAt: '2026-04-22',
+    updatedAt: '2026-04-22',
+    readingTime: 8,
+    keywords: [
+      'github discussions monitoring',
+      'github discussions leads',
+      'monitor github discussions',
+      'github discussions sales',
+      'github community monitoring',
+      'github keyword monitoring',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub Discussions is a public forum where developers ask questions, share use cases, and describe pain points — in writing, with technical specificity, in a searchable and API-accessible format. For B2B companies selling developer tools, it is one of the richest unmonitored lead sources on the internet. This guide covers how to systematically find and act on buyer signals hiding in GitHub Discussions.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Discussions Is a Better Lead Source Than Forums or Reddit',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer forums and Reddit threads give you intent signals, but they lack identity data. A post on reddit.com/r/devops rarely reveals who the poster is at a company level. GitHub Discussions does:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Every discussion participant is a logged-in GitHub user with a public profile',
+          'Profiles often include company, bio, location, email, and years of commit history',
+          'The discussion context (which repo, which topic) tells you exactly what problem they\'re solving',
+          'You can see their tech stack from their public repos — no form fills required',
+          'The GitHub API exposes discussions natively — automatable at scale',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'A developer who opens a discussion titled "How do we migrate from Prometheus to OpenTelemetry without downtime?" in a monitoring-related repo is showing intent that a website visit never would. They\'re describing a project, a stack, and a timeline.',
+      },
+      {
+        type: 'h2',
+        content: 'Types of GitHub Discussions That Indicate Buying Intent',
+      },
+      {
+        type: 'h3',
+        content: '1. Pain-Point Descriptions',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers opening discussions that describe a problem — "struggling with X", "looking for a way to Y", "current solution Z is too slow" — are in active evaluation mode. These are the equivalent of a "solution request" search query, except with a named identity attached.',
+      },
+      {
+        type: 'h3',
+        content: '2. Integration Requests',
+      },
+      {
+        type: 'p',
+        content:
+          'Discussions asking "does this support X?" or "can I integrate with Y?" in a competitor\'s repo are often developers evaluating alternatives. If your tool does support X and theirs doesn\'t, that discussion is a warm lead.',
+      },
+      {
+        type: 'h3',
+        content: '3. Migration Questions',
+      },
+      {
+        type: 'p',
+        content:
+          '"How do I migrate from [Tool A] to [Tool B]?" discussions in your product category reveal developers who are mid-switch. Catching them at this moment is higher-leverage than any cold outreach.',
+      },
+      {
+        type: 'h3',
+        content: '4. Pricing and Licensing Questions',
+      },
+      {
+        type: 'p',
+        content:
+          'Questions about pricing tiers, enterprise plans, or self-hosting options in a competitor\'s repo are near-explicit signals of commercial evaluation. These developers are not just learning — they\'re buying.',
+      },
+      {
+        type: 'h2',
+        content: 'Monitoring GitHub Discussions with the API',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Discussions are accessible through the GraphQL API. Here is a query to pull recent discussions from a target repository:',
+      },
+      {
+        type: 'code',
+        language: 'graphql',
+        content: `query GetRecentDiscussions($owner: String!, $repo: String!, $after: String) {
+  repository(owner: $owner, name: $repo) {
+    discussions(first: 50, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {
+      pageInfo { endCursor hasNextPage }
+      nodes {
+        id
+        title
+        body
+        createdAt
+        url
+        author {
+          login
+          ... on User {
+            name
+            email
+            company
+            bio
+            location
+            followers { totalCount }
+          }
+        }
+        comments(first: 10) {
+          nodes {
+            body
+            author {
+              login
+              ... on User { name email company bio }
+            }
+          }
+        }
+      }
+    }
+  }
+}`,
+      },
+      {
+        type: 'p',
+        content:
+          'Running this against competitor repos, popular open-source tools in your category, and adjacent framework repos gives you a stream of developer intent signals. The challenge is filtering at scale — thousands of discussions per month across dozens of repos.',
+      },
+      {
+        type: 'h2',
+        content: 'Keyword Matching in GitHub Discussions',
+      },
+      {
+        type: 'p',
+        content:
+          'Raw discussion scraping is noisy. The signal comes from matching discussion titles, bodies, and comments against a keyword list tuned to your ICP\'s pain points. Effective keyword categories:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Problem keywords: "latency", "slow", "timeout", "cost", "expensive", "unreliable", "scaling issues"',
+          'Category keywords: your product category — "observability", "feature flags", "auth", "payments", "search"',
+          'Competitor names: any mention of alternatives you displace',
+          'Integration keywords: tools your ICP uses alongside yours — "Datadog", "PagerDuty", "Sentry"',
+          'Commercial keywords: "pricing", "enterprise", "self-hosted", "trial", "license"',
+          'Migration keywords: "migrate", "switch from", "moving away from", "replacing"',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Using GitLeads to Monitor GitHub Discussions Automatically',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads runs this monitoring loop continuously across all tracked repos and keywords. You define the repos to watch (competitor repos, adjacent repos, your own repo\'s Discussions) and the keywords that indicate intent. GitLeads monitors GitHub Issues, PRs, Discussions, and code mentions in parallel — so you\'re not managing separate scrapers for each signal type.',
+      },
+      {
+        type: 'p',
+        content:
+          'When a match fires, GitLeads enriches the discussion author\'s profile with their company, location, email, tech stack, and follower data — then pushes the enriched lead to your configured destination: HubSpot, Slack, Smartlead, Clay, or any of 15+ integrations.',
+      },
+      {
+        type: 'callout',
+        content:
+          'The key difference between GitLeads keyword signals and raw GitHub search: GitLeads monitors continuously (not one-time queries) and enriches the lead profile before delivery. You get a named, contextualized prospect — not a raw username.',
+      },
+      {
+        type: 'h2',
+        content: 'What to Do When You Find a Lead in GitHub Discussions',
+      },
+      {
+        type: 'p',
+        content:
+          'The approach depends on the signal type. Discussion-based leads require more contextual outreach than cold contact-database leads:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Reference the discussion: "I noticed you asked about X in the Y repo" is a legitimate, non-creepy opener because the discussion is public',
+          'Answer the question first: if their discussion is unanswered, answer it publicly before DMing them. This builds credibility and often generates inbound without any pitch',
+          'Don\'t pitch in the discussion itself: GitHub is a developer-first community. Pitching in the comments of a discussion is one of the fastest ways to get ignored or blocked',
+          'Use email or LinkedIn for outreach: reach them through channels designed for sales conversations, not GitHub\'s notification system',
+          'Personalize to their stack: their GitHub profile tells you exactly what they build — use that to make the connection between their problem and your solution specific',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Repos Worth Monitoring for Discussion Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'The repos you monitor matter as much as the keywords. High-value repo categories:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Direct competitor repos — developers evaluating your competitors are mid-funnel for you',
+          'Category repos — major open-source projects in your product category (e.g., if you sell an auth product, monitor passport.js, auth.js, keycloak)',
+          'Adjacent tool repos — tools your ICP uses alongside yours (if you sell a database tool, monitor the ORMs your users use)',
+          'Your own repo — Discussions on your own repo are inbound leads who already know you exist',
+          'Developer community repos — high-signal repos like awesome-lists for your category that attract active evaluators',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads lets you track unlimited repos on Pro and Agency plans. Free plan includes 1 tracked repo. Start monitoring competitor discussions today — free, no credit card required. Related: GitHub keyword monitoring for sales, monitor GitHub for brand mentions, GitHub signal monitoring.',
+      },
+    ],
+  },
+  // ─── NEW POST: open-source-lead-generation ───────────────────────────────────
+  {
+    slug: 'open-source-lead-generation',
+    title: 'Open Source Lead Generation: How to Turn GitHub Stars Into Revenue',
+    description:
+      'Open source projects generate thousands of warm developer leads via GitHub stars, forks, and issues. Here\'s a proven system for converting that open source traction into commercial pipeline.',
+    publishedAt: '2026-04-22',
+    updatedAt: '2026-04-22',
+    readingTime: 9,
+    keywords: [
+      'open source lead generation',
+      'github stars to leads',
+      'open source to revenue',
+      'developer led growth github',
+      'github stars commercial pipeline',
+      'open source saas lead generation',
+      'github star leads',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Open source is the most powerful top-of-funnel channel for developer tools — but most companies leave the revenue on the table. Stars accumulate, forks spread, issues pour in, and the commercial pipeline stays empty because nobody built a system to convert that GitHub activity into leads. This guide covers the complete stack for turning open source traction into commercial revenue.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Open Source Creates the Warmest Developer Leads on the Internet',
+      },
+      {
+        type: 'p',
+        content:
+          'A developer who stars your open source repo has already done the hardest part of the sales cycle: they found your product, evaluated it, and expressed intent. That is warmer than any cold outbound, any form fill, and most paid-ad clicks. The problem is that most open source companies treat GitHub stars as vanity metrics rather than leads.',
+      },
+      {
+        type: 'p',
+        content:
+          'Contrast this with website visitor data (the typical B2B lead gen model): a website visit is anonymous, fleeting, and low-intent. A GitHub star is identified, deliberate, and attached to a profile with years of context — tech stack, company, location, email, follower network, and commit history. It is categorically better lead data.',
+      },
+      {
+        type: 'h2',
+        content: 'The Four GitHub Signals Open Source Companies Should Capture',
+      },
+      {
+        type: 'h3',
+        content: '1. New Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'Every new star is a named lead with a GitHub profile. Star velocity also signals product-market fit: a spike in stars after a launch or Hacker News post is a moment to capture the wave of inbound interest, not just watch the counter tick up. Capture each stargazer profile within minutes of the event.',
+      },
+      {
+        type: 'h3',
+        content: '2. New Forkers',
+      },
+      {
+        type: 'p',
+        content:
+          'Forks indicate active usage intent — developers forking your repo are typically planning to use it, customize it, or build on top of it. Fork signals are higher-intent than stars. A developer who forks your CLI tool\'s repo is probably building something with it right now.',
+      },
+      {
+        type: 'h3',
+        content: '3. Issue Openers',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers who open issues are power users or active evaluators. Bug reports mean they\'re running your software. Feature requests mean they\'re invested enough to imagine a better version. Both are warm leads for enterprise or managed-cloud upsells.',
+      },
+      {
+        type: 'h3',
+        content: '4. Discussion Participants',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Discussions on your own repo are inbound sales conversations that haven\'t been routed to sales yet. A developer asking "how do you handle multi-tenancy?" or "what\'s the recommended deployment for teams of 50?" is describing a commercial use case in real time.',
+      },
+      {
+        type: 'h2',
+        content: 'Building the Open Source → Revenue Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'The system has four components: signal capture, enrichment, routing, and outreach. Each needs to be automated — manual monitoring of GitHub activity does not scale.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Signal capture: Monitor your repo\'s stargazers, forks, issues, and discussions in real time using the GitHub API or a tool like GitLeads',
+          'Enrichment: Augment the raw GitHub profile with company, email, LinkedIn, and tech stack data. GitLeads does this automatically on capture.',
+          'Routing: Push enriched leads to the right destination — CRM for enterprise, email sequences for self-serve, Slack for immediate founder or DevRel follow-up',
+          'Outreach: Contact the lead using the signal as context. "I noticed you starred our repo" is a legitimate, non-spammy opener because it\'s true and relevant.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'ICP Filtering: Not Every Star Is a Lead',
+      },
+      {
+        type: 'p',
+        content:
+          'Open source repos attract students, hobbyists, bots, and developers who will never buy anything. Filtering your stargazer list to commercial leads requires ICP criteria:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Company affiliation: does their bio or email domain indicate a company (not gmail.com, outlook.com, etc.)?',
+          'GitHub seniority: followers > 50, public repos > 10, account age > 2 years as rough proxies for senior developers',
+          'Tech stack match: do their top languages and repos align with your ICP\'s stack?',
+          'Location: does their location match your go-to-market geography?',
+          'Activity recency: have they pushed code recently? Active developers are better prospects than dormant accounts',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Applying these filters typically reduces a raw stargazer list by 60–80% and dramatically improves outreach conversion rates. You\'re left with a shorter list of developers who actually match your commercial ICP.',
+      },
+      {
+        type: 'h2',
+        content: 'Competitor Stargazer Mining',
+      },
+      {
+        type: 'p',
+        content:
+          'Your own repo is not the only source of open source leads. If your product competes with or complements an open source project, its stargazers are your warmest possible cold prospects. They have already validated interest in exactly your product category.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads lets you track competitor repos alongside your own. A developer who stars prometheus/prometheus today and hasn\'t purchased a managed Prometheus solution yet is a real prospect for your monitoring SaaS. You can track these signals continuously and be first in their inbox when the timing is right.',
+      },
+      {
+        type: 'h2',
+        content: 'Outreach Templates for Open Source Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Open source outreach requires a different tone than standard cold email. Developers are skeptical of sales outreach and respond better to peer-level communication:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: [repo name] → enterprise / team question
+
+Hi [name],
+
+Saw you starred [repo] recently — thanks for the interest.
+
+I wanted to reach out because a lot of teams using [repo] run into
+[specific pain point] once they scale past [threshold].
+
+We built [product] specifically for that — [one-sentence value prop].
+
+If this is relevant to what you\'re building at [company], happy to
+show you how [relevant customer] solved the same problem.
+
+Worth a quick call?
+
+[Name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Key elements: reference the star (legitimate context), describe a specific pain point (not a generic pitch), mention a relevant customer (social proof), and keep it short. No HTML emails. No unsubscribe footers. Plain text from a real person.',
+      },
+      {
+        type: 'h2',
+        content: 'Measuring Open Source Lead Gen ROI',
+      },
+      {
+        type: 'p',
+        content:
+          'Track these metrics to measure pipeline contribution from GitHub signals:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Leads captured: raw count of GitHub signal events captured per week',
+          'ICP match rate: percentage of signals that pass your ICP filter',
+          'Contact rate: percentage of filtered leads where you have an email or LinkedIn',
+          'Reply rate: outreach replies divided by emails sent (benchmark: 15–25% for well-filtered GitHub leads)',
+          'Pipeline created: value of opportunities opened with GitHub leads as the source',
+          'CAC comparison: cost to acquire a customer via GitHub signal vs paid channels',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Most teams that implement a systematic GitHub signal capture program report that it becomes their highest-quality lead source within 60 days — not necessarily highest volume, but highest conversion rate and lowest CAC.',
+      },
+      {
+        type: 'h2',
+        content: 'Tools for Open Source Lead Generation',
+      },
+      {
+        type: 'ul',
+        items: [
+          'GitLeads — real-time GitHub signal capture with enrichment and 15+ integration destinations. Best for automated, continuous monitoring.',
+          'GitHub API (DIY) — flexible but requires maintenance, enrichment, and delivery infrastructure. Good if you have engineering resources to spare.',
+          'PhantomBuster — GitHub scraping workflows, manual setup required, no real-time monitoring. Better for one-off lists than continuous pipelines.',
+          'Clay — enrichment layer, not a signal capture tool. Use alongside GitLeads to layer additional data on captured leads.',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads is built specifically for open source teams and developer tool companies. Monitor your own repo, competitor repos, and GitHub keyword signals from one dashboard. Free plan: 50 leads/month, no credit card. Paid plans from $49/month. Related: turn GitHub stargazers into leads, competitor repo stargazers as leads, developer-led growth.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

@@ -938,6 +938,236 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
   },
+  {
+    slug: 'signalhire',
+    name: 'SignalHire',
+    tagline: 'Contact enrichment and email/phone finder',
+    metaTitle: 'GitLeads vs SignalHire — GitHub Signal Capture vs Contact Enrichment',
+    metaDescription:
+      'Compare GitLeads and SignalHire for developer lead generation. SignalHire finds contact data for people you already know about. GitLeads finds developers you have never heard of — from real-time GitHub activity.',
+    intro:
+      'SignalHire is a contact enrichment and email/phone lookup tool. You input a name, LinkedIn profile, or company, and SignalHire returns a verified email address and phone number. It is a data retrieval tool — useful when you already know who you want to reach. GitLeads is a GitHub signal capture platform — it finds developers you have never heard of by monitoring GitHub events in real time and delivering enriched lead profiles to your sales stack. These tools serve fundamentally different problems: SignalHire helps you contact a known person; GitLeads helps you discover unknown buyers.',
+    ourOneLiner:
+      'SignalHire finds contact data for developers you already know. GitLeads finds developers you did not know existed — because they just signaled buying intent on GitHub.',
+    theyWin: [
+      'Deep contact enrichment: verified email and phone for known targets',
+      'Chrome extension for LinkedIn enrichment while browsing',
+      'Broad coverage across industries — not limited to tech or GitHub users',
+      'Useful for list building when you have a target company list already',
+    ],
+    weWin: [
+      'Net-new lead discovery — finds developers you have never seen before',
+      'Real-time GitHub signal capture — stars, keyword mentions, issue activity detected within 15 minutes',
+      'GitHub-specific enrichment — tech stack, top languages, follower count, public repos, bio',
+      'Signal context included — you know why the lead is relevant, not just who they are',
+      'No starting list required — GitLeads generates leads from GitHub events autonomously',
+      'Competitor repo monitoring — track who is evaluating alternatives in your category',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs)', gitleads: true, competitor: false },
+      { feature: 'Net-new lead discovery', gitleads: true, competitor: false },
+      { feature: 'Contact enrichment (email/phone) for known targets', gitleads: false, competitor: true },
+      { feature: 'LinkedIn Chrome extension', gitleads: false, competitor: true },
+      { feature: 'Real-time signal capture (< 15 min)', gitleads: true, competitor: false },
+      { feature: 'GitHub-native developer data', gitleads: true, competitor: 'Basic profile only' },
+      { feature: 'CRM auto-push (HubSpot, Pipedrive, etc.)', gitleads: true, competitor: false },
+      { feature: 'Competitor repo tracking', gitleads: true, competitor: false },
+      { feature: 'Free tier', gitleads: true, competitor: 'Limited credits only' },
+    ],
+    forThem:
+      'SignalHire is the right choice when you already have a specific list of people or companies you want to contact and need to find their verified email addresses and phone numbers quickly. If your workflow starts with "I know I want to reach this person" and you need contact data to do it, SignalHire is well-suited for that lookup task.',
+    forUs:
+      'GitLeads is the right choice when you sell to developers and need to discover leads you do not already know about. Instead of starting with a person, you start with a GitHub signal — a star event, a keyword mention, a competitor repo activity — and GitLeads delivers a full enriched profile with the context of why that developer is relevant right now. No starting list required.',
+    faq: [
+      {
+        q: 'Can SignalHire monitor GitHub repositories?',
+        a: 'No. SignalHire is a contact enrichment and email/phone lookup tool. It does not monitor GitHub activity, capture star events, or track keyword mentions in Issues or Pull Requests. It is a lookup tool for contacts you identify manually, not a signal monitoring platform.',
+      },
+      {
+        q: 'Should I use SignalHire and GitLeads together?',
+        a: 'Possibly, but they serve different jobs. GitLeads generates net-new leads from GitHub signals with enrichment already included. SignalHire is most useful when GitLeads delivers a lead without a verified email (because the developer\'s GitHub profile is private or lacks a public email) and you need to find their contact data through another channel.',
+      },
+      {
+        q: 'What kind of data does GitLeads return vs. SignalHire?',
+        a: 'GitLeads returns GitHub-native data: name, GitHub username, public email (if listed), bio, company, location, top programming languages, follower count, and the specific GitHub signal that triggered the lead (e.g., "starred your repo", "mentioned keyword X in issue Y"). SignalHire returns verified email addresses and phone numbers, often sourced from LinkedIn and other directories.',
+      },
+    ],
+  },
+  {
+    slug: 'swordfish',
+    name: 'Swordfish AI',
+    tagline: 'Real-time email and phone number finder',
+    metaTitle: 'GitLeads vs Swordfish AI — GitHub Signal Capture vs Contact Lookup',
+    metaDescription:
+      'Compare GitLeads and Swordfish AI for developer lead generation. Swordfish looks up contact data for people you target. GitLeads finds new developer leads from real-time GitHub activity you have not seen yet.',
+    intro:
+      'Swordfish AI is a real-time contact finder that uses a network of data providers to surface verified email addresses and direct phone numbers for sales prospects. Like most contact enrichment tools, it starts with a person you already want to reach and returns their contact information. GitLeads works in the opposite direction: it starts with a GitHub event — a new star, a keyword mention, an issue opened — and surfaces the developer behind that event as an enriched lead profile ready for outreach. These tools are complementary, not competing, though companies often evaluate them in the same budget cycle.',
+    ourOneLiner:
+      'Swordfish finds contact data for developers you already know you want. GitLeads finds developers who just signaled they might want you — from GitHub, in real time.',
+    theyWin: [
+      'Verified email and direct phone number lookup for known targets',
+      'Broad database coverage across LinkedIn, Twitter, and company directories',
+      'Chrome extension for real-time enrichment while browsing prospect lists',
+      'Phone number coverage — useful for SDRs doing cold calls',
+    ],
+    weWin: [
+      'Discovers net-new developer leads autonomously — no input list required',
+      'Real-time GitHub event monitoring — star, keyword, issue signals detected within 15 minutes',
+      'Signal context: you know the specific GitHub event that made this lead relevant',
+      'GitHub-native enrichment — tech stack, top languages, public repos, follower count',
+      'Competitor repo tracking — identify developers evaluating tools in your category',
+      'CRM and outreach tool integrations built in (HubSpot, Slack, Smartlead, n8n, etc.)',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs/discussions)', gitleads: true, competitor: false },
+      { feature: 'Net-new lead discovery from GitHub events', gitleads: true, competitor: false },
+      { feature: 'Verified email lookup for known targets', gitleads: false, competitor: true },
+      { feature: 'Direct phone number lookup', gitleads: false, competitor: true },
+      { feature: 'LinkedIn Chrome extension', gitleads: false, competitor: true },
+      { feature: 'Real-time signal capture (< 15 min)', gitleads: true, competitor: false },
+      { feature: 'GitHub-native developer enrichment', gitleads: true, competitor: 'Basic profile only' },
+      { feature: 'CRM auto-push (HubSpot, Pipedrive, etc.)', gitleads: true, competitor: false },
+      { feature: 'Free tier', gitleads: true, competitor: 'Trial credits only' },
+    ],
+    forThem:
+      'Swordfish AI is the right choice when you have a list of specific people or companies you want to cold-call or email and need verified contact data — especially direct phone numbers — to do it. If your SDR team runs high-volume cold call campaigns or needs mobile numbers alongside emails, Swordfish provides strong coverage for that use case.',
+    forUs:
+      'GitLeads is the right choice if you sell to developers and want a source of warm inbound-quality leads that you never had to source manually. GitLeads generates leads autonomously by monitoring GitHub — developers who star your repo, mention relevant keywords in issues, or evaluate competitor tools surface automatically with full enrichment and signal context. No list building, no manual prospecting.',
+    faq: [
+      {
+        q: 'Does Swordfish AI monitor GitHub repositories?',
+        a: 'No. Swordfish AI is a contact enrichment tool that looks up verified email addresses and phone numbers for people you identify. It does not monitor GitHub events, track repository stars, or capture keyword mentions from Issues or Pull Requests.',
+      },
+      {
+        q: 'Can I use Swordfish and GitLeads together?',
+        a: 'Yes — they are complementary. GitLeads surfaces developer leads from GitHub signals with email when publicly available. If a lead does not have a public email, you can run their GitHub username or name through Swordfish to look up a verified contact. GitLeads provides the discovery and signal context; Swordfish provides the contact data for leads with no public email.',
+      },
+      {
+        q: 'How is GitLeads different from a contact database like Swordfish?',
+        a: 'Contact databases like Swordfish contain static or periodically refreshed records of people\'s contact information. You search for a person and get their email. GitLeads is a real-time signal monitoring platform — it watches GitHub for events that indicate developer intent (stars, keyword mentions, issue activity) and surfaces leads only when a signal fires. The result is leads with a specific reason to reach out right now, rather than a generic list of contacts.',
+      },
+    ],
+  },
+  // ─── 6sense ─────────────────────────────────────────────────────────────────
+  {
+    slug: '6sense',
+    name: '6sense',
+    tagline: 'AI-powered B2B intent data and account engagement platform',
+    metaTitle: 'GitLeads vs 6sense — GitHub Developer Intent vs B2B Account Intelligence',
+    metaDescription:
+      'Compare GitLeads and 6sense for B2B intent data. 6sense tracks anonymous web behavior across the B2B buying committee. GitLeads captures named developer signals directly from GitHub — stars, keyword mentions, and issue activity.',
+    intro:
+      '6sense is a B2B revenue intelligence platform that uses AI to aggregate intent signals from across the web — ad impressions, content consumption, review site visits, and anonymous website behavior — to predict which accounts are in active buying cycles. It excels at the enterprise account-level view: "Company X is showing 6x elevated intent for your category this month." GitLeads operates at the individual developer level, capturing named signals from GitHub — a specific developer starred a repo, mentioned a keyword in an issue, or asked a technical question in a Discussion. These platforms address different parts of the intent data stack, and understanding the difference determines which is right for your GTM.',
+    ourOneLiner:
+      '6sense predicts which companies might be interested based on anonymous web signals. GitLeads shows you the named developer who just raised their hand on GitHub.',
+    theyWin: [
+      'Account-level intent aggregation across thousands of web sources',
+      'Predictive buying stage modeling for enterprise accounts',
+      'Multi-stakeholder buying committee tracking for complex B2B sales',
+      'Display advertising integration for account-based marketing (ABM)',
+      'Native integration with Salesforce and other enterprise CRM stacks',
+    ],
+    weWin: [
+      'Named individual leads — not anonymous account intent scores',
+      'GitHub-native signals: stars, keyword mentions, issues, discussions, PRs',
+      'Real-time alerts within minutes of a developer signal firing',
+      'Developer-specific enrichment: tech stack, top languages, follower count, public email',
+      'Competitor repo tracking — catch developers evaluating alternatives',
+      'Free tier available — $49/month Starter vs 6sense\'s enterprise-only pricing',
+    ],
+    table: [
+      { feature: 'Named individual leads (not anonymous)', gitleads: true, competitor: false },
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs/discussions)', gitleads: true, competitor: false },
+      { feature: 'Real-time lead alerts (< 15 min)', gitleads: true, competitor: false },
+      { feature: 'Account-level intent aggregation', gitleads: false, competitor: true },
+      { feature: 'Anonymous web intent tracking', gitleads: false, competitor: true },
+      { feature: 'Predictive buying stage scoring', gitleads: false, competitor: true },
+      { feature: 'ABM display advertising', gitleads: false, competitor: true },
+      { feature: 'Developer tech stack data', gitleads: true, competitor: false },
+      { feature: 'Free tier', gitleads: true, competitor: false },
+      { feature: 'Self-serve setup', gitleads: true, competitor: false },
+    ],
+    forThem:
+      '6sense is the right choice for enterprise B2B companies running complex, multi-stakeholder sales processes where understanding which accounts are in-market is more important than surfacing individual leads. If your deal cycles involve 6+ months, 5+ stakeholders, and account-based marketing spend, 6sense\'s account-level intent aggregation and predictive models add real value.',
+    forUs:
+      'GitLeads is the right choice if you sell to developers or technical buyers and want named individual leads with specific signal context from GitHub. If your product is a developer tool, API, infrastructure platform, or any SaaS that gets evaluated on GitHub, GitLeads surfaces the developers who are actively signaling interest — not an anonymous account intent score, but a specific person with a public profile and a reason to reach out right now.',
+    faq: [
+      {
+        q: 'Does 6sense track GitHub activity?',
+        a: '6sense aggregates intent signals from a broad network of B2B content sites, review platforms, and ad impressions. It does not natively monitor GitHub repository stars, issues, pull requests, or discussions. GitHub developer intent is a blind spot in most B2B intent platforms, including 6sense.',
+      },
+      {
+        q: 'Can GitLeads replace 6sense for developer-focused companies?',
+        a: 'For companies where GitHub is a primary channel — developer tools, APIs, infrastructure products, open source with commercial offerings — GitLeads often surfaces higher-quality leads than 6sense\'s account intent scores because the signals are individual, named, and directly tied to GitHub activity in your product category. 6sense is stronger for enterprise non-developer products where web content consumption and review site visits are the intent signals.',
+      },
+      {
+        q: 'What does GitLeads cost compared to 6sense?',
+        a: 'GitLeads starts free (50 leads/month) and goes up to $499/month for Agency plans. 6sense is enterprise-priced with typical contracts starting at $50,000–$100,000+ per year. For developer-focused GTM teams that do not need full ABM infrastructure, GitLeads provides a more cost-effective source of high-intent developer leads.',
+      },
+    ],
+  },
+  // ─── Demandbase ──────────────────────────────────────────────────────────────
+  {
+    slug: 'demandbase',
+    name: 'Demandbase',
+    tagline: 'Account-based marketing and B2B intent platform',
+    metaTitle: 'GitLeads vs Demandbase — GitHub Developer Intent vs ABM Intent Data',
+    metaDescription:
+      'Compare GitLeads and Demandbase. Demandbase identifies and targets in-market accounts using web intent signals and firmographics. GitLeads finds named developers on GitHub who are actively signaling buying intent right now.',
+    intro:
+      'Demandbase is an account-based marketing (ABM) platform that combines B2B intent data, company identification, and advertising tools to help enterprise GTM teams focus on the accounts most likely to buy. It aggregates intent signals from content consumption, web behavior, and third-party networks to surface companies in active research cycles. GitLeads approaches developer intent from a fundamentally different angle: instead of aggregating anonymous web signals to rank accounts, it monitors GitHub activity in real time to surface named individual developers who starred a repo, mentioned a keyword in an issue, or asked a question in a public discussion. For developer tool companies, this individual-level GitHub intent is often more actionable than account-level web intent.',
+    ourOneLiner:
+      'Demandbase ranks companies by anonymous web intent. GitLeads delivers the named developer who just raised their hand on GitHub.',
+    theyWin: [
+      'Account-based advertising and retargeting at scale',
+      'Company identification from anonymous website visitors',
+      'Firmographic filtering for enterprise account selection',
+      'Multi-channel ABM orchestration (ads, web, email, sales)',
+      'Strong CRM integration for Salesforce-based enterprise sales teams',
+    ],
+    weWin: [
+      'Named individual developers — not anonymous account scores',
+      'GitHub-native signals: repo stars, keyword mentions in issues, PRs, discussions',
+      'Real-time delivery — leads surface within minutes of the signal',
+      'Developer tech stack context: top languages, notable repos, follower graph',
+      'Works for companies without a high-traffic website (common for developer tools)',
+      'No enterprise contract required — self-serve from $49/month',
+    ],
+    table: [
+      { feature: 'Named individual leads (not anonymous)', gitleads: true, competitor: false },
+      { feature: 'GitHub signal monitoring (stars, issues, discussions)', gitleads: true, competitor: false },
+      { feature: 'Real-time alerts (< 15 min)', gitleads: true, competitor: false },
+      { feature: 'Account-level intent scoring', gitleads: false, competitor: true },
+      { feature: 'Anonymous web visitor identification', gitleads: false, competitor: true },
+      { feature: 'ABM advertising platform', gitleads: false, competitor: true },
+      { feature: 'Firmographic account filtering', gitleads: 'Basic (via enrichment)', competitor: true },
+      { feature: 'Developer tech stack enrichment', gitleads: true, competitor: false },
+      { feature: 'Competitor repo tracking', gitleads: true, competitor: false },
+      { feature: 'Free tier available', gitleads: true, competitor: false },
+      { feature: 'Self-serve setup', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Demandbase is the right choice for enterprise B2B companies running full ABM programs — coordinating ads, web personalization, and sales outreach across buying committees at target accounts. If you have a large marketing budget, a Salesforce-centric RevOps stack, and target Fortune 500 buyers who consume B2B content, Demandbase\'s intent aggregation and advertising capabilities are well-suited.',
+    forUs:
+      'GitLeads is the right choice for developer tool companies, API vendors, infrastructure startups, and open source teams that need individual developer leads from GitHub — not account-level intent scores. If your product lives where developers live (GitHub, npm, Homebrew, Hacker News), your buyers are identifiable from their GitHub activity long before they hit your website. GitLeads captures those signals and turns them into actionable leads your sales team can work without waiting for an ABM platform to score the account.',
+    faq: [
+      {
+        q: 'Does Demandbase track GitHub activity or developer intent?',
+        a: 'Demandbase aggregates intent signals from B2B content networks, review sites, and web behavior. It does not natively monitor GitHub repository stars, issues, pull requests, or discussions. For companies whose buyers discover and evaluate products on GitHub, this is a significant gap that GitLeads specifically addresses.',
+      },
+      {
+        q: 'Is GitLeads a replacement for Demandbase?',
+        a: 'For most developer tool companies, GitLeads and Demandbase are not competitive — they solve different problems for different stages of the market. GitLeads is best for companies with a developer ICP who need a pipeline of named individual leads from GitHub. Demandbase is best for enterprise B2B companies running coordinated ABM campaigns at named accounts. Some larger developer tool companies use both: Demandbase for account-level prioritization and GitLeads for individual developer lead capture.',
+      },
+      {
+        q: 'What is the pricing difference between GitLeads and Demandbase?',
+        a: 'GitLeads is self-serve: free (50 leads/month), Starter $49/month, Pro $149/month, Agency $499/month. Demandbase is enterprise-priced with typical annual contracts ranging from $60,000 to well over $200,000 depending on modules and seat count. For earlier-stage developer tool companies, GitLeads offers a dramatically lower cost-per-lead for GitHub-native intent signals.',
+      },
+    ],
+  },
 ];
 
 export function getCompetitor(slug: string): Competitor | undefined {
