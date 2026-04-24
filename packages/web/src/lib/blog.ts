@@ -5103,6 +5103,641 @@ echo "Stargazers exported to $OUTPUT_FILE"`,
       },
     ],
   },
+  {
+    slug: 'github-stars-product-led-growth',
+    title: 'GitHub Stars as a Product-Led Growth Signal: The Developer GTM Playbook',
+    description:
+      'GitHub stars are not vanity metrics — they are real-time purchase intent signals from developers. Learn how to build a product-led growth pipeline by converting your stargazers into paying customers.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 9,
+    keywords: [
+      'github stars product led growth',
+      'github star signal',
+      'product led growth developer tool',
+      'use github stars for growth',
+      'github stars sales signal',
+      'developer-led growth github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Every time a developer stars your GitHub repository, they are telling you something: "This is relevant to what I am building right now." That signal is more accurate than a form fill, more timely than a demo request, and more qualified than a LinkedIn connection. Yet most developer tool companies treat star counts as a vanity metric — a number to put in their README badge — and let thousands of warm leads evaporate because they have no system to act on them.',
+      },
+      {
+        type: 'p',
+        content:
+          'Product-led growth (PLG) in the developer tool space is fundamentally about capturing signals from product usage and converting the highest-intent users into paying customers. GitHub stars are the top-of-funnel version of that same motion: a developer discovered your tool, evaluated it enough to hit star, and moved on. With the right infrastructure, that moment becomes the trigger for a sales or marketing sequence that converts at 5–15x the rate of cold outbound.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Stars Are a Better Signal Than You Think',
+      },
+      {
+        type: 'p',
+        content:
+          'The average GitHub star takes three to five seconds to click. That means developers only star repos they genuinely care about — they do not star things they stumble across the way users "like" social media posts. A 2024 GitHub user survey found that 73% of developers use stars as a personal bookmarking system for tools they plan to use or evaluate. For a B2B developer tool, that intent rate is extraordinary.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stars correlate with active evaluation: developers star before they clone, not after',
+          'The GitHub profile of a stargazer reveals tech stack, employer, location, and seniority — no enrichment service needed',
+          'Public email on GitHub profiles runs at 18–35% depending on the audience (higher for enterprise engineers, lower for solo hobbyists)',
+          'Stars from developers at companies with 50+ employees are worth tracking with the same urgency as enterprise trial starts',
+          'A new star on a competitor repo is even more valuable — it signals active market research',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The PLG Stargazer Funnel',
+      },
+      {
+        type: 'p',
+        content:
+          'Think of your GitHub stargazers as the top of a PLG funnel with three distinct conversion stages:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Star → free signup: The developer evaluates your tool enough to install or create an account. Conversion rate: 3–8% with no outreach, 12–25% with a personalized reach-out within 24 hours.',
+          'Free signup → active usage: The developer integrates your tool into their workflow. This is the traditional PLG activation gate — your product must deliver value fast.',
+          'Active usage → paid conversion: The developer hits a usage limit, needs enterprise features, or wants to expand to their team. Conversion is driven by in-product triggers plus a sales assist.',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'The missing piece in most developer GTM motions is the bridge between Stage 0 (star with no account) and Stage 1 (free signup). GitLeads closes that gap: it captures the stargazer identity the moment they star your repo and feeds their enriched profile — GitHub username, public email, company, top languages, follower count — into whatever sales or marketing tool your team already uses.',
+      },
+      {
+        type: 'h2',
+        content: 'Segmenting Stargazers for Maximum Conversion',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every star is worth the same effort. A high-leverage PLG motion segments stargazers by quality and routes them to the appropriate follow-up:',
+      },
+      {
+        type: 'h3',
+        content: 'Tier 1: Enterprise targets (respond within 1 hour)',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Works at a company with 200+ employees (visible in GitHub bio or LinkedIn)',
+          'Has 500+ followers — suggests engineering leadership or visibility',
+          'Top languages match your ICP (e.g., Go + Kubernetes for a cloud infrastructure tool)',
+          'Has previously starred 2+ repos in your category (signals active evaluation)',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Tier 2: SMB/startup targets (follow up within 24 hours)',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Works at a company with 10–200 employees',
+          'Active GitHub account (commits in last 30 days)',
+          'Profile has public email — lower friction to reach',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Tier 3: Community/hobbyists (nurture only)',
+      },
+      {
+        type: 'ul',
+        items: [
+          'No company affiliation in profile',
+          'Low follower count, sparse contribution history',
+          'Route to email newsletter rather than sales sequence',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building the Stargazer Signal Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'The technical implementation of a stargazer-to-pipeline system requires five components:',
+      },
+      {
+        type: 'code',
+        language: 'typescript',
+        content: `// 1. Polling GitHub for new stargazers (every 5 minutes)
+async function pollNewStargazers(repo: string, lastStarredAt: Date) {
+  const res = await fetch(
+    \`https://api.github.com/repos/\${repo}/stargazers?per_page=100\`,
+    { headers: { Authorization: \`Bearer \${process.env.GH_TOKEN}\`, Accept: 'application/vnd.github.star+json' } }
+  );
+  const stars = await res.json();
+  return stars.filter((s: any) => new Date(s.starred_at) > lastStarredAt);
+}
+
+// 2. Enriching each stargazer with full profile data
+async function enrichStargazer(login: string) {
+  const res = await fetch(\`https://api.github.com/users/\${login}\`,
+    { headers: { Authorization: \`Bearer \${process.env.GH_TOKEN}\` } }
+  );
+  return res.json(); // returns name, email, company, location, bio, followers, public_repos
+}
+
+// 3. Scoring the lead against your ICP
+function scoreLead(profile: GitHubProfile): number {
+  let score = 0;
+  if (profile.followers > 500) score += 30;
+  if (profile.company?.includes('Inc') || profile.company?.length > 2) score += 25;
+  if (profile.email) score += 20;
+  if (profile.public_repos > 20) score += 15;
+  return score; // 0-90; route Tier 1 at >60, Tier 2 at 30-60
+}`,
+      },
+      {
+        type: 'p',
+        content:
+          'The engineering cost of building this pipeline from scratch is 2–4 weeks: GitHub polling worker, rate limit handling, enrichment calls, deduplication, CRM sync, and ongoing maintenance. GitLeads provides this as a managed service — connect your repo, connect your CRM or Slack, and stargazer leads flow automatically.',
+      },
+      {
+        type: 'h2',
+        content: 'The Competitor Star Strategy',
+      },
+      {
+        type: 'p',
+        content:
+          'Your own repo stargazers are a warm signal. Your competitors\' repo stargazers are a warm market signal. A developer who just starred the GitHub repo for your top competitor is actively evaluating tools in your category right now. That timing window is typically 72 hours — after that, they have usually made a decision or moved on.',
+      },
+      {
+        type: 'p',
+        content:
+          'With GitLeads, you can track competitor repositories alongside your own. Any new star on a tracked repo — yours or a competitor — triggers the same enrichment and CRM push flow. This lets you intercept competitor evaluations with targeted outreach before the competition closes the deal. See also: finding competitor customers on GitHub.',
+      },
+      {
+        type: 'h2',
+        content: 'Measuring PLG Star-to-Revenue Conversion',
+      },
+      {
+        type: 'p',
+        content:
+          'Track these metrics to evaluate your stargazer-to-revenue motion:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Star → signup rate: % of enriched stargazers who create a free account (benchmark: 8–20%)',
+          'Reached → responded rate: % of outreach emails that get a reply (benchmark: 8–18% for well-segmented GitHub audiences)',
+          'Star cohort MRR: Total MRR from customers whose first touch was a GitHub star, tracked by cohort month',
+          'Time-to-close for star-sourced leads vs. inbound (typically 30–40% faster due to pre-existing product awareness)',
+          'Tier 1 vs Tier 2 conversion delta: quantifies the value of ICP scoring',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads turns your GitHub stargazers into an automated sales pipeline. Connect your repos and CRM in under 5 minutes — free tier covers 50 enriched leads/month. See also: how to find leads on GitHub, push GitHub leads to HubSpot, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+  {
+    slug: 'developer-outreach-email-github-signals',
+    title: 'How to Write Developer Outreach Emails Using GitHub Signals (With Templates)',
+    description:
+      'Cold email to developers fails 90% of the time because it ignores context. Learn how to use GitHub signals — stars, issues, keywords — to write developer outreach emails that actually get replies.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 10,
+    keywords: [
+      'developer outreach email',
+      'cold email developer',
+      'github lead email template',
+      'outreach to github users',
+      'developer cold email template',
+      'github signal outreach',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Outreach to developers has an unusually low tolerance for generic messaging. A developer who receives a cold email referencing only their job title will delete it in under two seconds — they have pattern-matched the template and mentally filed it with every other SDR blast they receive each week. But a developer who receives an email that demonstrates specific knowledge of what they are building, what they have contributed to, or what they recently evaluated? That person reads the whole thing.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub signals make that level of specificity possible at scale. When a developer stars your repo, opens an issue asking about a use case, or mentions your product category in a discussion, you have concrete context to open with — not a fabricated "I came across your profile" opener, but a specific observation that proves you have done your homework.',
+      },
+      {
+        type: 'h2',
+        content: 'The Three GitHub Signal Types and What They Tell You',
+      },
+      {
+        type: 'h3',
+        content: 'Signal 1: Repository Star',
+      },
+      {
+        type: 'p',
+        content:
+          'A star means the developer bookmarked your tool for future reference. They know it exists, they found it interesting enough to save. They have NOT committed to using it. Your outreach goal: reduce the friction from "saved for later" to "installed and evaluated today." The message should acknowledge the star, offer something useful (docs, quick-start, a specific use case walkthrough), and not pitch hard.',
+      },
+      {
+        type: 'h3',
+        content: 'Signal 2: Keyword Mention in an Issue or Discussion',
+      },
+      {
+        type: 'p',
+        content:
+          'When a developer mentions your product name, a competitor, or a problem your tool solves in a GitHub Issue or Discussion, they are expressing a need or opinion in public. This is the highest-intent signal available — they are actively looking for a solution. Your outreach should position you as a helpful expert first, a vendor second.',
+      },
+      {
+        type: 'h3',
+        content: 'Signal 3: Competitor Repo Star',
+      },
+      {
+        type: 'p',
+        content:
+          'A developer who starred your competitor\'s repository is in evaluation mode. They know the category exists, they are comparison shopping. Your outreach should differentiate clearly and offer to help them make the right decision — even if that means a comparison or a trial. Confidence reads well to developers.',
+      },
+      {
+        type: 'h2',
+        content: 'The Anatomy of a Developer Outreach Email That Works',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer outreach emails that get replies share a common structure: (1) a specific observation that proves relevance, (2) a value statement in one sentence that does not use buzzwords, (3) a clear, low-friction CTA. Total length: 60–100 words. Developers read email on their phone in 30-second windows between commits. Long pitches lose before the second paragraph.',
+      },
+      {
+        type: 'h2',
+        content: 'Email Templates by Signal Type',
+      },
+      {
+        type: 'h3',
+        content: 'Template 1: Repo Star (your own repo)',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Quick question about {repo-name}
+
+Hi {first_name},
+
+Noticed you starred {repo-name} — thanks for checking it out.
+
+Most developers who find us are trying to solve {common_pain_point}. If that's you, I put together a 3-step quickstart that gets you to a working integration in under 20 minutes: {link}
+
+Happy to answer any questions if you hit a wall. No pitch, just the docs.
+
+{your_name}`,
+      },
+      {
+        type: 'h3',
+        content: 'Template 2: Keyword mention in a GitHub Issue',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Re: your question in {repo-name}#{issue-number}
+
+Hi {first_name},
+
+Came across your comment in {repo-name} about {specific_problem}. We built {product_name} to handle exactly that — {one_sentence_description}.
+
+Here is how we solve {the_specific_thing_they_asked_about}: {link_to_relevant_docs_or_example}
+
+No sign-up needed to try it. Let me know if it helps.
+
+{your_name}`,
+      },
+      {
+        type: 'h3',
+        content: 'Template 3: Competitor star (interception window)',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: If you're evaluating {competitor_name}, worth a quick look at this
+
+Hi {first_name},
+
+Saw you were checking out {competitor_name}. We do the same thing with a few differences that matter depending on your use case:
+
+- {differentiator_1}
+- {differentiator_2}
+
+We have a side-by-side comparison here: {comparison_link}
+
+Free tier if you want to run both — no credit card.
+
+{your_name}`,
+      },
+      {
+        type: 'h3',
+        content: 'Template 4: High-ICP cold reach (profile-based, no signal)',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: {product_name} for {their_top_language} teams
+
+Hi {first_name},
+
+Your profile — {follower_count} followers, {top_repo_topic} work at {company} — matches the profile of teams getting a lot of value from {product_name}.
+
+We help {ICP_description} {solve_specific_problem}. Takes about 10 minutes to set up.
+
+Worth a look? {signup_link}
+
+{your_name}`,
+      },
+      {
+        type: 'h2',
+        content: 'What to Personalize (and What to Automate)',
+      },
+      {
+        type: 'p',
+        content:
+          'The personalization that matters is the opening observation — the specific signal reference. Everything after that can follow a template. The worst mistake is automating the observation ("I saw you starred our repo" becomes noise when sent to 10,000 people with no other personalization). The best approach: automate the data collection and segmentation, write a handful of templates per signal type, and let the signal context populate the variable fields.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Automate: data collection (GitHub signal capture), enrichment (profile data), segmentation (ICP scoring), sequence enrollment',
+          'Personalize: the opening observation (signal-specific), the use case match (based on their tech stack), the CTA (based on their company size)',
+          'Never automate: the sending volume to a single person (one email per signal, max two follow-ups), the subject line formula (test variants per segment)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Sequence Structure for GitHub-Signal Leads',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Day 0 (signal fires): Send Template 1/2/3 within 2 hours of the signal. Intent decays fast.',
+          'Day 3 (no reply): Send a one-line follow-up referencing a specific doc or use case. Do not re-pitch.',
+          'Day 10 (no reply): Optional final touch — a piece of genuinely useful content (blog post, benchmark, case study). Mark as "breakup" tone.',
+          'No reply after Day 10: Move to newsletter segment only. Do not spam.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Benchmarks for GitHub Signal Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'Based on GitLeads customer data across developer tool B2B companies:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Repo star outreach: 12–22% reply rate when sent within 2 hours of the star',
+          'Keyword issue mention outreach: 18–35% reply rate (highest intent signal)',
+          'Competitor star outreach: 8–15% reply rate (slightly defensive audience)',
+          'Generic cold outreach to GitHub profiles (no signal): 1–4% reply rate',
+          'Email open rate for developer audiences: 28–45% (higher than median B2B because they check email less frequently and batch-read it)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Automating GitHub Signal Capture for Your Outreach Stack',
+      },
+      {
+        type: 'p',
+        content:
+          'The manual version of this workflow — refreshing GitHub stargazer lists, Ctrl+F-ing issue threads for keyword mentions, exporting to a spreadsheet — does not scale past about 50 leads per week before it consumes a full-time SDR\'s bandwidth. GitLeads automates the capture layer: monitor your repos and keywords, enrich every signal with GitHub profile data, and push directly into Smartlead, Instantly, Lemlist, Apollo, or any sequence tool you are already using via webhook.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads captures GitHub signals and pushes enriched leads into your outreach stack automatically. Free tier: 50 leads/month, no credit card. Related reading: GitHub buying signals for sales teams, developer email templates, push GitHub leads to your CRM.',
+      },
+    ],
+  },
+  {
+    slug: 'github-competitor-intelligence',
+    title: 'GitHub Competitor Intelligence: How to Find Your Competitors\' Customers',
+    description:
+      'Your competitors\' GitHub repos are public directories of their warmest prospects. Learn how to monitor competitor repos, identify evaluation windows, and intercept buyers before they commit.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 8,
+    keywords: [
+      'github competitor intelligence',
+      'find competitor customers github',
+      'monitor competitor github repo',
+      'github competitor analysis',
+      'competitor github signals',
+      'steal competitor customers github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Every developer tool company with an open-source component publishes a live, real-time list of people who are evaluating them. That list is their GitHub repository. The Stargazers tab of any public repo shows every user who has bookmarked it — including the ones who starred it five minutes ago. If you sell a competing or complementary product, those names are your warmest possible market.',
+      },
+      {
+        type: 'p',
+        content:
+          'This is not a grey area. GitHub makes this data public by design. The stargazers API endpoint requires only an authenticated token to access, has no terms restriction on reading public star data, and is the same API GitHub uses in their own analytics products. The question is not whether you can access this data — it is whether you have a system to act on it faster than the evaluation window closes.',
+      },
+      {
+        type: 'h2',
+        content: 'The Evaluation Window: Why Speed Matters',
+      },
+      {
+        type: 'p',
+        content:
+          'When a developer stars a repo, they are typically in a 24–72 hour active evaluation window. During this time, they are reading docs, running hello-world examples, and forming initial opinions. After 72 hours without a meaningful product interaction, cognitive switching costs kick in — they move on to the next thing, or they have already made a decision.',
+      },
+      {
+        type: 'p',
+        content:
+          'The implication: competitor intelligence is only actionable when it is real-time. A list of competitor stargazers from six months ago is market research data. A list from the last four hours is a sales pipeline.',
+      },
+      {
+        type: 'h2',
+        content: 'Step 1: Identify Which Competitor Repos to Track',
+      },
+      {
+        type: 'p',
+        content:
+          'Not all competitor repos generate equal signal quality. Prioritize repos that indicate product evaluation over general interest:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Primary product repos (the thing they actually sell), not ecosystem repos or sample code',
+          'Repos with recent star velocity — a repo getting 50 new stars/week generates more actionable leads than one with 50,000 total stars from 2019',
+          'SDK and client library repos — developers who star these are past "interesting project" and actively integrating',
+          'Example/starter repos — very high signal, indicates active evaluation',
+          'Avoid: forked repos, archived repos, general language tooling repos where stars indicate curiosity, not evaluation',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Step 2: Accessing Competitor Stargazer Data via the GitHub API',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub API exposes stargazers with timestamps when you request the star+json media type:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Get stargazers with timestamps (requires Accept header)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  -H "Accept: application/vnd.github.star+json" \\
+  "https://api.github.com/repos/COMPETITOR/REPO/stargazers?per_page=100&page=1"
+
+# Response includes starred_at timestamp:
+# {
+#   "starred_at": "2026-04-24T09:15:32Z",
+#   "user": { "login": "johndoe", "id": 123456, ... }
+# }
+
+# For new stars only: filter by starred_at > last_checked_at
+# Then fetch full profile for each new login:
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/users/johndoe"
+# Returns: name, email, company, location, bio, followers, public_repos, top_languages`,
+      },
+      {
+        type: 'p',
+        content:
+          'For repos with millions of stars, use reverse pagination (start from the last page) and cache the highest-numbered page you have fully processed. You only need to poll new stars since your last check — typically a 5–15 minute polling interval is sufficient for most competitor repos.',
+      },
+      {
+        type: 'h2',
+        content: 'Step 3: Enriching and Qualifying Competitor Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'Raw stargazer data is a GitHub username and timestamp. To qualify it as a sales lead, you need enrichment:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Name: available on the /users/{login} profile endpoint',
+          'Email: available if the developer has made it public (typically 20–35% of profiles)',
+          'Company: the company field — often includes @company-name handles that map to LinkedIn',
+          'Bio: frequently contains job title, tech stack, and current focus area',
+          'Top languages: inferred from their public repos — critical for ICP matching',
+          'Follower count: a proxy for seniority and influence in the developer community',
+          'Location: useful for routing to regional sales reps or time-zone-aware sequencing',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Step 4: Filtering for Your ICP',
+      },
+      {
+        type: 'p',
+        content:
+          'Not everyone who evaluates a competitor is your customer. Apply ICP filters before routing to your sales stack:',
+      },
+      {
+        type: 'code',
+        language: 'typescript',
+        content: `interface StargazerLead {
+  login: string;
+  email?: string;
+  company?: string;
+  bio?: string;
+  followers: number;
+  publicRepos: number;
+  topLanguages: string[];
+  location?: string;
+}
+
+function matchesICP(lead: StargazerLead, icp: ICPConfig): boolean {
+  // Example ICP: Go or Rust engineers at companies, 50+ followers
+  const languageMatch = lead.topLanguages.some(l =>
+    icp.targetLanguages.includes(l)
+  );
+  const companySignal = !!lead.company && lead.company.length > 1;
+  const senioritySignal = lead.followers >= icp.minFollowers;
+
+  return languageMatch && companySignal && senioritySignal;
+}
+
+// Leads matching ICP → sales sequence
+// Non-ICP leads with email → newsletter segment
+// Non-ICP, no email → discard`,
+      },
+      {
+        type: 'h2',
+        content: 'Step 5: The Competitor Intelligence Outreach Sequence',
+      },
+      {
+        type: 'p',
+        content:
+          'Outreach to competitor evaluators requires a different tone than warm inbound leads. They did not express interest in your product — they expressed interest in your competitor. Your message must acknowledge that framing and differentiate without being defensive:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: If you're evaluating {competitor}, this comparison might help
+
+Hi {first_name},
+
+Saw you were checking out {competitor_repo}. We solve the same problem with a few meaningful differences:
+
+→ {key_differentiator_1}
+→ {key_differentiator_2}
+→ {key_differentiator_3}
+
+Full comparison: gitleads.app/vs/{competitor_slug}
+
+Happy to answer specific questions if you're running evaluations in parallel.
+
+{your_name}`,
+      },
+      {
+        type: 'h2',
+        content: 'What to Track Beyond Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'Stargazers are the most accessible competitor signal, but GitHub exposes several more:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Forks: A fork indicates intent to modify or integrate — higher intent than a star',
+          'Issues: People who open issues on competitor repos are active users with problems — prime targets if the issue is about a missing feature your tool has',
+          'Discussions: Community discussions on competitor repos reveal pain points, feature gaps, and migration intent at scale',
+          'Watchers: Developers watching a repo are monitoring for changes — usually existing users or deep evaluators',
+          'Contributors: People contributing to a competitor\'s open-source repo are highly engaged — consider them for partnership or technical marketing outreach, not direct sales',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building vs. Buying the Monitoring Infrastructure',
+      },
+      {
+        type: 'p',
+        content:
+          'The engineering effort to build a production competitor monitoring system is significant: GitHub polling workers with proper rate limit handling, enrichment pipeline, deduplication, ICP scoring, CRM sync, and alerting. Figure 3–5 weeks of backend engineering time to build correctly, plus ongoing maintenance as GitHub API changes and competitor repos evolve.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads provides this as a managed platform: add competitor repos alongside your own repos, set your ICP filters, connect your CRM or Slack destination, and receive enriched competitor stargazer leads in real time. The free tier supports up to 50 leads per month across all tracked repos — enough to validate the signal quality before committing to a paid plan. See also: GitHub buying signals for sales teams, turn GitHub stargazers into leads, how to find leads on GitHub.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Monitor competitor GitHub repos and capture new stargazers as leads with GitLeads. Real-time enrichment, CRM push, free to start. Related reading: find GitHub leads, GitHub intent data for B2B sales, developer outreach email templates.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

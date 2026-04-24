@@ -828,6 +828,116 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
   },
+  {
+    slug: 'bombora',
+    name: 'Bombora',
+    tagline: 'B2B intent data from web content consumption',
+    metaTitle: 'GitLeads vs Bombora — GitHub Developer Intent vs Web Browsing Intent',
+    metaDescription:
+      'Compare GitLeads and Bombora for developer intent data. Bombora tracks content consumption across B2B websites. GitLeads captures real-time developer signals directly on GitHub — stars, keyword mentions, and issue activity.',
+    intro:
+      'Bombora is the dominant B2B intent data provider, aggregating content consumption signals from a co-op network of 5,000+ B2B publisher sites. It tells you which companies are surging on topics relevant to your product — based on their employees reading articles about those topics. GitLeads captures a fundamentally different signal: actual developer activity on GitHub, including new stars on tracked repositories, keyword mentions in Issues and Pull Requests, and code search matches. For developer tool companies, these two platforms solve different problems.',
+    ourOneLiner:
+      'Bombora shows you which companies are reading articles about your category. GitLeads shows you which developers are actively evaluating tools in your category right now on GitHub.',
+    theyWin: [
+      'Broadest B2B intent coverage across industries — 5,000+ publisher co-op sites',
+      'Account-level intent aggregated to company domain — integrates with enterprise CRM/ABM stacks',
+      'Long-tail topic modeling across thousands of B2B topic clusters',
+      'Strong integrations with enterprise platforms: Salesforce, Marketo, LinkedIn Campaign Manager',
+    ],
+    weWin: [
+      'GitHub-native developer signals — no content consumption proxy, direct behavioral evidence',
+      'Individual-level leads with contact data (email, GitHub username, profile) — not just company-level intent',
+      'Real-time capture — signals fire within minutes of a GitHub event, not batched weekly',
+      'Purpose-built for developer audiences — Bombora does not index GitHub activity at all',
+      'Orders of magnitude cheaper — GitLeads starts free; Bombora enterprise contracts run $25k–$100k+/year',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs)', gitleads: true, competitor: false },
+      { feature: 'Individual developer contact data', gitleads: true, competitor: 'Account-level only' },
+      { feature: 'Real-time signals (< 15 min)', gitleads: true, competitor: 'Weekly batches' },
+      { feature: 'B2B web content intent (article reads)', gitleads: false, competitor: true },
+      { feature: 'Account-level intent scoring', gitleads: false, competitor: true },
+      { feature: 'CRM / ABM integration', gitleads: true, competitor: true },
+      { feature: 'Developer tech stack signals', gitleads: true, competitor: false },
+      { feature: 'Competitor repo monitoring', gitleads: true, competitor: false },
+      { feature: 'Free tier', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Bombora is the right choice if you sell to enterprise buyers across multiple departments (not just engineering), if your deals are driven by marketing and legal decision-makers who consume B2B content online, or if you need account-level intent aggregated across hundreds of employees for ABM campaigns.',
+    forUs:
+      'GitLeads is the right choice if you sell a developer tool, API, infrastructure product, or any product where engineers are the primary buyer or evaluator. GitHub signals directly capture developer evaluation behavior — not a proxy from article reads — and deliver individual contact data that your sales team can act on in minutes.',
+    faq: [
+      {
+        q: 'Does Bombora have any GitHub data?',
+        a: 'No. Bombora\'s intent data comes from a co-op network of B2B publisher websites. It tracks article reads and content consumption, not GitHub activity. Bombora has no visibility into GitHub stars, issues, forks, or keyword mentions.',
+      },
+      {
+        q: 'Is GitLeads an alternative to Bombora for developer companies?',
+        a: 'For developer-focused B2B companies, GitLeads provides a complementary — and often more relevant — signal layer than Bombora. GitHub developer activity signals are more direct and faster than content consumption signals. Many developer tool teams use GitLeads for their bottom-of-funnel GitHub signals and a content platform for top-of-funnel awareness.',
+      },
+      {
+        q: 'How much does Bombora cost?',
+        a: 'Bombora is an enterprise product with custom pricing, typically $25,000–$100,000+ per year depending on seat count and topic access. GitLeads starts free at 50 leads/month with paid plans from $49/month — accessible to early-stage developer tool startups from day one.',
+      },
+    ],
+  },
+  {
+    slug: 'clearbit',
+    name: 'Clearbit (HubSpot Breeze)',
+    tagline: 'B2B contact enrichment and company data',
+    metaTitle: 'GitLeads vs Clearbit (HubSpot Breeze) — GitHub Signal Capture vs Contact Enrichment',
+    metaDescription:
+      'Compare GitLeads and Clearbit (now HubSpot Breeze Intelligence) for developer lead generation. Clearbit enriches contacts you already have. GitLeads finds new developer leads you do not have yet.',
+    intro:
+      'Clearbit, acquired by HubSpot and rebranded as Breeze Intelligence, is a B2B data enrichment platform that appends company and contact attributes — revenue, headcount, technology used — to records you already own. It makes existing contacts richer. GitLeads is a GitHub signal capture platform that finds new developer leads you do not know about yet, by monitoring GitHub events in real time. These are complementary tools serving different parts of the funnel, but many developer tool companies evaluate them as alternatives.',
+    ourOneLiner:
+      'Clearbit enriches contacts you already have. GitLeads finds developer leads you do not have yet — in real time, from GitHub activity.',
+    theyWin: [
+      'Deep company enrichment (revenue, headcount, funding, technologies used)',
+      'Broad contact database — works across all industries, not just developer tools',
+      'Form enrichment and website visitor identification (Reveal product)',
+      'Tight HubSpot CRM integration as a native HubSpot product',
+    ],
+    weWin: [
+      'Source-new leads — discovers developers who have never touched your website or CRM',
+      'Real-time GitHub signal capture — stars, keyword mentions, issue activity',
+      'GitHub-specific enrichment — tech stack, top languages, follower count, public repos',
+      'Signal context included — you know why the lead matters, not just who they are',
+      'No website traffic required — captures intent from GitHub directly',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs)', gitleads: true, competitor: false },
+      { feature: 'New lead discovery (net-new contacts)', gitleads: true, competitor: false },
+      { feature: 'Contact enrichment for existing records', gitleads: false, competitor: true },
+      { feature: 'Company firmographic data', gitleads: false, competitor: true },
+      { feature: 'Website visitor identification', gitleads: false, competitor: true },
+      { feature: 'Real-time signals (< 15 min)', gitleads: true, competitor: false },
+      { feature: 'GitHub tech stack signals', gitleads: true, competitor: 'Technology detection only' },
+      { feature: 'CRM auto-push (HubSpot, Pipedrive, etc.)', gitleads: true, competitor: 'HubSpot native only' },
+      { feature: 'Free tier', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Clearbit/Breeze Intelligence is the right choice if you need to enrich an existing CRM database with firmographic and technographic data, if you want to identify anonymous website visitors and append company context, or if you are a HubSpot-first team and want native enrichment without a third-party integration.',
+    forUs:
+      'GitLeads is the right choice if you sell to developers and want to discover net-new leads you have never seen before — developers who are actively evaluating tools on GitHub right now. GitLeads does not require existing website traffic or CRM records to generate value. It finds leads from GitHub signals and delivers them with enough context to act on immediately.',
+    faq: [
+      {
+        q: 'What happened to Clearbit?',
+        a: 'Clearbit was acquired by HubSpot in late 2023 and rebranded as Breeze Intelligence in 2024. The product continues to function as a B2B enrichment layer, now primarily positioned for HubSpot customers. Standalone Clearbit API access remains available.',
+      },
+      {
+        q: 'Can Clearbit find developer leads from GitHub?',
+        a: 'No. Clearbit enriches contact and company records with firmographic and technographic data from its own database. It does not monitor GitHub repositories, capture star events, or track keyword mentions in Issues or Pull Requests. Clearbit does not discover net-new leads — it enriches leads you already have.',
+      },
+      {
+        q: 'Should I use both GitLeads and Clearbit?',
+        a: 'Yes — they serve different jobs. GitLeads finds new developer leads from GitHub signals. Clearbit/Breeze enriches those leads (and your existing CRM records) with company firmographics. A common workflow: GitLeads captures a new GitHub stargazer → CRM push → Clearbit appends company revenue, headcount, and funding data → SDR sequences the enriched record.',
+      },
+    ],
+  },
 ];
 
 export function getCompetitor(slug: string): Competitor | undefined {
