@@ -3429,6 +3429,611 @@ full technical context first so you can decide if it's worth your time.
       },
     ],
   },
+  {
+    slug: 'developer-outreach-email-templates',
+    title: '10 Cold Email Templates for Developer Outreach That Actually Get Replies (2026)',
+    description:
+      'Ten proven cold email templates for reaching developers. Written for B2B SaaS teams selling to engineers — covers GitHub signal triggers, repo-specific personalization, and subject lines that clear spam filters.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 9,
+    keywords: ['developer outreach email templates', 'cold email to developers', 'developer cold email', 'email templates for developers', 'developer prospecting email'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Developers receive a lot of cold email. Most of it is deleted instantly — not because developers hate email, but because the emails read like they were written for a VP of Sales at a Fortune 500, not someone who just pushed a commit. The templates below are built for teams selling developer tools and are designed around one core principle: reference something real. Generic emails get ignored. Signal-triggered emails — referencing a specific repo, keyword, or GitHub action — get replies.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Developer Cold Email Is Different',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers are pattern-matching machines. They can identify a mail-merge template in the first sentence. Anything that reads like "I noticed you\'re a {ROLE} at {COMPANY}" goes straight to trash. What works is specificity: a reference to an exact repo they starred, a PR they opened, or a GitHub Discussion they participated in. The more specific the signal, the higher the reply rate.',
+      },
+      {
+        type: 'p',
+        content:
+          'The emails below assume you have access to a GitHub signal — either through GitLeads or manual GitHub research. Each template is followed by notes on personalization and what triggers it works best with.',
+      },
+      {
+        type: 'h2',
+        content: 'Template 1: Repo Stargazer (Warm Signal)',
+      },
+      {
+        type: 'p',
+        content: 'Use when: a developer starred a repo you track (your own, a competitor\'s, or a related open-source project).',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Quick note re: [repo-name]
+
+Hi [first name],
+
+Saw you starred [repo-name] — nice project. We built [your product] specifically for teams using [related tech stack].
+
+It does [one specific thing] that [repo-name] doesn't handle out of the box. Worth a 15-minute look?
+
+[First name] @ [Company]
+[One-line value prop link]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Notes: Keep it under 5 sentences. Do not pitch pricing in the first email. The goal is a reply, not a demo. "Nice project" shows you looked at it — don\'t fake this. If you haven\'t actually looked at the repo, remove that line.',
+      },
+      {
+        type: 'h2',
+        content: 'Template 2: Competitor Stargazer (Cold Signal)',
+      },
+      {
+        type: 'p',
+        content: 'Use when: a developer starred a competitor\'s repo. They are actively evaluating in your category.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Alternative to [Competitor] worth considering
+
+Hi [first name],
+
+Noticed you were looking at [Competitor] — we get a lot of teams switching from there. The main reason is [specific differentiator, e.g., "we don't charge per seat" or "we have a self-hosted option"].
+
+Happy to send a quick comparison doc if that would be useful.
+
+[First name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Notes: Do not badmouth the competitor. "Switching from" implies others have evaluated both — social proof without being aggressive. The offer of a comparison doc is low friction and high intent.',
+      },
+      {
+        type: 'h2',
+        content: 'Template 3: GitHub Issue / PR Keyword Match',
+      },
+      {
+        type: 'p',
+        content: 'Use when: a developer mentioned a relevant keyword in a GitHub Issue, PR, or Discussion.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Re: [issue title or problem description]
+
+Hi [first name],
+
+Came across your comment in [repo]/issues/[number] — you were asking about [specific problem].
+
+We solve exactly that with [product]. [One sentence on how]. Here's a quick demo: [link].
+
+Let me know if it would be worth 10 minutes.
+
+[First name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Notes: Link to the actual GitHub issue in your CRM notes but don\'t paste the URL in the email — it looks like you\'re monitoring them. Reference the problem, not the activity. "Came across your comment" is plausible and honest.',
+      },
+      {
+        type: 'h2',
+        content: 'Template 4: Open Source Contributor Outreach',
+      },
+      {
+        type: 'p',
+        content: 'Use when: you want to reach active contributors to a relevant open-source project.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: [First name] — quick note from someone who uses [oss-project]
+
+Hi [first name],
+
+I noticed you\'ve contributed to [oss-project] — [specific observation, e.g., "the recent work on the OAuth module is solid"].
+
+We\'re building [product] on top of [oss-project] and running into [specific challenge]. We also offer [relevant feature] that I think would be relevant to your use case.
+
+Would it make sense to compare notes?
+
+[First name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Notes: Contributor outreach converts higher than stargazer outreach because you\'re reaching people with deep domain knowledge. The "compare notes" CTA is peer-to-peer, not salesy. Only use if you genuinely use or build on the project.',
+      },
+      {
+        type: 'h2',
+        content: 'Template 5: Follow-up After No Reply (7 Days)',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Re: [previous subject]
+
+[First name] — bumping this in case it got buried.
+
+Happy to send a [5-minute video walkthrough / quick comparison doc / self-serve trial] if that\'s easier than a call.
+
+[First name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Notes: One follow-up only. Developers who are interested will respond. Multiple follow-ups damage your domain reputation and get you blocked. Give them an alternative to a call — many developers will click a self-serve link and never book a meeting, and that is fine.',
+      },
+      {
+        type: 'h2',
+        content: 'Template 6: DevRel / Community Angle',
+      },
+      {
+        type: 'p',
+        content: 'Use when: targeting developer advocates, community builders, or open-source maintainers.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: [Product] + [their community/project]
+
+Hi [first name],
+
+Big fan of what you\'re doing with [community/project]. We built [product] and I think your audience would find it useful — especially [specific feature relevant to their community].
+
+Open to exploring a partnership, guest post, or just sharing it with your audience?
+
+No pressure either way.
+
+[First name]`,
+      },
+      {
+        type: 'h2',
+        content: 'Template 7: Free Trial or Freemium CTA',
+      },
+      {
+        type: 'p',
+        content: 'Use when: you have a free tier and the developer audience responds to self-serve. Do not ask for a meeting — ask for a click.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Free tool for [specific problem]
+
+Hi [first name],
+
+We built a free tool that solves [specific problem] — no signup friction, no credit card.
+
+[Link to free tier or trial]
+
+Worth bookmarking if you\'re working on [relevant use case]. Let me know what you think.
+
+[First name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Notes: "No signup friction" and "no credit card" are high-converting phrases for developer audiences. Developers often prefer to evaluate independently before talking to sales. Let them.',
+      },
+      {
+        type: 'h2',
+        content: 'Template 8: The Technical Question Open',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Quick technical question — [topic]
+
+Hi [first name],
+
+Working on [technical problem] and noticed you\'ve built in this space based on [GitHub signal]. Quick question: [specific technical question relevant to their expertise]?
+
+We\'re building [product] and your perspective would be genuinely useful. Happy to share what we\'ve learned in return.
+
+[First name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Notes: Developers respond well to genuine technical curiosity. This works best when the question is real and you plan to actually engage with their answer. It opens a conversation, not a sales pitch.',
+      },
+      {
+        type: 'h2',
+        content: 'Template 9: Post-Launch Outreach',
+      },
+      {
+        type: 'p',
+        content: 'Use when: you just launched something relevant to their tech stack or use case.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Just launched: [feature/product] for [tech stack]
+
+Hi [first name],
+
+We just shipped [feature/product] — built specifically for [tech stack] teams dealing with [problem].
+
+Given your work on [GitHub signal context], I thought you\'d want to know. Here\'s what\'s new: [link]
+
+Would love your feedback if you get a chance to look.
+
+[First name]`,
+      },
+      {
+        type: 'h2',
+        content: 'Template 10: The Referral Ask',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: [Mutual connection] suggested I reach out
+
+Hi [first name],
+
+[Mutual connection] mentioned you\'re working on [relevant project or problem] — we built [product] specifically for that use case.
+
+Would it be worth a quick look?
+
+[First name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Notes: Only use this if the referral is real. Fake referrals get exposed instantly and permanently damage trust. If the referral is genuine, this template converts very high.',
+      },
+      {
+        type: 'h2',
+        content: 'Subject Line Best Practices for Developer Email',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Keep subject lines under 50 characters — most developer inboxes are scanned on mobile',
+          'Avoid words that trigger spam filters: "free trial", "guaranteed", "act now", "limited time"',
+          'Specific beats generic: "Re: your Postgres migration issue" > "Quick question"',
+          'Lowercase subject lines often outperform title case for developer audiences',
+          'Never use emojis in cold email to developers — it reads as marketing noise',
+          'Questions in subject lines work ("Worth 10 minutes?") but only if the email delivers on the question',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Where to Find GitHub Signals for Email Personalization',
+      },
+      {
+        type: 'p',
+        content:
+          'The templates above require a real signal. Here is how to get them at scale without manual research. GitLeads monitors GitHub repos and keywords in real time: when a developer stars a tracked repo, mentions a keyword in an Issue or PR, or forks a project, GitLeads captures the event and pushes an enriched lead record — name, email (if public), GitHub bio, company, top languages, and the specific signal context — into HubSpot, Slack, Smartlead, Instantly, Clay, or any other tool in your stack. The signal arrives within seconds of the GitHub event, so you can reach out while the developer is still actively evaluating.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Start capturing GitHub signals for email personalization — free at gitleads.app, 50 leads/month, no credit card. Related reading: how to find leads on GitHub, turn GitHub stargazers into leads, push GitHub leads to your CRM.',
+      },
+    ],
+  },
+  {
+    slug: 'github-lead-generation-for-saas-founders',
+    title: 'GitHub Lead Generation for SaaS Founders: The No-Fluff Playbook',
+    description:
+      'A practical guide for B2B SaaS founders selling to developers. How to use GitHub signals — stargazers, keyword mentions, and competitor repos — to build a qualified developer pipeline without paid ads or hiring SDRs.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 8,
+    keywords: ['github lead generation saas', 'saas founder developer gtm', 'find developer customers github', 'github prospecting for founders', 'developer lead generation saas'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'If you\'re a SaaS founder building for developers, you have a distribution advantage that most B2B founders don\'t: your customers live on GitHub. They post their problems in Issues. They evaluate tools by starring repos. They write code that reveals their stack. The challenge is not that developer leads are hard to find — it\'s that most founders aren\'t set up to capture the signals when they fire.',
+      },
+      {
+        type: 'h2',
+        content: 'The Developer Buying Journey Starts on GitHub',
+      },
+      {
+        type: 'p',
+        content:
+          'Enterprise buyers research on G2, Gartner, and vendor websites. Developers research on GitHub. When a developer needs a logging library, they search GitHub. When they\'re evaluating observability tools, they star repos. When they hit a problem your product solves, they open a GitHub Issue describing it. These are buying signals — often more accurate than any intent data vendor because they\'re behavioral and specific.',
+      },
+      {
+        type: 'p',
+        content:
+          'The problem is that GitHub signals are ephemeral. A star happens, a repo gets a new contributor, an issue is opened — and unless you\'re watching, you miss it. Most founders do one of two things: nothing (miss the signal entirely) or manual scraping (unsustainable at scale). There\'s a better way.',
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 1: Your Own Repo\'s Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'If your product has an open-source component, a CLI, an SDK, or any public GitHub presence, every new star is a warm lead. Stargazers have self-identified as interested in what you do. The question is: who are they, and how do you reach them?',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub API exposes stargazers with timestamps, so you can get not just who starred but when. Combined with the user\'s public profile — bio, company, top languages, email if listed — you have enough context to write a genuinely personalized outreach email in under 2 minutes.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'New stars on your SDK or CLI repo → founders and engineers evaluating your developer tool',
+          'New stars on your documentation site repo → developers in active research mode',
+          'New forks of your template or example project → developers who are trying to implement what you do',
+          'New watchers on your main repo → developers tracking your release cadence (high intent)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 2: Competitor Repo Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'This is one of the highest-leverage moves available to early-stage founders: monitor the repos of your main competitors and capture everyone who stars them. These are developers who are actively evaluating your category right now. They haven\'t chosen a vendor yet. They are your warmest possible cold leads.',
+      },
+      {
+        type: 'p',
+        content:
+          'You can monitor multiple competitor repos simultaneously. A developer who stars both Competitor A and Competitor B is clearly in active evaluation mode and should be prioritized for outreach. Signal stacking — a developer showing multiple signals across related repos — is a strong indicator of near-term purchase intent.',
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 3: Keyword Mentions in GitHub Issues and PRs',
+      },
+      {
+        type: 'p',
+        content:
+          'This is the most underused signal in developer GTM. Developers describe their problems in GitHub Issues before they search for solutions. If you monitor the right keywords, you can find developers actively dealing with the problem your product solves — before they\'ve started evaluating vendors.',
+      },
+      {
+        type: 'p',
+        content:
+          'For example: if you build a database connection pooling tool, monitoring GitHub for "too many connections", "connection pool exhausted", or "pgbouncer alternative" will surface developers with the exact problem you solve. The same works for any category.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Examples of keyword signals to monitor by category:
+
+Observability tools: "tracing overhead", "otel alternative", "distributed tracing slow"
+Auth tools: "JWT token rotation", "session management pain", "auth middleware"
+API tools: "rate limit handling", "api gateway config", "openapi spec"
+Data pipeline: "etl bottleneck", "kafka consumer lag", "dbt model slow"
+Security tools: "dependency vulnerability", "supply chain attack", "SBOM"`,
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 4: Stars on Adjacent / Complementary Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'Even if a developer doesn\'t star your exact category, they may star tools in the same ecosystem. If you build an observability layer for Kubernetes, developers starring the Kubernetes, Prometheus, and Grafana repos are your ICP. Set up monitoring across the ecosystem, not just direct competitors.',
+      },
+      {
+        type: 'h2',
+        content: 'The Founder\'s Manual Workflow (0 to First Pipeline)',
+      },
+      {
+        type: 'ol',
+        items: [
+          'List the 3-5 GitHub repos most relevant to your ICP: your own repo, top 2 competitors, top 1-2 ecosystem tools',
+          'Check stargazers weekly via the GitHub API or GitLeads — filter for developers with public emails or company names matching your ICP',
+          'Write 3-sentence emails referencing the specific repo they starred and the one problem you solve for that use case',
+          'Send manually the first time. Track replies and iterate on messaging before automating anything',
+          'Once you have a message that converts >10%, automate: use GitLeads to push stargazers directly into Smartlead or Instantly campaigns',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'When to Automate (and When Not To)',
+      },
+      {
+        type: 'p',
+        content:
+          'Manual outreach is faster to learn from but doesn\'t scale. Automated outreach scales but you need to get the messaging right first. The founder mistake is to automate too early — running automated sequences with templates that don\'t convert wastes leads and damages your domain reputation.',
+      },
+      {
+        type: 'p',
+        content:
+          'Automate when: you have at least 10 replies from manual outreach and understand what message works. Automate by pushing GitLeads captures directly into an email tool like Smartlead or Instantly. Keep personalization tokens tied to the specific GitHub signal — repo name, keyword matched, and the specific problem it signals.',
+      },
+      {
+        type: 'h2',
+        content: 'Founder Mistakes to Avoid',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Monitoring repos and never reaching out — signals expire, developers move on',
+          'Sending identical templates to every lead — developers see through it immediately',
+          'Pitching pricing in the first email — lead with the problem you solve, not how much it costs',
+          'Over-following up — one follow-up maximum; respect the developer\'s inbox',
+          'Ignoring leads without public emails — many are reachable via their company domain, GitHub username on LinkedIn, or community channels',
+          'Waiting until you have "enough data" — start with 10 manual outreach attempts this week',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Tools for the Stack',
+      },
+      {
+        type: 'ul',
+        items: [
+          'GitLeads — monitor GitHub repos and keywords, push enriched leads to your outreach stack automatically',
+          'Smartlead or Instantly — email infrastructure with high deliverability for cold outreach',
+          'Clay — enrich leads with additional data (LinkedIn, company size, funding) before outreach',
+          'HubSpot free — CRM to track conversations and prevent duplicate outreach',
+          'n8n or Make — automation layer if you need custom routing between tools',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads is free for the first 50 leads per month — no credit card required. Start monitoring your own repo and two competitor repos today at gitleads.app. Related reading: how to find leads on GitHub, turn GitHub stargazers into leads, competitor repo stargazers as leads.',
+      },
+    ],
+  },
+  {
+    slug: 'what-is-github-intent-data',
+    title: 'What Is GitHub Intent Data? Why It Converts Better Than Web Signals',
+    description:
+      'GitHub intent data captures real developer buying signals — repo stars, keyword mentions in Issues and PRs — at the moment they fire. Learn how it differs from traditional web-based intent data and why it converts better for developer tool companies.',
+    publishedAt: '2026-04-24',
+    updatedAt: '2026-04-24',
+    readingTime: 7,
+    keywords: ['github intent data', 'developer intent signals', 'github buying signals', 'developer intent data b2b', 'github signal monitoring'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Intent data is the category of B2B sales intelligence that tells you who is actively researching your product category right now. Traditional intent data — from vendors like Bombora, G2, or ZoomInfo — tracks web content consumption: when a company\'s employees read articles about "API security" or visit vendor comparison pages, that registers as an intent signal at the account level. GitHub intent data is different. It captures individual developer behavioral signals directly from the world\'s largest developer platform, in real time, with specific context about what the developer is evaluating.',
+      },
+      {
+        type: 'h2',
+        content: 'How Traditional Intent Data Works',
+      },
+      {
+        type: 'p',
+        content:
+          'Bombora, the largest intent data provider, runs a co-op of 5,000+ B2B websites. When employees at a target account visit content related to your category, those page views are aggregated, normalized, and sold as an "intent spike" — a signal that Company X is researching Topic Y. G2 and Capterra provide similar signals from software review site traffic.',
+      },
+      {
+        type: 'p',
+        content:
+          'The problems with this approach for developer tool companies: First, developers rarely read traditional B2B content. They read GitHub READMEs, documentation sites, and Stack Overflow. Second, intent data is account-level — you know Acme Corp is researching something, not which specific developer, and not what they actually evaluated. Third, the signal lags by days or weeks. By the time Bombora reports a spike, the developer has often already made a decision.',
+      },
+      {
+        type: 'h2',
+        content: 'What GitHub Intent Data Captures',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub intent data monitors the GitHub platform for behavioral events that indicate a developer is evaluating your category. There are two primary signal types:',
+      },
+      {
+        type: 'h3',
+        content: 'Stargazer Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'When a developer stars a GitHub repository, they are bookmarking it for future reference. A star on a developer tool repository is a high-confidence signal that the developer is actively evaluating that tool or its category. Unlike a web page view, a star requires deliberate action — the developer opened the repo, read enough to be interested, and clicked the star button. The GitHub API exposes every star with a timestamp and the full public profile of the user who starred.',
+      },
+      {
+        type: 'h3',
+        content: 'Keyword Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'When a developer opens a GitHub Issue, submits a pull request, or writes a GitHub Discussion that mentions a keyword related to your product category, they are describing a problem they are actively solving. "We keep hitting connection pool limits" in a GitHub Issue is a more direct buying signal for a connection pooling tool than any website visit. The developer is not browsing content — they are wrestling with the exact problem your product solves.',
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Intent Data vs. Traditional Intent Data: Key Differences',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Person-level vs. account-level: GitHub intent identifies the specific developer, not just their employer',
+          'Real-time vs. lagged: GitHub signals fire within seconds; Bombora spikes report weekly or monthly',
+          'Behavioral vs. passive: a GitHub star or issue comment is active intent, not a passive page view',
+          'Signal context included: you know why the signal fired (which repo, which keyword, in what repository)',
+          'Developer-native: GitHub is where developers actually research, not B2B content sites',
+          'No content co-op required: signals come directly from the GitHub API, not from third-party tracking pixels',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Intent Converts Better',
+      },
+      {
+        type: 'p',
+        content:
+          'The conversion advantage of GitHub intent data comes down to specificity and timing. When you reach out to a developer within hours of them starring a competitor\'s repo, you have a concise, accurate reason for the outreach: "I saw you were looking at [Competitor] — here\'s how we\'re different." That specificity dramatically increases reply rates compared to outreach based on "your company showed intent for API tools last month."',
+      },
+      {
+        type: 'p',
+        content:
+          'Timing matters because developer evaluation cycles are fast. A developer who is actively comparing tools today may have a tool selected by next week. Traditional intent data often surfaces signals after the decision is made. GitHub intent data surfaces signals while the developer is still in active evaluation.',
+      },
+      {
+        type: 'h2',
+        content: 'Who Should Use GitHub Intent Data',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub intent data is specifically valuable for companies selling to developers. If your buyers are software engineers, DevOps teams, ML engineers, or technical founders, GitHub intent data gives you visibility into a signal channel that traditional intent vendors cannot access. It is not a replacement for web-based intent data — it is a complementary layer that covers the pre-website research phase that happens on GitHub.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Developer tool companies: CLI tools, SDKs, API services, libraries',
+          'Infrastructure software: databases, cloud services, CI/CD, observability',
+          'DevRel teams: identifying developers active in relevant open-source communities',
+          'Tech recruiters: finding engineers with demonstrated expertise in specific tech stacks',
+          'Developer-first SaaS: any product where the end user evaluates on GitHub before purchasing',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How to Capture GitHub Intent Data',
+      },
+      {
+        type: 'p',
+        content:
+          'Capturing GitHub intent data requires monitoring the GitHub API for specific events: new stargazers on tracked repos and keyword matches across Issues, PRs, Discussions, and code. The technical approach involves polling the REST API (stargazers list, search/issues endpoints) and maintaining state to identify new events since the last check. Rate limits are the main constraint — GitHub allows 5,000 API requests per hour per authenticated token for REST, and 30 search requests per minute.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads handles this infrastructure automatically: configure the repos and keywords to monitor, connect your CRM or Slack, and enriched lead profiles appear in your stack within seconds of a GitHub signal firing. The free tier supports 50 leads per month — enough to validate the signal before scaling.',
+      },
+      {
+        type: 'h2',
+        content: 'Combining GitHub Intent with Traditional Intent Data',
+      },
+      {
+        type: 'p',
+        content:
+          'The highest-signal developer pipeline combines both approaches. Use GitHub intent data (GitLeads) to capture individual developer signals at the top of the funnel — repo evaluations, problem mentions, ecosystem research. Use traditional intent data (ZoomInfo, Bombora) at the account level to identify which companies have additional stakeholders showing web-based intent. When a developer from a company shows GitHub intent AND the account shows web-based intent, that is a strong signal to prioritize immediately.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Start capturing GitHub intent data free at gitleads.app — 50 leads/month, no credit card. Related reading: GitHub buying signals for sales teams, how to find leads on GitHub, turn GitHub stargazers into leads.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
