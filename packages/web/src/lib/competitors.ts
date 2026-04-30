@@ -1227,6 +1227,131 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
   },
+  // ─── Koala ──────────────────────────────────────────────────────────────────
+  {
+    slug: 'koala',
+    name: 'Koala',
+    tagline: 'GitHub signal capture and pipeline automation for developer tools',
+    metaTitle: 'GitLeads vs Koala — GitHub Signal Monitoring Comparison 2026',
+    metaDescription:
+      'Compare GitLeads and Koala.sh for GitHub signal capture. Both monitor GitHub stars and activity to generate developer leads. See how they differ on signal depth, integrations, pricing, and competitor repo tracking.',
+    intro:
+      'Koala is a go-to-market platform that combines website de-anonymization with GitHub signal capture — identifying companies visiting your site and developers starring your repo, then routing those signals to your sales team. GitLeads is purpose-built for the GitHub signal layer: it monitors stargazers on your repos and competitor repos, scans keyword mentions across GitHub Issues, PRs, Discussions, code, and commits, and pushes enriched developer lead profiles into 15+ sales and outreach tools. Both products capture GitHub intent signals, but they differ significantly on signal breadth, integration depth, and whether you need the website tracking component.',
+    ourOneLiner:
+      'Koala combines website visitor ID with GitHub signals. GitLeads goes deeper on GitHub: competitor repo monitoring, keyword scanning across all of GitHub, and direct push to 15+ outreach tools.',
+    theyWin: [
+      'Combined website de-anonymization + GitHub signal capture in one platform',
+      'Account-level intent scoring that combines web visit data with GitHub activity',
+      'Strong Salesforce and HubSpot native integrations with account matching',
+      'Useful if you need website visitor identification alongside GitHub signals',
+      'AI-powered lead scoring that combines multiple signal sources',
+    ],
+    weWin: [
+      'Competitor repo monitoring — track stargazers on any public repo you do not own',
+      'GitHub keyword monitoring: issues, PRs, discussions, code search, and commit messages',
+      'Broader integration coverage: Apollo, Clay, Pipedrive, Lemlist, Instantly, Smartlead, n8n, Make, Zapier, webhooks',
+      'Transparent self-serve pricing starting free (50 leads/month)',
+      'Focused entirely on GitHub signals — deeper coverage of the GitHub signal surface area',
+      'No website tracking required — works even if your product has no marketing site traffic',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring (real-time)', gitleads: true, competitor: true },
+      { feature: 'Competitor repo tracking (repos you do not own)', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs/discussions/code/commits)', gitleads: true, competitor: 'Limited' },
+      { feature: 'Website visitor de-anonymization', gitleads: false, competitor: true },
+      { feature: 'Account-level intent scoring', gitleads: false, competitor: true },
+      { feature: 'Apollo.io integration', gitleads: true, competitor: false },
+      { feature: 'Clay integration', gitleads: true, competitor: 'Via Zapier' },
+      { feature: 'Lemlist / Instantly / Smartlead integration', gitleads: true, competitor: false },
+      { feature: 'n8n / Make / Zapier / webhook', gitleads: true, competitor: 'Zapier only' },
+      { feature: 'Slack lead notifications', gitleads: true, competitor: true },
+      { feature: 'HubSpot / Salesforce native push', gitleads: true, competitor: true },
+      { feature: 'Free tier', gitleads: true, competitor: false },
+      { feature: 'Self-serve signup (no sales call)', gitleads: true, competitor: 'Demo required' },
+    ],
+    forThem:
+      'Koala is the right choice if you want a combined platform that identifies both website visitors and GitHub signals with unified account-level intent scoring. If your sales team already reviews website de-anonymization data and you want to add GitHub signal data to the same dashboard and workflow — with Salesforce or HubSpot as your system of record — Koala makes sense. It is particularly strong for account-based sales motions where combining web visit frequency with GitHub activity gives a richer intent score.',
+    forUs:
+      'GitLeads is the right choice when your intent signal strategy is GitHub-first and you need deeper coverage of the GitHub signal surface. If you need to monitor competitor repos (not just your own), scan keyword mentions across all of GitHub Issues and PRs, and push leads into a broader range of outreach tools (Apollo, Clay, Lemlist, Instantly, n8n, Make, Zapier), GitLeads provides that coverage out of the box with a transparent self-serve free tier. For developer tool companies where GitHub activity is the primary signal channel and website traffic is minimal or irrelevant, GitLeads is purpose-built for that use case.',
+    faq: [
+      {
+        q: 'Can GitLeads monitor competitor GitHub repos like Koala cannot?',
+        a: 'Yes. GitLeads can monitor stargazers on any public GitHub repository — including repos owned by competitors or third-party projects in your ecosystem. You simply add the repo URL to your tracking list. Koala\'s GitHub monitoring is focused on your own repos (repos where you have webhook access). This is one of the most significant functional differences between the two products.',
+      },
+      {
+        q: 'Does GitLeads have website visitor de-anonymization like Koala?',
+        a: 'No. GitLeads is focused exclusively on GitHub signals. If you need website visitor identification alongside GitHub monitoring, you could combine GitLeads for the GitHub layer with a dedicated web de-anonymization tool (RB2B, Clearbit Reveal, or similar). Koala combines both in one product, which is a legitimate reason to choose it if you need both capabilities under one dashboard.',
+      },
+      {
+        q: 'How does GitLeads pricing compare to Koala?',
+        a: 'GitLeads has a public self-serve free tier (50 leads/month) and transparent paid plans starting at $49/month. Koala requires a demo call for pricing and does not publicly list plan costs. For teams that want to start capturing GitHub signals immediately without a sales conversation, GitLeads is faster to start.',
+      },
+    ],
+  },
+
+  // ─── Warmly ─────────────────────────────────────────────────────────────────
+  {
+    slug: 'warmly',
+    name: 'Warmly',
+    tagline: 'AI-powered website de-anonymization and real-time sales automation',
+    metaTitle: 'GitLeads vs Warmly — GitHub Intent Signals vs Website De-Anonymization',
+    metaDescription:
+      'Compare GitLeads and Warmly. Warmly de-anonymizes website visitors and automates real-time outreach. GitLeads captures GitHub buying signals and routes developer leads into your sales stack. Different signal layers for different GTM motions.',
+    intro:
+      'Warmly is an AI-powered website de-anonymization and sales automation platform. It identifies companies (and sometimes individuals) visiting your website in real time, scores their intent based on visit behavior, and can automatically trigger outreach via live chat, email, or LinkedIn — all without a human in the loop. GitLeads operates on a completely different signal layer: instead of monitoring website visits, it monitors GitHub activity. It captures developers who star tracked repos, mention keywords in GitHub Issues and PRs, or fork relevant projects — and pushes enriched developer profiles into your existing CRM, Slack, Apollo, Clay, and outreach tools.',
+    ourOneLiner:
+      'Warmly de-anonymizes your website visitors. GitLeads captures developer buying signals from GitHub — before they ever visit your website.',
+    theyWin: [
+      'Real-time website visitor de-anonymization at the company and person level',
+      'AI-powered live chat and automated outreach that fires while visitors are on your site',
+      'Strong intent scoring based on page depth, visit frequency, and time on site',
+      'LinkedIn ad targeting from website visitor data',
+      'Good fit for SaaS companies with significant website traffic as the primary demand signal',
+    ],
+    weWin: [
+      'Captures developer intent before the website visit — GitHub signals are earlier in the buying journey',
+      'Works for developer tool companies with minimal marketing site traffic',
+      'Competitor repo monitoring: track developers evaluating alternatives',
+      'GitHub keyword monitoring across Issues, PRs, Discussions, code, and commits',
+      'Broader outreach integration: Apollo, Clay, Lemlist, Instantly, Smartlead, n8n, Make, Zapier',
+      'Developer-native enrichment: bio, top languages, followers, public repos, GitHub activity',
+      'Transparent self-serve pricing starting free',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring (real-time)', gitleads: true, competitor: false },
+      { feature: 'Competitor repo tracking', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs/code)', gitleads: true, competitor: false },
+      { feature: 'Website visitor de-anonymization', gitleads: false, competitor: true },
+      { feature: 'Real-time website visitor chat/outreach automation', gitleads: false, competitor: true },
+      { feature: 'Developer profile enrichment (GitHub data)', gitleads: true, competitor: false },
+      { feature: 'HubSpot / Salesforce CRM push', gitleads: true, competitor: true },
+      { feature: 'Apollo.io integration', gitleads: true, competitor: false },
+      { feature: 'Slack lead notifications', gitleads: true, competitor: true },
+      { feature: 'Clay / n8n / Make / Zapier', gitleads: true, competitor: 'Zapier only' },
+      { feature: 'Signal context (why the lead fired)', gitleads: true, competitor: 'Page URL + visit data' },
+      { feature: 'Works without website traffic', gitleads: true, competitor: false },
+      { feature: 'Free tier', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Warmly is the right choice for B2B SaaS companies where website traffic is the primary demand signal and the team wants to act on that intent in real time — especially through automated chat or LinkedIn outreach while the visitor is still on the site. If your sales motion is high-volume, website-traffic-driven, and your ICP is reachable via company-level account identification, Warmly\'s AI-driven real-time engagement tooling is purpose-built for that.',
+    forUs:
+      'GitLeads is the right choice for developer tool companies where GitHub is the primary discovery and intent channel. Developers often find tools on GitHub (starred by peers, mentioned in an issue, found via topic search) before they ever visit the marketing site. If your website traffic is modest but your GitHub repo has meaningful star activity — or if you want to monitor competitor GitHub activity and keyword signals across the platform — GitLeads captures intent that Warmly cannot see. The two tools are complementary: GitLeads for the GitHub signal layer, Warmly for the website layer.',
+    faq: [
+      {
+        q: 'How is GitLeads different from Warmly for developer tool companies?',
+        a: 'Warmly identifies who visits your website. GitLeads identifies developers who show buying intent on GitHub — starring your repo or a competitor\'s, mentioning a relevant keyword in a GitHub Issue or PR. For developer tools, GitHub signals often precede the website visit: a developer finds your tool on GitHub, evaluates it there, and may never visit the marketing site before signing up directly. GitLeads captures that earlier signal layer.',
+      },
+      {
+        q: 'Can I use GitLeads and Warmly together?',
+        a: 'Yes, and they are complementary. GitLeads covers the GitHub signal layer (developer intent from GitHub activity). Warmly covers the website signal layer (company and person-level website visitor data). Together they give fuller coverage of where developers are showing intent for your product category. Many developer tool GTM teams use a GitHub intent tool alongside a website de-anonymization tool rather than choosing between them.',
+      },
+      {
+        q: 'Does GitLeads do website visitor identification?',
+        a: 'No. GitLeads is focused exclusively on GitHub signals: repo stars, forks, and keyword mentions in Issues, PRs, Discussions, code, and commits. For website visitor identification, dedicated tools like Warmly, RB2B, or Clearbit Reveal are the right fit.',
+      },
+    ],
+  },
+
   // ─── Orbit ──────────────────────────────────────────────────────────────────
   {
     slug: 'orbit',

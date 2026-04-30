@@ -10482,6 +10482,1078 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \\
       },
     ],
   },
+  // ── Integration posts: email outreach tools ──────────────────────────────
+  {
+    slug: 'push-github-leads-to-lemlist',
+    title: 'Push GitHub Leads to Lemlist: Multi-Channel Sequences Powered by GitHub Signals',
+    description:
+      'How to connect GitLeads to Lemlist so GitHub stars, forks, and keyword signals automatically enter multi-channel outreach sequences with personalized images and LinkedIn steps.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 7,
+    keywords: [
+      'push github leads to lemlist',
+      'github leads lemlist',
+      'lemlist github integration',
+      'github multi-channel outreach',
+      'developer lead generation lemlist',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Lemlist is a multi-channel outreach platform known for personalized image and video thumbnails, LinkedIn step automation, and warm deliverability. GitLeads captures developer buying signals from GitHub in real time — new stars on tracked repos, keyword mentions in issues and PRs. Connecting them means every developer who signals intent on GitHub can automatically enter a Lemlist campaign with context-rich personalization data baked in.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Signals Make Lemlist Sequences Actually Personal',
+      },
+      {
+        type: 'p',
+        content:
+          'Lemlist\'s differentiator is personalization at scale — custom images, introductory lines, and variable-driven copy. But personalization only works if you have something real to personalize with. "I noticed you work in software engineering" is not personalization. "I saw you starred the LangChain repo — guessing you\'re building something with LLMs" is. GitHub signals give you the real trigger. Lemlist gives you the delivery infrastructure.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signal → reference the repo they starred in your first image/line',
+          'Keyword mention → reference the specific problem they described in the issue',
+          'Fork signal → note they\'re actively building with a related project',
+          'Top language from GitHub profile → tailor technical copy to their stack',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Integration Architecture: GitLeads → Lemlist',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads sends enriched lead data via webhook on every new signal. Lemlist exposes a REST API to add leads to campaigns. The integration is a lightweight webhook handler — either a serverless function or a no-code tool like Make, n8n, or Zapier.',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// Webhook handler: GitLeads → Lemlist
+// Deploy as a Vercel/Cloudflare/Railway serverless function
+
+export async function POST(req) {
+  const lead = await req.json();
+
+  if (!lead.email) return new Response('skipped');
+
+  // Choose campaign by signal type
+  const campaignId = {
+    stargazer: process.env.LEMLIST_STARGAZER_CAMPAIGN_ID,
+    keyword:   process.env.LEMLIST_KEYWORD_CAMPAIGN_ID,
+    fork:      process.env.LEMLIST_FORK_CAMPAIGN_ID,
+  }[lead.signalType] ?? process.env.LEMLIST_STARGAZER_CAMPAIGN_ID;
+
+  const res = await fetch(
+    \`https://api.lemlist.com/api/campaigns/\${campaignId}/leads/\${lead.email}\`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa(':' + process.env.LEMLIST_API_KEY),
+      },
+      body: JSON.stringify({
+        firstName:      lead.name?.split(' ')[0] ?? lead.username,
+        lastName:       lead.name?.split(' ').slice(1).join(' ') ?? '',
+        companyName:    lead.company ?? '',
+        // Lemlist custom variables — use in {{variable}} syntax in sequences
+        githubUsername: lead.username,
+        signalContext:  lead.signalContext,   // "starred vercel/next.js"
+        topLanguage:    lead.topLanguages?.[0] ?? '',
+        location:       lead.location ?? '',
+        bio:            lead.bio ?? '',
+        followers:      String(lead.followers ?? 0),
+      }),
+    }
+  );
+
+  return res.ok ? new Response('ok') : new Response('error', { status: 500 });
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'No-Code Setup via Make (Recommended)',
+      },
+      {
+        type: 'p',
+        content:
+          'Make (formerly Integromat) has a native Lemlist module that simplifies the setup significantly. No custom webhook handler required:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'GitLeads → Integrations → Webhook → copy your webhook endpoint URL',
+          'Make → New scenario → Webhooks → Custom webhook (trigger)',
+          'Add a filter module: only continue if {{lead.email}} is not empty',
+          'Add a Lemlist module: "Add Lead to Campaign" — connect your Lemlist account',
+          'Map fields: firstName from lead.name, custom variables from signalContext, topLanguages, location',
+          'Set campaign: use the campaign ID for the signal type (stargazer vs keyword)',
+          'Test by starring one of your tracked repos — the lead should appear in Lemlist within 60 seconds',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Using GitHub Signal Context in Lemlist Personalized Images',
+      },
+      {
+        type: 'p',
+        content:
+          'Lemlist\'s signature feature is dynamic images — screenshots with text overlays personalized per recipient. The signal context GitLeads captures maps directly to this:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Background image: your product UI or a relevant screenshot',
+          'Text overlay variable 1: {{firstName}} — from GitLeads name field',
+          'Text overlay variable 2: {{signalContext}} — e.g. "starred prometheus/prometheus"',
+          'Result: a personalized image that says "Alex — saw you starred prometheus/prometheus"',
+        ],
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Lemlist sequence for GitHub stargazer leads:
+
+Email Step 1 — Day 0:
+Subject: {{firstName}} — you starred {{repoName}}
+
+[Personalized image: your product + "{{firstName}}, noticed you starred {{repoName}}"]
+
+Hi {{firstName}},
+
+Saw you starred {{signalContext}} — if you're evaluating [your category],
+[one-sentence pitch on what you do differently].
+
+[Social proof line — customer + outcome.]
+
+Worth a 15-minute look?
+
+LinkedIn Step — Day 2:
+Visit profile → connect with note referencing the same signal context.
+
+Email Step 2 — Day 4:
+Subject: Re: quick follow-up
+
+Following up on my last note. Happy to show you [specific use case
+relevant to {{topLanguage}} or {{signalContext}}].
+
+Email Step 3 — Day 9:
+Subject: Last one from me
+
+Not going to keep filling your inbox.
+If the timing ever changes: gitleads.app/signup (50 free leads/month).`,
+      },
+      {
+        type: 'callout',
+        content:
+          'Lemlist tip: Create separate campaigns for stargazer signals and keyword signals — the copy and image templates should differ because the context differs. Stargazer = awareness stage; keyword mention in issue = active problem stage. Different pain intensity, different CTA urgency.',
+      },
+      {
+        type: 'h2',
+        content: 'LinkedIn Steps with GitHub Context',
+      },
+      {
+        type: 'p',
+        content:
+          'Lemlist supports LinkedIn connection request and message steps. GitHub profiles often link directly to the developer\'s LinkedIn. GitLeads surfaces the GitHub profile URL; from there you can cross-reference LinkedIn. For high-value keyword signals (e.g., a developer asking about your exact use case in a GitHub issue), adding a LinkedIn step after email Step 1 meaningfully increases response rate.',
+      },
+      {
+        type: 'h2',
+        content: 'Lemlist vs Instantly vs Smartlead for GitHub Lead Sequences',
+      },
+      {
+        type: 'p',
+        content:
+          'All three tools work well with GitLeads. Lemlist wins if you want LinkedIn steps and personalized image/video thumbnails — it\'s the most multi-channel of the three. Instantly wins on deliverability infrastructure and price at high volume. Smartlead wins for teams that want AI sequence generation and advanced inbox rotation. GitLeads integrates identically with all three via webhook.',
+      },
+      {
+        type: 'h2',
+        content: 'Enriched Fields GitLeads Sends to Lemlist',
+      },
+      {
+        type: 'ul',
+        items: [
+          'email, name, GitHub username, profileUrl',
+          'company, location, bio — from GitHub public profile',
+          'followers, publicRepos, topLanguages (array)',
+          'signalType: stargazer | keyword | fork',
+          'signalContext: human-readable trigger description',
+          'repoName, repoOwner — for stargazer and fork signals',
+          'issueTitle, issueUrl, issueBody snippet — for keyword signals',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Related: push GitHub leads to Instantly, push GitHub leads to Smartlead, push GitHub leads to HubSpot, GitHub lead automation with n8n and Make, GitHub keyword monitoring for sales.',
+      },
+    ],
+  },
+  {
+    slug: 'push-github-leads-to-instantly',
+    title: 'Push GitHub Leads to Instantly: From GitHub Signal to Cold Email in Minutes',
+    description:
+      'Connect GitLeads to Instantly.ai so every new GitHub stargazer or keyword signal automatically enters your cold email sequence — enriched, filtered, and personalized.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 6,
+    keywords: [
+      'push github leads to instantly',
+      'github leads instantly',
+      'instantly ai github integration',
+      'github cold email instantly',
+      'developer prospecting instantly',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Instantly.ai is a cold email platform designed for high deliverability at volume — unlimited sending accounts, warmup infrastructure, and AI-assisted copy. GitLeads is a GitHub signal monitoring platform that captures developer buying intent in real time. Together, they form a cold email engine where the trigger is a real developer action on GitHub, not a static scraped list.',
+      },
+      {
+        type: 'h2',
+        content: 'What Makes GitHub Signals Ideal for Instantly Campaigns',
+      },
+      {
+        type: 'p',
+        content:
+          'Cold email performance is primarily a signal quality problem. Instantly solves the deliverability side. GitLeads solves the signal side. When a developer stars a competitor\'s repo, opens an issue asking about your category of product, or mentions a keyword in a pull request, that event is a real-time intent signal — far more precise than any filter you can apply to an Apollo database export.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer of competitor repo → in active vendor evaluation for your category',
+          'Keyword mention in issue/PR → experiencing the exact pain your product addresses',
+          'Forked a related OSS project → seriously evaluating adoption, not just researching',
+          'Stars on your own repo → warm lead who already knows your product exists',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How to Connect GitLeads to Instantly',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads supports outbound webhook delivery on every new lead. Instantly exposes a REST API for programmatically adding leads to campaigns. The integration requires a lightweight handler — either a serverless function or a no-code workflow tool like Make or Zapier.',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// Webhook handler: GitLeads → Instantly
+// Works as a Vercel Edge Function, Cloudflare Worker, or Next.js API route
+
+export async function POST(req) {
+  const lead = await req.json();
+
+  // Only process leads with a public email
+  if (!lead.email) return new Response('skipped', { status: 200 });
+
+  const INSTANTLY_API_KEY = process.env.INSTANTLY_API_KEY;
+  const CAMPAIGN_ID       = process.env.INSTANTLY_CAMPAIGN_ID;
+
+  const res = await fetch('https://api.instantly.ai/api/v1/lead/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type':  'application/json',
+      'Authorization': \`Bearer \${INSTANTLY_API_KEY}\`,
+    },
+    body: JSON.stringify({
+      api_key:     INSTANTLY_API_KEY,
+      campaign_id: CAMPAIGN_ID,
+      skip_if_in_workspace: true,  // deduplication
+      leads: [{
+        email:        lead.email,
+        first_name:   lead.name?.split(' ')[0] ?? lead.username,
+        last_name:    lead.name?.split(' ').slice(1).join(' ') ?? '',
+        company_name: lead.company ?? '',
+        // Custom variables — reference in email copy as {{github_signal}} etc.
+        personalization: lead.signalContext,  // e.g. "starred langchain/langchain"
+        github_username: lead.username,
+        top_language:    lead.topLanguages?.[0] ?? '',
+        location:        lead.location ?? '',
+      }],
+    }),
+  });
+
+  return res.ok ? new Response('ok') : new Response('error', { status: 500 });
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'No-Code Setup via Make or Zapier',
+      },
+      {
+        type: 'p',
+        content:
+          'If you prefer a no-code route, the setup takes under 10 minutes in Make or Zapier:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'GitLeads → Settings → Integrations → Webhook: copy your webhook URL',
+          'In Make: New scenario → Webhooks module (receive data) as trigger',
+          'Add an HTTP module: POST to https://api.instantly.ai/api/v1/lead/add with your API key and campaign ID',
+          'Map fields: lead.email → email, lead.signalContext → personalization variable',
+          'Add a filter: only continue if lead.email is not empty',
+          'Test by starring a tracked repo — the lead should appear in your Instantly campaign within 60 seconds',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Writing Instantly Sequences Around GitHub Signal Context',
+      },
+      {
+        type: 'p',
+        content:
+          'The personalization variable is the key differentiator. Standard cold email to "Python developers" has a 0.5% reply rate. Cold email to a developer who just starred a specific observability repo, with copy that references that repo, runs 3–8%. Map the signal context from GitLeads directly to your Instantly personalization field and reference it in the first line of your sequence.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Email 1 — Day 0:
+Subject: {{first_name}}, saw you {{personalization}}
+
+Hi {{first_name}},
+
+Noticed you {{personalization}} — if you're evaluating options in
+[your category], [one-line product pitch].
+
+[Social proof line.]
+
+Open to a quick look?
+
+---
+Email 2 — Day 3:
+Subject: Re: following up
+
+Bumping this up — happy to show you how [specific use case relevant to signal].
+
+---
+Email 3 — Day 7:
+Subject: Last one
+
+Not going to keep filling your inbox. If timing ever works out,
+[CTA + link to free plan].`,
+      },
+      {
+        type: 'callout',
+        content:
+          'Instantly tip: use the "personalization" field (not "first_name") as your primary variable for GitHub signal context. This keeps the signal context separate from the name merge tag and lets you test signal-personalized vs. non-personalized variants.',
+      },
+      {
+        type: 'h2',
+        content: 'Filtering Before Leads Hit Instantly',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub has many bots, machine users, and low-signal accounts. Before a lead enters an Instantly campaign, filter on: (1) public email must be present; (2) followers > 10 to filter out inactive or bot accounts; (3) exclude users with "[bot]" in their username; (4) optionally, filter by company domain if you only target specific firmographics. GitLeads allows server-side filters on all these fields so unqualified signals never reach your webhook.',
+      },
+      {
+        type: 'h2',
+        content: 'Data GitLeads Sends to Instantly',
+      },
+      {
+        type: 'ul',
+        items: [
+          'email, name, GitHub username, profile URL',
+          'company, location, bio — from public GitHub profile',
+          'followers, public repo count, top programming languages',
+          'signalType: stargazer | keyword | fork',
+          'signalContext: plain-English description (e.g. "starred vercel/next.js")',
+          'repoName, repoOwner for stargazer/fork signals',
+          'issueTitle, issueUrl for keyword signals',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'All fields are available as Instantly custom variables. Related: push GitHub leads to Smartlead, push GitHub leads to Lemlist, push GitHub leads to Clay, GitHub signal monitoring, GitHub lead automation with n8n and Make.',
+      },
+    ],
+  },
+  {
+    slug: 'push-github-leads-to-smartlead',
+    title: 'Push GitHub Leads to Smartlead: Automate Cold Email from GitHub Signals',
+    description:
+      'How to connect GitLeads to Smartlead so every new GitHub star or keyword signal automatically enters a cold email sequence — without manual CSV imports.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 7,
+    keywords: [
+      'push github leads to smartlead',
+      'github leads smartlead',
+      'smartlead github integration',
+      'github cold email automation',
+      'developer lead generation smartlead',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Smartlead is a cold email infrastructure platform built for scale — rotating inboxes, AI-personalization, and multi-channel sequences. GitLeads is a GitHub signal monitoring platform that captures developer buying intent in real time. Connecting the two means every developer who stars your tracked repo, forks a competitor\'s project, or mentions your keyword in a GitHub issue can automatically enter a Smartlead cold email campaign within minutes — no CSV exports, no manual imports.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Signals Are Better Cold Email Fuel Than Scraped Lists',
+      },
+      {
+        type: 'p',
+        content:
+          'Cold email performance is almost entirely determined by the quality of your signal before you write the first word. A developer who just starred a repo called "open-telemetry-sdk" is actively researching observability tooling. A developer who opened a GitHub issue asking about "self-hosted alternatives to Datadog" is in active vendor evaluation. These signals let you write cold emails that reference something real — and that specificity is what drives reply rates above 3%.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signal: developer starred your repo or a competitor\'s → they\'re researching your category',
+          'Keyword mention in issue/PR: developer asked about a problem your product solves → active pain point',
+          'Fork signal: developer forked a related repo → they\'re evaluating adoption, not just browsing',
+          'Commit keyword: developer mentioned a tool in a commit message → active usage context',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The GitLeads → Smartlead Integration Architecture',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads pushes enriched lead profiles via webhook to any HTTP endpoint. Smartlead exposes a REST API for adding leads to campaigns. The integration connects these two: GitLeads fires a webhook on each new signal, and the webhook handler calls the Smartlead API to insert the lead into the appropriate campaign.',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// Webhook handler: receive GitLeads signal → insert into Smartlead campaign
+// Deploy as a serverless function (Vercel, Cloudflare Workers, Railway, etc.)
+
+export async function POST(req) {
+  const lead = await req.json();
+
+  // Map GitLeads signal type to Smartlead campaign ID
+  const campaignMap = {
+    stargazer: 'YOUR_STARGAZER_CAMPAIGN_ID',
+    keyword:   'YOUR_KEYWORD_CAMPAIGN_ID',
+    fork:      'YOUR_FORK_CAMPAIGN_ID',
+  };
+
+  const campaignId = campaignMap[lead.signalType] ?? campaignMap.stargazer;
+
+  // Insert lead into Smartlead
+  const res = await fetch('https://server.smartlead.ai/api/v1/leads', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': process.env.SMARTLEAD_API_KEY,
+    },
+    body: JSON.stringify({
+      campaign_id: campaignId,
+      lead_list: [{
+        email:       lead.email,
+        first_name:  lead.name?.split(' ')[0] ?? lead.username,
+        last_name:   lead.name?.split(' ').slice(1).join(' ') ?? '',
+        company_name: lead.company ?? '',
+        // Custom variables for personalization
+        github_username: lead.username,
+        signal_context:  lead.signalContext,  // e.g. "starred prometheus/prometheus"
+        top_language:    lead.topLanguages?.[0] ?? '',
+        location:        lead.location ?? '',
+      }],
+    }),
+  });
+
+  if (!res.ok) {
+    console.error('Smartlead insert failed', await res.text());
+    return new Response('error', { status: 500 });
+  }
+
+  return new Response('ok');
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up the Integration in GitLeads (No-Code)',
+      },
+      {
+        type: 'p',
+        content:
+          'If you prefer not to manage a webhook server, you can use Zapier, Make, or n8n as a middleware layer. The flow is identical: GitLeads webhook trigger → look up or create a contact → add to Smartlead campaign. GitLeads also ships a native Zapier integration that exposes all enriched lead fields as Zapier variables.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'In GitLeads, go to Integrations → Webhook and copy your inbound webhook URL',
+          'In Zapier, create a new Zap: Trigger = Webhooks by Zapier (catch hook), Action = HTTP POST to Smartlead API',
+          'Map GitLeads fields: email → lead email, signalContext → custom variable for first-line personalization',
+          'Test with a live signal from a tracked repo to confirm the lead appears in your Smartlead campaign',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Cold Email Template Using GitHub Signal Context',
+      },
+      {
+        type: 'p',
+        content:
+          'The signal context GitLeads captures (what repo was starred, what keyword was mentioned, in what issue) is exactly what makes a cold email feel warm. Here\'s a template structure that converts:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: {{first_name}} — saw you {{signal_context}}
+
+Hi {{first_name}},
+
+Noticed you {{signal_context}} — guessing you're evaluating options in
+[your category].
+
+[One sentence on the specific problem your product solves.]
+
+[One sentence social proof — customer name, metric, or use case.]
+
+Worth a 15-minute chat to see if it fits what you're building?
+
+[Your name]
+
+P.S. You can start free at gitleads.app/signup — 50 leads/month, no card required.`,
+      },
+      {
+        type: 'callout',
+        content:
+          'Key: the {{signal_context}} variable (e.g. "starred prometheus/prometheus", "mentioned \'self-hosted metrics\' in a GitHub issue") is what differentiates this from generic cold email. Recipients recognize the context and reply at 3–5× the rate of ICP-only cold email.',
+      },
+      {
+        type: 'h2',
+        content: 'Filtering Leads Before They Enter Smartlead',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every GitHub signal is a qualified Smartlead prospect. Before inserting into a campaign, filter on: (1) email must be present — GitLeads surfaces email from public profile and commit metadata; (2) follower count > threshold to target active developers; (3) exclude known bot accounts and GitHub Actions machine users. GitLeads supports server-side filters so only enriched, qualified leads trigger your webhook.',
+      },
+      {
+        type: 'h2',
+        content: 'Smartlead vs. Other Email Tools for GitHub Lead Sequences',
+      },
+      {
+        type: 'p',
+        content:
+          'Smartlead is the right choice if you need high-volume cold email with inbox rotation and deliverability infrastructure. For lighter workflows, Instantly is comparable. For multi-channel sequences (email + LinkedIn), Lemlist adds LinkedIn steps. For native CRM-based sequences already in HubSpot or Salesforce, use those instead. GitLeads integrates with all of them — pick the one that matches your current outreach stack.',
+      },
+      {
+        type: 'h2',
+        content: 'What Data Does GitLeads Send to Smartlead?',
+      },
+      {
+        type: 'ul',
+        items: [
+          'name, email (if public), GitHub username, profile URL',
+          'company, location, bio (from GitHub profile)',
+          'followers, public repo count, top programming languages',
+          'signalType: stargazer | keyword | fork',
+          'signalContext: human-readable description of the triggering event',
+          'repoName, repoOwner: the repo that triggered the signal (for stargazer/fork signals)',
+          'issueTitle, issueUrl: the issue or PR that contained the keyword (for keyword signals)',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'All of these fields are available as variables in Smartlead sequences. The richer the personalization, the higher your reply rate. Related: push GitHub leads to HubSpot, push GitHub leads to Instantly, GitHub lead automation with n8n and Make, GitHub signal monitoring.',
+      },
+    ],
+  },
+  {
+    slug: 'push-github-leads-to-apollo',
+    title: 'Push GitHub Leads to Apollo.io: Real-Time Developer Intent into Your Sequences',
+    description:
+      'How to connect GitLeads to Apollo.io so every new GitHub star or keyword signal automatically lands in your Apollo contact list — enriched, deduplicated, and ready to sequence.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 8,
+    keywords: [
+      'push github leads to apollo',
+      'github leads apollo io',
+      'apollo github integration',
+      'github lead generation apollo',
+      'developer leads apollo',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Apollo.io is a full-stack sales platform: contact database, email sequencing, dialer, and analytics. GitLeads is a GitHub signal monitoring platform: it watches GitHub repos and keyword mentions in real time and fires enriched developer lead records the moment someone stars a tracked repo or mentions a keyword in an issue or PR. Connecting the two means your Apollo sequences get fueled by real developer intent rather than cold database pulls — and every lead comes with context on why they fired.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Signals Beat Apollo Database Pulls for Developer Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          "Apollo's database holds 275M+ contacts, but for developer audiences it has a significant gap: it can tell you a developer exists, but it cannot tell you what they are actively working on right now. GitHub signals flip this. A developer who starred a repo called \"prometheus-client-go\" is actively building a Go service and thinking about observability — today. A developer who opened an issue asking about self-hosted alternatives to a SaaS tool is in active vendor evaluation. That real-time context is what makes sequences convert.",
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signal: developer starred your repo or a competitor\'s → actively researching your category',
+          'Keyword mention in issue/PR/discussion: developer described a problem your product solves → active pain point',
+          'Fork signal: developer forked a related project → evaluating adoption, not browsing',
+          'Commit keyword: developer referenced a tool in a commit message → active usage context',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Integration Architecture: GitLeads → Apollo',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads supports native Apollo.io integration. In your GitLeads dashboard, navigate to Integrations → Apollo.io, enter your Apollo API key, and select which signal types (stargazer, keyword, fork) should push to Apollo. GitLeads will automatically create or update contacts in your Apollo workspace whenever a new signal fires.',
+      },
+      {
+        type: 'h2',
+        content: 'Manual Webhook Integration (Advanced)',
+      },
+      {
+        type: 'p',
+        content:
+          'For teams that want routing logic — sending different signal types to different Apollo lists or sequences — the webhook approach gives full control. GitLeads fires an HTTP POST with the lead payload to any endpoint you specify. Deploy a small handler that calls the Apollo People API:',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// Webhook handler: GitLeads signal → Apollo contact
+// Deploy on Vercel, Cloudflare Workers, or Railway
+
+export async function POST(req) {
+  const lead = await req.json();
+
+  // Only process leads with a public email
+  if (!lead.email) return Response.json({ skipped: true });
+
+  const apolloRes = await fetch('https://api.apollo.io/api/v1/contacts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Api-Key': process.env.APOLLO_API_KEY,
+    },
+    body: JSON.stringify({
+      first_name: lead.name?.split(' ')[0] ?? lead.githubUsername,
+      last_name:  lead.name?.split(' ').slice(1).join(' ') ?? '',
+      email:      lead.email,
+      github_url: lead.profileUrl,
+      organization_name: lead.company ?? '',
+      title:      lead.bio?.slice(0, 100) ?? '',
+      // Custom fields — store signal context
+      custom_fields: {
+        github_signal_type:    lead.signalType,
+        github_signal_context: lead.signalContext,
+        github_username:       lead.githubUsername,
+        github_followers:      lead.followers,
+        github_languages:      (lead.topLanguages ?? []).join(', '),
+      },
+    }),
+  });
+
+  const data = await apolloRes.json();
+  return Response.json({ contact_id: data?.contact?.id });
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Using Signal Context in Apollo Sequences',
+      },
+      {
+        type: 'p',
+        content:
+          'The most important field GitLeads sends is signalContext — a plain-English description of what triggered the lead (e.g. "starred vercel/next.js" or "mentioned \'self-hosted metrics dashboard\' in a GitHub issue"). Store this in an Apollo custom field and reference it in your first-touch email template using Apollo\'s {{custom_field}} syntax:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: noticed you {{custom_field.github_signal_context}}
+
+Hi {{first_name}},
+
+I saw you {{custom_field.github_signal_context}} — that's usually
+a signal someone is working on exactly the problem we solve.
+
+[Two-sentence pitch here]
+
+Worth 15 minutes?
+
+[Signature]`,
+      },
+      {
+        type: 'p',
+        content:
+          'This template structure consistently outperforms generic outreach because it leads with something real. The developer knows you are not sending mass emails — you noticed something specific.',
+      },
+      {
+        type: 'h2',
+        content: 'Deduplication: Avoiding Duplicate Apollo Contacts',
+      },
+      {
+        type: 'p',
+        content:
+          'Apollo deduplicates on email address at the API level — if a contact with the same email already exists, the API returns the existing record rather than creating a duplicate. GitLeads also tracks which leads have already been pushed so it does not re-fire the same developer for the same signal. The combination means your Apollo contact list stays clean without manual cleanup.',
+      },
+      {
+        type: 'h2',
+        content: 'Data GitLeads Sends to Apollo',
+      },
+      {
+        type: 'ul',
+        items: [
+          'name, email (if public on GitHub profile), GitHub username',
+          'profileUrl: direct link to GitHub profile',
+          'company, location, bio — from public GitHub profile',
+          'followers, publicRepos, topLanguages',
+          'signalType: stargazer | keyword | fork',
+          'signalContext: human-readable description of the triggering event',
+          'repoName, repoOwner: for stargazer/fork signals',
+          'issueTitle, issueUrl: for keyword signals',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Related: push GitHub leads to HubSpot, push GitHub leads to Clay, push GitHub leads to Salesforce, GitHub signal monitoring, competitor repo stargazers as leads.',
+      },
+    ],
+  },
+  {
+    slug: 'github-star-notifications',
+    title: 'How to Get Notified When Someone Stars Your GitHub Repo (and Turn That into a Lead)',
+    description:
+      'GitHub does not send email notifications when someone stars your repo. Here is how to set up real-time star alerts — and how to automatically turn every new stargazer into an enriched sales lead.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 7,
+    keywords: [
+      'github star notifications',
+      'notify when github repo starred',
+      'github stargazer alerts',
+      'track github stars',
+      'github repo star monitoring',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub sends you a notification when someone comments on your issue, reviews your PR, or mentions your username. It does not send a notification when someone stars your repository. For open-source maintainers and developer tool companies, this is a significant gap — a new star is one of the strongest signals of developer interest, and GitHub gives you no native way to act on it in real time.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Star Notifications Matter for Sales',
+      },
+      {
+        type: 'p',
+        content:
+          'Every new star on your repo is a developer who evaluated your project and decided it was worth bookmarking. For a commercial developer tool, that is a qualified lead: they found you, they understand what you do (at least enough to star it), and they have signaled intent. Without notifications, that lead is invisible — you see the star count go up but have no idea who starred you or when.',
+      },
+      {
+        type: 'p',
+        content:
+          'For competitor repos, the signal is even more valuable. A developer who stars a direct competitor\'s repo is actively evaluating alternatives in your category. That list of competitor stargazers is your warmest cold outreach pool — they are already aware of the problem, already looking at solutions, and you know exactly which solution they just considered.',
+      },
+      {
+        type: 'h2',
+        content: 'Method 1: GitHub Star Webhook (DIY)',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub supports webhooks on the "star" event for repositories you own. In your repo settings, go to Webhooks → Add webhook, set the payload URL to your endpoint, and select the "Star" event. GitHub will POST to your endpoint each time someone stars or un-stars the repo:',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `// GitHub star webhook payload (abbreviated)
+{
+  "action": "created",
+  "starred_at": "2026-04-30T14:22:01Z",
+  "sender": {
+    "login": "jsmith",
+    "html_url": "https://github.com/jsmith",
+    "avatar_url": "https://avatars.githubusercontent.com/u/123456"
+  },
+  "repository": {
+    "full_name": "your-org/your-repo",
+    "stargazers_count": 2847
+  }
+}`,
+      },
+      {
+        type: 'p',
+        content:
+          'The "sender" field gives you the GitHub username. To get their full profile (email, company, bio, location, top languages), you need a second API call to GET /users/{username}. Then you need to store the lead, deduplicate it, and push it somewhere useful. This works but requires building and maintaining infrastructure.',
+      },
+      {
+        type: 'h3',
+        content: 'DIY Limitations',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Only works for repos you own — cannot monitor competitor repos via webhooks',
+          'Requires maintaining a webhook endpoint (server, SSL, uptime)',
+          'No built-in enrichment — you must call the GitHub API separately for each stargazer',
+          'No built-in deduplication or CRM push',
+          'GitHub only fires webhooks for repos you have admin access to',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Method 2: GitHub Actions (Polling)',
+      },
+      {
+        type: 'p',
+        content:
+          'You can run a GitHub Action on a schedule to diff the stargazers list and notify you of new ones. This is simpler than a webhook handler but has a minimum latency of however often you schedule it (e.g., every 15 minutes for the minimum GitHub Actions schedule):',
+      },
+      {
+        type: 'code',
+        language: 'yaml',
+        content: `# .github/workflows/star-check.yml
+name: New Stargazer Alert
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # every 15 minutes
+
+jobs:
+  check-stars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check new stargazers
+        run: |
+          PAGE=1
+          NEW_STARS=$(curl -s -H "Authorization: Bearer \${{ secrets.GITHUB_TOKEN }}" \\
+            "https://api.github.com/repos/your-org/your-repo/stargazers?per_page=30&page=\${PAGE}" \\
+            | jq '[.[] | .login]')
+          echo "\${NEW_STARS}"
+          # Compare with stored list, diff, alert on new ones
+          # (store previous list in a gist or artifact)`,
+      },
+      {
+        type: 'p',
+        content:
+          'This approach has the same limitation: it only works for your own repos. You cannot use GitHub Actions to monitor stargazers on repos belonging to other organizations.',
+      },
+      {
+        type: 'h2',
+        content: 'Method 3: GitLeads (Real-Time, Any Repo)',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads monitors any public GitHub repo for new stargazers in real time — including competitor repos you do not own. When a new star fires, GitLeads enriches the stargazer profile (name, email if public, company, location, bio, top languages, followers) and pushes the lead to wherever you work: HubSpot, Slack, Apollo, Clay, Salesforce, Pipedrive, or any webhook.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Real-time alerts: leads push within minutes of the star event',
+          'Any public repo: monitor your own repos and competitor repos',
+          'Full enrichment: name, email, company, bio, location, languages, follower count',
+          'Direct push to 15+ sales and outreach tools — no middleware required',
+          'Slack alerts for instant team notifications',
+          'Deduplication: same developer starring multiple tracked repos generates one lead record',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What to Do With a New Stargazer',
+      },
+      {
+        type: 'p',
+        content:
+          'The signal is real-time intent, but the response should not be automated outreach firing seconds after the star. Here is what converts:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Check their profile first: look at their bio, company, and pinned repos to qualify the lead before doing anything',
+          'If qualified, add to a short-touch sequence (not a 10-step drip): two or three emails max, referencing that they starred the repo',
+          'Use the signal in the first line: "I noticed you starred [repo] — most people who do are evaluating [use case]..."',
+          'High-followers stargazers (500+) are worth a direct, personalized note — they are often influencers or decision-makers in their org',
+          'For competitor stargazers: lead with your differentiator, not your feature list — they already know the category',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Related: how to find leads on GitHub, turn GitHub stargazers into leads, competitor repo stargazers as leads, GitHub signal monitoring, push GitHub leads to Slack.',
+      },
+    ],
+  },
+  {
+    slug: 'b2b-saas-github-marketing',
+    title: 'GitHub Marketing for B2B SaaS: Turn Your Open-Source Presence into a Sales Pipeline',
+    description:
+      'How B2B SaaS companies with open-source components or GitHub presence can systematically convert GitHub activity — stars, forks, keyword mentions — into qualified pipeline.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 9,
+    keywords: [
+      'github marketing b2b saas',
+      'github lead generation saas',
+      'github sales pipeline',
+      'open source lead generation',
+      'developer marketing github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Most B2B SaaS companies treat GitHub as a code host. Companies that win in developer markets treat it as a distribution channel. This guide covers the specific tactics for converting GitHub activity — your own repo activity, competitor activity, and keyword signals across the platform — into a repeatable sales pipeline.',
+      },
+      {
+        type: 'h2',
+        content: 'The GitHub Marketing Surface Area',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub has several surfaces that generate commercial signal for developer tool companies:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Your own repos: stars, forks, issues, PRs, and discussions from developers who found your open-source component',
+          'Competitor repos: stars, forks on competitor open-source projects = developers evaluating your category',
+          'Keyword mentions: developers mentioning problems you solve in issues, PRs, and discussions across the entire platform',
+          'Topic tags: repos tagged with topics related to your product attract relevant developers',
+          'GitHub Marketplace: a distribution channel for tools and Actions with built-in developer discovery',
+          'README backlinks: developers linking to your docs or tool from their own repos = referral signal',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Strategy 1: Stargazer Pipeline from Your Own Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'Every developer who stars your repo is a warm lead. GitHub does not send you notifications for new stars, so most companies miss this entirely. Set up real-time star monitoring via GitLeads or the GitHub webhooks API. For each new stargazer, enrich their profile (email if public, company, bio, top languages) and route them into your CRM or outreach tool.',
+      },
+      {
+        type: 'p',
+        content:
+          'Prioritize based on profile signals: a stargazer with 500+ followers at a known company with an email is a high-priority lead. A stargazer with 0 followers and no profile info is worth logging but not worth a personalized outreach. Apply a simple scoring model:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '+10 points: public email present',
+          '+10 points: company field matches target ICP verticals',
+          '+5 points: followers > 100',
+          '+5 points: bio mentions a relevant tech stack keyword',
+          '+3 points: public repos > 10 (active developer)',
+          '-10 points: "[bot]" in username or zero public repos',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Strategy 2: Competitor Repo Stargazer Poaching',
+      },
+      {
+        type: 'p',
+        content:
+          "Developers who star a direct competitor's open-source repo are in active evaluation mode. They know the problem. They are looking at solutions. They just expressed preference for an alternative — which means they are open to comparison. This is your warmest possible cold outreach pool.",
+      },
+      {
+        type: 'p',
+        content:
+          'Using GitLeads, add competitor repos to your tracking list. Every new star on those repos fires an enriched lead record. Your outreach can lead with the competitive angle: "I noticed you looked at [competitor] — here\'s how we compare on [the dimension that matters most]." That specificity is what makes reply rates on this pool consistently outperform generic cold email.',
+      },
+      {
+        type: 'h2',
+        content: 'Strategy 3: Keyword Signal Monitoring',
+      },
+      {
+        type: 'p',
+        content:
+          "GitHub Issues and PRs are where developers describe their problems in precise technical language. A developer who opens an issue asking 'how do I self-host a metrics dashboard without Grafana Cloud?' is in active vendor evaluation. A developer who mentions 'need a TypeScript-first ORM that isn't Prisma' has a specific pain point you can address.",
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads monitors GitHub Issues, PRs, Discussions, code search results, and commit messages for keywords you specify. You define the signal (e.g. "self-hosted observability", "Prometheus alternative", "open source feature flags") and GitLeads routes every matching developer to your outreach tools with the issue context included.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Example keyword signal email:
+
+Subject: saw your question about self-hosted metrics
+
+Hi {{first_name}},
+
+I noticed you asked about self-hosting metrics dashboards
+in a GitHub issue on the {{repo}} repo.
+
+We built [Product] specifically for this — it runs on
+your infra, TypeScript-native, no Grafana config files.
+
+Free tier covers most solo projects. Worth a look?
+
+[Link to docs or demo]`,
+      },
+      {
+        type: 'h2',
+        content: 'Strategy 4: ICP-Targeted Repo Tracking',
+      },
+      {
+        type: 'p',
+        content:
+          'Find the 5–10 open-source repositories that your ideal customer is most likely to star. These are not your repos or competitor repos — they are upstream dependencies, complementary tools, or popular projects in your ecosystem. A developer who stars the Stripe Node.js SDK is probably building a SaaS with billing. A developer who stars the Clerk authentication SDK is likely building a web app that needs auth. Star those repos = likely ICP signal.',
+      },
+      {
+        type: 'p',
+        content:
+          'This is the same principle that ABM uses for account intent data, applied at the individual developer level. Instead of "company X is showing intent for security tools because their employees are consuming security content," you get "developer Y starred the Hashicorp Vault SDK this morning, which means they are building something that needs secrets management."',
+      },
+      {
+        type: 'h2',
+        content: 'Connecting GitHub Signals to Your Sales Stack',
+      },
+      {
+        type: 'p',
+        content:
+          'The signal is only as valuable as your ability to act on it. A GitHub star that goes into a CSV download that someone manually imports into HubSpot every Friday is not a real-time signal — it is a weekly batch. The goal is to close the loop: signal fires → lead enriched → CRM updated → outreach triggered, all within minutes.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'HubSpot: create contact, set lead source = "GitHub signal", enroll in sequence',
+          'Apollo: add to contact list, add to sequence with signal context as personalization variable',
+          'Slack: post to #sales-signals channel for high-priority leads requiring manual review',
+          'Clay: enrich further (LinkedIn, company data) before routing to outreach',
+          'Instantly / Smartlead / Lemlist: add to cold email campaign with signal context in first line',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Marketing vs. Content Marketing for Developer Tools',
+      },
+      {
+        type: 'p',
+        content:
+          'Content marketing for developer tools produces delayed, diffuse signals: you publish a blog post, developers read it, some sign up, most do not, and you cannot tell which reader was a real prospect. GitHub signals are immediate and precise: a specific developer, at a specific company, doing a specific action that indicates interest in your category — right now. Both channels matter, but GitHub signals should be treated as first-party intent data, not a vanity metric.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: how to find leads on GitHub, turn GitHub stargazers into leads, GitHub keyword monitoring for sales, ICP for developer tools, how to sell to developers.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
