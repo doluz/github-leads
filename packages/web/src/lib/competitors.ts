@@ -1168,6 +1168,124 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
   },
+  // ─── Common Room ──────────────────────────────────────────────────────────────
+  {
+    slug: 'common-room',
+    name: 'Common Room',
+    tagline: 'Community intelligence platform for developer-led growth',
+    metaTitle: 'GitLeads vs Common Room — GitHub Lead Generation vs Community Intelligence',
+    metaDescription:
+      'Compare GitLeads and Common Room. Common Room aggregates community signals for growth reporting. GitLeads captures real-time GitHub buying signals and pushes named developer leads into your sales tools.',
+    intro:
+      'Common Room is a community intelligence platform that aggregates signals from GitHub, Slack, Discord, Twitter, and other developer communities to help DevRel and growth teams understand community health, identify champions, and measure developer engagement. It is built for community-led growth reporting and relationship management. GitLeads takes a different angle: it monitors GitHub activity in real time — repo stars, keyword mentions in issues, PRs, discussions, and commit messages — and immediately pushes enriched lead records into HubSpot, Slack, Apollo, Clay, Pipedrive, Salesforce, and 15+ other sales tools. GitLeads is a sales pipeline generator, not a community analytics platform.',
+    ourOneLiner:
+      'Common Room helps you understand your community. GitLeads finds the developers in that community who are actively signaling they want to buy, and routes them to your sales stack immediately.',
+    theyWin: [
+      'Cross-platform community aggregation — GitHub, Discord, Slack, Twitter, LinkedIn, Stack Overflow in one dashboard',
+      'Community health dashboards and engagement scoring for DevRel reporting',
+      'Champion identification and relationship history tracking across channels',
+      'Native integrations with community platforms that GitLeads does not cover (Discord, Slack workspaces)',
+      'Strong fit for PLG companies focused on community-led growth metrics',
+    ],
+    weWin: [
+      'Real-time GitHub lead capture — new stargazers and keyword signals push within minutes, not hours',
+      'Direct CRM/sales tool integration — leads land in HubSpot, Salesforce, Apollo, Pipedrive automatically',
+      'Keyword monitoring across GitHub Issues, PRs, discussions, code, and commit messages',
+      'Competitor repo tracking — monitor who stars any public repo, not just your own',
+      'Built for sales pipeline generation, not community reporting',
+      'Transparent pricing starting free — no enterprise contract required',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring (real-time)', gitleads: true, competitor: 'Delayed aggregation' },
+      { feature: 'GitHub keyword mentions (issues/PRs/discussions)', gitleads: true, competitor: true },
+      { feature: 'Competitor repo tracking', gitleads: true, competitor: false },
+      { feature: 'Direct CRM push (HubSpot, Salesforce, Pipedrive)', gitleads: true, competitor: 'CRM sync available (limited)' },
+      { feature: 'Slack/Apollo/Clay/Lemlist integration', gitleads: true, competitor: 'Partial' },
+      { feature: 'Community health dashboards', gitleads: false, competitor: true },
+      { feature: 'Discord/Slack workspace monitoring', gitleads: false, competitor: true },
+      { feature: 'Multi-channel community aggregation', gitleads: false, competitor: true },
+      { feature: 'Developer profile enrichment (bio, languages, email)', gitleads: true, competitor: true },
+      { feature: 'Free tier available', gitleads: true, competitor: false },
+      { feature: 'Self-serve setup', gitleads: true, competitor: 'Sales-assisted' },
+    ],
+    forThem:
+      'Common Room is the right choice for companies that need to understand and manage their developer community across multiple platforms — GitHub, Discord, Slack, Twitter, and more. If your growth strategy is community-led, you need champions, your DevRel team needs reporting on engagement health, and you value a unified community member record across channels, Common Room\'s multi-platform aggregation and relationship tracking are well-suited.',
+    forUs:
+      'GitLeads is the right choice if your goal is generating a sales pipeline from GitHub signals — not community analytics. If you want developer leads delivered to HubSpot, Salesforce, Apollo, or Slack the moment a buying signal fires on GitHub, GitLeads does that out of the box. For B2B SaaS companies selling to developers, the bottleneck is rarely "we need better community dashboards" — it is "we need to find and reach developers who are actively evaluating our category right now." That is what GitLeads is built to solve.',
+    faq: [
+      {
+        q: 'Does Common Room replace GitLeads for GitHub lead generation?',
+        a: 'Common Room and GitLeads have different primary use cases. Common Room is a community intelligence platform that aggregates GitHub signals (among many others) for DevRel reporting and community management. GitLeads is a GitHub signal capture platform that generates sales leads and routes them directly to CRM and outreach tools in real time. Most companies using Common Room for community analytics still need a separate tool for converting GitHub signals into actionable sales pipeline — which is what GitLeads provides.',
+      },
+      {
+        q: 'Can GitLeads monitor Discord or Slack like Common Room does?',
+        a: 'No — GitLeads is purpose-built for GitHub signals. It monitors GitHub repository stars, keyword mentions in GitHub Issues, PRs, Discussions, code, and commit messages. It does not monitor Discord servers, Slack workspaces, Twitter, or Stack Overflow. For multi-platform community monitoring, Common Room is the more appropriate tool. For GitHub-specific sales signals, GitLeads is more focused and more real-time.',
+      },
+      {
+        q: 'How does pricing compare between GitLeads and Common Room?',
+        a: 'GitLeads is self-serve with a free tier (50 leads/month), Starter at $49/month, Pro at $149/month, and Agency at $499/month. Common Room is enterprise-priced and typically requires a sales conversation. For teams that need GitHub signal-based lead generation without a large budget or enterprise procurement process, GitLeads offers significantly lower friction.',
+      },
+    ],
+  },
+  // ─── Orbit ──────────────────────────────────────────────────────────────────
+  {
+    slug: 'orbit',
+    name: 'Orbit',
+    tagline: 'Developer community growth platform',
+    metaTitle: 'GitLeads vs Orbit — GitHub Lead Generation vs Community Growth Platform',
+    metaDescription:
+      'Compare GitLeads and Orbit. Orbit tracks developer community members across platforms to measure engagement and growth. GitLeads captures real-time GitHub buying signals and routes developer leads into your sales and outreach stack.',
+    intro:
+      'Orbit is a developer community growth platform that tracks member activity across GitHub, Discord, Slack, Twitter, and other channels, assigning "orbit levels" based on engagement to help DevRel teams identify their most active community members. It is designed for community managers who want to understand and grow developer engagement over time. GitLeads is built for a different job: it captures GitHub activity signals — new repo stars, keyword mentions in issues, PRs, and discussions — in real time and pushes enriched developer lead records into HubSpot, Salesforce, Apollo, Clay, Slack, and 15+ other sales tools. GitLeads generates pipeline; Orbit manages community.',
+    ourOneLiner:
+      'Orbit measures developer community engagement. GitLeads finds the developers actively signaling buying intent on GitHub and routes them directly to your sales tools.',
+    theyWin: [
+      'Multi-platform community member tracking (GitHub, Discord, Slack, Twitter, DEV.to, and more)',
+      'Orbit level scoring for community engagement — useful for identifying champions and advocates',
+      'Community activity timeline and member history across channels',
+      'Designed specifically for DevRel team workflows and community reporting',
+      'API-first with good integrations for community tooling',
+    ],
+    weWin: [
+      'Real-time GitHub signal capture — leads push within minutes, not as batch syncs',
+      'Competitor repo tracking — monitor stargazers on any public GitHub repo',
+      'GitHub keyword monitoring: issues, PRs, discussions, code, and commit messages',
+      'Direct sales tool integration — HubSpot, Salesforce, Pipedrive, Apollo, Clay, Lemlist, Instantly, n8n, Make, Zapier',
+      'Built for sales pipeline generation, not community engagement metrics',
+      'Transparent self-serve pricing starting free',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring (real-time)', gitleads: true, competitor: 'Batch sync' },
+      { feature: 'Competitor repo tracking', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword mentions (issues/PRs/discussions)', gitleads: true, competitor: 'Issues only' },
+      { feature: 'Direct CRM/sales push (HubSpot, Salesforce, Apollo)', gitleads: true, competitor: false },
+      { feature: 'Community engagement scoring', gitleads: false, competitor: true },
+      { feature: 'Multi-platform community tracking', gitleads: false, competitor: true },
+      { feature: 'Developer profile enrichment (bio, languages, email)', gitleads: true, competitor: 'Basic profile data' },
+      { feature: 'Sales outreach tool integration (Clay, Lemlist, Instantly)', gitleads: true, competitor: false },
+      { feature: 'Webhook / n8n / Make / Zapier support', gitleads: true, competitor: 'Webhook only' },
+      { feature: 'Free tier', gitleads: true, competitor: 'Free tier available' },
+      { feature: 'Self-serve setup', gitleads: true, competitor: true },
+    ],
+    forThem:
+      'Orbit is the right choice for DevRel teams and community managers who need to track member engagement across multiple platforms over time. If you are running a developer community across GitHub, Discord, and Twitter and need to understand who your most active contributors are, how engagement changes week over week, and who qualifies as a community champion or advocate, Orbit\'s multi-platform engagement tracking is well-designed for that job.',
+    forUs:
+      'GitLeads is the right choice when the goal is generating sales pipeline from GitHub signals — not measuring community engagement. If you need to know who starred your repo (or a competitor\'s repo) and get that lead into HubSpot within minutes, or if you need to monitor GitHub Issues for developers mentioning your product category and route those leads to Apollo or Clay automatically, GitLeads is purpose-built for that workflow. Sales and marketing teams at developer tool companies use GitLeads where DevRel teams at the same companies might use Orbit — the use cases are complementary rather than competitive.',
+    faq: [
+      {
+        q: 'Is Orbit still active in 2026?',
+        a: 'Orbit was acquired by Common Room in 2023. The Orbit brand and platform continued in some form post-acquisition, but the two products have been progressively consolidated under the Common Room umbrella. For community analytics functionality, Common Room is now the primary product. GitLeads remains independent and focused specifically on real-time GitHub sales signal capture.',
+      },
+      {
+        q: 'Can GitLeads replace Orbit for DevRel teams?',
+        a: 'GitLeads does not replace Orbit for community engagement tracking across Discord, Slack, and Twitter. GitLeads is specialized for GitHub-signal-based lead generation: it captures stars, keyword mentions in issues and PRs, and other GitHub activity, then routes enriched leads to CRM and outreach tools. DevRel teams that use GitLeads typically do so to convert GitHub community signals into sales opportunities, not as a replacement for community analytics.',
+      },
+      {
+        q: 'What GitHub signals does GitLeads capture that Orbit does not?',
+        a: 'GitLeads captures competitor repo stargazers (stars on any public repo, not just your own), keyword mentions in GitHub Issues, PRs, Discussions, code search results, and commit messages — all in real time with enrichment. It routes these signals directly to 15+ sales and outreach tools. Orbit\'s GitHub integration historically focused on your own repos and community member tracking, without the real-time competitor monitoring, keyword search, or sales tool push capabilities that GitLeads provides.',
+      },
+    ],
+  },
 ];
 
 export function getCompetitor(slug: string): Competitor | undefined {

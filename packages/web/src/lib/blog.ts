@@ -9434,6 +9434,460 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \\
     ],
   },
   {
+    slug: 'push-github-leads-to-pipedrive',
+    title: 'Push GitHub Leads to Pipedrive — Real-Time Developer Pipeline',
+    description:
+      'Connect GitHub signal monitoring to Pipedrive CRM. Automatically create deals and contacts in Pipedrive when developers star your repo or mention your keywords on GitHub.',
+    publishedAt: '2026-04-29',
+    updatedAt: '2026-04-29',
+    readingTime: 7,
+    keywords: [
+      'push github leads to pipedrive',
+      'github pipedrive integration',
+      'github leads crm',
+      'pipedrive developer leads',
+      'github signal pipedrive',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Pipedrive is built around deals and pipelines. GitHub is where developers show intent before they ever fill out a form. Combining the two means your Pipedrive pipeline fills itself with developers who have already shown buying signals — starring a competitor repo, mentioning a pain keyword in an issue, or forking a project in your category.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Pipedrive + GitHub Signals Is a Better Source of Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Most Pipedrive users add leads manually or through form fills. That captures maybe 5% of your actual pipeline — only the developers motivated enough to raise their hand explicitly. GitHub activity captures the other 95%: the developer who just starred your competitor, opened an issue asking how to do something your product solves, or committed code that uses a technology you integrate with.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub signals are upstream of the buying decision. A developer who stars "prometheus/prometheus" is in the market for observability tooling before they even know your product exists. If you can get into their Pipedrive pipeline at that moment — with a personalized context note about what they starred — your outreach lands when intent is highest.',
+      },
+      {
+        type: 'h2',
+        content: 'How GitLeads Pushes to Pipedrive',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads monitors GitHub continuously — new stargazers, keyword mentions in issues/PRs/discussions/commits — and enriches each lead with name, email (if public), GitHub username, company, location, follower count, top languages, and the exact signal context. That enriched record gets pushed to Pipedrive as a new Person + Deal the moment the signal fires.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Connect your GitHub repos or competitor repos you want to monitor',
+          'Set keywords to watch across Issues, PRs, Discussions, and code',
+          'Add your Pipedrive API token in the GitLeads integrations panel',
+          'Map GitLeads fields to your Pipedrive custom fields (optional)',
+          'Every new signal creates a Pipedrive Person and Deal automatically',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What Gets Created in Pipedrive',
+      },
+      {
+        type: 'p',
+        content:
+          'For each GitHub signal, GitLeads pushes the following data into Pipedrive:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Person: Name, email, GitHub profile URL',
+          'Person custom field: GitHub username, bio, company, location, follower count, top languages',
+          'Deal: Title set to signal type (e.g., "Starred: prometheus/prometheus"), linked to the Person',
+          'Deal custom field: Signal context — the exact repo starred, keyword matched, or issue text snippet',
+          'Deal stage: Configurable — default is the first stage of your primary pipeline',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Pipedrive Native Integration vs. Webhook/Zapier Approach',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads ships a native Pipedrive integration that uses the Pipedrive API directly — no Zapier middleware required. This means lower latency (leads appear in Pipedrive within seconds of the GitHub event), no per-task Zapier costs, and cleaner field mapping. If you prefer to route through Zapier, Make, or n8n, GitLeads supports webhooks that carry the full enriched payload and can be connected to any Pipedrive Zap.',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `// Example GitLeads webhook payload pushed to Pipedrive
+{
+  "signal_type": "stargazer",
+  "repo": "your-org/your-repo",
+  "starred_at": "2026-04-29T14:22:00Z",
+  "lead": {
+    "github_username": "jsmith",
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "company": "Acme Corp",
+    "location": "Berlin, Germany",
+    "followers": 312,
+    "top_languages": ["Go", "Python", "TypeScript"],
+    "bio": "Platform engineer. Previously @stripe.",
+    "profile_url": "https://github.com/jsmith"
+  }
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Filtering Before Pipedrive — Keep Your Pipeline Clean',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every GitHub event belongs in your CRM. GitLeads lets you filter signals before they reach Pipedrive: minimum follower threshold (e.g., only developers with 50+ followers), language filter (only Rust/Go/Python developers), company filter (exclude personal email domains), and location filter. This keeps your Pipedrive pipeline high-signal and your team focused on the right leads.',
+      },
+      {
+        type: 'h2',
+        content: 'Deduplication',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads checks for existing Persons in Pipedrive by email and GitHub username before creating new records. If a developer already exists, it logs the new signal as a note on the existing Person rather than creating a duplicate. This keeps your Pipedrive data clean without any manual reconciliation.',
+      },
+      {
+        type: 'h2',
+        content: 'Use Cases by ICP',
+      },
+      {
+        type: 'ul',
+        items: [
+          'DevTool SaaS: Monitor competitor repos — every new stargazer is a warm prospect for your alternative',
+          'Cloud infra companies: Track keyword signals like "migrating from AWS" or "self-hosting kubernetes" in issues',
+          'API products: Catch developers who mention your integration category (e.g., "need a payment API") in discussions',
+          'Security tools: Monitor repos that use frameworks your scanner supports — new contributors are pipeline',
+          'Observability/monitoring: Track stars on Grafana, Prometheus, Datadog alternatives',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads pushes enriched GitHub developer signals directly into Pipedrive — no Zapier required. Free plan includes 50 leads/month. See also: push GitHub leads to HubSpot, push GitHub leads to Clay, GitHub keyword monitoring for sales.',
+      },
+    ],
+  },
+  {
+    slug: 'push-github-leads-to-salesforce',
+    title: 'Push GitHub Leads to Salesforce — Automate Developer Pipeline from GitHub Signals',
+    description:
+      'Connect GitHub signal monitoring to Salesforce. Automatically create Leads and Contacts in Salesforce when developers star your repo or mention buying-intent keywords on GitHub.',
+    publishedAt: '2026-04-29',
+    updatedAt: '2026-04-29',
+    readingTime: 8,
+    keywords: [
+      'push github leads to salesforce',
+      'github salesforce integration',
+      'github leads salesforce',
+      'developer leads salesforce',
+      'github signal salesforce crm',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Salesforce is where enterprise pipeline lives. GitHub is where enterprise developers live. The gap between the two is the reason most developer-focused companies struggle with top-of-funnel: their CRM is full of form fills and demo requests, but misses the 90% of developer buying intent that plays out in open source repos — starring tools, asking questions in issues, referencing pain points in PRs.',
+      },
+      {
+        type: 'h2',
+        content: 'The Developer Buying Journey Starts on GitHub',
+      },
+      {
+        type: 'p',
+        content:
+          'An enterprise developer evaluating a new observability stack does not fill out a contact form on day one. They star three repos on GitHub. They open an issue asking how to integrate with their existing Kubernetes setup. They fork a demo repo to test locally. Each of these is a high-intent buying signal that your Salesforce pipeline currently misses entirely — because Salesforce only captures explicit hand-raisers.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads bridges this gap. It monitors GitHub for the signals that matter to your ICP and pushes enriched developer records into Salesforce as Leads or Contacts the moment intent fires.',
+      },
+      {
+        type: 'h2',
+        content: 'How GitLeads Pushes to Salesforce',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads connects to Salesforce via OAuth and pushes data using the Salesforce REST API. Each GitHub signal creates or updates a Lead in Salesforce with the full developer profile and signal context. You can choose to route signals to Leads (for new pipeline) or Contacts (for existing accounts) based on email domain matching.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Connect GitLeads to your GitHub repos and competitor repos',
+          'Configure keyword signals (Issues, PRs, Discussions, commits, code)',
+          'Authenticate GitLeads with Salesforce via OAuth in the integrations panel',
+          'Map GitLeads fields to your Salesforce Lead/Contact custom fields',
+          'Set routing rules: new Leads vs. existing Contact matching by email domain',
+          'Signals fire → enriched developer records appear in Salesforce automatically',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Salesforce Field Mapping',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads populates the following Salesforce fields for each GitHub signal:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'FirstName / LastName: from GitHub public profile name',
+          'Email: from GitHub public email (when available)',
+          'Company: from GitHub bio or company field',
+          'Title: inferred from bio keywords (e.g., "CTO", "Platform Engineer")',
+          'LeadSource: set to "GitHub Signal"',
+          'GitHub_Username__c (custom): GitHub login',
+          'GitHub_Signal_Type__c (custom): "stargazer" | "keyword_mention"',
+          'GitHub_Signal_Context__c (custom): repo name or matched keyword + snippet',
+          'GitHub_Followers__c (custom): follower count for lead scoring',
+          'GitHub_Top_Languages__c (custom): comma-separated top languages',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Lead Scoring with GitHub Data',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub profile data maps well to Salesforce lead scoring. High follower counts correlate with seniority and influence. Top languages tell you their tech stack. Company field often gives you the target account. A developer at a Fortune 500 company who just starred your competitor repo and has 1,000 GitHub followers should score much higher than an anonymous star from a student account — and GitLeads gives you the data to make that distinction.',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// Example Salesforce lead score formula using GitHub fields
+// Set up as a Formula field in Salesforce Lead object
+
+// Base score: 10 points
+// + 20 if GitHub_Followers__c > 500 (influential developer)
+// + 15 if GitHub_Signal_Type__c = 'keyword_mention' (higher intent)
+// + 10 if Company is not blank (identifiable employer)
+// + 10 if Email is not blank (contactable)
+
+IF(GitHub_Followers__c > 500, 20, IF(GitHub_Followers__c > 100, 10, 0))
++ IF(GitHub_Signal_Type__c = 'keyword_mention', 15, 5)
++ IF(NOT(ISBLANK(Company)), 10, 0)
++ IF(NOT(ISBLANK(Email)), 10, 0)
++ 10`,
+      },
+      {
+        type: 'h2',
+        content: 'Routing to the Right Salesforce Queue',
+      },
+      {
+        type: 'p',
+        content:
+          'Enterprise Salesforce instances typically have lead routing rules — territory-based, segment-based, or round-robin. GitLeads sets LeadSource to "GitHub Signal" and populates custom fields so your existing Salesforce assignment rules can route GitHub leads automatically. A DevRel team might own all GitHub leads under a certain follower threshold; an enterprise AE team might handle anyone from a company with 500+ employees. You configure the routing in Salesforce, GitLeads supplies the data.',
+      },
+      {
+        type: 'h2',
+        content: 'Salesforce via Zapier or Native?',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads includes native Salesforce integration (OAuth, REST API, direct field mapping) and webhook support for Zapier/Make/n8n. The native integration is recommended for production use: lower latency, no per-task Zap costs, and a cleaner audit trail in Salesforce activity logs. The webhook path is useful for teams that want to add transformation logic — for example, enriching with Clearbit before pushing, or deduplicating against an existing Salesforce account list.',
+      },
+      {
+        type: 'h2',
+        content: 'Developer-Sourced Pipeline vs. MQL Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'The typical SaaS MQL — someone who downloaded a whitepaper or attended a webinar — converts to opportunity at 2–5%. A developer who starred your competitor repo and has a public work email at a target account converts at a much higher rate because the intent is real and recent. GitLeads customers report that GitHub-sourced Salesforce leads convert to meetings at 3–8x the rate of standard inbound MQLs, with a shorter time-to-meeting because outreach can reference the specific signal that triggered the lead.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads pushes enriched GitHub developer signals into Salesforce automatically — native integration, no Zapier required. Free plan: 50 leads/month. Related: push GitHub leads to HubSpot, GitHub buying signals for sales teams, GitHub intent data for B2B sales, ICP for developer tools.',
+      },
+    ],
+  },
+  {
+    slug: 'developer-tools-go-to-market-github',
+    title: 'Developer Tools Go-to-Market: How to Use GitHub Signals to Build Pipeline',
+    description:
+      'A practical GTM playbook for developer tool companies. Learn how to use GitHub stargazers, keyword signals, and repo monitoring to build a repeatable developer sales pipeline from day one.',
+    publishedAt: '2026-04-29',
+    updatedAt: '2026-04-29',
+    readingTime: 11,
+    keywords: [
+      'developer tools go to market',
+      'devtools gtm',
+      'github lead generation developer tools',
+      'developer tool sales',
+      'how to sell developer tools',
+      'github signals devtools',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Selling developer tools is fundamentally different from selling to business buyers. Developers do not respond to cold email campaigns about "digital transformation." They respond to technical credibility, peer recommendation, and evidence that your tool solves a real problem they are already experiencing. The key insight: developers leave public traces of exactly what problems they are working on — and those traces live on GitHub.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Traditional B2B GTM Fails for Developer Tools',
+      },
+      {
+        type: 'p',
+        content:
+          'The standard B2B GTM playbook — paid ads to gated whitepapers, SDR cold outreach, demo request forms — was built for enterprise software buyers who sit in meetings and respond to LinkedIn InMail. Developers block ads, ignore cold email, and do not click "Request a Demo" until they are already 80% of the way through an evaluation. By then, you have lost the pipeline building window.',
+      },
+      {
+        type: 'p',
+        content:
+          'The developer buying journey starts much earlier: in a GitHub issue where they describe a problem, in a PR where they evaluate competing approaches, in a star they give to a repo they are researching. These are the signals you should be capturing — not waiting for a form fill that comes after they have already made a decision.',
+      },
+      {
+        type: 'h2',
+        content: 'The Three GitHub Signal Types That Drive DevTool Pipeline',
+      },
+      {
+        type: 'h3',
+        content: '1. Competitor Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers who star your competitors are actively in the market. They are researching alternatives, building mental models of the space, and often evaluating three to five tools in parallel. A new star on a competitor repo is a real-time signal that someone just entered your sales funnel — even though they have never heard of you yet.',
+      },
+      {
+        type: 'p',
+        content:
+          'With GitLeads, you can monitor any public GitHub repo for new stargazers. The moment a developer stars a competitor repo, GitLeads enriches their profile (name, email, company, GitHub bio, follower count, top languages) and pushes them into your CRM or Slack. Your outreach team gets a notification: "Jane Smith at Cloudflare just starred grafana/grafana. She\'s a Go developer with 800 followers."',
+      },
+      {
+        type: 'h3',
+        content: '2. Keyword Mentions in Issues and PRs',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub issues are where developers describe their actual problems in technical language. A developer opening an issue titled "How do I monitor custom metrics in production?" is in the market for observability tooling right now. A PR comment that says "we need to migrate off self-hosted Jenkins" is a sales signal for CI/CD tools.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads lets you define keyword sets — phrases that signal buying intent in your category — and monitors all public GitHub Issues, PRs, Discussions, and commit messages for matches. When a match fires, you get the developer\'s full enriched profile plus the exact text that triggered the signal.',
+      },
+      {
+        type: 'h3',
+        content: '3. Your Own Repo Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'Every developer who stars your own repo has already discovered you. They found your product organically — through a blog post, a Hacker News comment, or a recommendation. These are your warmest leads, and most devtool companies do nothing with them. With GitLeads, you can automatically push every new stargazer to your CRM, Slack, or outreach tool and follow up while their interest is fresh.',
+      },
+      {
+        type: 'h2',
+        content: 'Building a GitHub-Driven GTM Motion',
+      },
+      {
+        type: 'p',
+        content:
+          'Here is a practical GTM playbook that works for developer tool companies at the seed-to-Series A stage:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Identify your top 3–5 competitor repos and your own repo. These are your signal sources.',
+          'Define 10–20 keyword phrases that indicate buying intent in your category (be specific — "self-hosting prometheus" beats "monitoring").',
+          'Connect GitLeads to monitor all of them in real time.',
+          'Route signals to Slack for DevRel/sales awareness and to your CRM (HubSpot, Salesforce, Pipedrive, Apollo) for pipeline tracking.',
+          'Qualify by follower count (50+ = likely professional developer), company field, and signal type (keyword mention > competitor star > own star in terms of urgency).',
+          'Reach out within 24 hours with a technically credible message that references their specific signal context.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What to Say in Developer Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer outreach fails when it sounds like a sales pitch. It succeeds when it sounds like one engineer reaching out to another. The signal context from GitLeads gives you the raw material for a technically specific, non-generic message:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: saw you're looking at [competitor] — quick note on [your product]
+
+Hi [name],
+
+Noticed you recently starred [competitor repo] — likely means you're evaluating
+options in [category].
+
+[One sentence on what makes your product technically different, with a specific
+technical detail that would resonate with their stack — use their top languages
+from GitHub profile]
+
+Happy to send over a quick comparison doc or set up a 20-minute technical
+walkthrough if useful.
+
+– [Your name]
+[Company] | [GitHub profile link]`,
+      },
+      {
+        type: 'p',
+        content:
+          'The keys: short, specific, technically grounded, low-pressure ask. No "synergy," no "digital transformation," no "hop on a call to learn about your pain points." Just: here is what I noticed, here is what might be relevant to you, here is a low-friction next step.',
+      },
+      {
+        type: 'h2',
+        content: 'Developer Tool GTM Metrics to Track',
+      },
+      {
+        type: 'ul',
+        items: [
+          'GitHub signals captured per week (volume)',
+          'Signals with public email (contactable %)',
+          'Signals from target account domains (ICP match %)',
+          'Reply rate on GitHub-triggered outreach (benchmark: 8–15%)',
+          'Meeting rate from GitHub-triggered outreach (benchmark: 3–6%)',
+          'Time from signal to outreach (target: under 24 hours)',
+          'Pipeline influenced by GitHub signals (CRM attribution)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'DevRel vs. Sales: Who Owns GitHub Signals?',
+      },
+      {
+        type: 'p',
+        content:
+          "In most devtool companies, GitHub signals fall in a no-man's land: DevRel knows about them but does not do outreach, and sales does not know GitHub well enough to use them effectively. The highest-performing teams we have seen treat GitHub signals as a shared asset: DevRel sees the Slack notifications and can engage in a community/support way; sales gets the CRM records and does a soft commercial follow-up. Both touchpoints reinforce each other.",
+      },
+      {
+        type: 'h2',
+        content: 'Scaling: When to Add Automation',
+      },
+      {
+        type: 'p',
+        content:
+          'At under 50 signals per week, manual review and personalized outreach is manageable and recommended. At 50–500 signals per week, you need qualification scoring and automated routing (high-score leads go to AEs, mid-score to sequences in Smartlead/Instantly/Lemlist). At 500+ signals per week, you are operating at a scale where GitHub signal is a first-class pipeline source and deserves dedicated tooling and headcount.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads is the GitHub signal monitoring platform built for devtool GTM. Free plan: 50 leads/month. No credit card required. Related: GitHub buying signals for sales, how to sell to developers, ICP for developer tools, GitHub keyword monitoring for sales, competitor repo stargazers as leads.',
+      },
+    ],
+  },
+  {
     slug: 'find-saas-customers-on-github',
     title: 'How to Find SaaS Customers on GitHub (2026 Playbook)',
     description:
@@ -9595,6 +10049,436 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \\
         type: 'callout',
         content:
           'GitLeads captures GitHub developer buying signals and pushes them to your existing sales stack. We do not send emails — we find the leads. Free plan: 50 leads/month. Related: how to sell to developers, GitHub buying signals for sales teams, ICP for developer tools, GitHub keyword monitoring for sales.',
+      },
+    ],
+  },
+  // ─── Post 53: GitHub Star History for Sales ──────────────────────────────────
+  {
+    slug: 'github-star-history-for-sales',
+    title: 'GitHub Star History as a Sales Signal: Who Starred Your Repo and When',
+    description:
+      'Your GitHub star history is more than a vanity metric — it\'s a timestamped list of developers who showed interest in your product. Here\'s how to extract that data and turn it into a real sales pipeline.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 9,
+    keywords: ['github star history', 'who starred my github repo', 'github stars sales leads', 'track github stars', 'github stargazers list'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Every star on your GitHub repository is a timestamped signal from a named developer. If your project has 3,000 stars, that is 3,000 developers who at some point found it interesting enough to bookmark. Most teams treat this as a vanity metric. Smart GTM teams treat it as a historical intent file. This article explains how to read your GitHub star history strategically and build a sales pipeline from it.',
+      },
+      {
+        type: 'h2',
+        content: 'What GitHub Star History Actually Tells You',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub\'s star history chart — the one that shows cumulative stars over time — tells you about your project\'s growth trajectory. That is useful for PR, but not for sales. What is useful for sales is the per-star event data: who starred, when they starred, and what their profile looks like today.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'A developer who starred your repo six months ago and has since moved to a new company with a relevant tech stack is a warm re-engagement opportunity',
+          'A spike of stars following a Hacker News post or Product Hunt launch identifies developers who discovered you through media — a different buyer persona than organic GitHub explorers',
+          'Stars from developers at the same company as an existing customer signal expansion opportunities',
+          'Stars from developers with large follower counts (500+) are worth prioritizing — these are the influencers in your category',
+          'Stars clustering around a specific date may correlate with a blog post, conference talk, or competitor outage — context that shapes your outreach angle',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Pulling Your Stargazer List via the GitHub API',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub REST API exposes every stargazer with their timestamp if you pass the correct Accept header. Here is the full call:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Get starred_at timestamps (requires Accept header)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  -H "Accept: application/vnd.github.star+json" \\
+  "https://api.github.com/repos/OWNER/REPO/stargazers?per_page=100&page=1"
+
+# Response includes:
+# { "starred_at": "2026-03-14T09:22:41Z", "user": { "login": "...", ... } }`,
+      },
+      {
+        type: 'p',
+        content:
+          'For repos with thousands of stars you will need to paginate across many pages (GitHub caps each page at 100 records). At 30 authenticated requests/minute, pulling 5,000 stargazers takes about 2 minutes of API time. The stargazer list response gives you login and avatar_url — you then need a second call per user to get email, company, bio, and location.',
+      },
+      {
+        type: 'h3',
+        content: 'Rate Limits and What They Mean in Practice',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Authenticated REST API: 5,000 requests/hour',
+          'GraphQL API: 5,000 points/hour (more efficient for bulk enrichment)',
+          'A repo with 10,000 stars requires 100 stargazer list calls + up to 10,000 enrichment calls = ~2 hours minimum',
+          'Only ~30–40% of GitHub users have a public email — factor this into pipeline size estimates',
+          'Users may have changed company, location, or contact info since they starred — recency matters',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Segmenting Stars by Time Period',
+      },
+      {
+        type: 'p',
+        content:
+          'Not all stars have equal sales value. Stars from the last 90 days are your hottest pipeline. Here is a simple segmentation model:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Last 30 days: highest intent — these developers just discovered you; reach out while you\'re top of mind',
+          '31–90 days: warm — they\'ve had time to evaluate but haven\'t converted; a helpful follow-up touchpoint works well here',
+          '91–180 days: cooling — worth a re-engagement sequence if they match your ICP',
+          '6–12 months: historical — most valuable for expansion signals if they\'ve joined a customer-adjacent company',
+          '12+ months: low signal value unless profile data shows strong ICP match',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Competitor Repo Stars: The Hidden Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'Your own repo\'s stargazers are valuable. Your competitor\'s stargazers are often more valuable. A developer who starred a direct competitor\'s repo is actively evaluating your category — they have intent that is independent of whether they have ever heard of you. The GitHub API exposes competitor stargazers with the same endpoint.',
+      },
+      {
+        type: 'p',
+        content:
+          'The playbook: pull competitor stargazers from the last 60 days, enrich each profile, filter by ICP criteria (company size, tech stack, location), and build a prioritized outreach list with a message framing your differentiation. Response rates on this type of outreach are significantly higher than cold outbound because the buyer is already in the category.',
+      },
+      {
+        type: 'h2',
+        content: 'Automating Star Monitoring vs. One-Time Pulls',
+      },
+      {
+        type: 'p',
+        content:
+          'A one-time historical pull of your star history is useful for building an initial pipeline. But the real leverage comes from monitoring stars in real time — capturing every new star as it happens and routing the enriched lead to your CRM or Slack before the intent cools. Building this yourself requires a webhook listener, enrichment pipeline, deduplication logic, and CRM integration — weeks of engineering work. GitLeads does this out of the box for tracked repos and competitor repos, pushing enriched leads to HubSpot, Pipedrive, Salesforce, Slack, Apollo, Clay, and 15+ other destinations within minutes of each star event.',
+      },
+      {
+        type: 'h2',
+        content: 'What to Do With the Data',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Load into your CRM with the starred_at date as a custom field so sales reps can filter by recency',
+          'Score leads by profile quality: company match, follower count, public email, relevant languages',
+          'Create a Slack alert for stars from developers at target accounts (ABM approach)',
+          'Enrich with LinkedIn company data to identify expansion opportunities at existing customers',
+          'Segment into sequences by star age: fresh stars get a direct "saw you found us on GitHub" message; older stars get a re-engagement message with a new feature or case study',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub stars in real time and pushes enriched developer leads to your sales stack automatically. No CSV exports, no manual pulls. Free plan: 50 leads/month. See also: turn GitHub stargazers into leads, competitor repo stargazers as leads, GitHub buying signals for sales teams, GitHub lead generation for SaaS founders.',
+      },
+    ],
+  },
+  // ─── Post 54: Find GitHub Users by Company ────────────────────────────────────
+  {
+    slug: 'find-github-users-by-company',
+    title: 'How to Find GitHub Users by Company (2026 Guide)',
+    description:
+      'Looking for developers who work at a specific company on GitHub? Here are three methods — from the GitHub search API to automated tools — with code examples and real limitations explained.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 8,
+    keywords: ['find github users by company', 'github search by company', 'find developers at company github', 'github company employees', 'github org members'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'If you sell to developers, knowing which engineers work at a target account is valuable context. GitHub is the richest public source for this data — many developers list their employer in their profile bio or company field. This guide covers every reliable method to find GitHub users associated with a specific company, including what works, what does not, and where the data gaps are.',
+      },
+      {
+        type: 'h2',
+        content: 'Method 1: GitHub Search API with Company Filter',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Search API supports a `type:user` query with `org:` and `company:` qualifiers. These are different and often confused:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find users who list "Stripe" in their company field
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/users?q=company:stripe+type:user&per_page=100"
+
+# Find members of a GitHub organization (public members only)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/orgs/stripe/members?per_page=100"
+
+# Find users by company string (case-insensitive, partial match)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/users?q=company:%22stripe%22&per_page=100"`,
+      },
+      {
+        type: 'p',
+        content:
+          'The `company:` field is self-reported and unstructured. A developer at Stripe might list "Stripe", "@stripe", "Stripe Inc", "stripe.com", or nothing at all. You need to query multiple variants and deduplicate. Additionally, GitHub search results are capped at 1,000 per query — if a company like Google or Microsoft has tens of thousands of GitHub employees, you will only ever see a sample.',
+      },
+      {
+        type: 'h2',
+        content: 'Method 2: GitHub Organization Member Lists',
+      },
+      {
+        type: 'p',
+        content:
+          'If the company has a GitHub organization (most tech companies do), you can retrieve their public member list directly. This is more reliable than the company search because membership is managed by the org admin.',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+
+def get_org_members(org_name: str, token: str) -> list[dict]:
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json"
+    }
+    members = []
+    page = 1
+    while True:
+        resp = requests.get(
+            f"https://api.github.com/orgs/{org_name}/members",
+            headers=headers,
+            params={"per_page": 100, "page": page}
+        )
+        data = resp.json()
+        if not data:
+            break
+        members.extend(data)
+        page += 1
+    return members
+
+# Then enrich each member profile
+def enrich_member(login: str, token: str) -> dict:
+    headers = {"Authorization": f"Bearer {token}"}
+    resp = requests.get(f"https://api.github.com/users/{login}", headers=headers)
+    return resp.json()`,
+      },
+      {
+        type: 'h3',
+        content: 'Limitations of Org Member Lists',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Only public membership is visible — many developers keep org membership private',
+          'Contractors, consultants, and agency developers are usually not in the org',
+          'The org name may differ from the company name (e.g., a company called "Acme Corp" might have org "acmehq" or "acme-corp")',
+          'Large orgs can have 10,000+ members — enriching all of them is rate-limited',
+          'Membership reflects current employment — developers who left the company may still be listed',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Method 3: Signal-Based Company Identification',
+      },
+      {
+        type: 'p',
+        content:
+          'Instead of looking up "who works at company X", a more powerful approach is to identify developers at target companies by their activity signals. This means monitoring GitHub events (stars, issues, PRs, commit messages) and filtering the resulting leads by the company field in their enriched profile. This inverts the problem: instead of starting with a company and finding people, you start with people who are actively signaling intent and then identify which of them work at target accounts.',
+      },
+      {
+        type: 'p',
+        content:
+          'This is what ABM teams using GitLeads do. They set up tracking on their own repos and competitor repos, let leads flow in, and then filter the lead stream by company. The result is a list of developers at target accounts who are actively evaluating your category — a far warmer pipeline than a static "who works here" list.',
+      },
+      {
+        type: 'h2',
+        content: 'Combining Methods for Maximum Coverage',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Start with org member list for known GitHub organizations — this gives you the most accurate company affiliation',
+          'Supplement with company: field search using multiple name variants',
+          'Cross-reference email domains during enrichment — if a developer\'s public email uses @company.com, that is a strong signal',
+          'Filter by recent activity (pushed_at within 90 days) to exclude inactive accounts',
+          'For ABM: monitor GitHub events first, then filter leads by target company list rather than pulling static member lists',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Data Quality Expectations',
+      },
+      {
+        type: 'p',
+        content:
+          'Before building a pipeline, understand what the data actually looks like. For a mid-size tech company with 500 engineers: roughly 70–80% have a GitHub profile, about 40–50% list their employer in the company field, and about 30–40% have a public email. The org member list (if public) is the most complete single source, but typically captures only 30–60% of actual employees depending on how the company manages GitHub access.',
+      },
+      {
+        type: 'h2',
+        content: 'Using GitLeads for Company-Filtered Developer Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads captures developer signals from GitHub in real time and enriches each lead with profile data including company, bio, email, location, followers, and top languages. You can filter your lead stream by company name to identify which inbound signal-based leads work at your target accounts — without building or maintaining any scraping infrastructure. Leads route automatically to your CRM, Slack, Clay, or any of 15+ supported destinations.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads finds developers showing buying signals on GitHub and pushes them to your sales stack — including enriched company data for ABM filtering. Free plan: 50 leads/month. Related: GitHub buying signals for sales, push GitHub leads to HubSpot, ICP for developer tools, GitHub lead scoring.',
+      },
+    ],
+  },
+  // ─── Post 55: DevRel GitHub Intelligence ──────────────────────────────────────
+  {
+    slug: 'devrel-github-intelligence',
+    title: 'GitHub Intelligence for DevRel: Monitor Community Signals Without Manual Effort',
+    description:
+      'DevRel teams waste hours manually checking GitHub for mentions, issues, and community growth signals. Here\'s how to automate GitHub intelligence so you catch every relevant signal and act on it faster.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 10,
+    keywords: ['devrel github monitoring', 'github community intelligence', 'developer relations github signals', 'github mention monitoring', 'devrel tools'],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Developer relations teams live on GitHub. Issues, PRs, discussions, stargazer lists, and fork counts are the primary signals that tell you whether your community is healthy, who your power users are, and where the product needs to improve. The problem is that most DevRel teams monitor GitHub manually — checking dashboards, reading through issue trackers, Googling for mentions. This does not scale. This article covers the signals worth automating and the tools that make it practical.',
+      },
+      {
+        type: 'h2',
+        content: 'The Five GitHub Signals DevRel Teams Need',
+      },
+      {
+        type: 'ul',
+        items: [
+          'New stargazers — who just discovered your project and what their profile looks like',
+          'Keyword mentions in issues and PRs — your product name, competitor names, integration asks, error messages',
+          'Discussion posts asking for help or requesting features — leading indicators of friction and demand',
+          'New forks from organizations — companies evaluating your repo for internal use',
+          'Commit messages mentioning your tooling — developers integrating your product in the wild',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Why Manual Monitoring Breaks Down',
+      },
+      {
+        type: 'p',
+        content:
+          'Manual GitHub monitoring has two failure modes: you miss things, and you react too slowly. An issue opened by a developer at a Fortune 500 company asking about enterprise licensing gets buried under 40 other issues in 6 hours. A keyword mention of your product in a third-party repo\'s issue tracker — the kind that could become a partnership or a support win — never gets seen at all. The only fix is continuous, automated monitoring with alerting.',
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up Keyword Monitoring on GitHub',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub does not send notifications for keyword mentions across repos you do not own. You need to either poll the Search API or use a monitoring service. Here is how polling works:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Search GitHub issues for your product name (last 24 hours)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=YOUR_PRODUCT+created:>2026-04-29&sort=created&order=desc&per_page=100"
+
+# Search code for usage of your npm package or library
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/code?q=require+%22your-package%22&sort=indexed&per_page=100"
+
+# Monitor competitor mentions in issues
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=COMPETITOR_NAME+in:body+created:>2026-04-29"`,
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Search API indexes issues, PRs, code, commits, and discussions — but rate limits are strict (30 req/min authenticated). A robust monitoring setup needs batched queries, exponential backoff, result deduplication, and a delivery layer to route alerts to Slack or PagerDuty. This is not a weekend project if you need it to be reliable.',
+      },
+      {
+        type: 'h2',
+        content: 'Star Monitoring: DevRel Use Cases vs. Sales Use Cases',
+      },
+      {
+        type: 'p',
+        content:
+          'Sales teams want new stargazers as leads. DevRel teams want different things from the same data:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stars from developers at companies you want as design partners — flag for a partnership outreach',
+          'Stars from known community influencers (high follower count, popular repos) — engage them personally, they may amplify',
+          'Stars from developers in geographies where you have no community presence — identify expansion targets',
+          'Spike analysis: a burst of 50 stars in one hour usually means someone shared your repo somewhere — find where and capitalize on the moment',
+          'Stars from developers who previously opened issues — they came back; this is a strong re-engagement signal',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building a DevRel Intelligence Stack',
+      },
+      {
+        type: 'p',
+        content:
+          'A practical DevRel GitHub intelligence stack has three layers: signal capture, enrichment, and routing. Signal capture is the GitHub API or a monitoring service. Enrichment adds profile context (company, followers, bio, top languages) to each signal. Routing sends the enriched signal to the right destination — Slack for real-time alerts, a CRM for tracking relationships, or a spreadsheet for community reporting.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Signal capture: GitHub API, GitLeads, or a custom webhook listener on your repos',
+          'Enrichment: GitLeads includes this natively; DIY requires calling /users/{login} for each event',
+          'Routing: Slack (for alerts), HubSpot (for relationship tracking), Notion or Airtable (for community CRM), Clay (for advanced enrichment workflows)',
+          'Dashboarding: GitHub Insights (limited), Star History.app (charts only), custom Metabase queries on your captured data',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The DevRel-to-Sales Handoff Problem',
+      },
+      {
+        type: 'p',
+        content:
+          'At developer tool companies with a sales-assist or enterprise tier, DevRel and sales both care about the same GitHub signals — but for different reasons. DevRel wants to build relationships; sales wants to close deals. The failure mode is when the same developer gets both a DevRel community welcome and a sales sequence at the same time, resulting in an awkward double-touch that damages trust.',
+      },
+      {
+        type: 'p',
+        content:
+          'The fix is a shared signal layer. When GitLeads pushes a new stargazer to HubSpot, both DevRel and sales see the same record, with the same context, and can coordinate. GitLeads\' routing lets you send the same signal to multiple destinations — Slack for DevRel awareness and HubSpot for sales follow-up — with the full profile context that prevents duplicate or conflicting outreach.',
+      },
+      {
+        type: 'h2',
+        content: 'Metrics DevRel Teams Should Pull from GitHub Signals',
+      },
+      {
+        type: 'ul',
+        items: [
+          'New qualified community members per week (stars from developers who match your ICP profile)',
+          'Issue resolution rate and first-response time — developer experience KPI',
+          'Keyword mention velocity for your product vs. competitors — share of conversation',
+          'Fork-to-star ratio — high forks relative to stars suggests active evaluation for adoption',
+          'Community member conversion rate — percentage of community leads that eventually become customers',
+          'Geographic distribution of new stars — community health by region',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub signals in real time and routes enriched developer profiles to Slack, HubSpot, Clay, and 15+ other tools. DevRel teams use it to stay on top of community growth without manual checking. Free plan: 50 leads/month. Related: GitHub discussions monitoring, monitor GitHub for brand mentions, DevRel community growth, GitHub signal monitoring.',
       },
     ],
   },
