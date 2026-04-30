@@ -177,6 +177,32 @@ export const TOPICS: Topic[] = [
   topic('robotics-engineers', 'Robotics', 'Robotics Engineers', 28000),
   topic('iot-developers', 'IoT', 'IoT Developers', 52000),
   topic('arvr-developers', 'AR/VR', 'AR/VR Developers', 23000),
+
+  // High-value platforms & ecosystems
+  topic('shopify-developers', 'Shopify', 'Shopify Developers', 118000),
+  topic('stripe-developers', 'Stripe', 'Stripe Developers', 89000),
+  topic('vercel-developers', 'Vercel', 'Vercel Developers', 52000),
+  topic('netlify-developers', 'Netlify', 'Netlify Developers', 34000),
+  topic('firebase-developers', 'Firebase', 'Firebase Developers', 97000),
+  topic('expo-developers', 'Expo', 'Expo Developers', 44000),
+  topic('astro-developers', 'Astro', 'Astro Developers', 31000),
+  topic('htmx-developers', 'HTMX', 'HTMX Developers', 21000),
+
+  // Roles with high search volume
+  topic('full-stack-developers', 'Full-Stack', 'Full-Stack Developers', 421000),
+  topic('sre-engineers', 'Site Reliability', 'SRE Engineers', 74000),
+  topic('backend-developers', 'Backend', 'Backend Developers', 312000),
+  topic('frontend-developers', 'Frontend', 'Frontend Developers', 287000),
+  topic('ai-engineers', 'AI Engineering', 'AI Engineers', 63000),
+  topic('vibe-coders', 'Vibe Coding', 'Vibe Coders', 14000),
+
+  // Infrastructure & observability
+  topic('prometheus-engineers', 'Prometheus', 'Prometheus Engineers', 48000),
+  topic('grafana-engineers', 'Grafana', 'Grafana Engineers', 54000),
+  topic('opentelemetry-engineers', 'OpenTelemetry', 'OpenTelemetry Engineers', 31000),
+  topic('datadog-engineers', 'Datadog', 'Datadog Engineers', 27000),
+  topic('cilium-engineers', 'Cilium', 'Cilium Engineers', 12000),
+  topic('istio-engineers', 'Istio', 'Istio Engineers', 23000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(

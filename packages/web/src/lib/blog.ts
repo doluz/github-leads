@@ -11554,6 +11554,1419 @@ Free tier covers most solo projects. Worth a look?
       },
     ],
   },
+  {
+    slug: 'github-trending-leads',
+    title: 'GitHub Trending as a Lead Source: Find Buyers Before Your Competitors Do',
+    description:
+      'GitHub Trending surfaces developers actively building in your category — before they ever evaluate your product. Here is how to turn trending repos and their contributors into qualified pipeline.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 8,
+    keywords: [
+      'github trending leads',
+      'github trending repositories lead generation',
+      'find leads github trending',
+      'github trending prospecting',
+      'developer lead generation github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub Trending shows you which repos — and which developers — are building in your space right now. A repo that climbs the trending list in your category is a concentration of developers who care about that problem. The maintainers, contributors, and stargazers are all active, technical, and motivated. That is a better cold audience than any purchased list.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Trending Is a High-Intent Lead Source',
+      },
+      {
+        type: 'p',
+        content:
+          'Most lead sources give you contact data. GitHub Trending gives you behavioral context. When a developer pushes a repo to the top of trending, it means: they shipped something publicly, the developer community found it worth watching, and the author is actively engaged in a specific technical domain. That combination — public activity, community validation, domain relevance — is the definition of a warm prospect.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Trending maintainers: they built something in your category — the clearest possible signal of domain interest',
+          'Trending contributors: they shipped code to someone else\'s hot repo — active, collaborative, technically invested',
+          'Trending stargazers: developers who saw the repo, decided it was relevant, and bookmarked it for later',
+          'Trending repo README links: projects that reference tools like yours are built by developers already aware of the category',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The Problem With Monitoring Trending Manually',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Trending resets daily and weekly. There is no native API for it. You cannot subscribe to trending alerts for a specific language or topic. And even if you could, turning a trending repo into a lead means: identifying the author\'s contact info, qualifying them against your ICP, and getting them into your outreach tool before the signal goes cold. Doing this manually for even one trending repo takes hours.',
+      },
+      {
+        type: 'h2',
+        content: 'Trending Repo Signals GitLeads Can Capture',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads does not scrape the trending page directly, but you can replicate its value by combining two signal types that together cover the same population:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signals on repos in your category: a repo that suddenly accelerates in stars is effectively trending — GitLeads captures every new stargazer in real time',
+          'Keyword signals: monitor for the same keywords trending repos use in their issue titles and README-linked discussions — developers building in your niche will surface automatically',
+          'Competitor repo monitoring: trending repos in your space often appear near competitor repos — star velocity on competitor projects is a direct indicator of category momentum',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building a Trending-Category Repo List',
+      },
+      {
+        type: 'p',
+        content:
+          'The most reliable way to use trending as a lead source is to maintain a curated list of 10–30 repos that represent your category and monitor them systematically. Here is how to build that list:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Search GitHub for repos tagged with the topics most relevant to your product (e.g., "observability", "developer-tools", "api-gateway")',
+          'Sort by recently starred or recently created to find repos with velocity',
+          'Add the top 20–30 to GitLeads as tracked repos',
+          'GitLeads will capture every new stargazer on all of them — you get the benefit of trending monitoring without any manual work',
+          'Set up a Slack or HubSpot destination so leads flow into your stack automatically',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Outreach Framing for Trending-Based Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'The fact that a developer starred a trending-category repo is usable context in outreach. It tells you they are evaluating tools in your space right now. That recency is your edge:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"I noticed you recently starred [repo] — it looks like you\'re building in [category]. We solve [specific pain point] for teams doing exactly that."',
+          'Keep the first message under 4 sentences and reference the specific repo — personalization converts',
+          'Do not use generic "developer tool" framing — reference the actual technical context from their GitHub profile (top languages, company, bio)',
+          'Follow up once, 3–5 days later, with a concrete next step — not "just checking in"',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads captures new stargazers on repos you track and pushes enriched lead profiles — name, email (if public), GitHub handle, bio, company, top languages — to HubSpot, Slack, Smartlead, and 15+ other tools. Start monitoring trending-category repos free at gitleads.app.',
+      },
+      {
+        type: 'h2',
+        content: 'What Makes a Good Trending-Derived Lead',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every stargazer on a trending repo is worth pursuing. Use these filters to prioritize:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Has a public email address: eliminates the hardest part of outreach immediately',
+          'Has 50+ followers: indicates they are influential in the community, not just a passive observer',
+          'Bio mentions a company or role: gives you context for personalization and ICP qualification',
+          'Top languages match your product\'s stack: if your product requires Python and they write Python, relevance is high',
+          'Has public repos in your category: they are not just a consumer, they are an active builder',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Scaling Beyond Trending: The Full GitHub Signal Stack',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Trending is a starting point. The full pipeline for developer GTM on GitHub layers three signal types: stargazer signals (who is watching repos in your space), keyword signals (who is talking about problems you solve), and issue activity (who is actively debugging in your domain). GitLeads monitors all three continuously — not just when a repo happens to trend.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: turn GitHub stargazers into leads, GitHub keyword monitoring for sales, competitor repo stargazers as leads, find GitHub leads, GitHub signal monitoring.',
+      },
+    ],
+  },
+  {
+    slug: 'find-developers-by-tech-stack',
+    title: 'How to Find Developers by Tech Stack on GitHub (And Turn Them Into Qualified Leads)',
+    description:
+      'Tech stack is the most powerful ICP filter for developer tools. Here is how to use GitHub signals — profile languages, repo keywords, and issue mentions — to build a pipeline of developers who use the exact technology your product serves.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 9,
+    keywords: [
+      'find developers by tech stack github',
+      'target developers using specific technology',
+      'github lead filtering by language',
+      'developer icp filtering github',
+      'find python developers github leads',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'For developer tool companies, tech stack is the single most important ICP dimension. A Rust monitoring tool does not want Python leads. A Next.js component library does not want Java enterprise developers. GitHub is the only place where tech stack data is public, verifiable, and current — because developers show their stack in their repos, not just their LinkedIn profiles.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Is the Best Source for Tech Stack Data',
+      },
+      {
+        type: 'p',
+        content:
+          'LinkedIn lets developers claim any skill. GitHub proves it. The difference matters enormously for outreach quality:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'GitHub profiles list top languages by actual commit volume — not self-reported skills',
+          'Public repos show the exact libraries, frameworks, and tools a developer actively uses',
+          'Issues and PRs reveal the problems they are solving right now — tool evaluations, integration questions, debugging sessions',
+          'Starred repos show what they find interesting — often more predictive of intent than their own code',
+          'Company field (often filled with employer or their own startup) gives you firmographic context',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The Three Ways to Find Developers by Tech Stack on GitHub',
+      },
+      {
+        type: 'h3',
+        content: '1. Stargazer Signals on Stack-Specific Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'Every major framework, library, and tool has a GitHub repo. Developers who star the repo for a tool your product integrates with have already self-selected into the relevant tech stack. Track these repos and every new stargazer is pre-qualified by their own action:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'If you sell a Kubernetes observability tool: track the kubernetes/kubernetes repo, helm/helm, and the top 5 Kubernetes operators in your niche',
+          'If you sell a React component library: track facebook/react, vercel/next.js, and the repos of your closest competitors',
+          'If you sell a Python developer tool: track pallets/flask, tiangolo/fastapi, django/django — and filter leads whose top language is Python',
+        ],
+      },
+      {
+        type: 'h3',
+        content: '2. Keyword Signals in Issues and Discussions',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers who post issues mentioning specific tools, error messages, or integration pain points are not just using that tech stack — they are actively debugging or evaluating solutions in it. This is the highest-intent signal available:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Monitor for your product\'s core dependency names: if your tool wraps the OpenAI API, monitor GitHub issues mentioning "openai" + "rate limit" or "openai" + "cost"',
+          'Monitor competitor mentions: "switched from [competitor]", "migrating from [competitor]", "alternative to [competitor]"',
+          'Monitor error messages your product solves: developers searching for solutions to errors your product fixes are actively evaluating replacements',
+          'Monitor Stack-specific pain points: "kubernetes memory limit exceeded", "next.js build time", "prisma connection pool" — each one maps to a specific stack and a specific problem',
+        ],
+      },
+      {
+        type: 'h3',
+        content: '3. Language Filtering on Stargazer Profiles',
+      },
+      {
+        type: 'p',
+        content:
+          'Even when you track broad repos, GitLeads enriches each stargazer with their top GitHub languages. This lets you filter the leads you actually push to your CRM to only those using the tech stack your product requires. A single broad repo can generate thousands of stargazers — language filtering ensures your sales team only sees the ones who match.',
+      },
+      {
+        type: 'h2',
+        content: 'Building a Tech Stack-Specific Lead List',
+      },
+      {
+        type: 'p',
+        content:
+          'Here is a concrete workflow for building a pipeline of developers using a specific tech stack using GitLeads:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Identify the 5–10 GitHub repos that are "home base" for your target stack — the most-starred repos for the frameworks and tools your ICP uses',
+          'Add all of them to GitLeads as tracked repos',
+          'Set up keyword monitors for the top 3–5 pain points your product solves, scoped to repos in that stack',
+          'In GitLeads, use ICP filters to match only leads whose top language matches your target stack',
+          'Route matched leads to your CRM (HubSpot, Pipedrive, Salesforce) or straight into a cold email sequence (Smartlead, Instantly, Lemlist)',
+          'Enrich further via Clay or Apollo if you need firmographic data beyond what GitHub provides',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Tech Stack Targeting by Product Type',
+      },
+      {
+        type: 'p',
+        content:
+          'Different developer tool categories have different tech stack targeting strategies:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Infrastructure tools (CI/CD, observability, deployment): target DevOps engineers via kubernetes, terraform, helm, and GitHub Actions repos',
+          'API tools (gateways, SDKs, documentation): target by language (Python, TypeScript, Go) and frameworks (FastAPI, Express, Gin)',
+          'Data tools (pipelines, warehouses, BI): target via dbt, Apache Spark, Kafka, PostgreSQL, and Elasticsearch repos',
+          'AI/ML tools: target via LangChain, Hugging Face, OpenAI API, PyTorch, and LLM-adjacent repos',
+          'Security tools: target via OWASP projects, popular authentication libraries, and security-adjacent framework repos',
+          'Developer productivity tools: target by IDE/editor repos, linting tools, testing frameworks, and dotfiles repos',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What Tech Stack Data to Use in Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'Tech stack data from GitHub enables personalization that converts. Use it to write first-touch messages that feel researched, not templated:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"Saw you\'ve been working in TypeScript + Next.js — we integrate natively with both, no config required"',
+          '"Your repo uses [specific library] — that\'s exactly the integration pattern where most [pain point] happens"',
+          '"Most of our customers write [language] — we built [feature] specifically for how [language] devs structure their [use case]"',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads filters GitHub leads by top language and tech stack, so you only push developers who match your ICP to your sales tools. Sign up free at gitleads.app — 50 qualified leads per month at no cost.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub lead generation for SaaS founders, ICP for developer tools, GitHub keyword monitoring for sales, find GitHub leads, GitHub intent data for B2B sales.',
+      },
+    ],
+  },
+  {
+    slug: 'github-releases-as-buying-signals',
+    title: 'GitHub Releases as Buying Signals: How Active Maintainers Become Your Best Leads',
+    description:
+      'Developers who publish GitHub Releases are active maintainers solving real problems in production. They are the highest-quality leads for developer tools. Here is how to find them and what to say.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 8,
+    keywords: [
+      'github releases monitoring sales',
+      'github changelog leads',
+      'monitor github releases for prospects',
+      'active github maintainers leads',
+      'developer tool lead generation maintainers',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'A developer who publishes a GitHub Release has a production project, an active user base, and a version discipline that signals engineering maturity. That combination is exceptionally rare — and it is the exact profile of a developer who evaluates and buys developer tools. Most lead generation approaches find developers at rest. Release monitoring finds developers mid-motion.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Releases Signal Purchase Intent',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Releases represent a specific stage in a developer\'s work: they have shipped something, they are maintaining it, and people are using it. Each of those facts is commercially relevant:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'They have a production project: not a side project or learning exercise — something with actual users',
+          'They are the decision-maker: maintainers choose the tools their projects depend on, which means they are both the user and the buyer',
+          'They are actively iterating: a developer cutting releases regularly is in active development mode — they evaluate new tools as part of their workflow',
+          'Their release notes reveal pain: changelog entries like "fix: memory leak in connection pool" or "feat: add retry logic for API failures" show exactly what problems they are solving',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The Release Note as a Prospecting Signal',
+      },
+      {
+        type: 'p',
+        content:
+          'Release notes are written for users but read by competitors and potential partners. A maintainer who writes "added support for webhook retries after rate limiting" is telling you: they handle webhooks, they hit rate limits, and they care about reliability. If your product solves any part of that, you have a qualified prospect and a specific conversation starter.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads\'s keyword monitoring captures mentions in GitHub Issues, PRs, and Discussions — including the discussions that accompany releases. When a maintainer publishes a release and their users post questions, bug reports, or feature requests in the associated issue thread, those discussions surface as keyword signals if they match your monitors.',
+      },
+      {
+        type: 'h2',
+        content: 'How to Find Active Maintainers as Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'There is no direct "GitHub Releases" feed you can subscribe to, but two GitLeads signal types together cover the maintainer population effectively:',
+      },
+      {
+        type: 'h3',
+        content: 'Signal Type 1: Keyword Monitors on Release-Adjacent Terms',
+      },
+      {
+        type: 'p',
+        content:
+          'Set up keyword monitors for terms that appear in release-driven activity:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Version-specific pain points: "v2 migration", "breaking change", "upgrade guide", "semver"',
+          'Infrastructure signals: "deploy to production", "kubernetes rollout", "zero-downtime deploy", "blue-green"',
+          'Tooling evaluation signals: "we evaluated", "we switched to", "alternatives to", "comparing [tool] vs [tool]"',
+          'Changelog-adjacent keywords: "release notes", "what changed in", "update from v1"',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Signal Type 2: Stargazers on Ecosystem Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'Active maintainers star repos in their ecosystem. Track the repos that are "upstream" of your product — the libraries and tools that maintainers at your ICP level use — and you will capture maintainers as they research tooling decisions:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Maintainers of production APIs: star OpenAPI spec tools, rate limiting libraries, API documentation repos',
+          'Maintainers of data pipelines: star Apache Arrow, dbt, Airbyte, and data validation library repos',
+          'Maintainers of web services: star framework repos, deployment tool repos, monitoring and observability repos',
+          'Maintainers of CLI tools: star argument parsing libraries, shell completion repos, terminal UI framework repos',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Qualifying Maintainers as Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Active maintainer status can be inferred from GitHub profile data without accessing the GitHub Releases API directly:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Has 3+ public repos with recent commits (last 30 days): they are actively maintaining, not just a past contributor',
+          'Follower count 100+: people are watching their work — the project has an audience',
+          'Bio mentions a specific role or product: "building [product]" in the bio means this is professional-grade work',
+          'Organization membership: employees of companies often maintain projects that are part of their product infrastructure',
+          'Public email or company domain on profile: directly actionable for outreach',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Outreach for Release-Stage Developers',
+      },
+      {
+        type: 'p',
+        content:
+          'The best maintainer outreach references something specific about their project — not their job title or company. A message that shows you have looked at what they are building converts because it is rare and because maintainers are used to generic outreach that ignores their actual work:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"Saw you maintain [repo] — congrats on the v2 release. Most teams at that stage run into [specific problem]. We built [product] specifically for that."',
+          '"[Repo] is using [library your product integrates with] — we have a native integration that would replace the boilerplate in your [specific file or pattern]."',
+          'Avoid generic developer pitches: maintainers of production projects have seen thousands of them. Specificity is the only differentiator.',
+          'Offer something useful, not a demo: documentation, a benchmark, a free audit of their current setup — maintainers respond to value, not calendar links',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub keywords and stargazers continuously, surfaces active maintainers who match your ICP, and pushes them to your sales stack in real time. Try it free — 50 leads per month at gitleads.app.',
+      },
+      {
+        type: 'h2',
+        content: 'Maintainers as a Long-Term Lead Category',
+      },
+      {
+        type: 'p',
+        content:
+          'Active maintainers are not just good leads — they are disproportionately influential. A maintainer who adopts your tool will write about it, mention it in their changelog, and recommend it to contributors. The referral value of a single maintainer-customer often exceeds the direct revenue. Prioritizing maintainers in your ICP is not just a sourcing strategy — it is a growth strategy.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: open source lead generation, GitHub keyword monitoring for sales, turn GitHub stargazers into leads, GitHub sales intelligence, developer outreach email templates.',
+      },
+    ],
+  },
+  {
+    slug: 'push-github-leads-to-zapier',
+    title: 'Push GitHub Leads to Zapier: Automate Your Developer Pipeline',
+    description:
+      'Connect GitLeads to Zapier and route new GitHub leads into any tool in your stack — HubSpot, Notion, Airtable, Slack, and 6,000+ more — in minutes, without code.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 7,
+    keywords: [
+      'push github leads to zapier',
+      'zapier github leads',
+      'github lead automation zapier',
+      'zapier github integration',
+      'automate github leads',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitLeads captures developer intent signals from GitHub — new stargazers on tracked repos, keyword mentions in issues and PRs — and enriches each lead with name, email, company, GitHub username, top languages, and signal context. The Zapier integration lets you push every enriched lead record into any tool in your existing stack without writing a line of code.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Route GitHub Leads Through Zapier',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads has native integrations for HubSpot, Slack, Apollo, Salesforce, Pipedrive, Clay, and several cold email tools. Zapier covers everything else: Notion databases, Airtable bases, Google Sheets, Intercom, Mailchimp, ActiveCampaign, Zoho CRM, Monday.com, and 6,000+ other apps. If your CRM or outreach tool is not in GitLeads\'s native list, Zapier is the bridge.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Log every GitHub lead to an Airtable base for manual review before outreach',
+          'Create Notion database entries for each new developer signal',
+          'Add GitHub leads to an ActiveCampaign list and trigger a drip sequence',
+          'Post enriched lead cards to a Slack channel while also creating a CRM contact',
+          'Sync leads into a Google Sheet shared with a sales team that does not use a CRM',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How the GitLeads → Zapier Connection Works',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads sends lead data via webhook. Zapier\'s "Catch Hook" trigger receives the payload and makes all fields available for mapping to any downstream action. The webhook payload includes:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'lead.name — display name from GitHub profile',
+          'lead.email — public email if available',
+          'lead.github_username — GitHub login handle',
+          'lead.github_url — direct link to their GitHub profile',
+          'lead.company — company field from GitHub profile',
+          'lead.location — self-reported location',
+          'lead.bio — full GitHub bio',
+          'lead.followers — follower count (useful for scoring)',
+          'lead.top_languages — array of top programming languages',
+          'signal.type — "stargazer" or "keyword"',
+          'signal.repo — the repo that was starred (for stargazer signals)',
+          'signal.keyword — the keyword that matched (for keyword signals)',
+          'signal.context — the surrounding text that triggered the match',
+          'signal.url — direct link to the issue, PR, or discussion that matched',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up the Integration',
+      },
+      {
+        type: 'h3',
+        content: 'Step 1: Create a Zapier Webhook Trigger',
+      },
+      {
+        type: 'p',
+        content:
+          'In Zapier, create a new Zap and choose "Webhooks by Zapier" as the trigger. Select "Catch Hook" as the trigger event. Zapier will generate a unique webhook URL that looks like https://hooks.zapier.com/hooks/catch/XXXXXXX/YYYYYYY/. Copy this URL.',
+      },
+      {
+        type: 'h3',
+        content: 'Step 2: Add the Webhook URL to GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'In your GitLeads dashboard, go to Integrations → Webhooks and paste the Zapier URL. GitLeads will send a test payload immediately so Zapier can detect the schema. Click "Test trigger" in Zapier to confirm the payload was received.',
+      },
+      {
+        type: 'h3',
+        content: 'Step 3: Map Fields to Your Destination',
+      },
+      {
+        type: 'p',
+        content:
+          'Add an action step for your destination app — Airtable, Notion, HubSpot, ActiveCampaign, whatever you use. Map the GitLeads payload fields to the corresponding fields in the destination. The full payload is available in Zapier\'s field picker after the test payload lands.',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `// Example GitLeads webhook payload
+{
+  "event": "lead.created",
+  "lead": {
+    "name": "Sarah Chen",
+    "email": "sarah@acmecorp.com",
+    "github_username": "sarah-chen",
+    "github_url": "https://github.com/sarah-chen",
+    "company": "Acme Corp",
+    "location": "San Francisco, CA",
+    "bio": "Platform engineer. Building internal tools at Acme.",
+    "followers": 312,
+    "top_languages": ["Go", "Python", "TypeScript"]
+  },
+  "signal": {
+    "type": "stargazer",
+    "repo": "your-org/your-repo",
+    "occurred_at": "2026-04-30T14:22:00Z"
+  }
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Popular Zapier Workflows for GitHub Leads',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Leads → Airtable',
+      },
+      {
+        type: 'p',
+        content:
+          'Map lead fields to Airtable columns. Add a "Status" field with a default value of "New" and a formula field that extracts the GitHub username from the profile URL. Use Airtable views to segment leads by language, company, or signal type. Trigger a Zapier automation when a row\'s status changes to "Approved" to push it into your CRM.',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Leads → Notion Database',
+      },
+      {
+        type: 'p',
+        content:
+          'Create a Notion database with properties for Name, Email, Company, GitHub URL, Signal Type, and Notes. Use Zapier to create a new page in the database for each lead, with the signal context pasted into the page body. Link the Notion database to your outreach tracker for a no-code pipeline.',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Leads → Google Sheets + Slack Alert',
+      },
+      {
+        type: 'p',
+        content:
+          'Use a multi-step Zap to simultaneously append a row to a Google Sheet and send a Slack message with the lead summary. This is useful for small teams that review leads manually before deciding to reach out.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads sends enriched GitHub lead data to Zapier via webhook. Connect any of 6,000+ apps in minutes. Start free at gitleads.app — 50 leads per month, no credit card required.',
+      },
+      {
+        type: 'h2',
+        content: 'Filtering Leads Before They Hit Zapier',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads lets you set signal filters before leads are sent — minimum follower count, required public email, specific languages, or signal type. Use these filters to reduce noise so Zapier only processes leads that already meet your ICP criteria. Zapier also has a built-in Filter step if you want to add additional conditions on the Zapier side.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: push GitHub leads to HubSpot, push GitHub leads to Slack, GitHub lead automation with n8n and Make, GitHub lead generation workflow, what is GitHub intent data.',
+      },
+    ],
+  },
+  {
+    slug: 'push-github-leads-to-n8n',
+    title: 'Push GitHub Leads to n8n: Self-Hosted Lead Automation',
+    description:
+      'Route GitLeads GitHub signals into n8n workflows. Self-host your lead automation, enrich data, and push to any CRM or outreach tool — without sending data to third-party servers.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 8,
+    keywords: [
+      'push github leads to n8n',
+      'n8n github leads',
+      'n8n github integration',
+      'self-hosted github lead automation',
+      'n8n webhook github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'n8n is an open-source workflow automation tool that you can self-host — no data leaves your infrastructure unless you explicitly send it somewhere. For teams handling developer lead data with GDPR constraints, enterprise data residency requirements, or a general preference for self-hosted tooling, n8n is often the right choice over Zapier or Make. GitLeads integrates with n8n via webhook, giving you the full power of n8n\'s node library with real-time GitHub lead data.',
+      },
+      {
+        type: 'h2',
+        content: 'Why n8n for GitHub Lead Automation',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Self-hosted: lead data stays on your servers, never touches n8n\'s cloud',
+          'No per-execution pricing: Zapier charges per task, n8n self-hosted is free beyond hosting costs',
+          'Code nodes: write JavaScript or Python directly inside workflows for complex transformations',
+          '400+ integrations: HubSpot, Salesforce, Airtable, Notion, Slack, Postgres, MySQL, HTTP nodes for any API',
+          'Community nodes: access to hundreds of community-built nodes for niche tools',
+          'Branching and error handling: sophisticated logic without writing a backend service',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up the GitLeads → n8n Webhook',
+      },
+      {
+        type: 'h3',
+        content: 'Step 1: Create a Webhook Node in n8n',
+      },
+      {
+        type: 'p',
+        content:
+          'In your n8n canvas, add a Webhook node as the trigger. Set the HTTP method to POST and choose an authentication method — "Header Auth" with a secret token is recommended. n8n will generate a webhook URL in the format https://your-n8n-instance.com/webhook/YOUR-UNIQUE-ID. Copy this URL.',
+      },
+      {
+        type: 'h3',
+        content: 'Step 2: Configure GitLeads to Send to n8n',
+      },
+      {
+        type: 'p',
+        content:
+          'In your GitLeads dashboard, navigate to Integrations → Webhooks. Paste your n8n webhook URL and add any secret header you configured. Click "Send test event" — n8n will receive the payload and show you all available fields in its data inspector.',
+      },
+      {
+        type: 'h3',
+        content: 'Step 3: Build Your Workflow',
+      },
+      {
+        type: 'p',
+        content:
+          'After the Webhook trigger, add nodes for your use case. Below are the most common patterns.',
+      },
+      {
+        type: 'h2',
+        content: 'n8n Workflow Patterns for GitHub Leads',
+      },
+      {
+        type: 'h3',
+        content: 'Pattern 1: Enrich → Qualify → CRM',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads already enriches leads with GitHub profile data. In n8n, you can add a second enrichment layer before pushing to your CRM:',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// n8n Code node: score lead by followers and email availability
+const lead = $input.first().json.lead;
+const signal = $input.first().json.signal;
+
+const score =
+  (lead.followers > 500 ? 30 : lead.followers > 100 ? 15 : 0) +
+  (lead.email ? 25 : 0) +
+  (lead.company ? 20 : 0) +
+  (signal.type === 'keyword' ? 20 : 10); // keyword signals score higher
+
+return [{
+  json: {
+    ...lead,
+    signal,
+    lead_score: score,
+    qualified: score >= 50,
+  }
+}];`,
+      },
+      {
+        type: 'p',
+        content:
+          'After the scoring node, add an IF node that routes qualified leads (score >= 50) to your CRM and lower-scored leads to a Slack message for manual review. This prevents your CRM from filling with unqualified contacts.',
+      },
+      {
+        type: 'h3',
+        content: 'Pattern 2: Deduplicate → HubSpot',
+      },
+      {
+        type: 'p',
+        content:
+          'Add a HubSpot node before creating a contact to check if the GitHub username or email already exists. Use n8n\'s HubSpot "Search Contacts" node with the email as the filter. If a contact exists, update it with the new signal data. If not, create a new contact.',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// n8n Code node: build HubSpot contact properties from GitLeads payload
+const lead = $input.first().json.lead;
+const signal = $input.first().json.signal;
+
+return [{
+  json: {
+    email: lead.email,
+    firstname: lead.name?.split(' ')[0] ?? '',
+    lastname: lead.name?.split(' ').slice(1).join(' ') ?? '',
+    github_username: lead.github_username,
+    github_url: lead.github_url,
+    company: lead.company ?? '',
+    hs_lead_status: 'NEW',
+    github_signal_type: signal.type,
+    github_signal_context: signal.context ?? '',
+    github_top_languages: (lead.top_languages ?? []).join(', '),
+  }
+}];`,
+      },
+      {
+        type: 'h3',
+        content: 'Pattern 3: Postgres Storage + Batch Export',
+      },
+      {
+        type: 'p',
+        content:
+          'For teams that want full control over their lead data, use n8n to write every lead to a self-hosted Postgres database. Add a Postgres node after the webhook trigger to INSERT a row with all lead fields. Run a separate n8n schedule workflow daily to SELECT leads that have not been processed and push them to your outreach tool in batch.',
+      },
+      {
+        type: 'h2',
+        content: 'GDPR Considerations for Self-Hosted n8n',
+      },
+      {
+        type: 'p',
+        content:
+          'Self-hosting n8n means lead data does not transit through n8n\'s servers. Combined with GitLeads\'s GDPR-compliant data collection (only public GitHub profile data, with opt-out support), this gives you a clean data lineage for DPA purposes. Store your n8n instance and database in the same region as your other data infrastructure. Add a data retention step at the end of each workflow to schedule lead record deletion after your retention window.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads sends enriched GitHub developer signals to your n8n instance via webhook. Self-host everything. Start free at gitleads.app — 50 leads per month, no credit card required.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: push GitHub leads to Zapier, push GitHub leads to HubSpot, GitHub lead automation with n8n Make and Zapier, GitHub lead generation workflow, GDPR compliance and GitHub lead scraping.',
+      },
+    ],
+  },
+  {
+    slug: 'github-fork-signals',
+    title: 'GitHub Forks as Buying Signals: Who\'s Forking Your Repo (and Why It Matters)',
+    description:
+      'Developers who fork a repo intend to use the code, not just browse it. Learn how to turn repo fork activity into a qualified developer lead pipeline.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 7,
+    keywords: [
+      'github fork signals',
+      'who forked my github repo',
+      'github forks as leads',
+      'github fork monitoring',
+      'developer leads from github forks',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'A GitHub star is a bookmark. A GitHub fork is a commitment. When a developer forks a repository, they copy it to their own account — typically because they intend to use the code, modify it for their use case, or contribute back to it. Fork activity is one of the strongest buying signals available from GitHub, yet most developer tool companies ignore it entirely and focus only on stars.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Forks Are Higher-Intent Than Stars',
+      },
+      {
+        type: 'p',
+        content:
+          'Starring a repo takes one click and no commitment. Forking a repo takes the same one click but signals something materially different: the developer wants a copy of the code under their own account. That is intent to use. Stars accumulate in waves during Hacker News and Reddit traffic spikes — forks accumulate steadily from developers who are actively evaluating the code for their own stack.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stars can be driven by social proof ("this looks popular, I\'ll star it")',
+          'Forks are driven by use intent ("I need to run or modify this code")',
+          'Fork-to-star ratio varies: a ratio above 0.1 typically indicates a library or starter template that developers actively adopt',
+          'Developers who fork and then commit to the fork are confirmed active users — the highest-signal subset',
+          'Forks of competitor repos reveal developers actively evaluating alternatives to what they currently use',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How to Get Fork Data from GitHub',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub API exposes fork lists for any public repository:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# List forks of a repository (paginated)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/repos/OWNER/REPO/forks?per_page=100&sort=newest"
+
+# Response includes the forking user's profile:
+# fork.owner.login, fork.owner.html_url, fork.owner.type
+# Then enrich each user:
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/users/USERNAME"
+# Returns: email, company, bio, blog, location, followers`,
+      },
+      {
+        type: 'p',
+        content:
+          'The fork endpoint returns up to 100 forks per page, sorted by newest. For repos with thousands of forks, use cursor-based pagination. Rate limits apply: 5,000 requests per hour for authenticated requests. For real-time monitoring of new forks, poll the endpoint every few minutes and track the newest fork creation date to detect new entries since your last check.',
+      },
+      {
+        type: 'h2',
+        content: 'Fork Signals in Practice: Which Repos to Monitor',
+      },
+      {
+        type: 'h3',
+        content: 'Your Own Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'If you maintain open-source software, demos, or starter templates, fork monitoring is table stakes. Every fork is a potential user. Developers who fork your SDK, client library, or example project are actively integrating with your product. These are your warmest possible leads — they are already using your code.',
+      },
+      {
+        type: 'h3',
+        content: 'Competitor Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers who fork a competitor\'s repo are evaluating that product — and by extension, yours. A developer who forks the open-source version of a competing tool is exactly in-market. They are comparing options, assessing implementation complexity, and deciding which tool fits their architecture. Reaching them at this stage with a direct comparison or migration guide converts at a much higher rate than cold outreach.',
+      },
+      {
+        type: 'h3',
+        content: 'Upstream Dependency Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'If your product integrates with or extends an open-source library, monitoring forks of that library finds developers who are actively using it. A developer who forks the core library is likely at the stage where they need tooling around it — and that is where your product fits.',
+      },
+      {
+        type: 'h2',
+        content: 'Qualifying Fork Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every fork is from an ideal customer. Filter the fork list by profile attributes to focus on qualified leads:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Public email on profile: directly reachable, often a professional address',
+          'Company in profile: allows account-based targeting and firmographic qualification',
+          'Follower count > 50: indicates an active community presence, not a throwaway account',
+          'Multiple public repos with recent commits: confirms active development, not just an account holder',
+          'Top languages match your ICP: if you sell a Go tool, filter for developers with Go as their primary language',
+          'Commits to the fork within 7 days of forking: confirms active use, the highest-quality signal',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Combining Fork Signals with Other GitHub Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'Fork data is most powerful when combined with other signals. A developer who forks your SDK and then opens an issue asking a question has shown intent twice — they are not just evaluating, they are integrating. A developer who forks a competitor repo and is also mentioned in a GitHub issue thread discussing migration paths is a high-priority prospect.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads monitors stargazers and keyword signals in real time. Stargazer signals capture a similar cohort to fork signals — developers who have bookmarked your repo or a competitor\'s — and keyword monitoring catches the active evaluation discussions that accompany forking activity. Together, they cover the intent surface that fork monitoring alone misses.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub repos for new stargazers and captures keyword signals from issues, PRs, and discussions — then pushes enriched lead profiles to your sales stack in real time. Try free at gitleads.app — 50 leads per month, no credit card required.',
+      },
+      {
+        type: 'h2',
+        content: 'Outreach for Fork-Stage Developers',
+      },
+      {
+        type: 'p',
+        content:
+          'The context you have from a fork signal should drive your outreach message. Do not send a generic "I noticed you were checking out [tool]" message. Reference the specific repo, acknowledge what they are likely trying to do with it, and make a concrete offer:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"I saw you forked [repo] — most teams at that stage run into [specific friction]. Here\'s how [product] removes that friction directly."',
+          '"Forking [competitor repo] is usually a sign you\'re evaluating options. Here\'s a side-by-side comparison and a migration guide if you decide to switch."',
+          '"You forked our [SDK] — if you hit [common integration challenge], this doc covers exactly that. Happy to help directly if useful."',
+          'Keep it short. Developers respond to precision and usefulness, not length.',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Related: turn GitHub stargazers into leads, competitor repo stargazers as leads, GitHub buying signals for sales teams, GitHub intent data for B2B sales, find GitHub leads.',
+      },
+    ],
+  },
+  {
+    slug: 'push-github-leads-to-make',
+    title: 'Push GitHub Leads to Make (Integromat): Automate Your Developer Pipeline',
+    description:
+      'Connect GitLeads to Make.com and automate your entire GitHub lead pipeline — enrich, route, and sync developer leads to any app without writing code.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 8,
+    keywords: [
+      'push github leads to make',
+      'github leads make integromat',
+      'make.com github lead automation',
+      'github lead generation make',
+      'developer leads make automation',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Make (formerly Integromat) is the most powerful visual automation platform available — significantly more flexible than Zapier for complex branching logic, multi-step data transformation, and high-volume webhook processing. When you connect GitLeads to Make, every new GitHub signal (star, fork, keyword mention in an issue or PR) triggers a scenario that can route, enrich, deduplicate, and sync that lead to any tool in your stack — all without writing a line of code.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Make Outperforms Zapier for GitHub Lead Workflows',
+      },
+      {
+        type: 'p',
+        content:
+          'Zapier is excellent for simple two-step automations. Make is better when your lead workflow needs logic. With Make you can filter leads by signal type, branch by language or location, call an enrichment API, check for duplicates in your CRM before creating a contact, and handle errors gracefully — all in a single visual scenario. For developer-facing sales teams that need precise control over who enters which pipeline, Make is the right tool.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Router modules split leads by language, signal type, or geo without separate Zaps',
+          'Iterator + aggregator pattern lets you batch-process high-volume keyword signals',
+          'Built-in HTTP module calls any enrichment API (Clearbit, FullContact, People Data Labs) mid-scenario',
+          'Error handlers ensure leads that fail enrichment still land in a fallback queue',
+          'Operations are ~10x cheaper than Zapier tasks for the same workflow complexity',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Step 1: Get Your GitLeads Webhook URL',
+      },
+      {
+        type: 'p',
+        content:
+          'Log in to GitLeads and navigate to Integrations → Webhooks. Click "Add Webhook" and give it a label (e.g., "Make — Dev Pipeline"). Copy the generated webhook URL — this is the endpoint GitLeads will POST enriched lead payloads to whenever a new signal fires. The payload includes: github_username, display_name, email (if public), company, location, bio, followers, top_languages, signal_type (stargazer | keyword), signal_context (the repo starred or keyword matched), and signal_fired_at.',
+      },
+      {
+        type: 'h2',
+        content: 'Step 2: Create a Make Scenario with a Custom Webhook Trigger',
+      },
+      {
+        type: 'p',
+        content:
+          'In Make, create a new scenario. Add a "Webhooks → Custom webhook" module as the trigger. Make will generate a unique webhook URL for your scenario — paste this into the GitLeads Webhook URL field from Step 1. Click "Determine data structure" in Make, then trigger a test lead in GitLeads (you can do this by starring a tracked repo with a test account). Make will capture the JSON payload and automatically build the data structure for use in downstream modules.',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `// GitLeads webhook payload structure
+{
+  "event": "lead.created",
+  "signal_type": "stargazer",
+  "signal_context": "your-org/your-repo",
+  "signal_fired_at": "2026-04-30T14:22:00Z",
+  "lead": {
+    "github_username": "alexchen",
+    "display_name": "Alex Chen",
+    "email": "alex@example.com",
+    "company": "Vercel",
+    "location": "San Francisco, CA",
+    "bio": "Building infra tooling. OSS contributor.",
+    "followers": 2840,
+    "top_languages": ["TypeScript", "Go", "Rust"],
+    "profile_url": "https://github.com/alexchen",
+    "avatar_url": "https://avatars.githubusercontent.com/u/..."
+  }
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Step 3: Add a Router for Signal Type Branching',
+      },
+      {
+        type: 'p',
+        content:
+          'After the webhook trigger, add a "Flow Control → Router" module. Create two routes: one for signal_type = "stargazer" and one for signal_type = "keyword". Stargazer leads are warm — they deliberately found and starred your repo. Keyword leads are intent-based — they mentioned a pain point or competitor in a GitHub issue or PR. These two signal types warrant different outreach sequences, so routing them separately from the start keeps your pipelines clean.',
+      },
+      {
+        type: 'h2',
+        content: 'Step 4: Enrich and Route to Your CRM or Outreach Tool',
+      },
+      {
+        type: 'p',
+        content:
+          'Within each route, add the modules for your target destination. Common patterns:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'HubSpot: "CRM → Create/Update Contact" — map email, name, company, github_username as a custom property',
+          'Salesforce: "Salesforce → Create a Record" (Lead object) — map standard fields + GitHub signal as a custom field',
+          'Pipedrive: "Pipedrive → Create a Person" + "Create a Deal" — two modules, person linked to deal',
+          'Lemlist/Instantly/Smartlead: HTTP module to POST to their API and add the lead to a specific sequence',
+          'Slack: "Slack → Create a Message" — post to a #github-signals channel for real-time sales team alerts',
+          'Google Sheets: "Google Sheets → Add a Row" — log every signal for analysis or manual review queue',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Step 5: Deduplicate Before Creating CRM Records',
+      },
+      {
+        type: 'p',
+        content:
+          'Before creating a new contact, check if one already exists. In Make, add a "Search" module before your "Create" module — for example "HubSpot → Search for Contacts" using email or github_username as the search key. Use an "If/Else" router: if a match is found, run an "Update" module instead of a "Create" module. This prevents duplicate contacts from stacking up when the same developer triggers multiple signals (stars your repo, then mentions a keyword).',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Make Scenario Flow (deduplicated HubSpot sync):
+
+Webhook Trigger (GitLeads)
+  └─> Router: signal_type
+        ├─> Stargazer Route
+        │     └─> HubSpot: Search Contacts (by email)
+        │           ├─> Found: HubSpot Update Contact + Add to List "Stargazers"
+        │           └─> Not found: HubSpot Create Contact + Add to List "Stargazers"
+        └─> Keyword Route
+              └─> HubSpot: Search Contacts (by email)
+                    ├─> Found: HubSpot Update Contact + Add to List "Keyword Signals"
+                    └─> Not found: HubSpot Create Contact + Add to List "Keyword Signals"`,
+      },
+      {
+        type: 'h2',
+        content: 'GitLeads Native Make Integration',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads also supports Make as a native integration destination. In Settings → Integrations → Make, paste your Make webhook URL directly. GitLeads will push leads with full enrichment automatically — no need to manually configure the webhook endpoint or test the payload structure. The native integration also handles retries if your Make scenario returns a non-2xx response, so you don\'t lose leads during Make downtime or scenario errors.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads pushes enriched GitHub developer signals to Make in real time. Start free at gitleads.app — 50 leads per month, no credit card required.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: push GitHub leads to Zapier, push GitHub leads to n8n, push GitHub leads to HubSpot, GitHub lead automation with n8n Make and Zapier, GitHub lead generation workflow.',
+      },
+    ],
+  },
+  {
+    slug: 'github-code-search-lead-generation',
+    title: 'GitHub Code Search for Lead Generation: Find Developers Using Specific Dependencies',
+    description:
+      'Use GitHub code search to find developers who import, depend on, or reference specific libraries, APIs, or competitors in their codebase — then turn them into leads.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 9,
+    keywords: [
+      'github code search lead generation',
+      'find developers using dependency github',
+      'github search import leads',
+      'github code search prospecting',
+      'find github users by dependency',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub Code Search (github.com/search?type=code) indexes the contents of over 500 million repositories. When a developer adds your competitor\'s SDK to their package.json, imports a library in their requirements.txt, or references an API endpoint in their source code, that action is indexed and searchable. This makes code search one of the highest-precision lead generation methods available for developer tool companies — you can find developers who are actively using a competing or adjacent product right now.',
+      },
+      {
+        type: 'h2',
+        content: 'What Code Search Finds That Issue Search Misses',
+      },
+      {
+        type: 'p',
+        content:
+          'Issue and PR keyword search captures developers who are talking about a problem. Code search captures developers who are actively building with a specific tool. These are different populations with different conversion profiles:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Issue/PR search: developer is evaluating, troubleshooting, or asking questions — earlier funnel',
+          'Code search: developer already has the dependency in production code — they are a confirmed user, not just a prospect',
+          'Code search prospects are ideal for competitor displacement campaigns: "you\'re using X, here\'s why teams switch to us"',
+          'Code search also finds dependency users before they become vocal — they may never post in GitHub Issues but their package.json doesn\'t lie',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Core Code Search Patterns for Lead Generation',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Code Search supports several operators that are directly useful for lead gen. Here are the patterns that consistently produce high-quality prospect lists:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find package.json files that include a specific npm package
+path:package.json "stripe" NOT path:node_modules
+
+# Find Python projects using a competitor SDK
+path:requirements.txt "openai"
+
+# Find Go projects importing a specific module
+language:Go import "github.com/competitor/sdk"
+
+# Find Dockerfile references to a specific base image or tool
+path:Dockerfile "FROM competitor/image"
+
+# Find config files for a SaaS product
+path:.env.example "COMPETITOR_API_KEY"
+filename:config.yaml "competitor_endpoint"
+
+# Find imports across a specific language
+language:TypeScript "from '@competitor/sdk'"
+language:Python "import competitor_lib"`,
+      },
+      {
+        type: 'h2',
+        content: 'Translating Code Search Results into a Lead List',
+      },
+      {
+        type: 'p',
+        content:
+          'Code search returns files, not developers — you need to map each result to a GitHub user. The result URL format is github.com/{owner}/{repo}/blob/{branch}/{path}. The {owner} is either a user or an organization. For org-owned repos, you need to determine which individuals have commit access or are contributors. The GitHub API makes this straightforward:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Get contributors for a repo that appeared in code search
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/repos/{owner}/{repo}/contributors"
+
+# If owner is an org, get members
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/orgs/{org}/members"
+
+# Get full profile for enrichment
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/users/{username}"`,
+      },
+      {
+        type: 'h2',
+        content: 'Automated Code Search Monitoring with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'Manual code search works for one-time list building but does not scale to ongoing lead generation. New repositories are created every day, and developers add new dependencies constantly. GitLeads Keyword Signals automate this pattern: configure a keyword that matches your competitor\'s package name, import path, or API endpoint. GitLeads monitors GitHub Issues, PRs, discussions, and code for new mentions and fires a signal the moment a developer references that keyword — then pushes the enriched lead profile to your sales stack automatically.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Track competitor package names: "openai", "twilio", "stripe", "sendgrid"',
+          'Track specific import patterns: "from langchain", "require(\'express\')"',
+          'Track infrastructure references: "aws s3", "cloudflare workers", "vercel deploy"',
+          'Track pain-point language: "rate limit exceeded", "pricing too high", "looking for alternative"',
+          'Signals fire in real time — you reach the developer when the intent is freshest',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building a Competitor Displacement Campaign from Code Search',
+      },
+      {
+        type: 'p',
+        content:
+          'The highest-converting use of code search leads is competitor displacement outreach. The developer has already proven they have budget and need — they are paying for (or evaluating) your competitor right now. Your outreach message can be specific:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Reference the exact dependency or tool you found: "I saw your project uses [competitor SDK]..."',
+          'Lead with a concrete differentiator relevant to their stack: "...we support the same interface but add [specific feature] that [competitor] doesn\'t"',
+          'Offer a migration path, not just a pitch: include a link to a migration guide or offer a 30-minute migration call',
+          'Keep it under 5 sentences — developers ignore long sales emails but respond to precise, technical offers',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Code Search Rate Limits and Ethical Boundaries',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Code Search is rate-limited to 10 requests per minute for authenticated users and returns up to 1,000 results per query. For large-scale prospecting, use cursor-based pagination, narrow your query with language: and path: filters, and cache results to avoid re-fetching the same data. Only email developers who have made their email public in their GitHub profile — that is explicit opt-in to being contacted. Do not attempt to find emails through commit metadata or third-party services that violate GitHub\'s ToS.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads automates GitHub keyword monitoring so you capture competitor dependency signals as they happen — no manual code search required. Start free at gitleads.app.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub keyword monitoring for sales, monitor GitHub issues for sales, GitHub signal monitoring, GitHub buying signals for sales teams, what is GitHub intent data.',
+      },
+    ],
+  },
+  {
+    slug: 'github-organization-prospecting',
+    title: 'GitHub Organization Prospecting: How to Target Companies by Their GitHub Activity',
+    description:
+      'Learn how to prospect entire GitHub organizations — identify companies by tech stack, team size, and activity signals, then reach the right engineers and decision-makers.',
+    publishedAt: '2026-04-30',
+    updatedAt: '2026-04-30',
+    readingTime: 8,
+    keywords: [
+      'github organization prospecting',
+      'find companies on github',
+      'github org lead generation',
+      'prospect github organizations',
+      'github company intelligence',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub is not just a directory of individual developers — it is a window into the engineering DNA of tens of thousands of companies. When a company creates a GitHub organization, they make their tech stack, tooling choices, team size, and development velocity publicly visible. For B2B SaaS companies selling to developers or technical buyers, GitHub organization data is one of the most precise company intelligence sources available — and almost no sales team is using it.',
+      },
+      {
+        type: 'h2',
+        content: 'What a GitHub Organization Reveals About a Prospect Company',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Tech stack: the languages, frameworks, and infrastructure tools visible in their public repos',
+          'Team size: member count of the org is often publicly visible, or estimable from contributor graphs',
+          'Development velocity: commit frequency, release cadence, and PR merge rate signal engineering team activity level',
+          'Open source posture: companies that open-source internal tools are more developer-forward and easier to sell to via bottom-up motions',
+          'Tooling decisions: CI/CD tools (GitHub Actions, CircleCI), IaC tools (Terraform, Pulumi), and testing frameworks all visible from config files',
+          'Hiring intent: companies that create new repos, hire contributors, and increase commit frequency are growing — and growing companies buy tools',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Finding GitHub Organizations That Match Your ICP',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub\'s organization search is limited compared to user search, but there are effective workarounds. The most reliable method is searching for repos owned by organizations that use specific technologies:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find orgs with public repos using a specific technology
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/search/repositories?q=language:rust+org:*+stars:>50&sort=updated"
+
+# Find orgs that use a specific CI/CD config
+# (code search approach)
+# Search: path:.github/workflows "your-competitor-action" type:code
+
+# Get all members of a specific org
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/orgs/{org_name}/members?per_page=100"
+
+# Get repos owned by an org
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/orgs/{org_name}/repos?type=public&per_page=100&sort=pushed"`,
+      },
+      {
+        type: 'h2',
+        content: 'Building an Org-Level Prospecting Workflow',
+      },
+      {
+        type: 'p',
+        content:
+          'Effective org prospecting requires two layers: identifying which organizations to target, and identifying which individuals within those orgs to contact. Here is the workflow that works:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Identify seed orgs: start with orgs that star your repo, fork competitor repos, or appear in code search results for your target technology',
+          'Enrich at the org level: pull org metadata (name, description, location, website, member count) from GET /orgs/{org}',
+          'Identify individual contacts: pull org members from GET /orgs/{org}/members, then enrich each with GET /users/{username} to get email, bio, company role signals',
+          'Filter to decision-makers: prioritize members with titles like "CTO", "VP Engineering", "Head of Platform" in their bio, or members with the most followers and stars (influence signals)',
+          'Sync to CRM: create an Account record for the org, then create Contact records linked to it for each key individual',
+          'Set up monitoring: track the org\'s repos for new stars, forks, and keyword signals — ongoing activity triggers sales outreach timing',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitLeads for Organization-Level Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads captures signals at the individual developer level but includes the company/org affiliation in every lead profile. When multiple developers from the same organization trigger signals — several engineers star your repo, or multiple team members mention a competitor in their issues — GitLeads surfaces this as an account-level pattern. A single star is a warm lead; three stars from the same org is an account that is actively evaluating your category.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Lead profiles include the "company" field pulled from each developer\'s public GitHub profile',
+          'Track multiple repos to build coverage across a target account\'s engineering team',
+          'Keyword signals from Issues/PRs include the repo owner context — org-level mentions are identifiable',
+          'Export to Clay or HubSpot and group leads by company to build account-level views',
+          'Use the Zapier/Make/n8n integration to trigger account enrichment workflows when you see 2+ leads from the same org',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Outreach at the Org Level: Account-Based for Developers',
+      },
+      {
+        type: 'p',
+        content:
+          'Once you have identified a target org and its key individuals, account-based outreach for developer companies follows a specific pattern that differs from traditional ABM:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Lead with value to the individual engineer first — they are the ones who champion or block tool adoption',
+          'Reference the specific signal: "I noticed several of your team members have been looking at [category tools] on GitHub recently"',
+          'Speak to the org\'s tech stack: "Given that you\'re a Rust + Kubernetes shop, here\'s specifically how [product] fits your architecture"',
+          'Involve the technical decision-maker only after at least one engineer responds — cold CTO outreach with no engineering validation rarely converts',
+          'Offer a team trial with access for multiple engineers — developer tool decisions are almost always consensus-driven',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Identifying GitHub Orgs Before They Know They Need You',
+      },
+      {
+        type: 'p',
+        content:
+          'The highest-leverage org prospecting happens before a company actively starts evaluating tools. Signals that precede active evaluation include: a company creating a new public repo in your category, engineers opening issues about pain points you solve, or a CTO posting about a technical challenge in their blog (often linked from their GitHub profile). GitLeads keyword signals capture the GitHub-side of this pre-evaluation phase in real time, letting you reach an org in the 30-day window before they kick off a formal evaluation process.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub signals at the developer level and surfaces org-level patterns. Push leads to your CRM and group by company for account-based workflows. Start free at gitleads.app.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub buying signals for sales teams, GitHub intent data for B2B sales, how to sell to developers, ICP for developer tools, developer-led growth, find technical founders on GitHub.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
