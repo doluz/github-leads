@@ -279,6 +279,47 @@ export const TOPICS: Topic[] = [
   // State management / frontend
   topic('zustand-developers', 'Zustand', 'Zustand Developers', 42000),
   topic('rxjs-developers', 'RxJS', 'RxJS Developers', 51000),
+
+  // HTTP / web server frameworks (2026 growth)
+  topic('hono-developers', 'Hono', 'Hono Developers', 31000),
+  topic('fastify-developers', 'Fastify', 'Fastify Developers', 54000),
+  topic('elysia-developers', 'Elysia', 'Elysia Developers', 14000),
+  topic('phoenix-developers', 'Phoenix (Elixir)', 'Phoenix Developers', 44000),
+
+  // Testing
+  topic('playwright-developers', 'Playwright', 'Playwright Developers', 78000),
+  topic('vitest-developers', 'Vitest', 'Vitest Developers', 42000),
+  topic('cypress-developers', 'Cypress', 'Cypress Developers', 61000),
+  topic('jest-developers', 'Jest', 'Jest Developers', 89000),
+
+  // Databases (gaps)
+  topic('cockroachdb-developers', 'CockroachDB', 'CockroachDB Developers', 28000),
+  topic('planetscale-developers', 'PlanetScale', 'PlanetScale Developers', 19000),
+  topic('singlestore-developers', 'SingleStore', 'SingleStore Developers', 12000),
+
+  // AI / API providers (2026 growth)
+  topic('anthropic-api-developers', 'Anthropic API', 'Anthropic API Developers', 31000),
+  topic('gemini-api-developers', 'Gemini API', 'Gemini API Developers', 28000),
+  topic('vercel-ai-sdk-developers', 'Vercel AI SDK', 'Vercel AI SDK Developers', 24000),
+  topic('mistral-developers', 'Mistral AI', 'Mistral AI Developers', 19000),
+
+  // CMS / content
+  topic('sanity-developers', 'Sanity', 'Sanity Developers', 34000),
+  topic('contentful-developers', 'Contentful', 'Contentful Developers', 28000),
+  topic('headless-cms-developers', 'Headless CMS', 'Headless CMS Developers', 41000),
+  topic('strapi-developers', 'Strapi', 'Strapi Developers', 31000),
+
+  // GitOps / CD
+  topic('argocd-engineers', 'Argo CD', 'Argo CD Engineers', 44000),
+  topic('fluxcd-engineers', 'Flux CD', 'Flux CD Engineers', 28000),
+  topic('crossplane-engineers', 'Crossplane', 'Crossplane Engineers', 18000),
+
+  // Design / tooling
+  topic('figma-plugin-developers', 'Figma Plugin', 'Figma Plugin Developers', 23000),
+
+  // Emerging languages
+  topic('gleam-developers', 'Gleam', 'Gleam Developers', 12000),
+  topic('nim-developers', 'Nim', 'Nim Developers', 17000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(
