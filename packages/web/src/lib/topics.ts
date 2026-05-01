@@ -233,6 +233,21 @@ export const TOPICS: Topic[] = [
   topic('pulumi-engineers', 'Pulumi', 'Pulumi Engineers', 18000),
   topic('nats-engineers', 'NATS', 'NATS Engineers', 14000),
   topic('temporal-developers', 'Temporal', 'Temporal Developers', 16000),
+
+  // AI / Agentic ecosystem (2026 growth areas)
+  topic('mcp-developers', 'MCP (Model Context Protocol)', 'MCP Developers', 38000),
+  topic('ai-agent-developers', 'AI Agents', 'AI Agent Developers', 54000),
+  topic('cursor-developers', 'Cursor', 'Cursor Developers', 29000),
+  topic('windsurf-developers', 'Windsurf', 'Windsurf Developers', 17000),
+  topic('claude-api-developers', 'Claude API', 'Claude API Developers', 22000),
+  topic('pydantic-developers', 'Pydantic', 'Pydantic Developers', 61000),
+  topic('pydantic-ai-developers', 'Pydantic AI', 'Pydantic AI Developers', 19000),
+  topic('uv-developers', 'uv (Python)', 'uv Python Developers', 31000),
+  topic('agentic-ai-developers', 'Agentic AI', 'Agentic AI Developers', 28000),
+  topic('llm-ops-engineers', 'LLMOps', 'LLMOps Engineers', 24000),
+  topic('rag-developers', 'RAG (Retrieval-Augmented Generation)', 'RAG Developers', 33000),
+  topic('vllm-engineers', 'vLLM', 'vLLM Engineers', 21000),
+  topic('ollama-developers', 'Ollama', 'Ollama Developers', 34000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(

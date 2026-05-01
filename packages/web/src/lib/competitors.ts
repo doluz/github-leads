@@ -1411,6 +1411,118 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
   },
+  {
+    slug: 'common-room',
+    name: 'Common Room',
+    tagline: 'Community intelligence and developer engagement analytics',
+    metaTitle: 'GitLeads vs Common Room — GitHub Sales Signals vs Community Analytics',
+    metaDescription:
+      'Compare GitLeads and Common Room for developer GTM. GitLeads captures real-time GitHub buying signals and pushes leads to your CRM. Common Room tracks community engagement across multiple platforms.',
+    intro:
+      'Common Room is a community intelligence platform that aggregates developer signals from GitHub, Slack, Discord, Twitter, LinkedIn, and other platforms to help DevRel and community teams understand who their most engaged members are. It also has a sales intelligence layer aimed at converting community engagement into pipeline. GitLeads is a real-time GitHub signal capture platform focused exclusively on sales pipeline generation — new stargazers on tracked repos, keyword mentions in issues and PRs — with direct integrations to CRM and outreach tools.',
+    ourOneLiner:
+      'Common Room maps community engagement for DevRel teams. GitLeads captures GitHub buying signals for sales teams — and pushes them to your CRM within seconds.',
+    theyWin: [
+      'Multi-platform community analytics — GitHub, Slack, Discord, Twitter, LinkedIn, and more in one view',
+      'DevRel and community management workflows purpose-built for developer advocates',
+      'Community member journey tracking across platforms over time',
+      'Organizational-level champion and influencer identification within your existing community',
+    ],
+    weWin: [
+      'Real-time GitHub signal capture — competitor repo stars, keyword mentions in issues and PRs — pushed to CRM within seconds',
+      'Tracks any public repo on GitHub, including competitor repos and repos outside your own community',
+      'Native integrations to outreach tools (Lemlist, Instantly, Smartlead, Apollo) — not just CRMs',
+      'Purpose-built for sales pipeline generation, not community engagement analytics',
+      'Signal context included in every lead — you know exactly which repo was starred or which keyword was mentioned',
+      'More affordable entry-level pricing for teams without a dedicated DevRel function',
+    ],
+    table: [
+      { feature: 'Competitor repo stargazer monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword monitoring (issues/PRs/discussions)', gitleads: true, competitor: 'Limited' },
+      { feature: 'Real-time lead delivery to CRM (< 1 min)', gitleads: true, competitor: false },
+      { feature: 'Multi-platform community analytics (Slack, Discord, Twitter)', gitleads: false, competitor: true },
+      { feature: 'Auto-push to HubSpot / Salesforce / Pipedrive', gitleads: true, competitor: 'HubSpot + Salesforce only' },
+      { feature: 'Direct outreach tool integrations (Lemlist, Instantly, Apollo)', gitleads: true, competitor: false },
+      { feature: 'Slack lead notifications', gitleads: true, competitor: true },
+      { feature: 'Community member engagement scoring', gitleads: false, competitor: true },
+      { feature: 'Signal context on every lead', gitleads: true, competitor: 'Partial' },
+      { feature: 'Free tier available', gitleads: '50 leads/mo free', competitor: false },
+    ],
+    forThem:
+      'Common Room is the right choice for DevRel and community teams who need to understand developer engagement across their entire community ecosystem — GitHub, Slack, Discord, Twitter, and LinkedIn — and want to surface champions, advocates, and at-risk members. If community health metrics and multi-platform engagement analytics are your primary use case, Common Room is purpose-built for that job.',
+    forUs:
+      'GitLeads is the right choice when the goal is generating sales pipeline from real-time GitHub signals — not measuring community health. If you need to monitor competitor repos for new stargazers, track keywords in GitHub Issues to find developers actively evaluating your category, and push those leads to HubSpot, Salesforce, or an outreach sequence within seconds, GitLeads is built for exactly that. Sales teams at developer tool companies use GitLeads where DevRel teams at the same companies might use Common Room — the use cases are complementary.',
+    faq: [
+      {
+        q: 'Does Common Room monitor competitor GitHub repos?',
+        a: 'Common Room is primarily designed to track engagement within your own community. GitLeads monitors any public GitHub repo — including direct competitor repos — for new stargazers and routes those leads to your CRM in real time.',
+      },
+      {
+        q: 'Can GitLeads replace Common Room for DevRel teams?',
+        a: 'No. GitLeads does not replace multi-platform community analytics. GitLeads is focused on real-time GitHub buying signal capture for sales pipeline generation. DevRel teams that use GitLeads typically do so to convert GitHub signals into sales opportunities, while still using a separate community platform for broader engagement tracking.',
+      },
+      {
+        q: 'What is the pricing difference between GitLeads and Common Room?',
+        a: 'GitLeads has a free tier (50 leads/month) and paid plans starting at $49/month. Common Room targets enterprise DevRel teams and community programs, typically with higher price points. GitLeads is accessible to early-stage developer tool companies without a dedicated DevRel headcount.',
+      },
+    ],
+  },
+  {
+    slug: 'builtwith',
+    name: 'BuiltWith',
+    tagline: 'Technology lookup and website technology profiling',
+    metaTitle: 'GitLeads vs BuiltWith — GitHub Developer Signals vs Technology Stack Intelligence',
+    metaDescription:
+      'Compare GitLeads and BuiltWith for developer lead generation. GitLeads captures real-time developer intent signals on GitHub. BuiltWith identifies which websites use which technologies.',
+    intro:
+      'BuiltWith is a technology intelligence platform that lets you identify which websites and companies are using specific web technologies — frameworks, CDNs, analytics tools, CRMs, ad platforms, and more. Sales teams use it to find companies currently using a competitor technology as a prospect list. GitLeads is a real-time GitHub signal capture platform that monitors developer activity on GitHub — new stars, keyword mentions in issues and PRs — and pushes enriched lead profiles to your CRM and outreach tools.',
+    ourOneLiner:
+      'BuiltWith finds companies by the tech on their website. GitLeads finds developers by what they are actively building and evaluating on GitHub right now.',
+    theyWin: [
+      'Identifies which companies are using specific web technologies (frameworks, ad tech, analytics, e-commerce platforms)',
+      'Large historical database — can see technology adoption trends over time',
+      'Company-level targeting — useful for finding enterprises using a competitor product on their website',
+      'Broad technology coverage beyond developer tools (e-commerce, marketing tech, CMS platforms)',
+    ],
+    weWin: [
+      'Real-time intent signals — captures developer activity as it happens, not historical website snapshots',
+      'Developer-level granularity — individual developer profiles with GitHub data, not just company domains',
+      'Keyword intent signals in Issues and PRs — surfaces developers actively evaluating your category',
+      'Native CRM and outreach tool integrations — leads pushed automatically without CSV exports',
+      'GitHub-native data (top languages, repos, follower count, bio) — richer developer context',
+      'Signal context — you know why each lead fired, not just what technology their company\'s website uses',
+    ],
+    table: [
+      { feature: 'Real-time GitHub developer intent signals', gitleads: true, competitor: false },
+      { feature: 'Website technology stack identification', gitleads: false, competitor: true },
+      { feature: 'Individual developer profiles', gitleads: true, competitor: false },
+      { feature: 'Company-level technology targeting', gitleads: 'Via company field enrichment', competitor: true },
+      { feature: 'GitHub keyword monitoring (issues/PRs)', gitleads: true, competitor: false },
+      { feature: 'Competitor repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'Auto-push to HubSpot / Salesforce / CRM', gitleads: true, competitor: 'CSV export' },
+      { feature: 'Direct outreach tool integrations', gitleads: true, competitor: false },
+      { feature: 'Historical technology adoption trends', gitleads: false, competitor: true },
+      { feature: 'Free tier', gitleads: '50 leads/mo free', competitor: false },
+    ],
+    forThem:
+      'BuiltWith is the right choice when you need to find companies using a specific web technology — for example, finding all e-commerce sites on Shopify, all companies running Google Tag Manager, or all websites using a competitor analytics platform. If your sales team needs company-level technology lists for prospecting and your buyer is a marketing, IT, or operations persona who is identifiable by the technologies on their company\'s public website, BuiltWith is well-suited.',
+    forUs:
+      'GitLeads is the right choice when your buyer is a developer and the intent signal you need is behavioral, not a static technology snapshot. If you need to know which developers are actively evaluating your product category right now — starring competitor repos, mentioning your keywords in issues, forking related OSS projects — and you need those leads in your CRM within seconds with developer-native enrichment, GitLeads is built for that use case. Developer tool companies, DevRel teams, and B2B SaaS founders selling to engineers use GitLeads where a traditional marketing team might use BuiltWith.',
+    faq: [
+      {
+        q: 'Can BuiltWith show me which developers are using a competitor\'s API or SDK?',
+        a: 'BuiltWith detects technologies embedded in websites (JavaScript tags, CDN references, meta tags). It does not detect usage of backend APIs, SDKs, or developer-side libraries that are not exposed in public web pages. GitLeads captures GitHub-level signals — stars, forks, keyword mentions — that indicate developer evaluation activity regardless of whether it shows up on a public website.',
+      },
+      {
+        q: 'Is GitLeads a replacement for BuiltWith?',
+        a: 'No. The two tools serve different use cases. BuiltWith identifies website-level technology adoption for sales prospecting. GitLeads captures real-time developer intent signals on GitHub for developer-focused GTM. They are complementary: use BuiltWith to find target company accounts, use GitLeads to find the specific developers at those companies who are actively evaluating your category.',
+      },
+      {
+        q: 'Does GitLeads show which GitHub repos depend on a specific package?',
+        a: 'GitLeads primarily captures real-time event signals — new stars, keyword mentions in issues and PRs. For dependency graph analysis (which repos use your package), GitHub\'s built-in dependency graph and tools like Ecosyste.ms or libraries.io are better suited. GitLeads complements those by turning passive dependency data into active real-time lead signals.',
+      },
+    ],
+  },
 ];
 
 export function getCompetitor(slug: string): Competitor | undefined {
