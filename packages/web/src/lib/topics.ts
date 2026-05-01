@@ -429,6 +429,73 @@ export const TOPICS: Topic[] = [
   topic('sendgrid-developers', 'SendGrid', 'SendGrid Developers', 84000),
   topic('plaid-developers', 'Plaid', 'Plaid Developers', 38000),
   topic('braintree-developers', 'Braintree', 'Braintree Developers', 31000),
+
+  // API testing tools
+  topic('postman-developers', 'Postman', 'Postman Developers', 124000),
+  topic('bruno-api-developers', 'Bruno', 'Bruno API Developers', 21000),
+  topic('hoppscotch-developers', 'Hoppscotch', 'Hoppscotch Developers', 18000),
+  topic('insomnia-developers', 'Insomnia', 'Insomnia Developers', 34000),
+
+  // Authentication & identity
+  topic('auth0-developers', 'Auth0', 'Auth0 Developers', 67000),
+  topic('clerk-developers', 'Clerk', 'Clerk Developers', 44000),
+  topic('keycloak-developers', 'Keycloak', 'Keycloak Developers', 52000),
+  topic('ory-developers', 'Ory', 'Ory Developers', 19000),
+  topic('supertokens-developers', 'SuperTokens', 'SuperTokens Developers', 16000),
+
+  // Search engines
+  topic('meilisearch-developers', 'Meilisearch', 'Meilisearch Developers', 38000),
+  topic('typesense-developers', 'Typesense', 'Typesense Developers', 24000),
+  topic('algolia-developers', 'Algolia', 'Algolia Developers', 61000),
+  topic('opensearch-developers', 'OpenSearch', 'OpenSearch Developers', 34000),
+
+  // Feature flags
+  topic('launchdarkly-developers', 'LaunchDarkly', 'LaunchDarkly Developers', 41000),
+  topic('unleash-developers', 'Unleash', 'Unleash Developers', 18000),
+  topic('openfeature-developers', 'OpenFeature', 'OpenFeature Developers', 14000),
+  topic('growthbook-developers', 'GrowthBook', 'GrowthBook Developers', 17000),
+
+  // AI inference platforms (2026 growth)
+  topic('replicate-developers', 'Replicate', 'Replicate Developers', 31000),
+  topic('groq-api-developers', 'Groq API', 'Groq API Developers', 24000),
+  topic('together-ai-developers', 'Together AI', 'Together AI Developers', 19000),
+  topic('fireworks-ai-developers', 'Fireworks AI', 'Fireworks AI Developers', 14000),
+
+  // Voice AI
+  topic('elevenlabs-developers', 'ElevenLabs', 'ElevenLabs Developers', 28000),
+  topic('whisper-developers', 'Whisper (OpenAI)', 'Whisper Developers', 44000),
+  topic('deepgram-developers', 'Deepgram', 'Deepgram Developers', 21000),
+
+  // Mobile / cross-platform
+  topic('capacitor-developers', 'Capacitor', 'Capacitor Developers', 34000),
+  topic('ionic-developers', 'Ionic', 'Ionic Developers', 71000),
+
+  // API management & gateways
+  topic('kong-developers', 'Kong', 'Kong Developers', 47000),
+  topic('tyk-developers', 'Tyk', 'Tyk Developers', 18000),
+  topic('traefik-developers', 'Traefik', 'Traefik Developers', 38000),
+
+  // Payments (modern)
+  topic('paddle-developers', 'Paddle', 'Paddle Developers', 24000),
+  topic('lemonsqueezy-developers', 'Lemon Squeezy', 'Lemon Squeezy Developers', 19000),
+
+  // Notifications & email infra
+  topic('resend-developers', 'Resend', 'Resend Developers', 34000),
+  topic('novu-developers', 'Novu', 'Novu Developers', 21000),
+
+  // Logging & observability (gaps)
+  topic('loki-engineers', 'Grafana Loki', 'Loki Engineers', 34000),
+  topic('fluentbit-engineers', 'Fluent Bit', 'Fluent Bit Engineers', 22000),
+  topic('vector-dev-engineers', 'Vector (observability)', 'Vector Engineers', 18000),
+
+  // Scheduling & productivity APIs
+  topic('cal-com-developers', 'Cal.com', 'Cal.com Developers', 18000),
+
+  // Real-time & analytics databases (2026 growth)
+  topic('clickhouse-developers', 'ClickHouse', 'ClickHouse Developers', 58000),
+  topic('questdb-developers', 'QuestDB', 'QuestDB Developers', 21000),
+  topic('tinybird-developers', 'Tinybird', 'Tinybird Developers', 17000),
+  topic('timescale-developers', 'Timescale', 'Timescale Developers', 29000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(

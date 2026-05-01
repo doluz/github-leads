@@ -16898,6 +16898,466 @@ Happy to share docs or answer any integration questions. Worth a quick async exc
       },
     ],
   },
+
+  // ── New batch May 2026 ──────────────────────────────────────────────────────
+
+  {
+    slug: 'find-devops-leads-github',
+    title: 'How to Find DevOps Engineer Leads on GitHub (2026 Playbook)',
+    description:
+      'DevOps engineers evaluate infrastructure tools on GitHub before they ever visit a vendor website. Here is how to capture those signals and turn them into qualified pipeline.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 9,
+    keywords: [
+      'find devops leads on github',
+      'devops engineer leads',
+      'github devops prospecting',
+      'devops lead generation',
+      'github infrastructure leads',
+      'devops sales pipeline',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'DevOps engineers are among the hardest buyers to reach through traditional outreach. They route cold emails to /dev/null, ignore LinkedIn InMail, and do not attend trade shows. What they do — constantly — is use GitHub. They star repos of tools they are evaluating, open issues when something breaks, and comment on PRs when they have opinions. Every one of those actions is a precise, timestamped buying signal.',
+      },
+      {
+        type: 'h2',
+        content: 'Why DevOps Is the Best GitHub Signal Category',
+      },
+      {
+        type: 'p',
+        content:
+          'The DevOps ecosystem on GitHub is unusually signal-rich for three reasons. First, most of the tools are open source — Kubernetes, Terraform, Prometheus, Helm, Argo CD, Flux CD, Cilium. When a DevOps engineer evaluates a new tool, they almost always start by starring or forking the repo. Second, DevOps problems manifest as GitHub issues: "k3s crashes on restart", "terraform plan fails after 1.5 upgrade". Third, DevOps engineers maintain their own infrastructure-as-code in public or semi-public GitHub repos, revealing their tech stack directly.',
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 1: Stargazer Monitoring on Competitor/Complementary Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'If you sell an observability, CI/CD, secret management, or container security tool, start by identifying the top 5–10 GitHub repos your ideal customers star. These are almost always the OSS projects in your category or adjacent to it. Set up real-time monitoring on those repos with GitLeads and every new stargazer becomes an immediate lead.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Prometheus / prometheus/prometheus — 54k+ stars; DevOps engineers evaluating metrics infrastructure',
+          'Grafana / grafana/grafana — 62k+ stars; platform engineers building observability stacks',
+          'hashicorp/terraform — 41k+ stars; infrastructure engineers in active IaC evaluation',
+          'kubernetes/kubernetes — 109k+ stars; platform engineers and SREs at scale',
+          'argoproj/argo-cd — 17k+ stars; teams adopting GitOps delivery',
+          'fluxcd/flux2 — 6k+ stars; GitOps engineers migrating from Argo or Helm',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'A person who stars hashicorp/terraform is almost certainly building or maintaining cloud infrastructure professionally. The signal is stronger than a job title match in any database because it reflects real, active behavior right now.',
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 2: GitHub Issues Mentioning Your Competitor or Problem Category',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub issues are the best unstructured sales intelligence source in tech. When a DevOps engineer opens an issue saying "we need a secrets rotation feature" on a competitor repo, that is a feature gap signal. When they comment "we evaluated X but switched to Y because of Z", that is intent data you cannot buy from any database.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads keyword signal monitoring scans GitHub issues, pull requests, and discussions in real time. Set keywords like your product name, your competitor names, and your problem category (e.g., "secrets management", "cost attribution", "multi-cluster observability") and receive enriched leads whenever a developer mentions them.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Keyword signal examples for DevOps tool founders:
+
+Problem-category signals:
+  "looking for a secrets manager"
+  "kubernetes cost visibility"
+  "our deployment pipeline is broken"
+  "terraform state lock issues"
+  "prometheus cardinality"
+
+Competitor signals:
+  "[competitor name] alternative"
+  "migrating from [competitor]"
+  "[competitor] pricing too expensive"
+
+Tech stack signals (repo topics + README keywords):
+  "we use Helm + ArgoCD"
+  "k8s 1.29"
+  "EKS + Crossplane"`,
+      },
+      {
+        type: 'h2',
+        content: 'Signal Type 3: GitHub Org Activity (Team-Level Buying Signals)',
+      },
+      {
+        type: 'p',
+        content:
+          'Individual engineers matter, but DevOps purchasing decisions are often team-level. When you see multiple people from the same GitHub organization starring a category of repos within the same week, that is an org-level evaluation signal. GitLeads enriches leads with company/org affiliation, so you can spot cluster patterns: "3 people from acme-corp just starred grafana/k6 — they are probably evaluating load testing tools."',
+      },
+      {
+        type: 'h2',
+        content: 'Enrichment Data That Makes DevOps Outreach Convert',
+      },
+      {
+        type: 'p',
+        content:
+          'Raw GitHub activity is not enough for outreach. For DevOps leads to convert, your message needs to reference their actual stack. GitLeads enriches each lead with:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Top programming languages in their public repos',
+          'Repository topics they contribute to (kubernetes, terraform, helm, etc.)',
+          'GitHub bio and linked company/org',
+          'Public email from commit metadata or profile',
+          'Signal context: which repo they starred, what they wrote in an issue',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The DevOps Outreach Playbook',
+      },
+      {
+        type: 'p',
+        content:
+          'DevOps engineers respond to technical precision. A message that says "I saw you starred grafana/k6 — we integrate directly with Grafana and can pull in your existing dashboards" performs 4x better than a generic cold email about "load testing solutions". Here is a proven template:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: saw you're evaluating {signal_context} — quick thought
+
+Hi {first_name},
+
+Noticed you {starred / opened an issue on} {repo_name} recently.
+
+We built {product} specifically for teams running {their_stack} — it {specific value prop relevant to their signal}.
+
+Unlike {generic category}, {product} {key differentiator in 1 sentence}.
+
+Worth 15 minutes? Happy to share a quick demo or just send you the docs.
+
+{Your name}
+{Title}, {Company}`,
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads pushes enriched DevOps leads directly into HubSpot, Salesforce, Slack, Smartlead, Clay, or any webhook-compatible tool. You do not need to copy-paste from a spreadsheet. The signal context (what they starred, what they said in an issue) travels with the lead into your CRM.',
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up DevOps Lead Monitoring with GitLeads',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Sign up at gitleads.app (free, 50 leads/month to start)',
+          'Add the 5–10 GitHub repos most relevant to your category under "Tracked Repos"',
+          'Add 5–10 keyword signals under "Tracked Keywords" (competitor names, problem phrases)',
+          'Connect your outreach stack (HubSpot, Slack, Smartlead, etc.) via the Integrations tab',
+          'New DevOps leads flow in automatically — each one enriched with stack context',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Internal links: find DevOps engineer leads, find Kubernetes leads, find Terraform engineer leads, GitHub signals for sales, push GitHub leads to HubSpot, GitHub competitor intelligence.',
+      },
+    ],
+  },
+
+  {
+    slug: 'github-intent-signals-product-hunt',
+    title: 'Using GitHub Intent Signals for Your Product Hunt Launch',
+    description:
+      'Most Product Hunt launches miss their warmest leads: GitHub developers who have been actively building in your category for months. Here is how to find and activate them before launch day.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 7,
+    keywords: [
+      'product hunt launch github',
+      'github leads product hunt',
+      'product hunt developer marketing',
+      'github signals product launch',
+      'developer launch strategy',
+      'find early adopters github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'A Product Hunt launch lives or dies in the first 6 hours. The products that win are not the ones with the best copy — they are the ones that mobilize a warm audience of real users, fast. For developer tools, the single highest-converting audience is GitHub developers who have been actively working in your category. They are already convinced the problem is real. They are already using something in your space. They just do not know about you yet.',
+      },
+      {
+        type: 'h2',
+        content: 'The Problem with Standard Launch Audiences',
+      },
+      {
+        type: 'p',
+        content:
+          'Most founders build their launch list from newsletter subscribers, Twitter followers, and warm personal contacts. These are good. But they are also crowded — every founder is emailing the same people. GitHub is different: it is a source of high-intent, technically sophisticated developers who actively show interest in problem categories through public activity. They star repos, they open issues about pain points, they write READMEs that reference tools like yours. They have never been contacted about your launch. That is a competitive advantage.',
+      },
+      {
+        type: 'h2',
+        content: 'Step 1: Find Developers Actively Evaluating Your Category (4–6 Weeks Before Launch)',
+      },
+      {
+        type: 'p',
+        content:
+          'Start monitoring GitHub signals 4–6 weeks before your launch. You want to build a list over time, not scrape in the last week. Set up:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer monitoring on 3–5 competitor or complementary OSS repos',
+          'Keyword signals for your problem category (e.g., "looking for a better X", "X is too slow for our use case")',
+          'Keyword signals for your tool name if you have early visibility (GitHub discussions, issues)',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'After 4 weeks of monitoring with GitLeads, you will have 200–2000+ enriched developer leads depending on your category size. Each lead includes GitHub username, public email (where available), bio, company, tech stack, and the specific signal that triggered their capture.',
+      },
+      {
+        type: 'h2',
+        content: 'Step 2: Segment Your GitHub List by Signal Strength',
+      },
+      {
+        type: 'p',
+        content:
+          'Not all GitHub signals are equal for a launch context. Prioritize in this order:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Issue/PR mentions — developer explicitly named your category or competitor in a public comment (highest intent)',
+          'Multiple repo stars in your category — starred 2+ repos in your space in the last 30 days (active evaluation)',
+          'Single repo star on closest competitor (strong intent)',
+          'Profile/bio keywords — bio says "building with X" or "interested in Y" (contextual fit)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Step 3: Pre-Launch Activation Sequence',
+      },
+      {
+        type: 'p',
+        content:
+          'Two weeks before launch, start a short email or DM sequence to your highest-intent GitHub leads. The goal is not to sell — it is to make them aware and curious. A message like this works well:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: building something for {their_stack} devs — early access?
+
+Hi {first_name},
+
+I noticed you've been exploring {problem_category} recently (I monitor GitHub activity for my target market — it helps me build the right thing).
+
+I'm building {product} — a {one-line description}. We solve {specific pain point}.
+
+We're launching on Product Hunt in two weeks and I'm looking for early testers from the {their_stack} world specifically.
+
+Want early access? No commitment, just a chance to try it before the crowd.
+
+{Your name}`,
+      },
+      {
+        type: 'h2',
+        content: 'Step 4: The Day-of Sequence',
+      },
+      {
+        type: 'p',
+        content:
+          'On launch day, send a short, direct email to everyone who responded positively to your pre-launch outreach. Keep it under 4 lines:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: we're live on Product Hunt today
+
+Hi {first_name},
+
+{Product} is live on Product Hunt right now: {link}
+
+If you've had a chance to try it, an honest review would mean everything.
+
+Thanks for the early support,
+{Your name}`,
+      },
+      {
+        type: 'h2',
+        content: 'What GitLeads Delivers for a Product Hunt Launch',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Real-time GitHub signal capture starting 30+ days before launch',
+          'Enriched leads with email, bio, company, and signal context',
+          'Direct push to Smartlead, Instantly, Lemlist, or any email tool you use',
+          'Slack notifications for high-intent signals (e.g., someone mentions your category in a high-traffic repo issue)',
+          'CSV export for manual review and list cleaning',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Start monitoring GitHub 4–6 weeks before your launch. The developers you capture in weeks 3–4 often become your most engaged early adopters — they were already in evaluation mode before you reached out.',
+      },
+      {
+        type: 'p',
+        content:
+          'Internal links: find early adopters on GitHub, GitHub buying signals for sales teams, developer outreach email templates, GitHub signal monitoring, find beta testers on GitHub, GitHub lead generation for SaaS founders.',
+      },
+    ],
+  },
+
+  {
+    slug: 'github-stargazer-segmentation',
+    title: 'How to Segment GitHub Stargazers for Targeted Developer Outreach',
+    description:
+      'Not all GitHub stargazers are equal. This guide shows how to segment a repo\'s star list by intent, seniority, company size, and tech stack to maximize outreach conversion.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 8,
+    keywords: [
+      'github stargazer segmentation',
+      'segment github leads',
+      'github star list leads',
+      'stargazer outreach',
+      'github lead segmentation',
+      'developer lead scoring github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'A popular GitHub repo can accumulate tens of thousands of stargazers. Treating them as one homogeneous list is a mistake. A first-year student who starred a React tutorial repo is not the same lead as a founding engineer at a Series B startup who starred an observability framework. Segmentation is what separates a 0.5% reply rate from a 12% reply rate on developer outreach.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Stargazers Are Worth Segmenting (Not Just Exporting)',
+      },
+      {
+        type: 'p',
+        content:
+          'Most teams who scrape a GitHub star list treat it as a flat CSV: export, upload to sequencer, blast. The conversion rate is terrible because the audience is heterogeneous. A well-segmented star list, by contrast, lets you write messages that reference the specific context of each segment — and that specificity is what gets developer replies.',
+      },
+      {
+        type: 'h2',
+        content: 'Segmentation Dimension 1: Recency (When Did They Star?)',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub stargazers sorted by star date are dramatically different in intent. A developer who starred your competitor\'s repo this week is in active evaluation mode. One who starred it 18 months ago may have already made their decision. Prioritize leads who showed the signal in the last 30–90 days. GitLeads captures new stargazers in real time and timestamps every signal, so your lead list is always sorted by recency.',
+      },
+      {
+        type: 'h2',
+        content: 'Segmentation Dimension 2: Influence (Followers and Stars Earned)',
+      },
+      {
+        type: 'p',
+        content:
+          'A developer with 5,000 GitHub followers who stars your category is worth 10 personal messages. If they adopt your tool, they will talk about it publicly. GitLeads enriches each lead with follower count and total stars earned across their public repos, so you can instantly identify influencer-tier leads for white-glove outreach.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Tier A (influencer): 1,000+ followers, 5,000+ total stars earned — direct personal outreach, offer early partnership',
+          'Tier B (active builder): 100–999 followers, 500–4,999 total stars — high-touch outreach with stack-specific message',
+          'Tier C (practitioner): < 100 followers — standard sequence, mention the specific repo signal',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Segmentation Dimension 3: Company / Org Affiliation',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads extracts company affiliation from GitHub profiles (the "Company" field, linked org memberships, and bio text). This lets you segment by:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Company type: startup vs. enterprise vs. agency vs. student',
+          'Company size: cross-reference company name against LinkedIn headcount or Crunchbase',
+          'Org clustering: 3+ people from the same org starring the same repo = team-level evaluation signal',
+          'Domain: sort by email domain to identify high-value accounts for ABM',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Segmentation Dimension 4: Tech Stack Fit',
+      },
+      {
+        type: 'p',
+        content:
+          'The most powerful segmentation for developer tools is tech stack alignment. GitLeads enriches each lead with their top languages and frequent repo topics derived from their public GitHub activity. If your product only works with Node.js and PostgreSQL, filtering to developers whose repos are primarily JavaScript and who contribute to postgres-related topics gives you a list that is 10x more qualified than raw star data.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `GitLeads lead enrichment fields for tech stack segmentation:
+
+top_languages: ["TypeScript", "Python", "Go"]
+repo_topics: ["kubernetes", "graphql", "postgresql", "stripe"]
+bio: "Building APIs at @acme-corp | TypeScript + Go"
+company: "Acme Corp"
+email: "dev@acme.com"
+followers: 847
+signal: "starred prometheus/prometheus on 2026-04-28"
+signal_context: "issue: 'looking for a prometheus-compatible push gateway that works with k8s sidecars'"`,
+      },
+      {
+        type: 'h2',
+        content: 'Building Segments in Practice',
+      },
+      {
+        type: 'p',
+        content:
+          'Here are three high-performing segments for a developer tool company, assembled from GitLeads data:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Segment "Hot Prospects": starred your tracked repo in last 30 days + has a public email + company has 10–200 employees → highest conversion, send same day',
+          'Segment "Influencer Pipeline": 500+ followers + starred in last 90 days + language match → personal email from founder, offer beta partnership or advisory',
+          'Segment "ABM Cluster": 3+ people from same org starred a related repo → trigger account-level ABM sequence, mention the org signal',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Pushing Segmented Lists to Your Outreach Stack',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads integrates directly with Smartlead, Instantly, Lemlist, Apollo, Clay, HubSpot, Salesforce, Pipedrive, and Slack. You can configure different webhook destinations per signal type — for example, high-influence stargazers go to a Slack channel for manual review, while standard leads flow automatically into Smartlead campaign sequences. No spreadsheet intermediate layer required.',
+      },
+      {
+        type: 'callout',
+        content:
+          'The most impactful segmentation move you can make: filter for leads who starred a repo AND mentioned a problem keyword in a related issue or PR in the same week. That double-signal lead has 3–5x higher reply rate than a single-signal stargazer.',
+      },
+      {
+        type: 'p',
+        content:
+          'Internal links: GitHub lead scoring, find GitHub leads free, competitor repo stargazers as leads, GitHub intent data for B2B sales, turn GitHub stargazers into leads, developer outreach email templates.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
