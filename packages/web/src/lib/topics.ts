@@ -496,6 +496,70 @@ export const TOPICS: Topic[] = [
   topic('questdb-developers', 'QuestDB', 'QuestDB Developers', 21000),
   topic('tinybird-developers', 'Tinybird', 'Tinybird Developers', 17000),
   topic('timescale-developers', 'Timescale', 'Timescale Developers', 29000),
+
+  // Background jobs & workflow (2026 growth)
+  topic('trigger-dev-developers', 'Trigger.dev', 'Trigger.dev Developers', 24000),
+  topic('inngest-developers', 'Inngest', 'Inngest Developers', 19000),
+  topic('temporal-workflow-developers', 'Temporal Workflow', 'Temporal Workflow Developers', 21000),
+  topic('bullmq-developers', 'BullMQ', 'BullMQ Developers', 31000),
+
+  // Serverless Redis & edge data
+  topic('upstash-developers', 'Upstash', 'Upstash Developers', 28000),
+  topic('vercel-kv-developers', 'Vercel KV', 'Vercel KV Developers', 14000),
+
+  // Authentication (new)
+  topic('better-auth-developers', 'Better Auth', 'Better Auth Developers', 18000),
+  topic('logto-developers', 'Logto', 'Logto Developers', 21000),
+  topic('zitadel-developers', 'ZITADEL', 'ZITADEL Developers', 16000),
+
+  // Self-hosted & homelab
+  topic('self-hosted-developers', 'Self-Hosted Software', 'Self-Hosted Developers', 94000),
+  topic('homelab-developers', 'Homelab', 'Homelab Developers', 67000),
+  topic('coolify-developers', 'Coolify', 'Coolify Developers', 32000),
+  topic('dokku-developers', 'Dokku', 'Dokku Developers', 24000),
+  topic('kamal-developers', 'Kamal', 'Kamal Developers', 18000),
+
+  // Self-hostable SaaS replacements
+  topic('pocketbase-developers', 'PocketBase', 'PocketBase Developers', 44000),
+  topic('appwrite-developers', 'Appwrite', 'Appwrite Developers', 38000),
+  topic('directus-developers', 'Directus', 'Directus Developers', 31000),
+  topic('medusajs-developers', 'Medusa.js', 'Medusa.js Developers', 24000),
+  topic('plane-developers', 'Plane', 'Plane Developers', 21000),
+
+  // Go web frameworks (gaps)
+  topic('gin-developers', 'Gin (Go)', 'Gin Developers', 78000),
+  topic('fiber-go-developers', 'Fiber (Go)', 'Fiber Developers', 54000),
+  topic('echo-go-developers', 'Echo (Go)', 'Echo Developers', 42000),
+  topic('chi-router-developers', 'chi (Go router)', 'chi Developers', 31000),
+
+  // Go tooling
+  topic('sqlc-developers', 'sqlc', 'sqlc Developers', 34000),
+  topic('buf-developers', 'Buf (Protocol Buffers)', 'Buf Developers', 22000),
+  topic('connect-rpc-developers', 'ConnectRPC', 'ConnectRPC Developers', 16000),
+
+  // TypeScript tooling
+  topic('effect-ts-developers', 'Effect.ts', 'Effect.ts Developers', 22000),
+  topic('zod-effect-developers', 'Zod + Effect', 'Zod/Effect Developers', 18000),
+
+  // Feature flags (gaps)
+  topic('statsig-developers', 'Statsig', 'Statsig Developers', 24000),
+  topic('split-io-developers', 'Split.io', 'Split.io Developers', 19000),
+  topic('flagsmith-developers', 'Flagsmith', 'Flagsmith Developers', 17000),
+
+  // Analytics & product (gaps)
+  topic('amplitude-developers', 'Amplitude', 'Amplitude Developers', 54000),
+  topic('mixpanel-developers', 'Mixpanel', 'Mixpanel Developers', 61000),
+  topic('june-so-developers', 'June.so', 'June.so Developers', 14000),
+
+  // Developer productivity
+  topic('raycast-developers', 'Raycast', 'Raycast Developers', 38000),
+  topic('warp-terminal-developers', 'Warp Terminal', 'Warp Terminal Developers', 24000),
+  topic('ghostty-developers', 'Ghostty', 'Ghostty Developers', 18000),
+  topic('zed-editor-developers', 'Zed Editor', 'Zed Editor Developers', 29000),
+
+  // API management (gaps)
+  topic('hurl-developers', 'Hurl', 'Hurl Developers', 21000),
+  topic('scalar-api-developers', 'Scalar', 'Scalar Developers', 17000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(

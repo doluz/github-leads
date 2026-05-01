@@ -17358,6 +17358,575 @@ signal_context: "issue: 'looking for a prometheus-compatible push gateway that w
       },
     ],
   },
+
+  // ── push-github-leads-to-apollo ──────────────────────────────────────────
+  {
+    slug: 'push-github-leads-to-apollo',
+    title: 'How to Push GitHub Developer Leads to Apollo.io',
+    description:
+      'Learn how to automatically sync GitHub developer leads into Apollo.io. Capture stargazer signals and keyword mentions on GitHub, enrich the profiles, and push them into Apollo sequences without manual data entry.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 8,
+    keywords: [
+      'push github leads to apollo',
+      'github leads apollo io',
+      'apollo io developer leads',
+      'github signal apollo crm',
+      'developer lead generation apollo',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Apollo.io is a sales intelligence and engagement platform used by tens of thousands of B2B teams. If your product targets developers, the weakest point in most Apollo workflows is the lead source — Apollo\'s own database is broad but lacks the real-time GitHub intent signals that tell you which developer is actively evaluating tools in your category right now. This guide covers how to bridge that gap by feeding GitLeads signals directly into Apollo.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Signals Outperform Apollo\'s Built-In Database for Developer GTM',
+      },
+      {
+        type: 'p',
+        content:
+          'Apollo\'s database gives you contact info. GitLeads gives you context. The difference is the difference between "here is a Python developer in Austin" and "here is a Python developer in Austin who starred your competitor\'s observability repo yesterday and opened an issue asking for Grafana integration." The second record has a dramatically higher close rate because you know exactly what to say.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Apollo: ~265 million contacts, static enrichment, no real-time activity data',
+          'GitLeads: real-time GitHub signals (stars, forks, keyword mentions in issues/PRs/discussions), developer-specific enrichment',
+          'Combined: GitLeads as the signal source → Apollo as the engagement layer = maximum relevance',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Two Ways to Push GitLeads Data into Apollo',
+      },
+      {
+        type: 'h3',
+        content: 'Option 1: Direct Apollo API Integration via GitLeads Webhook',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads fires a webhook payload every time a new lead is captured. You can route that webhook directly to Apollo\'s People API to create or update contact records. Here is a minimal Node.js webhook handler that does exactly that:',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// webhook-handler.js — receives GitLeads webhooks and creates Apollo contacts
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+const APOLLO_API_KEY = process.env.APOLLO_API_KEY;
+
+app.post('/webhook/gitleads', async (req, res) => {
+  const lead = req.body;
+
+  const apolloPayload = {
+    first_name: lead.name?.split(' ')[0] ?? lead.github_username,
+    last_name: lead.name?.split(' ').slice(1).join(' ') ?? '',
+    email: lead.email,
+    github_url: lead.profile_url,
+    organization_name: lead.company,
+    title: lead.bio?.slice(0, 120),
+    // Custom fields — map signal context into Apollo note field
+    present_raw_address: lead.location,
+    label_names: ['github-signal', lead.signal_type],
+  };
+
+  const response = await fetch('https://api.apollo.io/v1/contacts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
+      'X-Api-Key': APOLLO_API_KEY,
+    },
+    body: JSON.stringify(apolloPayload),
+  });
+
+  const result = await response.json();
+
+  // Optionally add to a sequence immediately
+  if (result.contact?.id) {
+    await addToSequence(result.contact.id, resolveSequenceId(lead));
+  }
+
+  res.json({ ok: true });
+});
+
+async function addToSequence(contactId, sequenceId) {
+  await fetch('https://api.apollo.io/v1/emailer_campaigns/add_contact_ids', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Api-Key': APOLLO_API_KEY },
+    body: JSON.stringify({ contact_ids: [contactId], emailer_campaign_id: sequenceId }),
+  });
+}
+
+function resolveSequenceId(lead) {
+  // Route to different sequences based on signal type
+  if (lead.signal_type === 'stargazer') return process.env.APOLLO_SEQUENCE_STAR;
+  if (lead.signal_type === 'keyword') return process.env.APOLLO_SEQUENCE_KEYWORD;
+  return process.env.APOLLO_SEQUENCE_DEFAULT;
+}
+
+app.listen(3001);`,
+      },
+      {
+        type: 'h3',
+        content: 'Option 2: Via Clay as an Intermediary',
+      },
+      {
+        type: 'p',
+        content:
+          'If you already use Clay for enrichment, GitLeads can push leads into a Clay table via webhook, Clay enriches further (Clearbit, LinkedIn, website visit data), and Clay pushes the enriched record into Apollo via their native integration. This three-layer pipeline is common among growth teams running multi-signal developer outreach. GitLeads handles the GitHub signal layer; Clay handles the enrichment layer; Apollo handles the sequence layer.',
+      },
+      {
+        type: 'h2',
+        content: 'Mapping GitLeads Fields to Apollo Contact Fields',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `GitLeads field          → Apollo field
+─────────────────────────────────────────────────────────────
+name                    → first_name + last_name
+email                   → email
+github_username         → github_url (prepend https://github.com/)
+company                 → organization_name
+bio                     → title (truncate to 120 chars)
+location                → present_raw_address
+followers               → custom field "github_followers"
+top_languages           → custom field "github_languages"
+signal_context          → note / custom field "signal_context"
+signal_type             → label_names ["stargazer" or "keyword"]
+signal_repo             → custom field "signal_repo"
+signal_date             → custom field "signal_date"`,
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up Apollo Sequences for GitHub Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Generic Apollo sequences get 1–3% reply rates from developer audiences. Sequences built around a specific GitHub signal get 8–15% because the opening line can reference something the prospect actually did. Structure your developer sequences like this:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Step 1 (Day 0): Email referencing the GitHub signal — "I saw you starred [repo] — we solve the [specific problem] that repo\'s users often hit."',
+          'Step 2 (Day 3): Technical follow-up — share a doc, benchmark, or integration guide relevant to their stack',
+          'Step 3 (Day 7): Value-add email — a blog post, changelog, or case study from a company with a similar stack',
+          'Step 4 (Day 14): Final short email — one line, easy opt-out, offer to share a resource instead of a demo',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Developer-specific Apollo tip: avoid the word "synergy." Developers filter for technical specificity. If your email does not mention a specific language, framework, or problem, it reads as spam. Every GitLeads lead comes with signal_context — use it.',
+      },
+      {
+        type: 'h2',
+        content: 'Filtering Before You Push to Apollo',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every GitHub lead should enter Apollo. Pushing low-quality records wastes sequence slots, pollutes your CRM, and hurts your sender reputation. GitLeads lets you filter before forwarding via webhook conditions. Apply these filters as a starting point:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Email present: only push leads with a public email (cuts list by ~40% but removes all uncontactable records)',
+          'Followers >= 10: filters out bots and inactive accounts',
+          'Signal recency <= 7 days: only push leads who showed the signal this week',
+          'Company present: prioritizes leads who are likely employed (not student or personal projects)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'vs. Scraping GitHub and Manually Uploading CSVs to Apollo',
+      },
+      {
+        type: 'p',
+        content:
+          'Many developer sales teams manually export GitHub stargazer lists, enrich them with Hunter.io or Apollo\'s own enrichment, then upload CSVs. This workflow is slow (weekly cadence at best), misses real-time intent, and produces stale data. GitLeads + Apollo webhook integration gives you a lead in your Apollo sequence within minutes of the GitHub signal firing — when the intent is freshest.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: push GitHub leads to HubSpot, push GitHub leads to Clay, push GitHub leads to Lemlist, GitHub intent data for B2B sales, GitHub lead generation workflow.',
+      },
+    ],
+  },
+
+  // ── push-github-leads-to-salesforce ──────────────────────────────────────
+  {
+    slug: 'push-github-leads-to-salesforce',
+    title: 'How to Push GitHub Leads to Salesforce',
+    description:
+      'Learn how to automatically send GitHub developer leads into Salesforce CRM. Capture stargazer signals and keyword mentions from GitHub and push enriched lead records to Salesforce in real time.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 9,
+    keywords: [
+      'push github leads to salesforce',
+      'github leads salesforce',
+      'github signals salesforce crm',
+      'developer leads salesforce',
+      'github lead generation salesforce integration',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Salesforce is the CRM of record at most enterprise and growth-stage B2B companies. If your product sells to developers, your Salesforce Lead or Contact records are only as good as the signals feeding them. Static database imports and manual list uploads can not compete with real-time GitHub intent data — the signal that tells you a developer is actively evaluating tools in your category right now.',
+      },
+      {
+        type: 'h2',
+        content: 'What GitLeads Sends to Salesforce',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads captures two categories of signals from GitHub: (1) new stargazers on tracked repositories, and (2) keyword mentions in issues, pull requests, discussions, and code comments. For each signal, GitLeads enriches the triggering developer\'s profile with public GitHub data and optionally email, then fires a webhook. You map that webhook payload to Salesforce Lead or Contact fields.',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `// Example GitLeads webhook payload (simplified)
+{
+  "signal_type": "stargazer",
+  "signal_repo": "your-org/your-repo",
+  "signal_date": "2026-05-01T09:14:22Z",
+  "github_username": "mjones-dev",
+  "name": "Marcus Jones",
+  "email": "marcus@acmecorp.io",
+  "profile_url": "https://github.com/mjones-dev",
+  "company": "Acme Corp",
+  "bio": "Platform engineer @ AcmeCorp | Go + Kubernetes",
+  "location": "Chicago, IL",
+  "followers": 312,
+  "top_languages": ["Go", "Python", "TypeScript"],
+  "signal_context": "starred prometheus/prometheus",
+  "lead_score": 74
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Option 1: Push via Salesforce REST API (Custom Webhook Handler)',
+      },
+      {
+        type: 'p',
+        content:
+          'The most flexible approach is a lightweight webhook receiver that authenticates with Salesforce via OAuth 2.0 and creates or upserts Lead records. This is the right choice if you have custom field mappings, complex routing logic, or want to control lead assignment rules.',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `# salesforce_webhook.py — receives GitLeads webhooks, pushes to Salesforce
+import os
+import requests
+from flask import Flask, request, jsonify
+from simple_salesforce import Salesforce
+
+app = Flask(__name__)
+
+def get_sf_client():
+    return Salesforce(
+        username=os.environ['SF_USERNAME'],
+        password=os.environ['SF_PASSWORD'],
+        security_token=os.environ['SF_SECURITY_TOKEN'],
+        domain='login'  # use 'test' for sandbox
+    )
+
+@app.route('/webhook/gitleads', methods=['POST'])
+def handle_gitleads():
+    lead = request.json
+    sf = get_sf_client()
+
+    # Map GitLeads fields to Salesforce Lead fields
+    sf_lead = {
+        'FirstName': (lead.get('name') or '').split(' ')[0] or lead['github_username'],
+        'LastName': ' '.join((lead.get('name') or '').split(' ')[1:]) or 'Unknown',
+        'Email': lead.get('email'),
+        'Company': lead.get('company') or 'Unknown',
+        'Title': (lead.get('bio') or '')[:120],
+        'City': lead.get('location'),
+        'LeadSource': 'GitHub Signal',
+        'Description': f"Signal: {lead['signal_type']} on {lead['signal_repo']}\\n"
+                       f"Context: {lead.get('signal_context', '')}\\n"
+                       f"GitHub: {lead['profile_url']}\\n"
+                       f"Followers: {lead.get('followers', 0)}",
+        # Custom fields (create these in Salesforce Setup → Object Manager → Lead)
+        'GitHub_Username__c': lead['github_username'],
+        'GitHub_Signal_Type__c': lead['signal_type'],
+        'GitHub_Signal_Repo__c': lead.get('signal_repo'),
+        'GitHub_Signal_Date__c': lead['signal_date'],
+        'GitHub_Top_Languages__c': ', '.join(lead.get('top_languages', [])),
+        'GitLeads_Score__c': lead.get('lead_score'),
+    }
+
+    # Remove None values (Salesforce rejects null for required fields)
+    sf_lead = {k: v for k, v in sf_lead.items() if v is not None}
+
+    try:
+        result = sf.Lead.upsert(f"GitHub_Username__c/{lead['github_username']}", sf_lead)
+        return jsonify({'ok': True, 'salesforce_id': result})
+    except Exception as e:
+        return jsonify({'ok': False, 'error': str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(port=3002)`,
+      },
+      {
+        type: 'h2',
+        content: 'Option 2: Push via Zapier or Make (No-Code)',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads natively supports Zapier and Make as destinations. In GitLeads, go to Integrations → Zapier or Make, copy the webhook URL, and set up a Zap or scenario that catches the GitLeads payload and creates a Salesforce Lead. This is the fastest path to production — no code required — and handles OAuth, retries, and field mapping through a visual interface.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'In GitLeads: add a Zapier webhook destination to your signal (star tracking or keyword)',
+          'In Zapier: create a new Zap with "Catch Raw Hook" trigger, then "Create Lead in Salesforce" action',
+          'Map fields: use the GitLeads payload fields (name, email, company, signal_context) to Salesforce Lead fields',
+          'Add a filter step: only continue if email is present (avoids creating uncontactable Salesforce records)',
+          'Test with a real GitLeads webhook payload and verify the Lead appears in Salesforce',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Custom Fields to Create in Salesforce',
+      },
+      {
+        type: 'p',
+        content:
+          'To get full value from GitHub signal data, create these custom fields on the Salesforce Lead (and optionally Contact) object. Go to Setup → Object Manager → Lead → Fields & Relationships → New.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Field Label              API Name                   Type        Length
+─────────────────────────────────────────────────────────────────────
+GitHub Username          GitHub_Username__c         Text        50
+GitHub Signal Type       GitHub_Signal_Type__c      Picklist    (star/keyword)
+GitHub Signal Repo       GitHub_Signal_Repo__c      Text        200
+GitHub Signal Date       GitHub_Signal_Date__c      DateTime
+GitHub Top Languages     GitHub_Top_Languages__c    Text        200
+GitHub Followers         GitHub_Followers__c        Number      18,0
+GitLeads Score           GitLeads_Score__c          Number      3,0
+Signal Context           Signal_Context__c          Long Text   32768`,
+      },
+      {
+        type: 'h2',
+        content: 'Lead Routing and Assignment Rules',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub leads often require different routing than inbound form fills. An enterprise developer from a Fortune 500 company who starred your repo should land on an enterprise AE, not an SDR sequence. Configure Salesforce Lead Assignment Rules to route by company size (derived from the company name enrichment), signal type, and GitHub follower count. Use the GitLeads_Score__c field as a routing threshold.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Deduplication is critical: Salesforce will create duplicate Lead records if the same developer triggers multiple signals. Use GitHub_Username__c as the unique external ID for upsert operations (as shown in the Python example above). This ensures one Lead record per developer regardless of how many signals they trigger.',
+      },
+      {
+        type: 'h2',
+        content: 'Connecting Salesforce Leads to Outreach or Salesloft',
+      },
+      {
+        type: 'p',
+        content:
+          'Most enterprise sales teams running Salesforce also use Outreach.io or Salesloft for sequencing. Once a GitHub lead lands in Salesforce as a Lead record, Outreach/Salesloft sync picks it up automatically (with the standard SFDC sync) and can enroll the lead in a GitHub-specific sequence triggered by the GitHub_Signal_Type__c field. No additional webhook work required.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: push GitHub leads to HubSpot, push GitHub leads to Apollo, push GitHub leads to Clay, GitHub intent data for B2B sales, GitHub lead generation workflow.',
+      },
+    ],
+  },
+
+  // ── github-trending-for-sales-prospecting ─────────────────────────────────
+  {
+    slug: 'github-trending-for-sales-prospecting',
+    title: 'GitHub Trending as a Sales Prospecting Signal',
+    description:
+      'GitHub Trending shows which repos are gaining momentum right now. Learn how sales teams use trending repos to identify warm developer prospects, map intent signals, and build outreach that converts.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 7,
+    keywords: [
+      'github trending sales',
+      'github trending prospecting',
+      'github trending leads',
+      'github trending signal',
+      'developer prospecting github trending',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub Trending (github.com/trending) is a real-time leaderboard of the fastest-growing open-source repos by stars earned in the last 24 hours, 7 days, or 30 days. For developer tool companies, it is one of the highest-signal free data sources available. A repo trending in your category means thousands of developers are actively evaluating that problem space right now — which makes its stargazers your warmest possible prospects.',
+      },
+      {
+        type: 'h2',
+        content: 'Reading GitHub Trending as a Market Signal',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Trending is not just a vanity metric. When a repo gains 500+ stars in 24 hours, it usually means it was featured on Hacker News, Reddit r/programming, or a high-traffic newsletter. That traffic is not random — it is developers who are actively looking for solutions to the problem that repo addresses. A repo called "open-source-posthog-alternative" trending with 800 stars means 800+ developers just signaled interest in product analytics for developers.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Daily trending (top 25 repos): highest velocity, usually HN/Reddit-driven, very time-sensitive',
+          'Weekly trending (top 25): broader signal, more organic growth, often includes developer tools launching to ProductHunt',
+          'Monthly trending: most stable, indicates sustained interest — strong signal for ABM targeting',
+          'Language-filtered trending: e.g. github.com/trending/python — lets you find trending repos used by your specific ICP language cohort',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Three Ways to Use GitHub Trending for Sales',
+      },
+      {
+        type: 'h3',
+        content: '1. Track Your Competitors on Trending',
+      },
+      {
+        type: 'p',
+        content:
+          'If a competitor\'s repo hits Trending, their stargazer count is about to spike. Add that repo to GitLeads\' stargazer tracking immediately — you will capture the wave of new evaluators as they star the repo over the next 48–72 hours. These are developers who just discovered a problem you can also solve. GitLeads timestamps every star, so you can filter for leads who starred the trending repo in the same week it appeared on Trending.',
+      },
+      {
+        type: 'h3',
+        content: '2. Find Complementary Repos to Track',
+      },
+      {
+        type: 'p',
+        content:
+          'A repo trending in an adjacent problem space is a source of pre-qualified prospects for your product. If you sell a database observability tool, a trending repo for a new database migration library contains developers who are actively building with databases — your exact ICP. Add trending adjacent repos to GitLeads tracking and capture the stargazer flow as a parallel prospecting stream.',
+      },
+      {
+        type: 'h3',
+        content: '3. Identify Emerging Categories Early',
+      },
+      {
+        type: 'p',
+        content:
+          'Trending surfaces categories before they hit mainstream analyst reports. In 2024, LangChain and vector database repos trended for months before "RAG pipeline" became a standard search term. In 2025, MCP (Model Context Protocol) repos appeared on Trending before most sales teams had heard of the term. Monitoring Trending weekly lets you add category-defining repos to GitLeads early and build a prospecting pipeline before your competitors even know the category exists.',
+      },
+      {
+        type: 'h2',
+        content: 'Automating GitHub Trending Monitoring',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub does not expose Trending via API, but you can scrape it reliably with a scheduled job. Here is a minimal Python scraper that runs daily and adds newly trending repos to GitLeads via API:',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `# trending_monitor.py — daily GitHub Trending scraper
+import httpx
+from bs4 import BeautifulSoup
+import os
+
+GITLEADS_API_KEY = os.environ['GITLEADS_API_KEY']
+LANGUAGES = ['', 'python', 'typescript', 'go', 'rust']  # '' = all languages
+KEYWORDS_TO_TRACK = ['observability', 'monitoring', 'analytics', 'data', 'ai']
+
+def fetch_trending(language='', since='daily'):
+    url = f"https://github.com/trending/{language}?since={since}"
+    resp = httpx.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    repos = []
+    for article in soup.select('article.Box-row'):
+        h2 = article.select_one('h2 a')
+        if h2:
+            path = h2['href'].lstrip('/')  # e.g. "owner/repo"
+            description = article.select_one('p')
+            desc_text = description.text.strip() if description else ''
+            repos.append({'repo': path, 'description': desc_text})
+    return repos
+
+def is_relevant(repo_info):
+    desc = repo_info['description'].lower()
+    return any(kw in desc for kw in KEYWORDS_TO_TRACK)
+
+def add_to_gitleads(repo_path):
+    httpx.post(
+        'https://api.gitleads.app/v1/tracked-repos',
+        headers={'Authorization': f'Bearer {GITLEADS_API_KEY}'},
+        json={'repo': repo_path, 'label': f'trending-{repo_path}'}
+    )
+
+if __name__ == '__main__':
+    for lang in LANGUAGES:
+        for repo_info in fetch_trending(lang):
+            if is_relevant(repo_info):
+                print(f"Adding trending repo: {repo_info['repo']}")
+                add_to_gitleads(repo_info['repo'])`,
+      },
+      {
+        type: 'h2',
+        content: 'Qualifying Trending Repo Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'Trending repos attract a mix of serious evaluators and curiosity clicks. Qualify leads from trending repos with these filters before adding them to outreach sequences:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Account age >= 1 year: filters out newly created accounts that spiked with viral traffic',
+          'Public repos >= 3: signals an active developer, not a lurker account',
+          'Email present: only contact developers who have opted to share contact info publicly',
+          'Bio mentions a company or role: indicates they are evaluating for professional use, not just curiosity',
+          'Followers >= 10: filters bots and inactive accounts',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building the Outreach Angle from Trending Context',
+      },
+      {
+        type: 'p',
+        content:
+          'The opening line of every outreach to a trending-repo stargazer should reference both the repo and the problem it addresses. Avoid generic "saw you were interested in X" language. Instead: "I saw {repo} hit GitHub Trending last week — the problem it solves (async job queues in Python) is exactly what [your product] handles at the infra level. Here is how our customers use both together."',
+      },
+      {
+        type: 'callout',
+        content:
+          'Timing is everything with trending leads. A developer who starred a trending repo within 24 hours of it trending is in active research mode. Reply rates drop significantly after 72 hours as the developer moves on to the next thing. GitLeads timestamps every star — use that data to sort your outreach queue by recency and hit the freshest leads first.',
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Trending vs. Product Hunt for Developer Prospecting',
+      },
+      {
+        type: 'p',
+        content:
+          'Product Hunt surfaces developer tools too, but the signal is different: PH users are evaluators and early adopters browsing for new products. GitHub Trending surfaces developers who are actively building something that uses a related technology. GitHub Trending leads have higher technical qualification; Product Hunt leads have higher buyer intent. For developer tool companies, both signals are worth capturing — GitLeads monitors GitHub; you can add Product Hunt upvoter monitoring via separate tooling.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: turn GitHub stargazers into leads, competitor repo stargazers as leads, GitHub buying signals for sales teams, GitHub star growth as market signal, free GitHub lead generation tools.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
