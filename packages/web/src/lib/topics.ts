@@ -338,6 +338,63 @@ export const TOPICS: Topic[] = [
   topic('gpu-developers', 'GPU Computing', 'GPU Developers', 38000),
   topic('real-time-developers', 'Real-Time Systems', 'Real-Time Developers', 47000),
   topic('low-code-developers', 'Low-Code', 'Low-Code Developers', 73000),
+
+  // Build tools & bundlers
+  topic('vite-developers', 'Vite', 'Vite Developers', 89000),
+  topic('turborepo-developers', 'Turborepo', 'Turborepo Developers', 34000),
+  topic('nx-developers', 'Nx', 'Nx Developers', 41000),
+  topic('esbuild-developers', 'esbuild', 'esbuild Developers', 28000),
+  topic('webpack-developers', 'Webpack', 'Webpack Developers', 143000),
+  topic('biome-developers', 'Biome', 'Biome Developers', 22000),
+  topic('ruff-developers', 'Ruff', 'Ruff Developers', 31000),
+
+  // Frontend frameworks (gaps)
+  topic('solidjs-developers', 'SolidJS', 'SolidJS Developers', 27000),
+  topic('qwik-developers', 'Qwik', 'Qwik Developers', 18000),
+  topic('sveltekit-developers', 'SvelteKit', 'SvelteKit Developers', 51000),
+  topic('alpine-js-developers', 'Alpine.js', 'Alpine.js Developers', 33000),
+
+  // State management / data fetching
+  topic('tanstack-developers', 'TanStack', 'TanStack Developers', 44000),
+  topic('react-query-developers', 'React Query', 'React Query Developers', 67000),
+  topic('jotai-developers', 'Jotai', 'Jotai Developers', 21000),
+  topic('xstate-developers', 'XState', 'XState Developers', 24000),
+  topic('zod-developers', 'Zod', 'Zod Developers', 38000),
+
+  // Web3 / blockchain (gaps)
+  topic('hardhat-developers', 'Hardhat', 'Hardhat Developers', 31000),
+  topic('foundry-eth-developers', 'Foundry (Ethereum)', 'Foundry Developers', 23000),
+  topic('ethers-developers', 'ethers.js', 'ethers.js Developers', 44000),
+  topic('wagmi-developers', 'Wagmi', 'Wagmi Developers', 19000),
+  topic('anchor-developers', 'Anchor (Solana)', 'Anchor Developers', 17000),
+
+  // Security / vulnerability research
+  topic('security-researchers', 'Security Research', 'Security Researchers', 38000),
+  topic('bug-bounty-hunters', 'Bug Bounty', 'Bug Bounty Hunters', 22000),
+  topic('ctf-developers', 'CTF (Capture the Flag)', 'CTF Developers', 16000),
+
+  // Buyer personas (high-value for GTM)
+  topic('api-product-managers', 'API Product', 'API Product Managers', 19000),
+  topic('head-of-engineering', 'Head of Engineering', 'Heads of Engineering', 31000),
+  topic('principal-engineers', 'Principal Engineers', 'Principal Engineers', 24000),
+  topic('developer-tool-founders', 'Developer Tool Founders', 'Developer Tool Founders', 21000),
+
+  // Cloud-native patterns (gaps)
+  topic('wasm-runtime-developers', 'Wasm Runtime', 'Wasm Runtime Developers', 14000),
+  topic('ebpf-engineers', 'eBPF', 'eBPF Engineers', 18000),
+  topic('linux-kernel-developers', 'Linux Kernel', 'Linux Kernel Developers', 29000),
+
+  // AI inference & hardware
+  topic('triton-developers', 'Triton (GPU)', 'Triton Developers', 16000),
+  topic('cuda-developers', 'CUDA', 'CUDA Developers', 34000),
+  topic('tinyml-developers', 'TinyML', 'TinyML Developers', 14000),
+
+  // Data engineering (gaps)
+  topic('polars-developers', 'Polars', 'Polars Developers', 29000),
+  topic('duckdb-developers', 'DuckDB', 'DuckDB Developers', 27000),
+  topic('trino-engineers', 'Trino', 'Trino Engineers', 19000),
+  topic('iceberg-engineers', 'Apache Iceberg', 'Apache Iceberg Engineers', 22000),
+  topic('delta-lake-engineers', 'Delta Lake', 'Delta Lake Engineers', 18000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(

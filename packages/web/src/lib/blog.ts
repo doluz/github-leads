@@ -15666,6 +15666,613 @@ curl -H "Authorization: Bearer TOKEN" \\
       },
     ],
   },
+  // ── BLOG POST: push-github-leads-to-clay ──────────────────────────────────
+  {
+    slug: 'push-github-leads-to-clay',
+    title: 'Push GitHub Leads to Clay: The Complete Integration Guide (2026)',
+    description:
+      'Step-by-step guide to pushing enriched GitHub developer leads directly into Clay. Connect GitLeads to Clay via webhook or API and build automated outreach tables in minutes.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 8,
+    keywords: [
+      'push github leads to clay',
+      'github leads clay integration',
+      'clay github leads',
+      'github lead generation clay',
+      'developer leads clay',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Clay is the go-to enrichment and outreach table for modern GTM teams. GitLeads is the signal source for developer activity on GitHub. Together, they form a pipeline that takes a raw GitHub star, fork, or keyword mention and turns it into a fully enriched Clay row with email, LinkedIn, company, tech stack, and a warm signal context — ready for a personalised sequence.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Push GitHub Leads into Clay?',
+      },
+      {
+        type: 'p',
+        content:
+          'Clay excels at enrichment waterfalls — running a contact through Hunter, Apollo, Clearbit, LinkedIn, and custom APIs in a single table. But Clay needs a source of leads. When you source from GitHub signals (stargazers of competitor repos, devs mentioning your keyword in issues, new forks of tracked projects) you get intent-qualified leads before Clay even enriches them. The GitHub signal tells you *why* to reach out; Clay tells you *how* to do it.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signal: developer starred a repo in your category → high intent',
+          'Keyword signal: developer opened a GitHub issue mentioning "switching from X" → active evaluator',
+          'Fork signal: developer forked your competitor\'s repo → building with them right now',
+          'Issue commenter: developer asked a question in a competing project → needs support, open to alternatives',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Method 1: GitLeads Webhook → Clay HTTP API',
+      },
+      {
+        type: 'p',
+        content:
+          'The fastest integration. GitLeads fires a webhook for every new lead. Clay has a native HTTP API source that accepts POST requests. Set it up in under five minutes:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'In Clay, create a new table and click "Add source" → "Webhook / HTTP API". Copy the Clay ingest URL.',
+          'In GitLeads, open Settings → Integrations → Webhooks. Paste the Clay ingest URL as the endpoint.',
+          'Choose your signal types (stargazer, keyword, fork) and click Save.',
+          'Test by starring a tracked repo. Within minutes a new row should appear in Clay with the developer\'s GitHub username, bio, location, and signal context.',
+          'Add Clay enrichment columns: Hunter.io email lookup, LinkedIn URL finder, company firmographics, and a GPT-4o column to write a personalised first line.',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads sends all lead fields in the webhook payload: name, github_username, email (if public), bio, company, location, followers, top_languages, signal_type, signal_context, and profile_url. Map these directly to Clay column names.',
+      },
+      {
+        type: 'h2',
+        content: 'Method 2: GitLeads → Zapier → Clay',
+      },
+      {
+        type: 'p',
+        content:
+          'If you prefer a no-code middleware layer, use the GitLeads Zapier integration. This is useful if you want to apply filters (e.g. only pass leads with 100+ followers) or fan out to multiple destinations simultaneously.',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `// Zapier filter step: only send to Clay if follower count ≥ 100
+{
+  "filter": {
+    "field": "followers",
+    "condition": "greater than or equal to",
+    "value": 100
+  }
+}
+
+// Then: Clay "Add Row" action using Zapier's Clay integration
+// Map fields:
+// Name       → {{lead.name}}
+// GitHub URL → {{lead.profile_url}}
+// Signal     → {{lead.signal_type}}: {{lead.signal_context}}
+// Email      → {{lead.email}}`,
+      },
+      {
+        type: 'h2',
+        content: 'Method 3: GitLeads REST API → Clay HTTP Source (Polling)',
+      },
+      {
+        type: 'p',
+        content:
+          'For teams who want full control, poll the GitLeads REST API on a schedule and push rows to Clay. This gives you the most flexibility for custom filtering, deduplication, and batching:',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+import time
+
+GITLEADS_API_KEY = "gl_live_xxxx"
+CLAY_INGEST_URL = "https://api.clay.com/v1/sources/YOUR_SOURCE_ID/rows"
+CLAY_API_KEY = "clay_xxxx"
+
+def sync_leads_to_clay(since_timestamp):
+    # 1. Fetch new leads from GitLeads
+    resp = requests.get(
+        "https://api.gitleads.app/v1/leads",
+        headers={"Authorization": f"Bearer {GITLEADS_API_KEY}"},
+        params={"since": since_timestamp, "limit": 100}
+    )
+    leads = resp.json()["leads"]
+
+    # 2. Push each lead to Clay
+    for lead in leads:
+        clay_row = {
+            "Name": lead["name"],
+            "GitHub Username": lead["github_username"],
+            "GitHub URL": lead["profile_url"],
+            "Email": lead.get("email", ""),
+            "Company": lead.get("company", ""),
+            "Location": lead.get("location", ""),
+            "Followers": lead["followers"],
+            "Signal Type": lead["signal_type"],
+            "Signal Context": lead["signal_context"],
+            "Top Languages": ", ".join(lead.get("top_languages", [])),
+        }
+        requests.post(
+            CLAY_INGEST_URL,
+            headers={"Authorization": f"Bearer {CLAY_API_KEY}"},
+            json=clay_row
+        )
+
+    print(f"Synced {len(leads)} leads to Clay")
+
+# Run every 30 minutes
+while True:
+    sync_leads_to_clay(time.time() - 1800)
+    time.sleep(1800)`,
+      },
+      {
+        type: 'h2',
+        content: 'Clay Enrichment Waterfall for GitHub Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Once GitHub leads land in Clay, set up an enrichment waterfall to maximise email find rate and personalisation depth:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Email enrichment: Hunter.io → Apollo.io → Snov.io (waterfall stops when email found)',
+          'LinkedIn URL: PhantomBuster GitHub → LinkedIn lookup, or Proxycurl API',
+          'Company firmographics: Clearbit / Apollo for headcount, ARR estimate, tech stack',
+          'Personalisation: GPT-4o column referencing the signal context to write a first line ("I noticed you starred {repo} last week...")',
+          'Sequence push: Clay → Smartlead, Instantly, or Lemlist using the native Clay send integrations',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Clay Table Template for GitHub Stargazer Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Here is the recommended column layout for a GitHub-signal Clay table:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Name (from GitLeads)',
+          'GitHub Username (from GitLeads)',
+          'GitHub URL (from GitLeads)',
+          'Signal Type — stargazer / keyword / fork (from GitLeads)',
+          'Signal Context — the repo starred or keyword matched (from GitLeads)',
+          'Email (enriched via Hunter/Apollo waterfall)',
+          'LinkedIn URL (enriched via Proxycurl)',
+          'Company (from GitLeads + enriched)',
+          'Headcount (from Clearbit/Apollo)',
+          'Top Languages (from GitLeads)',
+          'Personalised First Line (GPT-4o column)',
+          'Sequence Status (Smartlead/Instantly/Lemlist)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Pricing and Limits',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads ships 50 free leads/month on the free plan, then $49/month (Starter, 500 leads), $149/month (Pro, 2,500 leads), or $499/month (Agency, unlimited). Clay pricing is separate. The webhook integration works on all GitLeads plans. The REST API is available on Starter and above.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Start free at gitleads.app — 50 GitHub signal leads per month, no credit card required. Connect to Clay via webhook in under 5 minutes.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: push GitHub leads to HubSpot, push GitHub leads to Smartlead, push GitHub leads to Instantly, GitHub lead generation workflow, GitHub signal monitoring.',
+      },
+    ],
+  },
+  // ── BLOG POST: push-github-leads-to-lemlist ───────────────────────────────
+  {
+    slug: 'push-github-leads-to-lemlist',
+    title: 'Push GitHub Leads to Lemlist: Automated Developer Outreach (2026)',
+    description:
+      'How to push enriched GitHub developer leads from GitLeads directly into Lemlist campaigns. Set up automated sequences triggered by real GitHub buying signals.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 7,
+    keywords: [
+      'push github leads to lemlist',
+      'github leads lemlist',
+      'lemlist github lead generation',
+      'developer outreach lemlist',
+      'github signal lemlist',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Lemlist is one of the most popular cold outreach tools for B2B sales, known for its personalisation features including custom images and dynamic variables. GitLeads captures real-time buying signals from GitHub. When you connect the two, every developer who stars a tracked repo, mentions a keyword in a GitHub issue, or forks a competitor project can automatically enter a Lemlist sequence — personalised with the exact signal that triggered them.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Signals Make Lemlist Sequences Convert',
+      },
+      {
+        type: 'p',
+        content:
+          'Generic cold email to developers performs poorly. Developer audiences are technically sophisticated, spam-averse, and can immediately detect templated outreach. GitHub signals give you a credible, specific reason to reach out:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"I saw you starred the vercel/next.js repo last week — we built something that solves the cold start problem you might have noticed..."',
+          '"Your team opened an issue in the prometheus/prometheus repo asking about long-term storage — GitLeads actually monitors exactly that use case..."',
+          '"You forked shadcn/ui last Thursday — we ship a component library that extends shadcn with enterprise auth and billing UI..."',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Each of these openers is triggered automatically by a GitLeads signal. The developer did something public that reveals a need. Your email acknowledges it specifically. Reply rates for signal-triggered outreach run 3–8× higher than cold lists.',
+      },
+      {
+        type: 'h2',
+        content: 'Integration Method 1: GitLeads Native Lemlist Integration',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads has a native Lemlist integration. Connect it in Settings → Integrations → Lemlist:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'In Lemlist, create a campaign for GitHub leads (e.g. "GitHub Stargazer Outreach"). Note the campaign ID from the URL.',
+          'In Lemlist Settings → API, generate an API key.',
+          'In GitLeads, go to Settings → Integrations → Lemlist. Paste your API key and select the target campaign.',
+          'Map GitLeads lead fields to Lemlist custom variables: {{github_username}}, {{signal_type}}, {{signal_context}}, {{top_languages}}.',
+          'Toggle signals: choose which signal types trigger Lemlist enrolment (stargazer, keyword, fork, or all).',
+          'Save. GitLeads will enrol new matching leads into your Lemlist campaign within minutes of the GitHub event.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Integration Method 2: Webhook → Lemlist API',
+      },
+      {
+        type: 'p',
+        content:
+          'For custom logic (filtering, enrichment before enrolment, multi-campaign routing), use GitLeads webhooks to call the Lemlist API directly:',
+      },
+      {
+        type: 'code',
+        language: 'typescript',
+        content: `import express from 'express';
+import axios from 'axios';
+
+const app = express();
+app.use(express.json());
+
+const LEMLIST_API_KEY = process.env.LEMLIST_API_KEY!;
+const CAMPAIGNS = {
+  stargazer: 'cam_xxxx_STARGAZER',
+  keyword:   'cam_xxxx_KEYWORD',
+  fork:      'cam_xxxx_FORK',
+};
+
+app.post('/gitleads-webhook', async (req, res) => {
+  const lead = req.body;
+
+  // Skip leads without email
+  if (!lead.email) {
+    return res.json({ skipped: true, reason: 'no email' });
+  }
+
+  const campaignId = CAMPAIGNS[lead.signal_type as keyof typeof CAMPAIGNS]
+    ?? CAMPAIGNS.stargazer;
+
+  await axios.post(
+    \`https://api.lemlist.com/api/campaigns/\${campaignId}/leads/\${lead.email}\`,
+    {
+      firstName: lead.name?.split(' ')[0] ?? lead.github_username,
+      lastName:  lead.name?.split(' ').slice(1).join(' ') ?? '',
+      companyName: lead.company ?? '',
+      github_username:  lead.github_username,
+      signal_type:      lead.signal_type,
+      signal_context:   lead.signal_context,
+      top_languages:    lead.top_languages?.join(', ') ?? '',
+      github_url:       lead.profile_url,
+      location:         lead.location ?? '',
+    },
+    {
+      auth: { username: '', password: LEMLIST_API_KEY },
+    }
+  );
+
+  res.json({ enrolled: true, campaign: campaignId });
+});
+
+app.listen(3000);`,
+      },
+      {
+        type: 'h2',
+        content: 'Lemlist Email Template for GitHub Stargazer Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'A high-performing opener for stargazer-triggered sequences:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: quick question re: {{signal_context}}
+
+Hi {{firstName}},
+
+Noticed you starred {{signal_context}} on GitHub — that repo is popular with
+teams solving [problem your product addresses].
+
+We built [product] specifically for {{top_languages}} developers who hit
+[specific pain point] when [context]. Takes about 10 minutes to connect to
+an existing project.
+
+Happy to share a quick Loom if this is on your radar? No pitch call needed.
+
+[Your name]
+
+P.S. Your GitHub profile shows you've been building with {{top_languages}} —
+we have native SDKs for all of those.`,
+      },
+      {
+        type: 'h2',
+        content: 'Integration Method 3: Zapier → Lemlist',
+      },
+      {
+        type: 'p',
+        content:
+          'For no-code teams, use the GitLeads Zapier trigger to fire the Lemlist "Add lead to campaign" action:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Create a Zap: Trigger = GitLeads "New Lead", Action = Lemlist "Add lead to existing campaign".',
+          'Add a Filter step between trigger and action: only continue if "Email" is not empty.',
+          'Map GitLeads fields to Lemlist lead fields. Use {{signal_context}} as a custom variable.',
+          'Test with a real GitHub event and verify the lead appears in your Lemlist campaign.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Avoiding Spam: Developer-Safe Outreach Rules',
+      },
+      {
+        type: 'ul',
+        items: [
+          'One email per lead per signal — do not re-enrol the same developer for every star they make',
+          'Max 3 steps per sequence (email → 5-day wait → follow-up → stop)',
+          'Reference the signal explicitly in step 1; step 2 can be value-add content, not another pitch',
+          'Unsubscribe from any reply that says "not interested" — Lemlist handles this automatically',
+          'Set daily sending limits ≤ 50 per inbox; warm up new inboxes before using them',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads feeds Lemlist with developer leads who have shown a real GitHub buying signal. Free plan includes 50 leads/month. Sign up at gitleads.app and connect to Lemlist in under 10 minutes.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: push GitHub leads to Smartlead, push GitHub leads to Instantly, push GitHub leads to Clay, developer outreach email templates, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+  // ── BLOG POST: github-pr-signals-sales-intelligence ───────────────────────
+  {
+    slug: 'github-pr-signals-sales-intelligence',
+    title: 'GitHub PR Activity as a Sales Intelligence Signal (2026 Guide)',
+    description:
+      'How to use GitHub pull request activity — merged PRs, PR reviews, and contributor patterns — to identify high-intent developer leads for B2B sales and DevRel.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 9,
+    keywords: [
+      'github pr signals',
+      'github pull request sales intelligence',
+      'github activity sales signals',
+      'developer intent signals github',
+      'github contributor leads',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Most teams mining GitHub for leads focus on stars and forks. Those are strong signals — but pull request activity is richer, more specific, and less saturated as a signal source. A developer who opens a PR on an open-source project is not passively bookmarking it; they are actively contributing code. That level of engagement tells you far more about their tech stack, skill level, and current priorities than a star ever could.',
+      },
+      {
+        type: 'h2',
+        content: 'What PR Activity Tells You About a Developer',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Tech stack confirmation: merged PRs prove they write that language/framework in production, not just experiment with it',
+          'Seniority signal: PR review activity on large OSS projects indicates senior/staff-level engineers who make buying decisions',
+          'Timing signal: a PR opened this week is a current project, not something they tried six months ago',
+          'Problem signal: PR description often explains what they were trying to fix or add — your product may solve the next step',
+          'Company context: many devs submit PRs from work accounts with their employer email in git config',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The GitHub PRs API: What You Can Query',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub exposes full pull request data via its REST and GraphQL APIs. Key endpoints:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# List recent open PRs on a repo (paginate for all)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/repos/{owner}/{repo}/pulls?state=open&sort=created&per_page=100"
+
+# List merged PRs (closed with merge_commit_sha set)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/repos/{owner}/{repo}/pulls?state=closed&sort=updated&per_page=100"
+
+# Get PR review activity for a specific PR
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/repos/{owner}/{repo}/pulls/{pr_number}/reviews"
+
+# Search PRs across GitHub by keyword (e.g. "opentelemetry" in PR body)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=type:pr+opentelemetry+is:merged&sort=updated"`,
+      },
+      {
+        type: 'h2',
+        content: 'High-Value PR Signal Patterns',
+      },
+      {
+        type: 'h3',
+        content: '1. Contributors to Competitor OSS Projects',
+      },
+      {
+        type: 'p',
+        content:
+          'If you sell an observability SaaS and Grafana, Prometheus, or OpenTelemetry are in your competitive set, their OSS repos are goldmines. Developers who submit merged PRs to these projects are production users — often at companies with real monitoring budgets. They understand the problem deeply, which means your outreach can be technical and specific.',
+      },
+      {
+        type: 'h3',
+        content: '2. PR Authors Adding Integrations You Support',
+      },
+      {
+        type: 'p',
+        content:
+          'Monitor PRs that add integrations with tools in your ecosystem. A developer opening a PR titled "Add support for Neon serverless Postgres" in a popular framework repo is almost certainly evaluating or using Neon. If you sell anything adjacent to serverless databases, that developer is a warm lead today.',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+
+HEADERS = {"Authorization": "Bearer YOUR_TOKEN"}
+
+def find_pr_contributors(owner: str, repo: str, keyword: str, days: int = 14) -> list[dict]:
+    """Find devs who opened/merged PRs mentioning a keyword in the last N days."""
+    from datetime import datetime, timedelta
+    since = (datetime.utcnow() - timedelta(days=days)).isoformat() + "Z"
+
+    url = "https://api.github.com/search/issues"
+    params = {
+        "q": f"repo:{owner}/{repo} type:pr is:merged {keyword} merged:>{since[:10]}",
+        "per_page": 30,
+        "sort": "updated",
+    }
+    resp = requests.get(url, headers=HEADERS, params=params)
+    items = resp.json().get("items", [])
+
+    leads = []
+    for pr in items:
+        login = pr["user"]["login"]
+        # Enrich profile
+        profile_resp = requests.get(f"https://api.github.com/users/{login}", headers=HEADERS)
+        profile = profile_resp.json()
+        leads.append({
+            "login": login,
+            "name": profile.get("name") or login,
+            "email": profile.get("email"),
+            "company": profile.get("company"),
+            "location": profile.get("location"),
+            "followers": profile.get("followers"),
+            "pr_title": pr["title"],
+            "pr_url": pr["html_url"],
+        })
+
+    return leads
+
+# Example: find devs who merged PRs mentioning "supabase" in vercel/next.js
+leads = find_pr_contributors("vercel", "next.js", "supabase", days=14)`,
+      },
+      {
+        type: 'h3',
+        content: '3. PR Reviewers on High-Traffic OSS Projects',
+      },
+      {
+        type: 'p',
+        content:
+          'PR reviewers are even more senior than PR authors. Being a designated reviewer on a popular OSS project typically means you are a maintainer, a long-term contributor, or a company employee with a technical decision-making role. These are your ideal ICP for an enterprise-tier or platform-level product.',
+      },
+      {
+        type: 'h2',
+        content: 'Scaling PR Signal Mining with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'Manually querying the GitHub PR API works for a handful of repos but does not scale. Rate limits, pagination, deduplication, and enrichment add up quickly. GitLeads automates PR signal monitoring as part of its keyword signal feature: configure keyword patterns and GitLeads continuously monitors new PRs, issues, and discussions across GitHub for matches, enriches each contributing developer\'s profile, and delivers leads to your CRM or outreach tool.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads keyword signals cover GitHub Issues, PRs, Discussions, README content, and commit messages. One configuration monitors all five. Start free at gitleads.app — 50 leads/month with no credit card.',
+      },
+      {
+        type: 'h2',
+        content: 'Outreach Angle for PR-Triggered Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'The PR title and description give you everything you need for a warm opener:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: your PR in {repo} → quick question
+
+Hi {first_name},
+
+Saw your merged PR "{pr_title}" in {repo} — nice work on the {specific detail}.
+
+We're building something that handles the next step in that flow. [One sentence on product].
+Happy to share a technical overview if it's relevant to what you're working on.
+
+Worth a quick async exchange?
+
+[Your name]`,
+      },
+      {
+        type: 'h2',
+        content: 'Key Metrics for PR Signal Campaigns',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Reply rate: expect 8–18% for well-personalised PR-signal outreach (vs. 1–3% for cold lists)',
+          'Email find rate: ~60–70% for active GitHub contributors (higher than passive stargazers)',
+          'ICP fit: PR contributors are generally more senior than stargazers — fewer leads but higher ACV potential',
+          'Signal freshness: use PRs merged in the last 7–14 days for maximum timing relevance',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub buying signals for sales, monitor GitHub issues for sales, GitHub keyword monitoring for sales, GitHub fork signals, GitHub contribution signals, GitHub signal monitoring.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
