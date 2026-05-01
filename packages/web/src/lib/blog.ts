@@ -12967,6 +12967,663 @@ curl -H "Authorization: Bearer TOKEN" \\
       },
     ],
   },
+  // ─── Post: Best GitHub Lead Generation Tools 2026 ───────────────────────────
+  {
+    slug: 'best-github-lead-generation-tools-2026',
+    title: 'Best GitHub Lead Generation Tools in 2026 (Ranked & Compared)',
+    description:
+      'A ranked comparison of the best GitHub lead generation tools in 2026 — covering real-time signal monitoring, stargazer export, keyword tracking, and CRM push capabilities.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 11,
+    keywords: [
+      'best github lead generation tools',
+      'github lead generation software',
+      'github lead finder tool',
+      'github prospecting tools',
+      'github outreach tools',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub is the world\'s largest public database of developer intent. The problem is that most sales and marketing tools were not built to read it. In 2026, a new category of GitHub-native lead generation tools has emerged alongside repurposed scrapers and contact databases. This guide ranks the best options by use case so you can pick the right stack for your developer GTM motion.',
+      },
+      {
+        type: 'h2',
+        content: 'What Makes a Good GitHub Lead Generation Tool?',
+      },
+      {
+        type: 'p',
+        content:
+          'Before comparing tools, it helps to define what the category should actually do. GitHub lead generation tools fall into three distinct jobs:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Signal capture — detecting when a developer takes a relevant action on GitHub (starring a repo, opening an issue with specific keywords, forking a competitor project)',
+          'Contact enrichment — resolving a GitHub username to a name, email, company, and bio',
+          'Pipeline delivery — pushing enriched leads into the tools your sales/marketing team already uses (HubSpot, Clay, Slack, Smartlead)',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'The best tools do all three natively. Most tools on this list do one or two well and require manual glue for the rest. That context matters when you evaluate pricing.',
+      },
+      {
+        type: 'h2',
+        content: '1. GitLeads — Best for Real-Time GitHub Signal Monitoring',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads is the only tool built end-to-end for GitHub signal capture: it monitors repos for new stargazers, tracks keyword patterns in Issues/PRs/discussions/code, enriches each developer profile, and pushes leads into 15+ sales tools within seconds of the signal firing. There is no CSV export step, no scheduled batch job, and no manual enrichment required.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Signal types: new stargazers on any tracked repo (yours or a competitor\'s), keyword matches in Issues, PRs, Discussions, code, and commit messages',
+          'Lead data: name, email (if public), GitHub username, bio, company, location, top languages, follower count, signal context',
+          'Destinations: HubSpot, Slack, Salesforce, Pipedrive, Clay, Apollo, Smartlead, Lemlist, Instantly, Zapier, Make, n8n, webhooks, CSV',
+          'Pricing: Free (50 leads/mo), Starter $49/mo, Pro $149/mo, Agency $499/mo',
+          'Best for: B2B SaaS selling to developers, DevRel teams, developer tool companies',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads positioning: "RB2B for GitHub." Where RB2B identifies website visitors, GitLeads identifies developers who show buying intent on GitHub itself. No website pixel required.',
+      },
+      {
+        type: 'h2',
+        content: '2. PhantomBuster — Best for Flexible GitHub Scraping',
+      },
+      {
+        type: 'p',
+        content:
+          'PhantomBuster offers a GitHub "phantom" that can export stargazers, followers, and repo watchers on a scheduled basis. It is not real-time — runs happen on a schedule you configure — but it is extremely flexible and can be combined with other phantoms for multi-platform workflows. If you need one-off data pulls or want to chain GitHub scraping with LinkedIn enrichment, PhantomBuster is a reasonable choice.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Strengths: flexible multi-platform scraping, large pre-built library, no-code setup',
+          'Weaknesses: no real-time signals, CSV-centric output, no native CRM push for GitHub data, scraping ToS risk',
+          'Pricing: starts at $56/mo for 20 hours of agent time',
+          'Best for: teams that already use PhantomBuster for LinkedIn and want to add GitHub to the same stack',
+        ],
+      },
+      {
+        type: 'h2',
+        content: '3. Clay — Best for GitHub Data Enrichment in Workflows',
+      },
+      {
+        type: 'p',
+        content:
+          'Clay is a data enrichment and workflow automation platform that can pull GitHub data as one of many enrichment sources. It is not a GitHub signal monitoring tool — you bring the list of usernames to Clay, and Clay enriches it. Used in combination with GitLeads (which handles signal capture), Clay handles the enrichment waterfall: GitLeads → Clay → outreach sequence.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Strengths: best-in-class enrichment waterfall, 75+ data providers, powerful table logic',
+          'Weaknesses: not a signal capture tool, requires a lead list input, expensive at scale',
+          'Pricing: starts at $149/mo',
+          'Best for: teams with existing lead lists who need enrichment depth, or as a downstream layer after GitLeads',
+        ],
+      },
+      {
+        type: 'h2',
+        content: '4. Common Room — Best for Community + GitHub Signal Correlation',
+      },
+      {
+        type: 'p',
+        content:
+          'Common Room is a community intelligence platform that aggregates signals from GitHub, Slack, Discord, LinkedIn, and product usage. It is strong on correlation across channels — identifying that a developer who starred your repo on GitHub is also active in your Slack community. The tradeoff is cost and complexity: Common Room is enterprise-priced and designed for mature community and DevRel programs.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Strengths: multi-channel signal correlation, identity resolution across platforms, good for community-led growth',
+          'Weaknesses: expensive (starts ~$20k/yr), overkill for pure lead generation use cases',
+          'Best for: DevRel teams at Series B+ companies running community programs across GitHub, Slack, and Discord',
+        ],
+      },
+      {
+        type: 'h2',
+        content: '5. Koala — Best for PLG + GitHub Signal Combination',
+      },
+      {
+        type: 'p',
+        content:
+          'Koala is a product-led growth intelligence tool that combines website visitor identification with product usage signals. It has limited GitHub data but can correlate GitHub star events with website visits when a developer moves from your GitHub repo to your marketing site. For pure GitHub signal monitoring, it falls short — but for PLG motions where GitHub is just one of several touchpoints, Koala fills a gap.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Strengths: good for PLG workflows, connects GitHub → website → product signals',
+          'Weaknesses: not a GitHub-primary tool, limited stargazer/issue monitoring',
+          'Best for: PLG companies with a GitHub presence and a product trial funnel',
+        ],
+      },
+      {
+        type: 'h2',
+        content: '6. GitHub\'s Own API (DIY) — Best for Engineering Teams',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub REST API and GraphQL API provide direct access to stargazer lists, user profiles, issue content, and repository metadata. A small engineering team can build a basic GitHub lead capture pipeline in a weekend. The downside: you are building and maintaining infrastructure rather than running sales. Rate limits, enrichment logic, CRM sync, and real-time webhooks all need custom code.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Cost: free (with GitHub token, rate limited) or $21/mo for a GitHub Team account with higher limits',
+          'Strengths: maximum flexibility, no third-party dependency, can be tuned exactly to your use case',
+          'Weaknesses: engineering time, maintenance burden, no built-in enrichment or CRM push',
+          'Best for: engineering teams who want to own the pipeline and have bandwidth to build',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How to Choose: Decision Matrix',
+      },
+      {
+        type: 'ul',
+        items: [
+          'You need real-time signals with zero engineering work → GitLeads',
+          'You already use PhantomBuster for LinkedIn and want to add GitHub on the same platform → PhantomBuster',
+          'You have a list of GitHub usernames and need deep enrichment → Clay',
+          'You run a community program across GitHub + Slack + Discord → Common Room',
+          'You have a PLG funnel and want to correlate GitHub + website + product signals → Koala',
+          'You have engineering bandwidth and want full control → GitHub API directly',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The Core Distinction: Signal Monitoring vs. Contact Database',
+      },
+      {
+        type: 'p',
+        content:
+          'Most sales tools (Apollo, ZoomInfo, Lusha, Hunter.io) are contact databases. They let you search for developers by title, company, or tech stack and find their emails. That is a different category from signal monitoring. A contact database gives you a static list. A signal monitoring tool gives you developers who are actively doing something relevant to your ICP right now. For developer GTM, the signal matters as much as the contact.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads is a signal capture platform, not a contact database. The leads it delivers are valuable because of the context attached: "This developer starred the prometheus/prometheus repo 4 hours ago." That context transforms a cold email into a warm one.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Start with GitLeads free — 50 leads/month, no credit card required. Monitor your own repos, competitor repos, or keyword intent signals in GitHub Issues and PRs. Push directly to HubSpot, Slack, or export to CSV.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: how to find leads on GitHub, GitHub intent data for B2B sales, GitLeads vs PhantomBuster, push GitHub leads to HubSpot, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+  // ─── Post: GitHub Cold Outreach Strategy ────────────────────────────────────
+  {
+    slug: 'github-cold-outreach-developer-strategy',
+    title: 'GitHub Cold Outreach: How to Email Developers You Find on GitHub (Without Getting Ignored)',
+    description:
+      'A tactical guide to cold outreach for developers discovered through GitHub signals. Covers email templates, timing, personalization using GitHub context, and deliverability for developer audiences.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 9,
+    keywords: [
+      'github outreach',
+      'cold email developers github',
+      'developer outreach email',
+      'how to email developers',
+      'github lead outreach strategy',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Developers are the worst cold email audience on the planet — and the best. They are trained to ignore generic outreach, have zero patience for hollow personalization, and will publicly complain about spam on social media. But reach a developer with genuine context about what they are actually building, and you will get a reply rate that exceeds almost any other professional segment. This guide covers how to do the latter.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Context Changes Everything',
+      },
+      {
+        type: 'p',
+        content:
+          'The fundamental problem with cold developer outreach is that developers can tell you did not look at their work. A generic "I noticed you work in software engineering" opener is immediately discarded. But a cold email that references a specific repo, a recent star on a competitor project, or an issue the developer opened about a pain point you solve? That gets read.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub signals give you real context: what languages they use, what projects they maintain, what tools they just starred, what problems they are discussing in Issues. That context is the raw material for cold emails that feel warm. GitLeads captures this context automatically and attaches it to every lead it delivers.',
+      },
+      {
+        type: 'h2',
+        content: 'The Golden Rule: One Specific Observation Per Email',
+      },
+      {
+        type: 'p',
+        content:
+          'Every cold email to a developer should open with one specific, accurate observation about their GitHub activity. Not a generic compliment. Not "I saw your profile." A specific signal. Examples:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '"Saw you starred the Prometheus repo last week — are you setting up observability for a new service?"',
+          '"Noticed you opened an issue in the k6 repo about test data management — we built something that solves that specific problem."',
+          '"You forked the pgvector repo 3 days ago. We make embedding pipelines for Postgres engineers."',
+          '"Your GitHub shows you\'re a Rust + WASM developer — our tool has a native Rust SDK you might find useful."',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads delivers the signal context with every lead: which repo they starred, what keyword appeared in their Issue, when the signal fired. This goes directly into your email personalization fields.',
+      },
+      {
+        type: 'h2',
+        content: 'Email Templates by Signal Type',
+      },
+      {
+        type: 'h3',
+        content: 'Template 1: Stargazer Signal',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: {repo_name} + {your_product} — quick question
+
+Hi {first_name},
+
+Saw you starred {repo_name} recently. We build {product} — it's the {one-line positioning relevant to that repo}.
+
+One question: are you evaluating {category} for {use_case_implied_by_repo}, or just bookmarking it for later?
+
+Happy to share how {customer_type similar to them} is using us — takes 2 minutes.
+
+{your_name}`,
+      },
+      {
+        type: 'h3',
+        content: 'Template 2: Keyword Signal (Issue/PR Mention)',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: Re: your question about {keyword_topic}
+
+Hi {first_name},
+
+Saw your thread in {repo_name} about {keyword_topic}. We solve that exact problem — {one sentence on how}.
+
+Built by engineers, used by {social proof}. No pitch deck, just a quick demo if you want to see if it fits what you're building.
+
+Worth 15 minutes?
+
+{your_name}`,
+      },
+      {
+        type: 'h3',
+        content: 'Template 3: Competitor Repo Stargazer',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: {competitor_name} alternative — quick note
+
+Hi {first_name},
+
+You starred {competitor_repo} — if you're evaluating options, we're often compared to them.
+
+Main difference: {one-sentence differentiation that matters to developers, not marketing speak}.
+
+Happy to share a technical comparison. No sales call required.
+
+{your_name}`,
+      },
+      {
+        type: 'h2',
+        content: 'Timing: When to Send Developer Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'The best time to reach a developer is within 48 hours of the signal firing. A star or fork is a moment of peak interest — the developer just discovered something and is actively thinking about the problem space. Waiting a week to send the email means that window has closed. GitLeads pushes leads in real time precisely because timing is a core part of outreach quality.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Send within 48 hours of the signal for highest relevance',
+          'Tuesday–Thursday morning (8–10am recipient local time) performs best for developer cold email',
+          'Avoid Monday morning and Friday afternoon — developers are in planning mode or winding down',
+          'For keyword signals from Issues (e.g., someone asking for help with a problem you solve), respond within 24 hours',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Deliverability for Developer Audiences',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers are disproportionately likely to use custom domains, self-hosted email, or privacy-forward providers (Fastmail, ProtonMail, hey.com). This affects deliverability differently than enterprise B2B outreach:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Plain text or lightly formatted HTML outperforms heavily branded email templates — developers read in terminal mail clients and distraction-free interfaces',
+          'Avoid link trackers (UTM parameters on every word) — developers spot them instantly and it signals mass email',
+          'Keep the first email under 100 words — shorter emails from unknown senders have higher open rates with technical audiences',
+          'One CTA only — "worth a call?" or "want me to share the technical comparison?" — never three options',
+          'From name should be your actual name, not "the GitLeads team" — developers respond to humans, not brands',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Sequence Structure: Maximum 3 Touchpoints',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer cold outreach sequences should be short. Unlike enterprise sales where 8–12 touch sequences are standard, developers interpret persistent follow-up as spam. A three-email sequence with clear signal-based personalization outperforms a seven-email generic cadence for this audience every time.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Email 1 (Day 1): Signal-specific opener, one-line positioning, single low-friction CTA',
+          'Email 2 (Day 4): Value-add — share a relevant doc, benchmark, or case study that\'s useful even if they don\'t reply',
+          'Email 3 (Day 10): Explicit close — "I\'ll stop following up after this. If the timing is wrong, no worries — here\'s a self-serve link."',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What to Avoid',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Fake familiarity ("Hey, I love what you\'re building!") — developers see through this instantly',
+          'Vague personalization ("I noticed you work in software") — not personalization, just a mail merge field',
+          'Long emails — if it takes more than 30 seconds to read, it won\'t get read',
+          'Asking for a "30-minute demo call" in the first email — too much commitment from an unknown sender',
+          'Mass emailing everyone who ever starred a popular repo (OpenAI, Kubernetes) — the signal is too broad to be meaningful',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The GitLeads + Outreach Stack',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads captures the signal and enriches the lead. The outreach itself runs through your existing email sequencer. The native integrations with Smartlead, Instantly, Lemlist, and Apollo mean you can set up a flow where a GitHub star triggers a personalized sequence within minutes, with the signal context automatically inserted into your email template variables.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'GitLeads → Smartlead: lead pushed directly into a sequence with {repo_name} and {signal_context} as merge fields',
+          'GitLeads → Clay → Lemlist: enrich with additional data (LinkedIn, tech stack) before the sequence fires',
+          'GitLeads → Zapier → Gmail: for early-stage teams sending manual outreach with signal context in the draft',
+          'GitLeads → Slack: get a Slack notification for high-priority signals (CTO-level GitHub profiles, 1k+ follower developers) and send personalized outreach manually',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads delivers developer leads with full GitHub signal context to your outreach tool of choice. Start free — 50 leads/month, no credit card. Sign up at gitleads.app.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: developer outreach email templates, GitHub buying signals for sales teams, push GitHub leads to Smartlead, push GitHub leads to Instantly, how to sell to developers.',
+      },
+    ],
+  },
+  // ─── Post: GitHub Webhook Signals for Sales ─────────────────────────────────
+  {
+    slug: 'github-webhook-signals-sales-automation',
+    title: 'GitHub Webhook Signals for Sales Automation: A Complete Setup Guide',
+    description:
+      'How to use GitHub webhooks to capture developer buying signals and automate your sales pipeline. Covers webhook events, enrichment, and pushing leads to HubSpot, Slack, and CRMs.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 10,
+    keywords: [
+      'github webhook sales',
+      'github webhook lead generation',
+      'github webhook automation',
+      'github events sales pipeline',
+      'github developer signals automation',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub webhooks fire on every meaningful event in a repository: a new star, a fork, an opened issue, a pull request, a new release, a new member. For sales and marketing teams, these events are a real-time stream of developer intent data. This guide explains how to set up webhook-based signal capture for your sales pipeline — both the DIY engineering approach and the managed approach via GitLeads.',
+      },
+      {
+        type: 'h2',
+        content: 'Which GitHub Webhook Events Matter for Sales?',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub supports 50+ webhook event types. For developer lead generation, seven events are most valuable:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'star (action: created) — someone starred the repository. The sender object contains the GitHub username.',
+          'fork — someone forked the repository. Higher intent signal than a star; the developer is actively using the code.',
+          'issues (action: opened) — a new issue was created. The body field contains the developer\'s described problem — keyword-match this for intent signals.',
+          'issue_comment (action: created) — a comment on an issue. Also keyword-matchable for signals.',
+          'pull_request (action: opened) — a developer submitted a PR. Strong signal of active contribution.',
+          'watch (action: started) — equivalent to starring in the current API but fires separately.',
+          'repository (action: created, starred) — fires when a repo in an org receives a star or is created.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up a GitHub Webhook Receiver (DIY)',
+      },
+      {
+        type: 'p',
+        content:
+          'A webhook receiver is an HTTP endpoint that GitHub POSTs to when an event fires. Here is a minimal Node.js/Express receiver that captures star events and logs the sender:',
+      },
+      {
+        type: 'code',
+        language: 'typescript',
+        content: `import express from 'express';
+import crypto from 'crypto';
+
+const app = express();
+app.use(express.json());
+
+const WEBHOOK_SECRET = process.env.GITHUB_WEBHOOK_SECRET!;
+
+function verifySignature(payload: string, sig: string | undefined): boolean {
+  if (!sig) return false;
+  const hmac = crypto.createHmac('sha256', WEBHOOK_SECRET);
+  const digest = 'sha256=' + hmac.update(payload).digest('hex');
+  return crypto.timingSafeEqual(Buffer.from(digest), Buffer.from(sig));
+}
+
+app.post('/github/webhook', express.raw({ type: 'application/json' }), (req, res) => {
+  const sig = req.headers['x-hub-signature-256'] as string;
+  if (!verifySignature(req.body.toString(), sig)) {
+    return res.status(401).send('Unauthorized');
+  }
+
+  const event = req.headers['x-github-event'] as string;
+  const payload = JSON.parse(req.body.toString());
+
+  if (event === 'star' && payload.action === 'created') {
+    const sender = payload.sender;
+    console.log('New star from:', sender.login, sender.html_url);
+    // Enrich: GET https://api.github.com/users/{sender.login}
+    // Push to CRM: POST to HubSpot / Slack / etc.
+  }
+
+  if (event === 'issues' && payload.action === 'opened') {
+    const body = payload.issue.body ?? '';
+    const title = payload.issue.title ?? '';
+    // Keyword match
+    if (/observability|tracing|otel|opentelemetry/i.test(body + title)) {
+      console.log('Intent signal in issue:', payload.issue.html_url);
+    }
+  }
+
+  res.status(200).send('ok');
+});
+
+app.listen(3000);`,
+      },
+      {
+        type: 'h2',
+        content: 'Enriching the Sender: From Username to Contact Record',
+      },
+      {
+        type: 'p',
+        content:
+          'The webhook payload gives you the GitHub username. To turn that into a usable lead, you need to call the GitHub Users API to get the full profile:',
+      },
+      {
+        type: 'code',
+        language: 'typescript',
+        content: `async function enrichGitHubUser(username: string) {
+  const res = await fetch(\`https://api.github.com/users/\${username}\`, {
+    headers: {
+      Authorization: \`Bearer \${process.env.GITHUB_TOKEN}\`,
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
+  const user = await res.json();
+
+  return {
+    name: user.name,
+    email: user.email,          // null if not public
+    company: user.company,
+    location: user.location,
+    bio: user.bio,
+    blog: user.blog,            // often a personal/company site
+    followers: user.followers,
+    publicRepos: user.public_repos,
+    profileUrl: user.html_url,
+    avatarUrl: user.avatar_url,
+    hireable: user.hireable,
+    createdAt: user.created_at,
+  };
+}`,
+      },
+      {
+        type: 'p',
+        content:
+          'Note: the email field returns null for most users. To find emails for leads without a public email, you need to cross-reference public commit metadata (the GitHub Events API exposes email addresses used in commits) or use a third-party enrichment service. GitLeads handles this automatically.',
+      },
+      {
+        type: 'h2',
+        content: 'Pushing Enriched Leads to Your CRM',
+      },
+      {
+        type: 'p',
+        content:
+          'Once you have an enriched lead object, the destination is typically HubSpot, Salesforce, or Slack. Here is a minimal HubSpot contact creation example:',
+      },
+      {
+        type: 'code',
+        language: 'typescript',
+        content: `async function pushToHubSpot(lead: EnrichedLead, signalContext: string) {
+  const response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
+    method: 'POST',
+    headers: {
+      Authorization: \`Bearer \${process.env.HUBSPOT_TOKEN}\`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      properties: {
+        firstname: lead.name?.split(' ')[0],
+        lastname: lead.name?.split(' ').slice(1).join(' '),
+        email: lead.email,
+        github_username: lead.username,
+        github_signal: signalContext,
+        github_bio: lead.bio,
+        company: lead.company,
+        city: lead.location,
+        hs_lead_status: 'NEW',
+      },
+    }),
+  });
+  return response.json();
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'The Engineering Cost of DIY Webhook Infrastructure',
+      },
+      {
+        type: 'p',
+        content:
+          'Building this yourself is feasible for a single repo. At scale, the hidden costs compound quickly:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Webhook registration and rotation: you need to programmatically register webhooks on every repo you want to monitor, handle failures, and rotate secrets',
+          'Rate limit management: GitHub API rate limits mean you can only enrich ~5,000 users/hour per token. At scale, you need a token pool.',
+          'Duplicate detection: a developer can star and unstar a repo; you need deduplication logic',
+          'Email extraction from commits: the user profile API often returns no email. Extracting emails from commit history requires separate API calls to the Events endpoint or the commits endpoint.',
+          'CRM deduplication: HubSpot/Salesforce will error if you try to create a contact with an existing email. You need upsert logic.',
+          'Webhook delivery failures: GitHub retries failed webhooks, but you need an idempotent receiver to avoid double-processing',
+          'Monitoring tracked repos for competitors: you cannot register webhooks on repos you do not own. You need to poll the stargazers API instead.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitLeads: Managed Webhook Infrastructure for Sales Teams',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads handles all of the above. You connect your GitHub account, specify which repos to monitor (yours or any public repo including competitor repos), set keyword patterns for issue/PR monitoring, and connect your destination (HubSpot, Slack, etc.). GitLeads handles webhook registration, enrichment, rate limits, deduplication, and CRM sync.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Monitor any public repo — not just repos you own (GitLeads polls stargazers for competitor repos)',
+          'Keyword signals across Issues, PRs, Discussions, code files, and commit messages',
+          'Email extraction from commit metadata included',
+          'CRM upsert logic handles duplicates automatically',
+          'Real-time push — leads appear in your destination within seconds of the signal',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads = webhook infrastructure + enrichment + CRM push, without the engineering work. Start free with 50 leads/month at gitleads.app. No code required.',
+      },
+      {
+        type: 'h2',
+        content: 'When to Build vs. Buy',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Build if: you have a dedicated engineering team, want full data ownership, need custom signal logic, or have only 1–2 repos to monitor',
+          'Buy (GitLeads) if: you want leads in your CRM today, are monitoring multiple repos including competitors, or lack engineering bandwidth to maintain the pipeline',
+          'Hybrid: use GitLeads for managed signal capture and push to a Zapier/Make/n8n flow for custom downstream logic',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub signal monitoring, GitHub buying signals for sales teams, push GitHub leads to HubSpot, GitHub lead generation workflow, GitHub API rate limits finding leads at scale.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

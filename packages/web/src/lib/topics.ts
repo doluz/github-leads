@@ -203,6 +203,36 @@ export const TOPICS: Topic[] = [
   topic('datadog-engineers', 'Datadog', 'Datadog Engineers', 27000),
   topic('cilium-engineers', 'Cilium', 'Cilium Engineers', 12000),
   topic('istio-engineers', 'Istio', 'Istio Engineers', 23000),
+
+  // Roles (gaps)
+  topic('engineering-managers', 'Engineering Managers', 'Engineering Managers', 71000),
+  topic('developer-advocates', 'Developer Advocates', 'Developer Advocates', 18000),
+  topic('growth-engineers', 'Growth Engineering', 'Growth Engineers', 22000),
+  topic('solutions-engineers', 'Solutions Engineering', 'Solutions Engineers', 34000),
+
+  // Cloud / Serverless (gaps)
+  topic('serverless-developers', 'Serverless', 'Serverless Developers', 67000),
+  topic('aws-lambda-developers', 'AWS Lambda', 'AWS Lambda Developers', 48000),
+  topic('cloudflare-workers-developers', 'Cloudflare Workers', 'Cloudflare Workers Developers', 24000),
+
+  // Scripting / systems (gaps)
+  topic('powershell-developers', 'PowerShell', 'PowerShell Developers', 41000),
+  topic('bash-shell-developers', 'Bash/Shell', 'Bash/Shell Developers', 54000),
+
+  // Industry verticals (gaps)
+  topic('legaltech-developers', 'Legaltech', 'Legaltech Developers', 12000),
+  topic('proptech-developers', 'Proptech', 'Proptech Developers', 14000),
+  topic('insurtech-developers', 'Insurtech', 'Insurtech Developers', 11000),
+  topic('adtech-developers', 'AdTech', 'AdTech Developers', 19000),
+
+  // Editor / tooling niche
+  topic('neovim-developers', 'Neovim', 'Neovim Developers', 21000),
+  topic('vscode-extension-developers', 'VS Code Extensions', 'VS Code Extension Developers', 23000),
+
+  // Infrastructure tools (gaps)
+  topic('pulumi-engineers', 'Pulumi', 'Pulumi Engineers', 18000),
+  topic('nats-engineers', 'NATS', 'NATS Engineers', 14000),
+  topic('temporal-developers', 'Temporal', 'Temporal Developers', 16000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(
