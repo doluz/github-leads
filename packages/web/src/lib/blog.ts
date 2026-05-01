@@ -14165,6 +14165,474 @@ modelcontextprotocol/inspector        # MCP debugging tool
       },
     ],
   },
+  // ── New posts ──────────────────────────────────────────────────────────────
+  {
+    slug: 'github-repository-topics-lead-generation',
+    title: 'GitHub Repository Topics for Lead Generation: The Complete Guide (2026)',
+    description:
+      'GitHub repository topics are one of the most underused filters for developer lead generation. Learn how to use topic tags to find developers who are actively building in your exact niche.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 9,
+    keywords: [
+      'github repository topics lead generation',
+      'github topics for leads',
+      'github topic filter developer leads',
+      'find developers by github topic',
+      'github lead generation by technology',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Every GitHub repository can be tagged with topics — short labels like "machine-learning", "kubernetes", "llm", or "saas". As of 2026, GitHub indexes over 50 million topic assignments across its 300 million public repositories. For developer-focused GTM teams, that is a massive, publicly searchable signal that most sales teams have never touched.',
+      },
+      {
+        type: 'h2',
+        content: 'What Are GitHub Repository Topics?',
+      },
+      {
+        type: 'p',
+        content:
+          'Topics are free-text labels that repo owners add to describe what their project does. You will find them rendered as blue pill-shaped tags on any public repo page. They are indexed by GitHub\'s search engine and exposed through the REST and GraphQL APIs. Common patterns include technology names (react, rust, typescript), use-case labels (developer-tools, cli, api), and ecosystem tags (aws, kubernetes, stripe).',
+      },
+      {
+        type: 'p',
+        content:
+          'For lead generation, topics serve as buying-intent proxies. A developer who maintains a repo tagged "opentelemetry" is almost certainly evaluating observability tools. A repo tagged "stripe" and "saas" belongs to someone building a paid product — a potential customer for billing infrastructure, developer security, or API monitoring tools.',
+      },
+      {
+        type: 'h2',
+        content: 'Finding Developers by Topic via the GitHub API',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Search API supports topic queries on both repositories and users. Here are the two most useful patterns:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find repos tagged with a specific topic, sorted by most recently pushed
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/search/repositories?q=topic:opentelemetry+pushed:>2026-04-01&sort=updated&per_page=100"
+
+# Get the contributor list for each matching repo
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/repos/{owner}/{repo}/contributors?per_page=30"
+
+# Find users who have starred repos with a given topic
+# (requires iterating stargazers per repo — combine with topic search above)`,
+      },
+      {
+        type: 'p',
+        content:
+          'The repo endpoint returns owner login, description, stargazer count, language, and a topics array. Combine it with the contributors endpoint to get the actual humans behind the project — those are your leads.',
+      },
+      {
+        type: 'h3',
+        content: 'Topic Search Patterns That Work Well',
+      },
+      {
+        type: 'ul',
+        items: [
+          'topic:kubernetes + topic:helm → DevOps engineers actively managing Helm deployments (target: Helm chart tools, k8s SaaS)',
+          'topic:stripe + topic:saas → founders building subscription businesses (target: billing, fraud, analytics)',
+          'topic:llm + topic:python → Python engineers building LLM applications (target: LLM observability, vector DBs, API wrappers)',
+          'topic:react + topic:developer-tools → frontend engineers who sell to other developers (target: component libraries, testing tools)',
+          'topic:terraform + topic:aws → infrastructure engineers managing cloud IaC (target: cloud cost, security, monitoring)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The Problem with Manual Topic Scraping',
+      },
+      {
+        type: 'p',
+        content:
+          'Querying the GitHub API manually works for one-time lists. It breaks down as a repeatable sales motion for three reasons. First, results are stale — a developer who pushed an LLM project last week does not appear in a search you ran last month. Second, enrichment is manual — the API gives you usernames; you still need to resolve emails, company affiliations, and location. Third, there is no trigger — you cannot act on a signal the moment it fires.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads solves all three problems. You define a topic-based filter, and GitLeads monitors GitHub continuously for new repos and new contributors matching your criteria. Each new lead is enriched and pushed to your CRM, Slack, or outreach tool within minutes of the event.',
+      },
+      {
+        type: 'h2',
+        content: 'High-Signal Topic Combinations by Use Case',
+      },
+      {
+        type: 'h3',
+        content: 'For developer security tools',
+      },
+      {
+        type: 'ul',
+        items: [
+          'topic:devsecops — teams already thinking about security in their pipeline',
+          'topic:sast OR topic:dast — repos running static/dynamic security analysis',
+          'topic:supply-chain-security — high awareness of the software supply chain threat model',
+          'topic:sbom — teams generating software bill of materials (compliance buyers)',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'For AI/ML infrastructure tools',
+      },
+      {
+        type: 'ul',
+        items: [
+          'topic:llm + topic:production — teams moving LLM applications beyond prototype',
+          'topic:rag — retrieval-augmented generation projects (vector DB, embedding, retrieval buyers)',
+          'topic:finetuning — model fine-tuning projects (GPU, training infra buyers)',
+          'topic:mlops — ML operations and model lifecycle management (monitoring, versioning)',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'For API and developer platform tools',
+      },
+      {
+        type: 'ul',
+        items: [
+          'topic:openapi — teams maintaining API specs (API gateway, SDK generation, testing buyers)',
+          'topic:grpc — high-performance API teams (service mesh, observability buyers)',
+          'topic:webhooks — event-driven architectures (event bus, delivery guarantee tools)',
+          'topic:rate-limiting — API platform operators (API management, infrastructure buyers)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Converting Topic-Based Leads into Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'The key insight with topic-based lead generation is that the signal gives you conversation context before you ever reach out. A developer maintaining a repo tagged "opentelemetry" is not a cold contact — they are someone who has publicly declared an interest in observability. Your outreach can reference that directly.',
+      },
+      {
+        type: 'p',
+        content:
+          'Effective opening lines built from topic context: "I noticed you maintain an OpenTelemetry project — we have been helping teams at your stage get trace data into Grafana without manual instrumentation…" That specificity is only possible when your lead source includes the signal that triggered the contact.',
+      },
+      {
+        type: 'h2',
+        content: 'Automating Topic Lead Generation with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads monitors GitHub keyword signals across issues, pull requests, discussions, and commit messages — including keyword matches on repository topic tags. Set a keyword like "opentelemetry" or "llm" and GitLeads surfaces every developer actively mentioning that term in their GitHub work, not just their repo metadata.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Keyword signal monitoring: flag any developer who mentions your category keyword in a GitHub issue or PR',
+          'Repo star signals: track new stargazers on repos tagged with your target topic',
+          'Enriched lead data: name, email (where public), company, location, top languages, and GitHub bio',
+          'Integrations: push to HubSpot, Salesforce, Slack, Clay, Smartlead, and 15+ other tools',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Start free: GitLeads gives you 50 enriched leads per month on the free plan. No credit card needed. Add your first topic keyword at gitleads.app.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: how to find leads on GitHub, GitHub keyword monitoring for sales, GitHub signal monitoring, find developers by tech stack, push GitHub leads to HubSpot.',
+      },
+    ],
+  },
+  {
+    slug: 'github-contribution-signals-sales',
+    title: 'GitHub Contribution Signals: How to Read Developer Activity for Sales Intelligence',
+    description:
+      'GitHub contribution graphs, commit frequency, and activity patterns reveal which developers are actively building — and most receptive to developer tool outreach. Here is how to read them for sales.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 8,
+    keywords: [
+      'github contribution signals sales',
+      'developer activity signals',
+      'github contribution graph sales intelligence',
+      'developer buying signals github',
+      'github activity lead scoring',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Every GitHub profile displays a contribution graph — a year-long heatmap of commits, pull requests, issues opened, and code reviews. For developer-focused sales teams, that chart is a proxy for one critical question: is this person actively building right now? An active builder is a buyer. A dormant GitHub account is not.',
+      },
+      {
+        type: 'h2',
+        content: 'What GitHub Contribution Data Tells You',
+      },
+      {
+        type: 'p',
+        content:
+          'The contribution graph aggregates four types of activity: commits to default and non-default branches, pull requests opened, issues opened, and code reviews. GitHub also surfaces this data in structured form through the REST API — specifically the events endpoint, which returns the 300 most recent public events for any user.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Get the 300 most recent public events for a user
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/users/{username}/events/public?per_page=100"
+
+# Event types most relevant for sales signals:
+# PushEvent — code being written (active builder)
+# IssuesEvent — evaluating tools / reporting bugs (problem-aware)
+# PullRequestEvent — team collaboration (mid-stage teams)
+# WatchEvent — starred a repo (interest signal)
+# ForkEvent — deeper engagement (evaluation signal)`,
+      },
+      {
+        type: 'p',
+        content:
+          'Each event includes a created_at timestamp, repo context, and payload details. A developer with multiple PushEvents in the past 7 days and recent IssuesEvents on repositories tagged with your target technology is an active, problem-aware prospect.',
+      },
+      {
+        type: 'h2',
+        content: 'The Four Contribution Signal Tiers',
+      },
+      {
+        type: 'h3',
+        content: 'Tier 1 — Active builder (highest value)',
+      },
+      {
+        type: 'p',
+        content:
+          'Characteristics: 3+ commits per week in the past 30 days, active PRs, recent issue activity on relevant repos. This developer is mid-project and evaluating tools right now. Reach out within 72 hours of the signal firing for best response rates.',
+      },
+      {
+        type: 'h3',
+        content: 'Tier 2 — Sporadic contributor (medium value)',
+      },
+      {
+        type: 'p',
+        content:
+          'Characteristics: bursts of activity followed by quiet periods. Common for consultants, contractors, or founders managing multiple projects. Still worth pursuing — the burst periods correlate with tool evaluation windows.',
+      },
+      {
+        type: 'h3',
+        content: 'Tier 3 — Star collector (low intent)',
+      },
+      {
+        type: 'p',
+        content:
+          'Characteristics: high WatchEvent count, low PushEvent count. Interested in open source as a concept but not actively building. Lower conversion probability for commercial developer tools.',
+      },
+      {
+        type: 'h3',
+        content: 'Tier 4 — Inactive (skip)',
+      },
+      {
+        type: 'p',
+        content:
+          'Characteristics: no public activity in 90+ days. Either using a private account, left the industry, or changed roles. Not worth including in an outreach sequence.',
+      },
+      {
+        type: 'h2',
+        content: 'Combining Contribution Signals with Stargazer Data',
+      },
+      {
+        type: 'p',
+        content:
+          'The most powerful signal combination for developer sales is: (1) developer starred a relevant repo AND (2) developer has been committing code in the past two weeks. That combination means the person is both interested in your category AND actively building — the two conditions most correlated with tool adoption.',
+      },
+      {
+        type: 'p',
+        content:
+          'You can build this filter manually by cross-referencing the stargazers endpoint with the events endpoint for each user. GitLeads does this automatically — every lead captured through a star signal is enriched with contribution recency data, so you can prioritize the active builders in your outreach queue.',
+      },
+      {
+        type: 'h2',
+        content: 'Lead Scoring Formula Based on GitHub Activity',
+      },
+      {
+        type: 'p',
+        content:
+          'A practical lead scoring model for GitHub signals uses five dimensions:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Recency of last commit (0–30 days = 3 pts, 31–60 days = 2 pts, 61–90 days = 1 pt, 90+ days = 0)',
+          'Commit frequency in last 30 days (10+ = 3 pts, 3–9 = 2 pts, 1–2 = 1 pt)',
+          'Followers count as influence proxy (500+ = 3 pts, 100–499 = 2 pts, <100 = 1 pt)',
+          'Public email available (yes = 2 pts, no = 0)',
+          'Company affiliation present in profile (yes = 2 pts, no = 0)',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Maximum score: 13. Prioritize leads scoring 9+. Route 5–8 to a nurture sequence. Filter out anything below 5 unless the starred repo signal is exceptionally strong (e.g., a direct competitor repo).',
+      },
+      {
+        type: 'h2',
+        content: 'What GitLeads Captures Automatically',
+      },
+      {
+        type: 'p',
+        content:
+          'Rather than building and maintaining this scoring pipeline yourself, GitLeads captures GitHub contribution signals automatically. When a developer stars a tracked repo or triggers a keyword match, GitLeads enriches the lead record with contribution recency, follower count, top languages, company, and location — then routes the lead to your CRM or outreach tool with full signal context.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signals: new stars on tracked or competitor repos, with activity-scored lead data',
+          'Keyword signals: developers who mention your target keyword in issues, PRs, discussions, or commit messages',
+          'Enrichment: name, email (where public), bio, company, languages, location',
+          'Integrations: HubSpot, Salesforce, Pipedrive, Slack, Clay, Smartlead, Apollo, and 10+ more',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Get 50 GitHub leads per month free. No credit card required. Sign up at gitleads.app and start monitoring contribution signals for your target technology within minutes.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub buying signals for sales teams, GitHub lead scoring, turn GitHub stargazers into leads, GitHub signal monitoring, developer sales prospecting.',
+      },
+    ],
+  },
+  {
+    slug: 'github-topic-trends-sales-intelligence',
+    title: 'How to Track GitHub Topic Trends to Find Buyers Before They Go Mainstream',
+    description:
+      'GitHub topic trends reveal which technologies are gaining developer momentum months before conference talks or analyst reports. Here is how sales and GTM teams use them to get ahead of the market.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 7,
+    keywords: [
+      'github topic trends sales intelligence',
+      'github trending topics developer leads',
+      'emerging technology leads github',
+      'developer market intelligence github',
+      'github topics GTM strategy',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub is the earliest signal available for technology adoption curves. When a new framework, protocol, or pattern starts gaining traction, it shows up on GitHub weeks or months before it appears in conference lineups, Gartner reports, or LinkedIn hashtag trends. Developer tools companies that learn to read GitHub topic momentum get a first-mover advantage in every sales cycle.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Topics Lead Adoption Curves',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers do not announce their technology evaluations on LinkedIn. They build. A team evaluating a new framework creates a GitHub repo, applies the relevant topic tag, and starts committing. The signal is silent to the outside world but fully public in the GitHub index. By the time a technology shows up on a developer survey or conference agenda, it has already been adopted by thousands of GitHub repos.',
+      },
+      {
+        type: 'p',
+        content:
+          'Consider the MCP (Model Context Protocol) example. As of early 2026, GitHub hosts tens of thousands of repos tagged "mcp" or "model-context-protocol" — most created in the six months after Anthropic open-sourced the spec. Sales teams selling developer infrastructure to AI teams who tracked this topic growth had a 6-month head start over teams waiting for analyst coverage.',
+      },
+      {
+        type: 'h2',
+        content: 'How to Track Topic Growth via the GitHub API',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub does not expose a "trending topics" endpoint directly, but you can proxy topic growth by querying repository counts over time:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Count repos with a specific topic created this month
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/search/repositories?q=topic:mcp+created:>2026-04-01&per_page=1"
+# Check the total_count in the response header
+
+# Count for same topic last month for comparison
+curl -H "Authorization: Bearer TOKEN" \\
+  "https://api.github.com/search/repositories?q=topic:mcp+created:2026-03-01..2026-03-31&per_page=1"
+
+# Automate monthly snapshots to track growth rate over time
+# Topic growing >20% month-over-month = a rising wave worth targeting`,
+      },
+      {
+        type: 'p',
+        content:
+          'Run this script monthly for 8–10 emerging topics in your category. Any topic showing consistent month-over-month repo growth above 15% is a signal that developer adoption is accelerating — and that the ICP for your tool is growing.',
+      },
+      {
+        type: 'h2',
+        content: 'Early Topic Signals to Watch in 2026',
+      },
+      {
+        type: 'ul',
+        items: [
+          'model-context-protocol / mcp — AI agent tooling ecosystem growing rapidly',
+          'agents / agentic — LLM-powered autonomous workflows gaining mainstream adoption',
+          'wasm-component-model — WebAssembly component model for polyglot runtimes',
+          'htmx — server-driven HTML replacing full SPA frameworks at the indie/startup tier',
+          'electric-sql / local-first — local-first sync architectures gaining traction for offline-capable apps',
+          'uv — Python packaging replacement; teams migrating from pip/poetry signal Python infrastructure spend',
+          'deno-2 / bun — JavaScript runtime diversification (teams evaluating alternatives to Node.js)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Turning Topic Trends into a Lead Generation Campaign',
+      },
+      {
+        type: 'p',
+        content:
+          'Once you identify a rising topic, the sales motion is straightforward: find the developers and teams actively building on that technology before everyone else does. Three-step process:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Identify the topic: run monthly repo-count queries on 10 candidate topics. Flag any showing >15% month-over-month growth.',
+          'Build the lead list: query the contributors and stargazers of top-starred repos tagged with that topic. Enrich with company, email, and location data.',
+          'Reach out with context: reference the specific project or repo that triggered the signal. "I noticed you are building with [topic] — we work with teams at your stage who are hitting [relevant pain point]..."',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Monitoring Topic Keywords with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads automates the lead-building step. Add any technology keyword — "mcp", "agents", "htmx", or any other emerging topic — as a keyword signal in GitLeads. The platform monitors GitHub issues, pull requests, discussions, and commit messages for that keyword and surfaces every developer actively building with it as an enriched lead record.',
+      },
+      {
+        type: 'p',
+        content:
+          'For rising-wave topics, this gives you leads from developers who are in the earliest adoption phase — before pricing pressure, before the category gets crowded, and before your competitors start running the same play.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Keyword signals fire on GitHub issues, PRs, discussions, and commit messages',
+          'Stargazer signals track repos in your target topic ecosystem',
+          'Lead data includes GitHub bio, top languages, company, location, follower count',
+          'Push leads to HubSpot, Clay, Slack, Salesforce, or any outreach tool via webhook',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Start monitoring your first topic keyword free — 50 leads per month, no credit card required. Sign up at gitleads.app.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub keyword monitoring for sales, GitHub signal monitoring, what is GitHub intent data, developer led growth, find MCP developers on GitHub.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

@@ -1523,6 +1523,116 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
   },
+  {
+    slug: 'salesloft',
+    name: 'Salesloft',
+    tagline: 'Sales engagement platform for pipeline generation and deal execution',
+    metaTitle: 'GitLeads vs Salesloft — GitHub Developer Signals vs Sales Engagement Sequencing',
+    metaDescription:
+      'Compare GitLeads and Salesloft for developer-focused GTM. GitLeads captures GitHub intent signals and enriched developer leads. Salesloft manages outreach sequences after you already have the lead.',
+    intro:
+      'Salesloft is a sales engagement platform used by enterprise and mid-market revenue teams to manage multi-touch outreach sequences, call workflows, and deal forecasting. It is a post-lead tool — you bring the contacts, Salesloft manages the sequences. GitLeads is the pre-lead layer: a GitHub signal capture platform that finds developers showing buying intent on GitHub and pushes enriched lead records into your outreach tools, including Salesloft via webhook or Zapier integration.',
+    ourOneLiner:
+      'Salesloft runs your outreach sequences — GitLeads fills them with developers who just showed buying intent on GitHub.',
+    theyWin: [
+      'Full-featured sales engagement: email sequences, call cadences, meeting scheduling, and deal management in one platform',
+      'Deep Salesforce and HubSpot CRM integration for enterprise revenue teams',
+      'AI-assisted email writing, conversation intelligence, and rep coaching tools',
+      'Strong reporting and forecasting for VP Sales and revenue operations',
+    ],
+    weWin: [
+      'GitHub-native developer intent signals — find developers the moment they star a competitor repo or mention a buying keyword in an issue',
+      'Enriched developer lead data with GitHub context: bio, languages, company, follower count, and the signal that triggered the lead',
+      'Works with tools you already use — push leads to Salesloft (via webhook), HubSpot, Slack, Clay, Apollo, or any CRM in your stack',
+      'Free tier with 50 leads/month — no enterprise contract required to start building pipeline',
+      'Designed for developer-led GTM where ICP buyers live on GitHub, not in LinkedIn databases',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword intent signals', gitleads: true, competitor: false },
+      { feature: 'Developer lead enrichment (bio, languages, company)', gitleads: true, competitor: false },
+      { feature: 'Email sequence management', gitleads: false, competitor: true },
+      { feature: 'Call cadence and dialer', gitleads: false, competitor: true },
+      { feature: 'CRM sync (Salesforce, HubSpot)', gitleads: 'Push via webhook', competitor: true },
+      { feature: 'Lead list from GitHub activity', gitleads: true, competitor: false },
+      { feature: 'Deal forecasting and pipeline reporting', gitleads: false, competitor: true },
+      { feature: 'Free tier available', gitleads: true, competitor: false },
+      { feature: 'Signal context with each lead', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Salesloft is the right choice if you already have a well-defined contact list and need a structured platform to run multi-step email and phone sequences, manage rep performance, and forecast pipeline from those contacts. It is a revenue execution platform, not a lead source.',
+    forUs:
+      'GitLeads is the right choice if your buyers are developers and you want to find them the moment they show buying intent on GitHub — before they appear in any database. GitLeads and Salesloft are complementary: GitLeads fills your top-of-funnel with warm developer leads; Salesloft (or any outreach tool) runs the sequences.',
+    faq: [
+      {
+        q: 'Can I push GitLeads leads directly into Salesloft?',
+        a: 'Yes. GitLeads supports webhook output, which you can connect to Salesloft via Zapier or Make. When a new developer lead fires in GitLeads, it can automatically create a person record in Salesloft and enroll them in a cadence.',
+      },
+      {
+        q: 'Does Salesloft find developer leads from GitHub?',
+        a: 'No. Salesloft is a sequencing and engagement platform. You bring the contacts; Salesloft manages the outreach. GitLeads is the lead source layer that finds developers showing buying signals on GitHub.',
+      },
+      {
+        q: 'Is GitLeads a replacement for Salesloft?',
+        a: 'No. GitLeads and Salesloft solve different problems. GitLeads captures GitHub developer intent signals and builds your lead list. Salesloft manages outreach sequences and rep workflows for those leads. Most developer-focused GTM teams use both: GitLeads for top-of-funnel lead capture, Salesloft for outreach execution.',
+      },
+    ],
+  },
+  {
+    slug: 'amplemarket',
+    name: 'Amplemarket',
+    tagline: 'AI-powered sales platform for lead generation and outreach automation',
+    metaTitle: 'GitLeads vs Amplemarket — GitHub Developer Intent Signals vs AI Sales Automation',
+    metaDescription:
+      'Compare GitLeads and Amplemarket. GitLeads captures real-time GitHub buying signals for developer leads. Amplemarket provides AI-powered contact data and outreach automation for B2B sales teams.',
+    intro:
+      'Amplemarket is an AI-powered sales platform that combines a B2B contact database, intent data from web sources, and automated multi-channel outreach sequences. It is built for revenue teams running outbound at scale. GitLeads is a GitHub-specific developer signal platform — it captures the moment a developer stars a repo, forks a project, or mentions a buying keyword in a GitHub issue, then pushes enriched lead records into the tools you already use. Where Amplemarket uses third-party intent signals aggregated from web activity, GitLeads taps GitHub directly for first-party developer intent.',
+    ourOneLiner:
+      'Amplemarket aggregates intent from third-party web sources. GitLeads captures first-party developer intent directly from GitHub activity.',
+    theyWin: [
+      'Large B2B contact database covering multiple industries beyond just developers',
+      'AI-generated outreach sequences and email writing assistance',
+      'Multi-channel sequences: email, LinkedIn, phone in one workflow',
+      'Third-party intent signals aggregated from web research and content consumption',
+    ],
+    weWin: [
+      'First-party GitHub intent signals — star events, keyword mentions in issues/PRs, fork signals — not third-party inferred intent',
+      'Developer-specific enrichment: GitHub username, top languages, open source project context, follower count, and the exact signal that fired',
+      'Real-time signal delivery — leads arrive within minutes of the GitHub event, not in a daily batch',
+      'Direct integrations with developer GTM stack: Clay, Apollo, Smartlead, Instantly, Lemlist, HubSpot, Slack',
+      'Free tier to get started with 50 leads/month — no annual contract required',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword intent (issues/PRs/discussions)', gitleads: true, competitor: false },
+      { feature: 'Third-party web intent signals', gitleads: false, competitor: true },
+      { feature: 'Developer-specific lead enrichment', gitleads: true, competitor: 'Generic B2B data only' },
+      { feature: 'Real-time lead delivery (<5 min)', gitleads: true, competitor: false },
+      { feature: 'Multi-channel outreach sequences', gitleads: false, competitor: true },
+      { feature: 'B2B contact database', gitleads: false, competitor: true },
+      { feature: 'Push to HubSpot / Salesforce', gitleads: true, competitor: true },
+      { feature: 'Push to Clay / Smartlead / Lemlist', gitleads: true, competitor: false },
+      { feature: 'Free tier available', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Amplemarket is the right choice for B2B sales teams running broad outbound campaigns across multiple verticals and personas, who need a combined contact database, intent data, and outreach sequencing platform in one tool.',
+    forUs:
+      'GitLeads is the right choice if your ICP is developers and you want to reach them the moment they show buying intent on GitHub. Developer intent from GitHub is more specific, more timely, and more actionable than third-party web intent signals for developer-tool GTM motions.',
+    faq: [
+      {
+        q: 'Does Amplemarket have GitHub intent data?',
+        a: 'Amplemarket aggregates third-party intent signals from web research and content consumption patterns. It does not capture first-party GitHub events like new stars, forks, or keyword mentions in issues and pull requests. GitLeads monitors GitHub directly for these signals.',
+      },
+      {
+        q: 'Can GitLeads replace Amplemarket for developer outreach?',
+        a: 'GitLeads is the lead source, not the outreach tool. GitLeads captures GitHub developer signals and pushes enriched leads to tools like Smartlead, Instantly, Lemlist, or Apollo — which handle the outreach sequences. Amplemarket combines both functions in one platform but does not have GitHub-native intent data.',
+      },
+      {
+        q: 'How is GitHub intent different from third-party intent signals?',
+        a: 'Third-party intent (like Amplemarket\'s or Bombora\'s) is inferred from web page visits, content downloads, and ad retargeting data. It is probabilistic. GitHub intent is direct: a developer starred your competitor\'s repo, opened an issue asking for an integration with your category, or committed code that mentions your target keyword. The action is explicit, not inferred.',
+      },
+    ],
+  },
 ];
 
 export function getCompetitor(slug: string): Competitor | undefined {

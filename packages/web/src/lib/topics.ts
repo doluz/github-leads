@@ -248,6 +248,37 @@ export const TOPICS: Topic[] = [
   topic('rag-developers', 'RAG (Retrieval-Augmented Generation)', 'RAG Developers', 33000),
   topic('vllm-engineers', 'vLLM', 'vLLM Engineers', 21000),
   topic('ollama-developers', 'Ollama', 'Ollama Developers', 34000),
+
+  // UI component libraries
+  topic('shadcn-ui-developers', 'shadcn/ui', 'shadcn/ui Developers', 67000),
+
+  // AI agent frameworks (2026 growth)
+  topic('crewai-developers', 'CrewAI', 'CrewAI Developers', 31000),
+  topic('autogen-developers', 'AutoGen', 'AutoGen Developers', 24000),
+  topic('langgraph-developers', 'LangGraph', 'LangGraph Developers', 22000),
+  topic('dify-developers', 'Dify', 'Dify Developers', 28000),
+  topic('langfuse-developers', 'Langfuse', 'Langfuse Developers', 19000),
+
+  // Workflow automation
+  topic('n8n-developers', 'n8n', 'n8n Developers', 44000),
+  topic('airflow-developers', 'Apache Airflow', 'Apache Airflow Developers', 81000),
+  topic('prefect-developers', 'Prefect', 'Prefect Developers', 22000),
+
+  // Serverless / deployment platforms
+  topic('modal-developers', 'Modal', 'Modal Developers', 18000),
+  topic('railway-developers', 'Railway', 'Railway Developers', 23000),
+  topic('flyio-developers', 'Fly.io', 'Fly.io Developers', 26000),
+
+  // Databases / data layer
+  topic('drizzle-orm-developers', 'Drizzle ORM', 'Drizzle ORM Developers', 34000),
+  topic('convex-developers', 'Convex', 'Convex Developers', 21000),
+  topic('neon-developers', 'Neon (Serverless Postgres)', 'Neon Developers', 19000),
+  topic('turso-developers', 'Turso', 'Turso Developers', 14000),
+  topic('electric-sql-developers', 'ElectricSQL', 'ElectricSQL Developers', 11000),
+
+  // State management / frontend
+  topic('zustand-developers', 'Zustand', 'Zustand Developers', 42000),
+  topic('rxjs-developers', 'RxJS', 'RxJS Developers', 51000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(
