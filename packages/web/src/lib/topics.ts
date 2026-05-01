@@ -320,6 +320,24 @@ export const TOPICS: Topic[] = [
   // Emerging languages
   topic('gleam-developers', 'Gleam', 'Gleam Developers', 12000),
   topic('nim-developers', 'Nim', 'Nim Developers', 17000),
+
+  // Infrastructure & architecture patterns
+  topic('mlops-engineers', 'MLOps', 'MLOps Engineers', 58000),
+  topic('vector-database-developers', 'Vector Databases', 'Vector Database Developers', 34000),
+  topic('cloud-native-developers', 'Cloud Native', 'Cloud Native Developers', 91000),
+  topic('observability-engineers', 'Observability', 'Observability Engineers', 67000),
+  topic('microservices-developers', 'Microservices', 'Microservices Developers', 112000),
+  topic('event-driven-developers', 'Event-Driven Architecture', 'Event-Driven Developers', 44000),
+  topic('service-mesh-engineers', 'Service Mesh', 'Service Mesh Engineers', 28000),
+  topic('distributed-systems-engineers', 'Distributed Systems', 'Distributed Systems Engineers', 54000),
+  topic('api-gateway-developers', 'API Gateway', 'API Gateway Developers', 41000),
+
+  // Developer tooling
+  topic('cli-tool-developers', 'CLI Tools', 'CLI Tool Developers', 63000),
+  topic('developer-experience-engineers', 'Developer Experience', 'Developer Experience Engineers', 29000),
+  topic('gpu-developers', 'GPU Computing', 'GPU Developers', 38000),
+  topic('real-time-developers', 'Real-Time Systems', 'Real-Time Developers', 47000),
+  topic('low-code-developers', 'Low-Code', 'Low-Code Developers', 73000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(

@@ -14965,6 +14965,555 @@ q="\"open source alternative\" \"monitoring\" in:issues"`,
 
   // ─── NEW POST ────────────────────────────────────────────────────────────────
   {
+    slug: 'github-profile-enrichment',
+    title: 'GitHub Profile Enrichment: How to Extract Email, Company, and Tech Stack at Scale',
+    description:
+      'A practical guide to enriching GitHub profiles with email, company, location, and tech stack data. Covers the GitHub API, rate limits, and automated enrichment pipelines for sales teams.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 9,
+    keywords: [
+      'github profile enrichment',
+      'enrich github profiles',
+      'github email lookup',
+      'github contact data',
+      'github lead enrichment',
+      'github developer data',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'A GitHub username is a door. Behind it sits public data that most sales and marketing teams never use: verified email addresses, company affiliations, top languages, follower graphs, and years of public commit history. GitHub profile enrichment is the process of systematically extracting that data and turning it into actionable lead records. This guide covers the mechanics — what data is available, how to get it, and how to automate the pipeline.',
+      },
+      {
+        type: 'h2',
+        content: 'What Data Is Available on a GitHub Profile',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub Users API (GET /users/{username}) exposes a surprisingly rich set of fields without authentication:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'login — unique GitHub username',
+          'name — display name (often the real name)',
+          'email — public email, if the user has set one visible in their profile',
+          'company — self-reported company or org name',
+          'blog — personal site or LinkedIn URL',
+          'location — city, country, or region',
+          'bio — short text bio',
+          'public_repos — number of public repositories',
+          'followers / following — graph metrics',
+          'created_at — account age',
+          'updated_at — last profile update',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Roughly 20–30% of active GitHub developers have a public email on their profile. For accounts that do not, commit metadata is the next best source: every git commit contains an author email that was valid at the time of commit. You can retrieve these via the commits API.',
+      },
+      {
+        type: 'h2',
+        content: 'Enriching a GitHub Profile via the API',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+import time
+
+GITHUB_TOKEN = "YOUR_GITHUB_TOKEN"
+HEADERS = {
+    "Authorization": f"Bearer {GITHUB_TOKEN}",
+    "Accept": "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+}
+
+def enrich_profile(username: str) -> dict:
+    """Fetch all available enrichment data for a GitHub user."""
+    resp = requests.get(
+        f"https://api.github.com/users/{username}",
+        headers=HEADERS,
+        timeout=10,
+    )
+    resp.raise_for_status()
+    profile = resp.json()
+
+    result = {
+        "username": profile["login"],
+        "name": profile.get("name"),
+        "email": profile.get("email"),  # public profile email
+        "company": profile.get("company", "").strip("@") if profile.get("company") else None,
+        "location": profile.get("location"),
+        "bio": profile.get("bio"),
+        "blog": profile.get("blog"),
+        "followers": profile["followers"],
+        "public_repos": profile["public_repos"],
+        "account_created": profile["created_at"],
+        "github_url": profile["html_url"],
+    }
+
+    # If no profile email, try extracting from recent commits
+    if not result["email"]:
+        result["email"] = get_commit_email(username)
+
+    return result
+
+def get_commit_email(username: str) -> str | None:
+    """Try to find an email from recent commits."""
+    resp = requests.get(
+        f"https://api.github.com/users/{username}/events/public",
+        headers=HEADERS,
+        params={"per_page": 30},
+        timeout=10,
+    )
+    if resp.status_code != 200:
+        return None
+    for event in resp.json():
+        if event.get("type") == "PushEvent":
+            commits = event.get("payload", {}).get("commits", [])
+            for commit in commits:
+                author_email = commit.get("author", {}).get("email", "")
+                # Filter out GitHub noreply addresses
+                if author_email and "noreply" not in author_email:
+                    return author_email
+    return None`,
+      },
+      {
+        type: 'h2',
+        content: 'Inferring Tech Stack from Repository Data',
+      },
+      {
+        type: 'p',
+        content:
+          'Profile fields tell you who someone is. Repositories tell you what they build. The most reliable tech stack signal is the languages API, which returns a byte count per language for any repo:',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `def get_top_languages(username: str, max_repos: int = 10) -> list[str]:
+    """Return the top languages used across a developer's most recent repos."""
+    repos_resp = requests.get(
+        f"https://api.github.com/users/{username}/repos",
+        headers=HEADERS,
+        params={"sort": "pushed", "per_page": max_repos},
+        timeout=10,
+    )
+    if repos_resp.status_code != 200:
+        return []
+
+    lang_totals: dict[str, int] = {}
+    for repo in repos_resp.json():
+        # Use the top-level language field first (faster, 1 API call saved)
+        lang = repo.get("language")
+        if lang:
+            lang_totals[lang] = lang_totals.get(lang, 0) + 1
+
+    return sorted(lang_totals, key=lang_totals.get, reverse=True)[:5]`,
+      },
+      {
+        type: 'p',
+        content:
+          'This gives you a ranked language list without the extra API calls. For deeper stack analysis (frameworks, topics), parse repo.topics[] — GitHub allows up to 20 topics per repo and maintainers often tag them accurately.',
+      },
+      {
+        type: 'h2',
+        content: 'Rate Limits and How to Work Within Them',
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub REST API allows 5,000 requests per hour for authenticated requests and 60 for unauthenticated. Enriching a single profile can take 2–4 API calls (profile, events, repos, languages). At maximum throughput you can enrich roughly 1,250–2,500 profiles per hour per token.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Use GitHub Apps (60,000 req/hr) instead of personal tokens for bulk enrichment',
+          'Cache profile data — GitHub profiles change infrequently; a 24h TTL is reasonable',
+          'Check X-RateLimit-Remaining headers and back off before hitting the wall',
+          'For large batches, use a token pool across multiple GitHub accounts',
+          'Use the GraphQL API (api.github.com/graphql) to batch multiple fields into one request',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Matching GitHub Profiles to Company Records',
+      },
+      {
+        type: 'p',
+        content:
+          'The company field on a GitHub profile is free text and often messy — values like "@acmecorp", "Acme Corp", "acme.com", or "ex-Google" are all common. A few normalization steps make it usable:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Strip leading "@" characters (GitHub org handles)',
+          'Lowercase and trim whitespace',
+          'Remove "ex-", "former", "previously" prefixes',
+          'Cross-reference against Clearbit or Apollo domain databases for company enrichment',
+          'Use the blog field as a fallback — personal sites often contain LinkedIn URLs or company domains',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Automating GitHub Profile Enrichment at Scale',
+      },
+      {
+        type: 'p',
+        content:
+          'Building your own enrichment pipeline works well for one-off research but breaks down when you need continuous enrichment of new signals — for example, every new person who stars your repo or mentions your keyword in a GitHub issue. GitLeads handles this automatically: every captured signal triggers a profile enrichment pass, and the enriched lead record is pushed directly to your CRM, Slack channel, or outreach tool.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads enriches every GitHub signal with full profile data — name, email, company, location, bio, followers, and top languages — and pushes the enriched record to HubSpot, Clay, Salesforce, Pipedrive, Smartlead, and 10+ other tools. Free plan includes 50 leads/month.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: how to find leads on GitHub, GitHub email finder, GitHub lead generation, find GitHub users by company, push GitHub leads to HubSpot.',
+      },
+    ],
+  },
+  {
+    slug: 'developer-marketing-automation',
+    title: 'Developer Marketing Automation: Using GitHub Signals to Replace Cold Outreach',
+    description:
+      'How to build an automated developer marketing pipeline using GitHub signals. Covers signal types, enrichment, routing, and integration with outreach tools — without spamming developers.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 10,
+    keywords: [
+      'developer marketing automation',
+      'automate developer outreach',
+      'github signal automation',
+      'developer marketing pipeline',
+      'github lead automation',
+      'developer go to market automation',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Cold outreach to developers fails at a rate that would make any sales leader wince. Response rates under 2% are typical for generic developer outreach — because developers know when they are being batched and blasted, and they route that email to trash without opening it. The alternative is not sending no outreach. It is sending the right outreach, triggered by a real signal, at the right time. GitHub makes this possible. This article walks through the full automation stack.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Signals Are Better Than List-Based Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'A list-based outreach campaign starts with a static set of names — scraped, purchased, or built from a database — and works through them sequentially. There is no trigger. The developer has not indicated any interest in your product or problem space. The signal is absence of signal.',
+      },
+      {
+        type: 'p',
+        content:
+          'A GitHub-signal-triggered campaign starts differently. Someone just starred a repo that competes with your product. Someone just opened a GitHub issue containing the phrase "we need a solution for X" — where X is exactly what you solve. Someone just forked your most important dependency. These are not cold contacts. They are warm leads with documented intent.',
+      },
+      {
+        type: 'h2',
+        content: 'The Four GitHub Signal Types Worth Automating',
+      },
+      {
+        type: 'h3',
+        content: '1. Stargazer Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'New stars on your repo or competitor repos. The most reliable top-of-funnel signal for developer tools. A star means a developer found the project interesting enough to bookmark it — that is active interest, not passive exposure.',
+      },
+      {
+        type: 'h3',
+        content: '2. Keyword Signals in Issues and PRs',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers describe their problems in GitHub issues and pull requests. If your product solves a specific pain, you can monitor GitHub for that pain expressed in natural language: "how do I export leads from GitHub", "we need webhook support for X", "looking for an alternative to Y". These are buying-intent signals hiding in plain text.',
+      },
+      {
+        type: 'h3',
+        content: '3. Fork Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'A fork means active building. Someone who forks a relevant repo is using it as a starting point for their own work. Fork-based leads are further down the adoption funnel than stargazers and typically worth higher priority routing.',
+      },
+      {
+        type: 'h3',
+        content: '4. Discussion and Commit Keyword Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Discussions and commit messages are less commonly monitored but contain high-quality signals. A commit message like "integrate payment processing via Stripe" tells you the developer is building a payments feature — if you sell a payments-adjacent tool, that is a live buying signal.',
+      },
+      {
+        type: 'h2',
+        content: 'Building the Automation Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'A complete GitHub signal automation pipeline has five stages:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Signal capture — Monitor GitHub for the event (new star, keyword match, fork)',
+          'Enrichment — Fetch the actor\'s full profile: name, email, company, location, top languages',
+          'Scoring — Score the lead based on ICP fit (company size, tech stack match, follower count, recency)',
+          'Routing — Send high-score leads to sales sequences; send medium-score leads to nurture; skip low-score leads',
+          'Delivery — Push the enriched, scored lead to the right tool (HubSpot, Clay, Slack, Smartlead, etc.)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Routing Logic: Who Gets What',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every GitHub signal warrants a sales email. A basic routing table:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Score ≥ 80 + has email → push to personalized email sequence in Smartlead/Instantly/Lemlist',
+          'Score ≥ 80 + no email → push to LinkedIn outreach queue or manual review in Slack',
+          'Score 50–79 → push to HubSpot/Pipedrive as a contact for drip nurture',
+          'Score 50–79 + company match → notify AE in Slack for manual review',
+          'Score < 50 → log to CRM as a contact, no active outreach',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Personalization That Does Not Feel Robotic',
+      },
+      {
+        type: 'p',
+        content:
+          'The signal context is the personalization hook. If someone starred a repo called "open-source-billing", your outreach can reference that directly: "Noticed you were looking at open-source billing solutions — we built X to solve exactly that." You do not need to pretend you found them some other way. GitHub activity is public. Referencing it is not creepy; it is contextually relevant.',
+      },
+      {
+        type: 'p',
+        content:
+          'The variables you have available for personalization: username, repo they starred or forked, keyword they triggered, their top language, their company name, and the date of the signal. That is enough context to write a first sentence that passes the "did a human write this" test.',
+      },
+      {
+        type: 'h2',
+        content: 'What Not to Automate',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Do not automate follow-up on non-responses more than twice — developers who ignore outreach twice have opted out',
+          'Do not send to developers who have not triggered a signal in the last 30 days — signal recency matters',
+          'Do not send to maintainers of the repos you are monitoring — they are not leads, they are community members',
+          'Do not scrape GitHub in violation of the ToS — use the official API or a compliant tool',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitLeads as Your Automation Layer',
+      },
+      {
+        type: 'p',
+        content:
+          'Building and maintaining a GitHub signal automation pipeline from scratch requires ongoing API work, enrichment maintenance, and integration upkeep. GitLeads provides the full pipeline out of the box: signal monitoring, enrichment, scoring, and delivery to your existing stack — HubSpot, Clay, Salesforce, Pipedrive, Smartlead, Instantly, Lemlist, Apollo, Slack, Zapier, n8n, Make, and webhooks.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads automates the full GitHub signal pipeline. Set up in 5 minutes, start receiving enriched leads in your existing tools today. Free plan includes 50 leads/month at gitleads.app.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub buying signals for sales teams, GitHub lead automation with n8n Make and Zapier, GitHub keyword monitoring for sales, push GitHub leads to HubSpot, developer sales prospecting.',
+      },
+    ],
+  },
+  {
+    slug: 'github-star-growth-as-market-signal',
+    title: 'GitHub Star Growth as a Market Signal: What Rising Repos Tell Sales Teams',
+    description:
+      'How to use GitHub star velocity and trending repository data as early market signals. Learn which repos to watch, how to track growth, and how to turn trending projects into qualified leads.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 8,
+    keywords: [
+      'github star growth',
+      'github trending repositories sales',
+      'github star velocity',
+      'github market signals',
+      'github trending leads',
+      'github star analytics',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'A repository that gains 500 stars in a single day is not just popular — it is a market signal. The developers starring it are telling you, publicly and verifiably, that they care about the problem that repo solves. If that problem intersects with what your product does, those stargazers are your warmest possible leads. Understanding GitHub star growth patterns turns trending repo data into a repeatable prospecting channel.',
+      },
+      {
+        type: 'h2',
+        content: 'Star Velocity vs. Total Stars: Why Recency Matters',
+      },
+      {
+        type: 'p',
+        content:
+          'Total star count is a lagging indicator. A repo with 40,000 stars accumulated over five years has a very different audience profile than one with 40,000 stars accumulated in the last six months. For sales and marketing purposes, you want the latter — developers who are actively exploring this technology right now, not the early adopters who discovered it years ago.',
+      },
+      {
+        type: 'p',
+        content:
+          'Star velocity — stars per day or per week — is the metric that matters. The GitHub API does not expose star velocity directly, but you can compute it from the stargazers endpoint with timestamp data:',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+from datetime import datetime, timedelta
+
+HEADERS = {
+    "Authorization": "Bearer YOUR_TOKEN",
+    "Accept": "application/vnd.github.v3.star+json",  # includes starred_at timestamp
+}
+
+def get_star_velocity(owner: str, repo: str, days: int = 7) -> dict:
+    """Calculate star velocity for a repo over the last N days."""
+    cutoff = datetime.utcnow() - timedelta(days=days)
+    recent_stars = 0
+    page = 1
+
+    while True:
+        resp = requests.get(
+            f"https://api.github.com/repos/{owner}/{repo}/stargazers",
+            headers=HEADERS,
+            params={"per_page": 100, "page": page},
+            timeout=10,
+        )
+        stars = resp.json()
+        if not stars:
+            break
+
+        # Stars returned newest-first with v3.star+json
+        for star in stars:
+            starred_at = datetime.strptime(star["starred_at"], "%Y-%m-%dT%H:%M:%SZ")
+            if starred_at >= cutoff:
+                recent_stars += 1
+            else:
+                # Past cutoff — remaining stars are older
+                return {"recent_stars": recent_stars, "days": days, "velocity": recent_stars / days}
+
+        page += 1
+
+    return {"recent_stars": recent_stars, "days": days, "velocity": recent_stars / days}
+
+# Usage
+velocity = get_star_velocity("modelcontextprotocol", "servers")
+print(f"Stars in last 7 days: {velocity['recent_stars']} ({velocity['velocity']:.1f}/day)")`,
+      },
+      {
+        type: 'h2',
+        content: 'Reading GitHub Trending as an Intent Heatmap',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Trending (github.com/trending) surfaces repos with the highest star velocity over the last 24 hours, 7 days, or 30 days. For developer tool vendors, monitoring trending repos in your category is like watching a real-time heatmap of developer interest.',
+      },
+      {
+        type: 'p',
+        content:
+          'Practical framework for reading trending data as sales intelligence:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'A new repo in your space trending daily → new competitor or adjacent tool; star their stargazers',
+          'A library you integrate with spiking → anticipate increased inbound interest; prep for questions',
+          'A pain-point repo (e.g., "github-star-tracker") trending → developers actively looking for tools like yours',
+          'A technology repo (e.g., a new MCP framework) spiking → early adopters of that technology are your ICP',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'The Three-Week Star Spike Pattern',
+      },
+      {
+        type: 'p',
+        content:
+          'Most repos that trend on GitHub follow a predictable pattern: a spike (usually from a Hacker News post, Product Hunt launch, or a popular tweet) followed by a long tail of organic discovery. The spike is the wrong time to reach out — developers are overwhelmed with mentions. The 7–21 days after the spike are the sweet spot: the developers who starred it during organic discovery (not hype) are more deliberate adopters and more likely to be in an active evaluation phase.',
+      },
+      {
+        type: 'h2',
+        content: 'Identifying Repos Worth Monitoring',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every trending repo is relevant. Criteria for adding a repo to your watch list:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Overlapping audience: its users are plausibly your ICP (check repo topics, README, and recent issues)',
+          'Complementary or competitive: it either replaces something you sell, or it integrates with what you sell',
+          'Minimum velocity threshold: at least 50 new stars per week to generate enough leads to be worth the monitoring cost',
+          'Active development: last commit within 30 days (stale repos attract stale audiences)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Turning Star Growth into a Lead Pipeline',
+      },
+      {
+        type: 'p',
+        content:
+          'The steps from "a repo is trending" to "a qualified lead in your CRM":',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Identify trending repos in your category (automate via GitHub Trending scrape or API)',
+          'Compute star velocity — flag repos with velocity > your threshold',
+          'Pull the new stargazers (not all stargazers — only those who starred in the last 7 days)',
+          'Enrich each stargazer: profile data, email, company, tech stack',
+          'Score against your ICP: tech stack match, company size, follower count',
+          'Route into your outreach stack with signal context (repo name, star date) as personalization data',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Automating the Pipeline with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads monitors GitHub repos continuously and captures new stargazers in real time. You specify which repos to track (your own, competitors, adjacent tools), and GitLeads handles the enrichment and delivery pipeline. Every new stargazer triggers enrichment and is pushed to whatever CRM, email tool, or Slack channel you have connected.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads tracks GitHub repo stars in real time. Add any repo — yours, a competitor\'s, or a complementary tool — and get enriched leads pushed to your stack the moment someone stars it. Free plan at gitleads.app.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub star history for sales, turn GitHub stargazers into leads, competitor repo stargazers as leads, GitHub signal monitoring, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+  {
     slug: 'github-topic-watch-sales-playbook',
     title: 'The GitHub Topic Watch Playbook: Build a Developer Pipeline from Repository Topics',
     description:
