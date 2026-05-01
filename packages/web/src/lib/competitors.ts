@@ -1633,6 +1633,117 @@ export const COMPETITORS: Competitor[] = [
       },
     ],
   },
+  {
+    slug: 'reply-io',
+    name: 'Reply.io',
+    tagline: 'Multi-channel sales engagement and outreach sequencing platform',
+    metaTitle: 'GitLeads vs Reply.io — GitHub Developer Intent vs Sales Sequencing',
+    metaDescription:
+      'GitLeads captures GitHub developer buying signals and delivers enriched leads. Reply.io runs multi-channel outreach sequences. They solve different parts of the pipeline — and work great together.',
+    intro:
+      'Reply.io is a multi-channel sales engagement platform that automates email, LinkedIn, WhatsApp, and calling sequences for outbound SDR teams. It is built for teams that already have leads and need to work them through a sequence. GitLeads is a GitHub signal monitoring platform — it captures developer intent events (new repo stars, keyword mentions in Issues and PRs) and delivers enriched lead profiles into your CRM, Slack, or outreach tools. These tools are complementary: GitLeads finds the leads, Reply.io works them.',
+    ourOneLiner:
+      'Reply.io runs outreach sequences. GitLeads finds who to sequence — developers actively signaling buying intent on GitHub right now.',
+    theyWin: [
+      'Full multi-channel sequencing: email, LinkedIn, calls, WhatsApp in one workflow',
+      'AI-generated email copy and sequence templates for faster setup',
+      'Large template library and proven outbound playbooks',
+      'Built-in analytics on reply rates, meeting booked rates, and sequence performance',
+    ],
+    weWin: [
+      'First-party GitHub intent signals — star events, keyword mentions in Issues/PRs, fork signals',
+      'Developer-specific enrichment: GitHub username, top languages, open source project context',
+      'Real-time signal delivery — leads arrive within minutes of the GitHub event',
+      'Direct push integrations to outreach tools including Reply.io via webhook',
+      'Signals include the why: you know exactly what the developer did on GitHub, enabling hyper-personalised opening lines',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword intent (issues/PRs/discussions)', gitleads: true, competitor: false },
+      { feature: 'Multi-channel outreach sequencing', gitleads: false, competitor: true },
+      { feature: 'Developer-specific lead enrichment', gitleads: true, competitor: 'Generic contact data' },
+      { feature: 'Real-time lead delivery (<5 min)', gitleads: true, competitor: false },
+      { feature: 'Signal context for personalisation', gitleads: true, competitor: false },
+      { feature: 'Push to HubSpot / Salesforce', gitleads: true, competitor: true },
+      { feature: 'Webhook / Zapier / n8n integration', gitleads: true, competitor: true },
+      { feature: 'Email sequence automation', gitleads: false, competitor: true },
+      { feature: 'Free tier available', gitleads: true, competitor: false },
+    ],
+    forThem:
+      'Reply.io is the right choice if you have a contact list and need to run structured multi-channel outreach sequences at scale. It is a best-in-class sequencing tool for SDR teams with clear lists to work.',
+    forUs:
+      'GitLeads is the right choice when you need to identify which developers are actively showing buying intent right now. GitLeads fills your Reply.io sequences with high-intent developer leads — the combination is stronger than either tool alone.',
+    faq: [
+      {
+        q: 'Can GitLeads push leads directly into Reply.io?',
+        a: 'Yes. GitLeads supports webhook output, which integrates with Reply.io via Zapier, Make, or n8n. You can set up a flow where GitLeads captures a GitHub signal, enriches the lead, and automatically adds them to a Reply.io sequence. GitLeads also integrates natively with Clay, which has a Reply.io connector.',
+      },
+      {
+        q: 'Do I need both GitLeads and Reply.io?',
+        a: 'If your ICP is developers, yes — they solve different problems. GitLeads is the lead intelligence layer: it monitors GitHub and finds developers who are actively signaling buying intent. Reply.io is the outreach layer: it sequences those leads through email and LinkedIn. Without GitLeads, your Reply.io sequences run on static contact lists. Without Reply.io, your GitLeads leads have no automated follow-up.',
+      },
+      {
+        q: 'What makes GitHub intent better than buying a contact list for Reply.io?',
+        a: 'Contact lists are cold. GitHub intent is warm. A developer who starred your competitor\'s repo or opened a GitHub issue mentioning your product category has already demonstrated they are in the market. Reply.io sequences sent to GitHub-intent leads see significantly higher reply rates than sequences sent to generic contact lists.',
+      },
+    ],
+  },
+  {
+    slug: 'g2-buyer-intent',
+    name: 'G2 Buyer Intent',
+    tagline: 'Third-party intent data from G2 product page visits and category research',
+    metaTitle: 'GitLeads vs G2 Buyer Intent — GitHub Developer Signals vs Review Site Intent',
+    metaDescription:
+      'Compare GitLeads and G2 Buyer Intent. G2 tracks which companies are researching your category on G2. GitLeads tracks which developers are signaling buying intent on GitHub. Both are intent data — from very different sources.',
+    intro:
+      'G2 Buyer Intent identifies companies researching your software category on G2.com — the dominant software review site. When someone at a company visits your G2 product page or compares you to competitors on G2, G2 Buyer Intent surfaces that company as an in-market account. GitLeads captures developer-level intent from GitHub — when a developer stars a repo in your category, opens a GitHub issue mentioning your product keyword, or forks a related project, GitLeads delivers their enriched profile to your CRM. G2 intent is company-level and anonymous. GitLeads intent is individual-level and attributed to a specific developer with a name, GitHub profile, and often a public email.',
+    ourOneLiner:
+      'G2 Buyer Intent shows which companies are looking at your category. GitLeads shows which individual developers are showing buying intent on GitHub — by name, with contact data.',
+    theyWin: [
+      'Account-level intent across the entire G2 category — not just repos you track',
+      'Strong for enterprise accounts where multiple buyers research on G2',
+      'Integrated with G2 review management and competitive intelligence data',
+      'Covers intent signals from non-technical buyers (procurement, operations) who use G2',
+    ],
+    weWin: [
+      'Individual developer-level intent — you know the person, not just the company',
+      'GitHub-native signals: stars, forks, keyword mentions in Issues/PRs — first-party, not third-party',
+      'Real-time delivery: leads arrive within minutes of the GitHub event',
+      'Developer enrichment: GitHub username, top languages, bio, OSS contributions, follower count',
+      'Far lower cost: GitLeads starts free vs. G2 Buyer Intent add-on pricing at enterprise rates',
+      'Works even if your company is not on G2 or has few reviews',
+    ],
+    table: [
+      { feature: 'GitHub repo star monitoring', gitleads: true, competitor: false },
+      { feature: 'GitHub keyword intent (issues/PRs/discussions)', gitleads: true, competitor: false },
+      { feature: 'G2 product page visit tracking', gitleads: false, competitor: true },
+      { feature: 'Individual-level (named person)', gitleads: true, competitor: 'Company-level only' },
+      { feature: 'Real-time signal delivery', gitleads: true, competitor: 'Daily/weekly batch' },
+      { feature: 'Developer-specific enrichment', gitleads: true, competitor: false },
+      { feature: 'Works without G2 presence', gitleads: true, competitor: false },
+      { feature: 'Push to HubSpot / CRM', gitleads: true, competitor: true },
+      { feature: 'Free tier available', gitleads: true, competitor: false },
+      { feature: 'Covers non-GitHub intent', gitleads: false, competitor: true },
+    ],
+    forThem:
+      'G2 Buyer Intent is the right choice for enterprise software vendors with a strong G2 presence who want to identify which accounts are researching their category and trigger ABM campaigns at the account level.',
+    forUs:
+      'GitLeads is the right choice if your buyers are developers and you want individual-level, real-time intent signals tied to actual GitHub activity. GitLeads works even if you have no G2 reviews and covers developer intent that never appears on review sites.',
+    faq: [
+      {
+        q: 'Are GitLeads and G2 Buyer Intent complementary?',
+        a: 'Yes. G2 Buyer Intent identifies accounts. GitLeads identifies individual developers within those accounts (and many more who never visit G2). Combined, you get both company-level intent from G2 and developer-level intent from GitHub — a more complete picture of who is in market.',
+      },
+      {
+        q: 'Why would a developer show intent on GitHub but not on G2?',
+        a: 'Most developers do not use G2 to research tools. They star repos on GitHub, ask questions in GitHub Issues, search GitHub for alternatives, and read README files. G2 captures the minority of developer research that happens on review sites. GitLeads captures the majority that happens on GitHub.',
+      },
+      {
+        q: 'How much does G2 Buyer Intent cost compared to GitLeads?',
+        a: 'G2 Buyer Intent is an enterprise add-on typically priced at several thousand dollars per month. GitLeads starts free (50 leads/month, no credit card) with paid plans from $49/month.',
+      },
+    ],
+  },
 ];
 
 export function getCompetitor(slug: string): Competitor | undefined {

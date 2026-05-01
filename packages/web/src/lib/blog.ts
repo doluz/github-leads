@@ -16273,6 +16273,631 @@ Worth a quick async exchange?
       },
     ],
   },
+  {
+    slug: 'github-search-operators-lead-generation',
+    title: 'GitHub Search Operators for B2B Lead Generation: The Complete Playbook (2026)',
+    description:
+      'Master GitHub\'s advanced search operators to find developer leads by language, location, company, keyword, and activity. Practical queries for sales teams, DevRel, and founders.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 10,
+    keywords: [
+      'github search operators',
+      'github advanced search lead generation',
+      'find developers github search',
+      'github search for sales',
+      'github prospecting search queries',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub\'s search engine is one of the most underused prospecting tools in B2B sales. Most people know you can search for repos — fewer know you can search for users, filter by location, company, language, follower count, and repository activity. This guide covers every search operator relevant to B2B lead generation, with copy-paste queries and the logic behind them.',
+      },
+      {
+        type: 'h2',
+        content: 'GitHub User Search: The Basics',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub user search lives at github.com/search?type=Users. It surfaces GitHub profiles — developers, companies, and organisations. The most useful filters for lead generation:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'language:python — users whose most-used language is Python',
+          'location:"San Francisco" — users who listed SF in their profile',
+          'company:stripe — users who list Stripe as their employer',
+          'followers:>500 — influencer-tier developers with 500+ followers',
+          'repos:>10 — active developers with at least 10 public repos',
+          'type:user — exclude organisation accounts (add type:org to search orgs)',
+        ],
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find senior Python developers in Berlin
+type:user language:python location:Berlin followers:>100 repos:>5
+
+# Find developers at Y Combinator companies who use TypeScript
+type:user language:typescript company:"Y Combinator" repos:>3
+
+# Find Rust developers with a public email (indicates outreach openness)
+type:user language:rust followers:>50
+
+# Find technical founders who list "founder" or "CEO" in their bio
+type:user "founder" repos:>5 followers:>200
+
+# Find open-source maintainers in the Go ecosystem
+type:user language:go followers:>500 repos:>20`,
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Code Search for Buyer Intent',
+      },
+      {
+        type: 'p',
+        content:
+          'Code search (github.com/search?type=code) lets you find repos that contain specific strings. This is your highest-intent signal — if a developer\'s codebase imports your competitor\'s SDK, they are an active buyer in your category.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find repos using a competitor SDK (e.g. Stripe)
+import stripe language:python path:*.py
+
+# Find repos that use your competitor's npm package
+"require('competitor-sdk')" language:javascript
+
+# Find repos that reference a specific API endpoint
+"api.competitor.com" language:python
+
+# Find repos with a specific configuration file (e.g. datadog agent)
+filename:datadog.yaml
+
+# Find repos importing LangChain (LLM app developers)
+from langchain language:python
+
+# Find repos that reference your exact product category
+"vector database" language:python stars:>5`,
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Issues Search for Real-Time Intent',
+      },
+      {
+        type: 'p',
+        content:
+          'Issue search surfaces conversations where developers describe problems they are actively trying to solve. A developer asking how to integrate X with Y on a public GitHub issue is a warm lead who has self-identified their pain.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find issues where developers mention needing a specific integration
+type:issue "looking for a way to" "postgres" is:open
+
+# Find issues mentioning your product category with urgency signals
+type:issue "we need" OR "anyone know" "opentelemetry" is:open created:>2026-04-01
+
+# Find issues referencing a competitor with frustration signals
+type:issue "problem with datadog" OR "datadog is slow" is:open
+
+# Find issues by a specific company's repos (e.g. Stripe's OSS)
+type:issue repo:stripe/stripe-python is:open label:bug
+
+# Find issues mentioning pricing concerns (buying intent)
+type:issue "pricing" OR "cost" "self-hosted" "alternative" is:open`,
+      },
+      {
+        type: 'h2',
+        content: 'Repository Search for Account-Level Prospecting',
+      },
+      {
+        type: 'p',
+        content:
+          'Repo search helps you identify companies and projects in your ICP. If you target FinTech startups building on AWS, a query like language:python topic:fintech stars:>20 gives you a list of relevant open-source projects — and their owners are your leads.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find active FinTech Python projects
+topic:fintech language:python stars:>20 pushed:>2026-01-01
+
+# Find DevOps tooling repos with Kubernetes integration
+topic:kubernetes language:go stars:>100 pushed:>2026-01-01
+
+# Find AI/LLM projects with active maintenance
+topic:llm language:python stars:>50 pushed:>2026-03-01
+
+# Find self-hosted infrastructure projects (buying intent for DevOps tools)
+topic:self-hosted stars:>100 language:go pushed:>2026-01-01
+
+# Find projects with a specific dependency in package.json
+filename:package.json "next" "prisma" language:javascript stars:>10`,
+      },
+      {
+        type: 'h2',
+        content: 'Combining Operators: High-Value Query Patterns',
+      },
+      {
+        type: 'h3',
+        content: 'Pattern 1: Competitor Users by Language',
+      },
+      {
+        type: 'p',
+        content:
+          'Find developers actively importing a competitor\'s SDK and filter by language to match your ICP:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Repos importing competitor SDK in Python
+import competitor_sdk language:python pushed:>2026-01-01
+
+# JavaScript version
+require('competitor-sdk') language:javascript pushed:>2026-01-01`,
+      },
+      {
+        type: 'h3',
+        content: 'Pattern 2: Actively Hiring Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'Repos with a HIRING.md or jobs section often belong to well-funded companies actively scaling their tech team — an ideal ICP signal for developer tool vendors:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `filename:HIRING.md language:python stars:>50
+
+# Or look for README sections mentioning hiring
+"we're hiring" OR "we are hiring" language:python stars:>30 pushed:>2026-01-01`,
+      },
+      {
+        type: 'h3',
+        content: 'Pattern 3: Integration Announcements',
+      },
+      {
+        type: 'p',
+        content:
+          'Issue and PR titles that announce new integrations signal active tech adoption:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find PRs adding Stripe integration (buyers evaluating Stripe adjacent tools)
+type:pr "add stripe" OR "stripe integration" is:merged language:python
+
+# Find PRs adding your category integration
+type:pr "add opentelemetry" OR "opentelemetry integration" is:merged`,
+      },
+      {
+        type: 'h2',
+        content: 'The Limitations of Manual GitHub Search',
+      },
+      {
+        type: 'p',
+        content:
+          'Manual GitHub search works for ad hoc prospecting but has hard limits. GitHub\'s UI caps at 1,000 results per query. Enriching each profile requires separate API calls. Results go stale — a developer you find today may have changed roles or tech stack by next week. And you cannot get real-time alerts when a new repo matches your query.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads automates this entire workflow. Set a keyword signal — any string that would match in a GitHub Issue, PR, Discussion, README, or commit — and GitLeads monitors GitHub continuously, enriches each new match, and pushes the lead to your CRM or Slack in real time. Start free at gitleads.app.',
+      },
+      {
+        type: 'h2',
+        content: 'Building a Repeatable GitHub Search Playbook',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Map your ICP to GitHub signals: what language, topic, company size, and activity pattern describes your best customers?',
+          'Build a query bank: maintain a list of 5–10 high-signal queries and run them weekly',
+          'Combine code search + user search: find the repo, then look at who maintains or contributes to it',
+          'Use date filters: always add pushed:>YYYY-MM-DD to exclude stale projects',
+          'Enrich before outreach: always visit the full GitHub profile before sending — check their pinned repos, recent activity, and whether they have a public email',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: how to find leads on GitHub, GitHub keyword monitoring for sales, GitHub intent data for B2B sales, monitor GitHub issues for sales, GitHub code search for lead generation.',
+      },
+    ],
+  },
+  {
+    slug: 'ai-coding-tool-users-github-leads',
+    title: 'How to Find Developers Using AI Coding Tools on GitHub (Cursor, Claude, Copilot)',
+    description:
+      'AI coding tool adoption leaves detectable GitHub signals. Learn how to identify Cursor, Claude Code, GitHub Copilot, and MCP developers from their repos and use that intent for B2B outreach.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 9,
+    keywords: [
+      'find cursor users github',
+      'github copilot users leads',
+      'ai coding tool developers github',
+      'cursor ai developer outreach',
+      'find ai developer leads',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'In 2026, AI coding tools are not a niche — over half of active GitHub developers use at least one. But AI tool adoption is not uniform: Cursor users skew toward TypeScript and Python full-stack developers at startups; Claude Code users tend to be infrastructure and systems engineers; Copilot users are distributed across all seniority levels. If you sell to developers, understanding which AI tools your ICP uses gives you a strong positioning angle and a set of GitHub signals you can capture right now.',
+      },
+      {
+        type: 'h2',
+        content: 'Why AI Tool Usage Is a Buyer Signal',
+      },
+      {
+        type: 'ul',
+        items: [
+          'AI tool adoption correlates with modern stack: developers using Cursor or Claude Code are typically on TypeScript, Python, Rust, or Go — not legacy Java or PHP',
+          'Tooling budget signal: paying for an AI coding tool indicates the developer or their company has discretionary software budget',
+          'Speed-to-ship priority: AI-assisted developers ship faster and evaluate new tools more frequently — higher velocity buyers',
+          'Early adopter profile: developers who adopted AI coding tools early tend to evaluate other developer tools first too',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Signals for Cursor Users',
+      },
+      {
+        type: 'p',
+        content:
+          'Cursor generates a .cursor/ directory in project roots and a .cursorrules file for project-specific AI instructions. These files are frequently committed to repos, making Cursor users discoverable via GitHub code search.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find repos with a .cursorrules file (Cursor project configuration)
+filename:.cursorrules
+
+# Find repos with Cursor config directory
+filename:.cursor pushed:>2026-01-01
+
+# Find repos with Cursor in their README (user self-identifies tool stack)
+"built with cursor" OR "written with cursor" language:typescript
+
+# Find Cursor-specific AI rules files (common pattern in modern TS repos)
+filename:.cursorrules language:typescript pushed:>2026-03-01`,
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Signals for Claude Code Users',
+      },
+      {
+        type: 'p',
+        content:
+          'Claude Code (Anthropic\'s CLI) creates a CLAUDE.md file in project roots as a context file that persists across sessions. This is one of the clearest AI tool adoption signals on GitHub because it\'s a named file explicitly associated with the tool.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find repos with a CLAUDE.md file (Claude Code project context)
+filename:CLAUDE.md pushed:>2026-01-01
+
+# Filter to TypeScript/Python heavy users
+filename:CLAUDE.md language:typescript pushed:>2026-03-01
+filename:CLAUDE.md language:python pushed:>2026-03-01
+
+# Find repos mentioning Claude Code explicitly in README
+"claude code" OR "claude.md" language:markdown stars:>5`,
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Signals for GitHub Copilot Users',
+      },
+      {
+        type: 'p',
+        content:
+          'Copilot itself does not leave unique files in repos, but Copilot Extension development is detectable. Developers building Copilot Extensions leave clear signals:',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find Copilot extension projects
+topic:github-copilot-extension language:typescript pushed:>2026-01-01
+
+# Find repos referencing Copilot in package.json devDependencies
+"@github/copilot-extensions" filename:package.json
+
+# Find repos with Copilot-specific configuration
+filename:.github/copilot-instructions.md
+
+# Find issues asking about Copilot integrations (buyers evaluating)
+type:issue "copilot" "integration" is:open created:>2026-01-01`,
+      },
+      {
+        type: 'h2',
+        content: 'Detecting MCP (Model Context Protocol) Developers',
+      },
+      {
+        type: 'p',
+        content:
+          'MCP is Anthropic\'s open protocol for connecting AI models to external data sources. In 2026, MCP development is one of the fastest-growing GitHub signal clusters. MCP server developers are building AI-adjacent infrastructure and represent a high-value developer audience.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# Find MCP server implementations
+topic:mcp-server language:typescript pushed:>2026-01-01
+topic:model-context-protocol language:python pushed:>2026-01-01
+
+# Find repos using the MCP SDK
+"@modelcontextprotocol/sdk" filename:package.json pushed:>2026-01-01
+"mcp" filename:pyproject.toml language:python
+
+# Find repos with MCP configuration files
+filename:mcp.json pushed:>2026-01-01
+
+# Find devs building MCP tools (high intent for adjacent tooling)
+"mcp server" language:typescript pushed:>2026-03-01`,
+      },
+      {
+        type: 'h2',
+        content: 'Turning AI Tool Signals into Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'The key to converting AI tool signals is matching your product positioning to the signal context:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Cursor user + your developer tool → "We work great with Cursor — here\'s our MCP integration / cursor rules template"',
+          'Claude Code user + your API product → "We ship a CLAUDE.md template so your team gets up to speed on our API instantly"',
+          'MCP server developer + your data product → "Your MCP server could expose [your data source] — here\'s a starter integration"',
+          'Copilot extension developer + your platform → "We support the Copilot Extensions SDK — here\'s a 5-minute quickstart"',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Monitoring AI Tool Signals at Scale with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'Manually running GitHub code searches for .cursorrules and CLAUDE.md gives you a snapshot. GitLeads turns this into a continuous pipeline: configure keyword signals for patterns like "cursorrules", "CLAUDE.md", "mcp-server", or "@modelcontextprotocol" and receive enriched lead profiles every time a new repo matches — with the developer\'s GitHub username, public email, company, location, bio, and top languages.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub Issues, PRs, Discussions, README content, and commit messages for any keyword — including AI tool adoption signals. Free plan includes 50 leads/month. No credit card required. Start at gitleads.app.',
+      },
+      {
+        type: 'h2',
+        content: 'Which AI Tool Signal Has the Best Lead Quality?',
+      },
+      {
+        type: 'ul',
+        items: [
+          'CLAUDE.md (Claude Code): highest technical seniority signal — these developers actively think about context management and tooling architecture',
+          '.cursorrules (Cursor): broadest coverage, high startup/indie hacker density, excellent for TypeScript/Python ICP',
+          'MCP server repos: highest buyer intent for AI infrastructure and data products — niche but extremely warm',
+          'Copilot extension repos: highest enterprise signal — Copilot Extensions often built by companies with GitHub Enterprise contracts',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: find MCP developers on GitHub, AI developer leads on GitHub 2026, GitHub signals for product-market fit, GitHub keyword monitoring for sales, developer lead generation strategies.',
+      },
+    ],
+  },
+  {
+    slug: 'github-dependency-graph-sales-signals',
+    title: 'GitHub Dependency Graph as a Sales Signal: Find Who\'s Building on Your SDK',
+    description:
+      'The GitHub dependency graph shows every public repo that depends on your package. Learn how to use dependents data to find active SDK users, prioritize outreach, and build a pipeline of high-intent adopters.',
+    publishedAt: '2026-05-01',
+    updatedAt: '2026-05-01',
+    readingTime: 8,
+    keywords: [
+      'github dependency graph leads',
+      'find users of your sdk github',
+      'github dependents sales signal',
+      'package dependency lead generation',
+      'sdk adoption tracking github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub\'s dependency graph is visible on every public repo under the "Used by" count on the repo homepage. Click that count and you see a paginated list of public repositories that depend on your package. For API companies and SDK vendors, this is the highest-fidelity lead list on the internet — a directory of developers actively using your product (or your competitor\'s) in production code.',
+      },
+      {
+        type: 'h2',
+        content: 'How the Dependency Graph Works',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub parses package manifests across all public repos: package.json (npm), requirements.txt/pyproject.toml (PyPI), Gemfile (RubyGems), go.mod (Go modules), Cargo.toml (crates.io), and more. Any public repo that lists your package as a dependency appears in your repo\'s dependents list.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Coverage: all public GitHub repos with a supported manifest file',
+          'Update frequency: near real-time — new repos appear within hours of manifest parsing',
+          'Data available: repo name, owner (GitHub user or org), stars, language, last push date',
+          'Access: the web UI paginates; the official REST API does not expose dependents — you must use the insights page',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Accessing Dependents Programmatically',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub does not expose dependents via the official REST or GraphQL API, but the dependency insights page is accessible. The most practical approach uses the web UI endpoint:',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+from bs4 import BeautifulSoup
+
+def get_dependents(owner: str, repo: str, max_pages: int = 10) -> list[dict]:
+    """Scrape GitHub dependents list for a given repo."""
+    base_url = f"https://github.com/{owner}/{repo}/network/dependents"
+    headers = {"User-Agent": "Mozilla/5.0"}
+    results = []
+    url = base_url
+
+    for _ in range(max_pages):
+        resp = requests.get(url, headers=headers)
+        soup = BeautifulSoup(resp.text, "html.parser")
+
+        rows = soup.select(".Box-row")
+        for row in rows:
+            link = row.select_one("a[data-hovercard-type='repository']")
+            if link:
+                repo_path = link["href"].strip("/")
+                owner_name, repo_name = repo_path.split("/", 1)
+                results.append({
+                    "owner": owner_name,
+                    "repo": repo_name,
+                    "url": f"https://github.com/{repo_path}",
+                })
+
+        next_btn = soup.select_one("a[rel='next']")
+        if not next_btn:
+            break
+        url = next_btn["href"]
+
+    return results
+
+# Example: find every public repo depending on your package
+dependents = get_dependents("your-org", "your-sdk")`,
+      },
+      {
+        type: 'h2',
+        content: 'Enriching Dependents into Lead Profiles',
+      },
+      {
+        type: 'p',
+        content:
+          'Raw dependents are repo paths. To turn them into leads, fetch each repo owner\'s GitHub profile:',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+
+HEADERS = {"Authorization": "Bearer YOUR_GITHUB_TOKEN"}
+
+def enrich_dependent(owner: str) -> dict:
+    """Fetch GitHub user profile for a dependent repo owner."""
+    resp = requests.get(f"https://api.github.com/users/{owner}", headers=HEADERS)
+    if resp.status_code != 200:
+        return {}
+    data = resp.json()
+    return {
+        "login": data.get("login"),
+        "name": data.get("name"),
+        "email": data.get("email"),       # public email only
+        "company": data.get("company"),
+        "location": data.get("location"),
+        "bio": data.get("bio"),
+        "followers": data.get("followers"),
+        "public_repos": data.get("public_repos"),
+        "type": data.get("type"),         # "User" or "Organization"
+    }
+
+# Enrich top dependents, prioritise those with public emails
+leads = []
+for dep in dependents[:200]:
+    profile = enrich_dependent(dep["owner"])
+    if profile.get("email"):
+        leads.append({**dep, **profile})`,
+      },
+      {
+        type: 'h2',
+        content: 'Mining Competitor Dependents',
+      },
+      {
+        type: 'p',
+        content:
+          'The same technique applies to competitor repos. Find every public project that depends on a competitor\'s SDK and you have a warm list of developers in your category who have already evaluated and chosen a solution — but may be open to switching if your positioning is stronger.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `# In browser: visit the competitor dependents page
+https://github.com/competitor-org/competitor-sdk/network/dependents
+
+# Then filter by:
+# - Stars > 10 (active projects, not experiments)
+# - Language matching your ICP (Python, TypeScript, Go)
+# - Pushed recently (active maintenance = current user)`,
+      },
+      {
+        type: 'h2',
+        content: 'Prioritising Dependents for Outreach',
+      },
+      {
+        type: 'p',
+        content:
+          'Not all dependents are equal. Score them to prioritise your outreach queue:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stars > 100: popular open-source project — maintainer is visible and credible, outreach is worth personalising',
+          'Stars 10–100: active smaller project — healthy user, likely a developer at a startup or SMB',
+          'Stars < 10 + pushed recently: individual developer, likely evaluating in a personal project before company adoption',
+          'Organisation account: company-level adoption — highest ACV potential, route to sales team',
+          'Follower count > 500 on owner: developer influencer — worth a case study or partnership angle, not just outreach',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Using GitLeads for Continuous Dependency Signal Monitoring',
+      },
+      {
+        type: 'p',
+        content:
+          'Manual scraping gives you a snapshot. The dependency graph changes daily as new repos add your package. GitLeads\' keyword signal feature monitors GitHub continuously for references to your package name — in Issues (people asking how to use your SDK), PRs (adding your package), README files (listing your tool in their stack), and commit messages (importing your package for the first time). Combined with stargazer signals on your repo, this gives you a real-time pipeline of active adopters.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads monitors GitHub keyword mentions across Issues, PRs, Discussions, and code in real time. Add your package name as a keyword signal and receive enriched lead profiles whenever a developer references it publicly. Free plan: 50 leads/month. Start at gitleads.app.',
+      },
+      {
+        type: 'h2',
+        content: 'Outreach Template for SDK Dependent Leads',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `Subject: {their_repo} is using {your_package} — quick note
+
+Hi {first_name},
+
+Noticed {their_repo} is using {your_package} — thanks for building on it.
+
+We're expanding the SDK with {new_feature} and wanted to reach out to active users first.
+{One sentence on the feature and how it helps their specific use case}.
+
+Happy to share docs or answer any integration questions. Worth a quick async exchange?
+
+[Your name]`,
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: how to find leads on GitHub, GitHub star tracking tools, GitHub signals for sales, find SaaS customers on GitHub, GitHub lead generation for SaaS founders, open source lead generation.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

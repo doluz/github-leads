@@ -395,6 +395,40 @@ export const TOPICS: Topic[] = [
   topic('trino-engineers', 'Trino', 'Trino Engineers', 19000),
   topic('iceberg-engineers', 'Apache Iceberg', 'Apache Iceberg Engineers', 22000),
   topic('delta-lake-engineers', 'Delta Lake', 'Delta Lake Engineers', 18000),
+
+  // Vector databases (high 2026 growth)
+  topic('weaviate-developers', 'Weaviate', 'Weaviate Developers', 24000),
+  topic('qdrant-developers', 'Qdrant', 'Qdrant Developers', 21000),
+  topic('pinecone-developers', 'Pinecone', 'Pinecone Developers', 31000),
+  topic('chroma-developers', 'Chroma', 'Chroma Developers', 19000),
+  topic('milvus-developers', 'Milvus', 'Milvus Developers', 28000),
+  topic('pgvector-developers', 'pgvector', 'pgvector Developers', 34000),
+
+  // Observability & monitoring
+  topic('sentry-developers', 'Sentry', 'Sentry Developers', 89000),
+  topic('posthog-developers', 'PostHog', 'PostHog Developers', 44000),
+  topic('newrelic-developers', 'New Relic', 'New Relic Developers', 41000),
+  topic('honeycomb-developers', 'Honeycomb', 'Honeycomb Developers', 18000),
+  topic('axiom-developers', 'Axiom', 'Axiom Developers', 14000),
+
+  // AI LLM frameworks (gaps)
+  topic('llamaindex-developers', 'LlamaIndex', 'LlamaIndex Developers', 54000),
+  topic('dspy-developers', 'DSPy', 'DSPy Developers', 22000),
+  topic('litellm-developers', 'LiteLLM', 'LiteLLM Developers', 34000),
+  topic('instructor-developers', 'Instructor (Python)', 'Instructor Developers', 24000),
+  topic('openwebui-developers', 'Open WebUI', 'Open WebUI Developers', 29000),
+
+  // AI coding tools (2026 growth)
+  topic('cursor-ai-developers', 'Cursor AI', 'Cursor AI Developers', 38000),
+  topic('windsurf-ai-developers', 'Windsurf AI', 'Windsurf AI Developers', 19000),
+  topic('cline-developers', 'Cline', 'Cline Developers', 16000),
+  topic('aider-developers', 'Aider', 'Aider Developers', 21000),
+
+  // Communications & payments
+  topic('twilio-developers', 'Twilio', 'Twilio Developers', 127000),
+  topic('sendgrid-developers', 'SendGrid', 'SendGrid Developers', 84000),
+  topic('plaid-developers', 'Plaid', 'Plaid Developers', 38000),
+  topic('braintree-developers', 'Braintree', 'Braintree Developers', 31000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(
