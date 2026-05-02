@@ -612,6 +612,44 @@ export const TOPICS: Topic[] = [
   // CI / build systems
   topic('dagger-ci-developers', 'Dagger CI', 'Dagger CI Developers', 23000),
   topic('bazel-developers', 'Bazel', 'Bazel Developers', 29000),
+
+  // Game development
+  topic('godot-developers', 'Godot', 'Godot Developers', 54000),
+  topic('bevy-developers', 'Bevy', 'Bevy Developers', 21000),
+  topic('three-js-developers', 'Three.js', 'Three.js Developers', 67000),
+  topic('babylon-js-developers', 'Babylon.js', 'Babylon.js Developers', 28000),
+  topic('phaser-developers', 'Phaser.js', 'Phaser.js Developers', 34000),
+  topic('pygame-developers', 'Pygame', 'Pygame Developers', 44000),
+  topic('libgdx-developers', 'LibGDX', 'LibGDX Developers', 21000),
+
+  // Web scraping / browser automation
+  topic('puppeteer-developers', 'Puppeteer', 'Puppeteer Developers', 61000),
+  topic('scrapy-developers', 'Scrapy', 'Scrapy Developers', 48000),
+  topic('beautiful-soup-developers', 'Beautiful Soup', 'Beautiful Soup Developers', 34000),
+  topic('mechanize-developers', 'Mechanize', 'Mechanize Developers', 14000),
+
+  // Embedded / IoT / hardware
+  topic('arduino-developers', 'Arduino', 'Arduino Developers', 78000),
+  topic('esp32-developers', 'ESP32', 'ESP32 Developers', 42000),
+  topic('raspberry-pi-developers', 'Raspberry Pi', 'Raspberry Pi Developers', 89000),
+  topic('micropython-developers', 'MicroPython', 'MicroPython Developers', 34000),
+  topic('zephyr-rtos-developers', 'Zephyr RTOS', 'Zephyr RTOS Developers', 19000),
+  topic('freertos-developers', 'FreeRTOS', 'FreeRTOS Developers', 41000),
+  topic('platformio-developers', 'PlatformIO', 'PlatformIO Developers', 22000),
+  topic('risc-v-developers', 'RISC-V', 'RISC-V Developers', 28000),
+
+  // Cloud PaaS (gaps)
+  topic('fly-io-developers', 'Fly.io', 'Fly.io Developers', 31000),
+  topic('render-developers', 'Render', 'Render Developers', 24000),
+  topic('koyeb-developers', 'Koyeb', 'Koyeb Developers', 14000),
+
+  // AI / LLM tooling (new entrants)
+  topic('openrouter-developers', 'OpenRouter', 'OpenRouter Developers', 19000),
+  topic('cohere-developers', 'Cohere', 'Cohere Developers', 21000),
+  topic('phidata-developers', 'Phidata', 'Phidata Developers', 14000),
+  topic('haystack-ai-developers', 'Haystack AI', 'Haystack AI Developers', 17000),
+  topic('pydantic-ai-developers', 'PydanticAI', 'PydanticAI Developers', 19000),
+  topic('instructor-developers', 'Instructor (LLM)', 'Instructor Developers', 21000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(

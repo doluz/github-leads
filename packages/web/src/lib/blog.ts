@@ -18273,6 +18273,517 @@ def qualify_release_lead(owner, repo, actor_login, token):
 
   // ── Blog post 99 ──────────────────────────────────────────────────────────
   {
+    slug: 'github-webhook-lead-automation',
+    title: 'GitHub Webhook Lead Automation: Real-Time Signal Capture Without Polling',
+    description:
+      'GitHub webhooks deliver star, issue, PR, and discussion events instantly to your endpoint. Learn how to build a real-time lead capture pipeline that fires when developers signal buying intent on GitHub.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 10,
+    keywords: [
+      'github webhook lead automation',
+      'github webhook sales pipeline',
+      'real-time github lead capture',
+      'github star webhook',
+      'github issue webhook leads',
+      'automate github lead generation',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Polling the GitHub API for new stargazers or issue activity is the wrong architecture for lead capture. It introduces latency (you may miss a lead by hours), burns your rate limit, and requires infrastructure you have to maintain. GitHub webhooks are the correct primitive: the moment a developer stars your repo or opens an issue, GitHub pushes the event to your endpoint. This post covers how to receive, verify, and route those events into a lead pipeline.',
+      },
+      {
+        type: 'h2',
+        content: 'What GitHub Webhook Events to Subscribe To',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub supports over 30 webhook event types. For lead generation, subscribe to four:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'star — fires when a user stars or unstars your repo; the sender object is your lead',
+          'issues — fires on open, close, edit, label events; the user object is your lead candidate',
+          'issue_comment — fires when someone comments on an issue; useful for capturing engaged commenters',
+          'discussion + discussion_comment — if GitHub Discussions is enabled; captures long-form intent conversations',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'For competitor repos you do not own, webhooks are unavailable — you need to poll or use a tool like GitLeads that handles competitor monitoring. For your own repos, webhooks are the right approach.',
+      },
+      {
+        type: 'h2',
+        content: 'Setting Up a Webhook Receiver',
+      },
+      {
+        type: 'p',
+        content:
+          'A webhook receiver is an HTTP endpoint that accepts POST requests from GitHub. The minimum viable implementation verifies the signature, parses the event type, and routes to your lead pipeline:',
+      },
+      {
+        type: 'code',
+        language: 'typescript',
+        content: `import crypto from 'crypto';
+
+const GITHUB_WEBHOOK_SECRET = process.env.GITHUB_WEBHOOK_SECRET!;
+
+export async function POST(req: Request) {
+  const body = await req.text();
+  const signature = req.headers.get('x-hub-signature-256') ?? '';
+
+  // Verify signature — NEVER skip this
+  const expected = 'sha256=' + crypto
+    .createHmac('sha256', GITHUB_WEBHOOK_SECRET)
+    .update(body)
+    .digest('hex');
+  if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) {
+    return new Response('Unauthorized', { status: 401 });
+  }
+
+  const event = req.headers.get('x-github-event');
+  const payload = JSON.parse(body);
+
+  if (event === 'star' && payload.action === 'created') {
+    await captureStargazerLead(payload.sender);
+  } else if (event === 'issues' && payload.action === 'opened') {
+    await captureIssueLead(payload.issue.user, payload.issue);
+  }
+
+  return new Response('OK', { status: 200 });
+}`,
+      },
+      {
+        type: 'callout',
+        content:
+          'Always verify the HMAC-SHA256 signature. GitHub sends a X-Hub-Signature-256 header with every event. Skipping verification means anyone can POST fake lead events to your endpoint.',
+      },
+      {
+        type: 'h2',
+        content: 'Enriching the Lead Before Routing',
+      },
+      {
+        type: 'p',
+        content:
+          'The webhook payload includes the sender\'s GitHub login, ID, and avatar URL — but not their email, company, bio, or follower count. You need to enrich before routing to your CRM or outreach tool:',
+      },
+      {
+        type: 'code',
+        language: 'typescript',
+        content: `async function captureStargazerLead(sender: { login: string }) {
+  // Fetch full profile from GitHub API
+  const profile = await fetch(
+    \`https://api.github.com/users/\${sender.login}\`,
+    { headers: { Authorization: \`Bearer \${process.env.GITHUB_TOKEN}\` } }
+  ).then(r => r.json());
+
+  const lead = {
+    github_username: profile.login,
+    name: profile.name,
+    email: profile.email,           // public email only; often null
+    company: profile.company,
+    bio: profile.bio,
+    location: profile.location,
+    followers: profile.followers,
+    public_repos: profile.public_repos,
+    signal: 'starred_repo',
+    signal_context: 'New star on your repository',
+    captured_at: new Date().toISOString(),
+  };
+
+  // Route to your CRM / outreach tool
+  await pushToHubSpot(lead);
+  await notifySlack(lead);
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Rate Limiting and Queue Architecture',
+      },
+      {
+        type: 'p',
+        content:
+          'If your repo is popular, you may receive bursts of star events — product hunts, HN launches, and viral posts can deliver hundreds of star events in minutes. Handle this with a queue rather than inline API calls:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Webhook receiver: verify signature, enqueue event, return 200 immediately (GitHub will retry if you take >10 seconds)',
+          'Worker: dequeue, fetch GitHub profile with exponential backoff, enrich, push to destination',
+          'Dead letter queue: catch failed enrichments after 3 retries, alert for manual review',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'The GitHub API allows 5,000 authenticated requests per hour per token. For a viral launch receiving 1,000 stars per hour, enriching each lead uses 1,000 API requests — well within limits for a single token. For sustained high-volume repos, distribute across multiple tokens.',
+      },
+      {
+        type: 'h2',
+        content: 'Filtering for High-Signal Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every stargazer or issue opener is a qualified lead. Apply quality filters before routing to your outreach stack:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Follower threshold — developers with 50+ followers have demonstrated community presence',
+          'Public repos — more than 5 repos suggests active developer, not a test account',
+          'Account age — accounts created before 2023 are less likely to be throwaway accounts',
+          'Email availability — only route leads with a public email if your outreach tool requires it',
+          'Language match — if you sell a Ruby tool, prioritize leads whose top language is Ruby',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'When to Use GitLeads Instead of DIY Webhooks',
+      },
+      {
+        type: 'p',
+        content:
+          'DIY webhook pipelines work well for your own repos. But they have hard limits: you cannot receive webhooks from repos you do not own. You cannot watch competitor repos, industry repos, or keyword mentions across all of GitHub. For those signals, you need GitLeads.',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads monitors any public GitHub repository (including competitor and industry repos), watches for keyword mentions in issues, PRs, and discussions across GitHub, enriches every match automatically, and pushes qualified leads to HubSpot, Slack, Smartlead, Clay, Apollo, Salesforce, and 10+ other tools — without managing webhook infrastructure.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub star growth as market signal, turn GitHub stargazers into leads, GitHub buying signals for sales teams, push GitHub leads to HubSpot, GitHub competitor repo monitoring.',
+      },
+    ],
+  },
+
+  // ── Blog post 101 ──────────────────────────────────────────────────────────
+  {
+    slug: 'developer-intent-data-guide',
+    title: 'Developer Intent Data: The Complete Guide for B2B SaaS Sales Teams',
+    description:
+      'Developer intent data tells you which developers are actively researching problems your product solves — before they reach out. Learn what it is, where it comes from, and how to build a pipeline around it.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 11,
+    keywords: [
+      'developer intent data',
+      'github intent signals',
+      'developer buying signals',
+      'b2b saas developer sales',
+      'developer lead generation intent',
+      'github signal monitoring',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'In B2B SaaS, the best time to reach a prospect is when they are actively researching a solution to the problem you solve — not six months later when they are evaluating vendors, and not when they are fully committed to a competitor. Developer intent data gives you that timing advantage. It surfaces the signals that indicate a developer is in-market before they fill out a contact form.',
+      },
+      {
+        type: 'h2',
+        content: 'What Is Developer Intent Data?',
+      },
+      {
+        type: 'p',
+        content:
+          'Intent data is behavioral signal data that indicates a person or company is researching a specific problem, category, or solution. Traditional B2B intent data (Bombora, 6sense, G2 Buyer Intent) captures web research: which companies are visiting review sites or content about your category.',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer intent data captures GitHub-native behavior: what developers are building, what problems they are encountering, what tools they are evaluating — directly from the platform where they spend their time. This is fundamentally more reliable for developer-facing products than web intent data, because developers do their research on GitHub, not on generic B2B review sites.',
+      },
+      {
+        type: 'h2',
+        content: 'The Four Categories of GitHub Intent Signal',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signals — a developer stars a repo in your category. They are aware of the problem and evaluating solutions. Recency matters: stars from the last 30 days are 10x more actionable than historical stars.',
+          'Keyword signals in issues — a developer opens or comments on an issue mentioning your category, a competitor name, a specific error, or a pain point. This is the highest-intent signal: they have a specific problem right now.',
+          'Keyword signals in PRs and discussions — developers describing what they are building, asking about integrations, or discussing architectural decisions reveal their stack and needs.',
+          'Dependency signals — a developer adds your category\'s package to their package.json or requirements.txt. If you can detect this (via dependency graph monitoring or commit scanning), it is proof of active adoption or evaluation.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Developer Intent vs. Traditional B2B Intent',
+      },
+      {
+        type: 'p',
+        content:
+          'Traditional intent data has three key weaknesses for developer-tool companies:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Company-level, not person-level — Bombora tells you "Acme Corp is researching API monitoring". It does not tell you which engineer has the problem, what specific issue they hit, or whether they are the decision maker.',
+          'Web-based signals miss GitHub-native research — Developers research by reading READMEs, browsing issues, and starring repos. They rarely visit B2B review sites before they have already formed an opinion.',
+          'Lag time — Traditional intent data aggregates signals over weeks. GitHub signals are real-time: you can know a developer starred a relevant repo within minutes.',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub intent data is person-level, GitHub-native, and real-time. For developer-facing products, it is a category upgrade from traditional B2B intent.',
+      },
+      {
+        type: 'h2',
+        content: 'How to Collect Developer Intent Data',
+      },
+      {
+        type: 'p',
+        content:
+          'There are three approaches to collecting GitHub intent signals, in order of increasing sophistication:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Manual GitHub search — Use GitHub\'s search operators to find relevant issues and users. Free but not scalable; you cannot monitor in real-time, and GitHub rate-limits unauthenticated searches heavily.',
+          'Custom API pipeline — Webhook receivers for your own repos plus scheduled polling for keyword searches. Requires engineering investment, ongoing maintenance, and GitHub API token management.',
+          'GitLeads — Managed signal capture platform that monitors any repos and keywords at scale, enriches lead profiles automatically, and pushes to your existing sales stack. No infrastructure to maintain.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Building a Pipeline Around Developer Intent',
+      },
+      {
+        type: 'p',
+        content:
+          'Raw intent signals without a routing and actioning workflow generate no revenue. The complete pipeline has five stages:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Signal capture — monitor GitHub repos and keywords for relevant activity',
+          'Enrichment — fetch full developer profile: name, email, company, bio, languages, followers',
+          'Qualification — apply ICP filters: role, company size, tech stack match, signal strength',
+          'Routing — push qualified leads to the right destination: CRM for AE follow-up, outreach tool for automated sequence, Slack for DevRel awareness',
+          'Actioning — personalized outreach referencing the specific signal context (not generic cold email)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Signal-Based Outreach Playbooks',
+      },
+      {
+        type: 'callout',
+        content:
+          'The signal context is your personalization hook. A developer who opened an issue titled "latency spikes above 500ms" wants to hear how your product eliminates latency spikes — not a generic "we help developer teams move faster" pitch.',
+      },
+      {
+        type: 'p',
+        content:
+          'Three playbooks that work with GitHub intent data:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer sequence — 3-touch email or LinkedIn sequence over 7 days. Touch 1: reference the repo category and ask about their use case. Touch 2: send a relevant case study or demo. Touch 3: direct ask for a 15-minute call.',
+          'Pain-signal fast follow — developer opened an issue describing a problem you solve. Same-day outreach referencing the problem category (not the specific issue — it reads as intrusive). Conversion rate is 3-5x a cold sequence.',
+          'Competitor switch — developer opened a migration-intent issue on a competitor repo. Lead with your migration guide and a specific differentiator relevant to their stated pain.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Getting Started with Developer Intent Data',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads provides managed developer intent data for developer-tool companies. You configure repos to monitor (including competitor repos) and keywords to watch, and GitLeads pushes enriched lead profiles to HubSpot, Salesforce, Apollo, Smartlead, Clay, Slack, and 10+ other tools in real-time.',
+      },
+      {
+        type: 'p',
+        content:
+          'The free plan includes 50 leads per month — enough to validate signal quality for your ICP before committing to a paid plan. No engineering work required beyond connecting your destination tools.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub buying signals for sales teams, GitHub competitor repo monitoring, turn GitHub stargazers into leads, GitHub search operators for lead generation, push GitHub leads to HubSpot.',
+      },
+    ],
+  },
+
+  // ── Blog post 102 ──────────────────────────────────────────────────────────
+  {
+    slug: 'find-embedded-iot-developer-leads-github',
+    title: 'How to Find Embedded Systems and IoT Developer Leads on GitHub',
+    description:
+      'Embedded systems and IoT developers are a high-value, underserved segment for developer tools. Learn how to identify, qualify, and reach them using GitHub signals.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 8,
+    keywords: [
+      'find embedded developers github',
+      'iot developer leads',
+      'embedded systems developer prospecting',
+      'github leads embedded',
+      'firmware developer leads',
+      'hardware developer outreach',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Embedded systems and IoT developers are some of the hardest developers to reach through traditional B2B channels. They spend almost no time on LinkedIn, they ignore generic cold outreach, and they have a deep allergy to sales content that does not speak their language. But they are extremely active on GitHub — and if you sell a developer tool with embedded or IoT applications, they represent a high-value segment you can reach with the right signals.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Embedded Developers Are Worth Targeting',
+      },
+      {
+        type: 'p',
+        content:
+          'Three reasons embedded developers are underserved by most developer-tool GTM:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Hardware-software overlap — embedded developers often have budget authority their web counterparts do not. They evaluate and purchase tools for their team without a procurement committee.',
+          'Long retention — embedded developers who adopt a tool tend to keep it for years. The migration cost for firmware tooling is high, so churn is lower than web-development tooling.',
+          'Low competition — most developer-tool marketing is aimed at web developers. Embedded developers receive dramatically less targeted outreach, so conversion rates are higher when you do reach them.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'GitHub Signals That Identify Embedded Developers',
+      },
+      {
+        type: 'p',
+        content:
+          'Unlike web developers (easily identified by JavaScript/TypeScript repos), embedded developers require a richer signal mix. Look for:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Language signals — top languages: C, C++, Assembly, Rust (especially embedded Rust), Python with MicroPython',
+          'Repository topics — repos tagged arduino, esp32, raspberry-pi, stm32, rtos, embedded, firmware, micropython, zephyr',
+          'Dependency/tooling signals — CMakeLists.txt, platformio.ini, cargo with thumbv7em targets, Makefile with arm-none-eabi',
+          'Keyword signals — GitHub issues mentioning "UART", "SPI", "I2C", "GPIO", "bare metal", "RTOS", "OTA", "CAN bus", "MODBUS"',
+          'Star activity — stars on repos: arduino/Arduino, espressif/arduino-esp32, zephyrproject-rtos/zephyr, raspberrypi/pico-sdk',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Finding Embedded Developers via Repo Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'The most reliable signal for embedded developer intent is stargazing on embedded-ecosystem repos. A developer who starred the Zephyr RTOS repository in the past 30 days is actively evaluating or working with Zephyr — they are a qualified lead for any tool that supports Zephyr development:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# High-signal embedded repos to monitor for new stargazers
+# zephyrproject-rtos/zephyr       — RTOS, 10k+ stars
+# espressif/arduino-esp32         — ESP32, 13k+ stars
+# raspberrypi/pico-sdk            — Raspberry Pi Pico
+# platformio/platformio-core      — PlatformIO build system
+# rust-embedded/embedded-hal      — Embedded Rust ecosystem
+
+# Get recent stargazers with timestamps
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  -H "Accept: application/vnd.github.star+json" \\
+  "https://api.github.com/repos/zephyrproject-rtos/zephyr/stargazers?per_page=100"`,
+      },
+      {
+        type: 'h2',
+        content: 'Keyword Signals for Embedded Developer Pain',
+      },
+      {
+        type: 'p',
+        content:
+          'Issues and discussions in embedded repos contain highly specific pain signals. The vocabulary is different from web development — learn the terms your targets use:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find developers with embedded pain signals in issues
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=RTOS+OR+firmware+OR+bare+metal+OR+embedded+is:issue+is:open&sort=created&order=desc"
+
+# Find developers discussing specific chip families
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=STM32+OR+ESP32+OR+nRF52+OR+RP2040+is:issue+is:open+language:C&sort=created"`,
+      },
+      {
+        type: 'h2',
+        content: 'Qualifying Embedded Developer Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Not every developer who touched an Arduino sketch is a qualified lead. Apply these qualification criteria for embedded ICP:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Multiple embedded repos — a developer with 3+ repos containing C/C++ with embedded tooling is far more valuable than someone who ran a tutorial once',
+          'Recent activity — last commit or issue activity within 90 days indicates active work',
+          'Company affiliation — developers who list a company in their GitHub profile and have embedded repos are likely professional embedded engineers with budget authority',
+          'Follower count — embedded developers with 100+ followers are influencers within hardware communities; reaching them has multiplier effects',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Outreach That Works for Embedded Developers',
+      },
+      {
+        type: 'callout',
+        content:
+          'Embedded developers have a zero-tolerance policy for vague outreach. "We help teams move faster" is irrelevant. "We reduce flash size by 30% for Cortex-M0 targets" is a conversation starter. Know their stack before you reach out.',
+      },
+      {
+        type: 'p',
+        content:
+          'Effective outreach for embedded developers is technical and specific:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Reference their specific chip or RTOS — show you understand their constraints',
+          'Lead with a technical metric — latency, binary size, build time, power consumption',
+          'Link to documentation or a GitHub demo, not a marketing page',
+          'Offer a free trial or evaluation period — embedded developers want to test before they buy',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Using GitLeads to Monitor Embedded Developer Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads lets you monitor embedded ecosystem repos (Zephyr, ESP-IDF, PlatformIO, Pico SDK, and others) for new stargazers, plus keyword signals across GitHub issues and discussions. Each signal creates an enriched lead profile with the developer\'s GitHub data, and pushes it to your CRM, outreach tool, or Slack.',
+      },
+      {
+        type: 'p',
+        content:
+          'For embedded developer GTM, the keyword signal is especially powerful: you can monitor for mentions of specific chip families, error messages, or pain points across all of GitHub — not just repos you own. A developer who just posted an issue about ESP32 OTA firmware update failures is a perfect lead for a tool that addresses embedded deployment pain.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related: GitHub buying signals for sales teams, find DevOps leads on GitHub, GitHub signal monitoring for developer tools, push GitHub leads to HubSpot, developer intent data guide.',
+      },
+    ],
+  },
+
+  // ── Blog post 99 (original) ──────────────────────────────────────────────────────────
+  {
     slug: 'github-competitor-repo-monitoring',
     title: 'GitHub Competitor Repo Monitoring: Find Developers Ready to Switch Tools',
     description:
