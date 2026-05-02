@@ -19674,6 +19674,550 @@ def get_leads_from_code_search(query: str) -> list[dict]:
       },
     ],
   },
+  // ─── push-github-leads-to-lemlist ──────────────────────────────────────────
+  {
+    slug: 'push-github-leads-to-lemlist',
+    title: 'Push GitHub Leads to Lemlist: Automate Developer Outreach Sequences',
+    description:
+      'Learn how to connect GitLeads to Lemlist and automatically enroll GitHub developer leads into cold email campaigns the moment they show a buying signal.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 7,
+    keywords: [
+      'push github leads to lemlist',
+      'github leads lemlist',
+      'lemlist github integration',
+      'developer outreach lemlist',
+      'github lead generation lemlist',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Lemlist is one of the most popular cold outreach tools in the developer GTM stack — personalized images, LinkedIn steps, and multi-channel sequences. But the hardest part of cold outreach is not the sequence; it is knowing who to add to it and when. GitLeads solves that by capturing GitHub buying signals — new stargazers, keyword mentions in issues, forks of competitor repos — and pushing enriched developer profiles directly into your Lemlist campaigns.',
+      },
+      {
+        type: 'h2',
+        content: 'Why GitHub Signals Beat Traditional Lead Lists for Lemlist Campaigns',
+      },
+      {
+        type: 'p',
+        content:
+          'A developer who just starred your competitor\'s repo is not a cold lead. They have already shown intent. When you push that person into a Lemlist sequence within hours of their GitHub activity, your open rates and reply rates are fundamentally different from a list you pulled from a contact database last month. GitLeads captures that intent window and closes the loop into Lemlist automatically.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signals: developer stars a repo in your category → auto-enrolled in a Lemlist campaign',
+          'Keyword signals: developer mentions your product category keyword in a GitHub issue → campaign triggered',
+          'Fork signals: developer forks a competitor or related open-source repo → warm outreach sequence starts',
+          'All enriched with: name, email, GitHub username, company, location, top languages, bio',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How to Connect GitLeads to Lemlist',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads supports Lemlist natively as an integration destination. When a new lead matches your signal criteria, GitLeads can add them to a Lemlist campaign automatically. Here are the two main integration paths:',
+      },
+      {
+        type: 'h3',
+        content: 'Option 1: Native GitLeads → Lemlist Integration',
+      },
+      {
+        type: 'ol',
+        items: [
+          'In GitLeads, go to Integrations → Lemlist',
+          'Paste your Lemlist API key (found in Lemlist Settings → Integrations → API)',
+          'Select the campaign you want to push leads into',
+          'Configure which signal types (stargazers / keywords) should trigger the push',
+          'Save — new matching leads will now be added to Lemlist automatically',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Option 2: GitLeads Webhook → Zapier/Make → Lemlist',
+      },
+      {
+        type: 'p',
+        content:
+          'If you need custom filtering or enrichment logic before leads hit Lemlist, use the GitLeads webhook output to drive a Zapier or Make automation. The webhook fires on every new lead event with a full JSON payload.',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `// GitLeads webhook payload (example)
+{
+  "event": "lead.created",
+  "signal_type": "stargazer",
+  "repo": "vercel/next.js",
+  "lead": {
+    "github_username": "alexchen",
+    "name": "Alex Chen",
+    "email": "alex@example.com",
+    "company": "Acme Corp",
+    "location": "San Francisco, CA",
+    "followers": 2840,
+    "top_languages": ["TypeScript", "Go", "Rust"],
+    "bio": "Building developer infrastructure at Acme"
+  },
+  "triggered_at": "2026-05-02T14:23:11Z"
+}`,
+      },
+      {
+        type: 'p',
+        content:
+          'In Zapier or Make, you map the webhook fields to Lemlist\'s "Add Lead to Campaign" action. Use the GitHub bio and top languages to personalize the first line of your Lemlist email — which is exactly the kind of icebreaker Lemlist was designed for.',
+      },
+      {
+        type: 'h2',
+        content: 'Lemlist Sequence Structure for GitHub Developer Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub developer leads respond differently from typical SaaS buyers. They are skeptical of generic outreach and will immediately ignore anything that feels like it was sent to 10,000 people. Keep your Lemlist sequence tight and technical:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Day 0 – Email 1: Reference the specific GitHub signal. "I saw you starred {repo_name} — we built GitLeads to help teams like yours find developers showing exactly that kind of intent."',
+          'Day 3 – Email 2: Add a specific value prop. Share one concrete example of a team using GitLeads to build pipeline from GitHub signals.',
+          'Day 7 – LinkedIn step: Connect and mention the same GitHub context.',
+          'Day 10 – Email 3: The break-up. "I\'ll leave it here — if you ever want to see how we track GitHub stargazers for pipeline, happy to show you."',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'Tip: Use Lemlist\'s custom variables to inject {{github_username}}, {{top_language}}, and {{repo_name}} into your templates. GitLeads passes all of these in the lead payload.',
+      },
+      {
+        type: 'h2',
+        content: 'Which GitLeads Plan Includes Lemlist Integration?',
+      },
+      {
+        type: 'p',
+        content:
+          'The native Lemlist push is available on the Starter plan ($49/month) and above. Webhook-based integrations (for Zapier/Make routing to Lemlist) are available on all paid plans. The Free plan supports CSV export, which you can manually import into Lemlist.',
+      },
+      {
+        type: 'h2',
+        content: 'Results to Expect',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Open rates: GitHub-signal-sourced leads typically see 40–60% open rates vs. 20–30% for cold lists',
+          'Reply rates: 8–15% for developer-targeted sequences with signal-based personalization',
+          'Time to enroll: leads reach Lemlist within minutes of the GitHub signal firing',
+          'Lead volume: depends on your signal configuration — most teams see 50–500 new leads per week',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'If you are already using Lemlist for outreach, adding GitLeads as the signal source is the single highest-leverage thing you can do to improve campaign performance. You are not changing your tool — you are improving the quality and timing of who enters it.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: push GitHub leads to HubSpot, push GitHub leads to Apollo, GitHub keyword monitoring for sales, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+
+  // ─── github-organization-monitoring ───────────────────────────────────────
+  {
+    slug: 'github-organization-monitoring',
+    title: 'How to Monitor GitHub Organizations to Find Warm Developer Leads',
+    description:
+      'GitHub organizations reveal company-level developer activity and buying intent. Learn how to monitor org signals — new repos, team growth, dependency changes — to find warm leads.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 8,
+    keywords: [
+      'github organization monitoring',
+      'monitor github organizations',
+      'github org signals',
+      'company github activity',
+      'developer lead generation github org',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub users do not buy your product — companies do. And companies on GitHub reveal more about their technology stack, team growth, and vendor intent than any website visit or LinkedIn profile ever could. Monitoring GitHub organizations is one of the highest-signal lead generation techniques available to developer tool companies in 2026.',
+      },
+      {
+        type: 'h2',
+        content: 'What GitHub Organizations Tell You About Buying Intent',
+      },
+      {
+        type: 'p',
+        content:
+          'A GitHub organization is the canonical technical footprint of a company. When you monitor org activity, you see:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'New public repositories — what the company is building and with what stack',
+          'Repository topics — technology choices tagged explicitly by the team',
+          'README and dependency files — exact libraries, frameworks, and vendors in use',
+          'New members joining the org — headcount growth, technical hires',
+          'Stars and forks from org members — what tools individuals in the company are evaluating',
+          'Issues and PR patterns — what problems the team is actively solving',
+          'GitHub Discussions activity — community and adoption signals',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Signal Types Worth Monitoring at the Org Level',
+      },
+      {
+        type: 'h3',
+        content: 'Signal 1: New Repositories with Relevant Stack Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'When a company creates a new public repo using a technology you sell into, that is a first-party buying signal. A company spinning up a new repo with a FastAPI backend and a requirements.txt that includes your competitor means they are actively building in your space. The GitHub API exposes this in real time:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# List recent public repos for an organization
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/orgs/COMPANY/repos?sort=created&direction=desc&per_page=10"
+
+# Check repo topics for technology signals
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  -H "Accept: application/vnd.github.mercy-preview+json" \\
+  "https://api.github.com/repos/COMPANY/REPO/topics"`,
+      },
+      {
+        type: 'h3',
+        content: 'Signal 2: Dependency Changes (package.json, requirements.txt, go.mod)',
+      },
+      {
+        type: 'p',
+        content:
+          'Dependency files are the most honest signal of what a company actually uses vs. what they claim to use. A commit that adds your competitor to package.json is a sales trigger. A commit that removes them is an even bigger one. You can monitor these via GitHub\'s commit API filtered to specific file paths.',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+
+headers = {"Authorization": "Bearer YOUR_TOKEN"}
+
+def check_dependency_changes(org, repo, filename="package.json"):
+    """Watch for commits that modify dependency files."""
+    url = f"https://api.github.com/repos/{org}/{repo}/commits"
+    params = {"path": filename, "per_page": 5}
+    resp = requests.get(url, headers=headers, params=params)
+    commits = resp.json()
+
+    for commit in commits:
+        sha = commit["sha"]
+        # Get the diff for this commit
+        diff_url = f"https://api.github.com/repos/{org}/{repo}/commits/{sha}"
+        diff = requests.get(diff_url, headers=headers).json()
+        # Check for competitor mentions in the diff
+        for file in diff.get("files", []):
+            if filename in file["filename"]:
+                if "competitor-package" in file.get("patch", ""):
+                    print(f"Competitor added/removed in {org}/{repo} commit {sha}")`,
+      },
+      {
+        type: 'h3',
+        content: 'Signal 3: New Members Joining the Organization',
+      },
+      {
+        type: 'p',
+        content:
+          'A company adding a new engineer to their GitHub org is a headcount signal. Growing engineering teams are more likely to be evaluating new tools. While member lists are often private, you can track public member growth indirectly via the org\'s public member count and by watching for new contributors on org repos.',
+      },
+      {
+        type: 'h3',
+        content: 'Signal 4: Keyword Mentions in Issues and PRs',
+      },
+      {
+        type: 'p',
+        content:
+          'When a developer at a target company mentions your product category in a GitHub issue — "we need better observability tooling", "looking for a Kafka alternative", "how should we handle billing?" — that is a buying signal with a named contact attached. GitLeads monitors these keyword patterns across GitHub and surfaces the author as a lead.',
+      },
+      {
+        type: 'h2',
+        content: 'How to Scale GitHub Org Monitoring with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'Monitoring individual orgs manually is feasible for an account-based list of 20–50 target companies. Scaling to hundreds or thousands of orgs — your entire Total Addressable Market — requires automation. GitLeads handles this by:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Ingesting keyword signals from GitHub Issues, PRs, Discussions, README files, and commit messages across millions of public repos',
+          'Enriching the signal author with their GitHub profile, email (if public), company affiliation, and org membership',
+          'Matching signals to your ICP criteria (company size, tech stack, location)',
+          'Pushing matched leads into your CRM or outreach tool within hours of the signal firing',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads keyword signals work at org level: if you monitor "kafka migration" as a keyword, and a developer at Stripe opens an issue mentioning it, you get that lead with their name, email, GitHub profile, and the exact issue as context.',
+      },
+      {
+        type: 'h2',
+        content: 'Org-Level vs. Individual-Level GitHub Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Most GitHub lead generation tools focus on individual developers. GitLeads gives you both: the individual contact who triggered the signal, plus their org context — company name, org size, and the specific repo where the signal fired. This means your outreach can reference both the individual\'s activity and the company\'s context.',
+      },
+      {
+        type: 'h2',
+        content: 'Building an Account-Based Pipeline from GitHub Org Signals',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Define your ICP at the org level: company size (infer from GitHub member count + repo count), industry (infer from repo topics), stack (infer from dependencies)',
+          'Configure GitLeads keyword signals for the problems your product solves',
+          'Tag leads by their org in your CRM — one signal = one individual lead, but all leads from the same org roll up to one account',
+          'Prioritize accounts where multiple team members have shown signals — multi-thread intent is a strong buying predictor',
+          'Use stargazer tracking on competitor repos to catch orgs evaluating alternatives',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub org monitoring is the closest thing to account-based intelligence that developer-focused GTM teams have. Combine it with GitLeads\'s real-time signal capture and your existing CRM to build a pipeline of warm company-level leads that your sales team can actually act on.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: GitHub buying signals for sales teams, GitHub keyword monitoring for sales, monitor GitHub issues for sales, push GitHub leads to HubSpot.',
+      },
+    ],
+  },
+
+  // ─── github-fork-signals-as-leads ─────────────────────────────────────────
+  {
+    slug: 'github-fork-signals-as-leads',
+    title: 'GitHub Forks as Buying Signals: Building a Pipeline from Repository Forks',
+    description:
+      'Developers who fork a repository are further down the adoption funnel than stargazers. Learn how to turn GitHub fork activity into warm sales leads for your developer tool.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 7,
+    keywords: [
+      'github fork signals',
+      'github forks as leads',
+      'fork based lead generation',
+      'github buying signals forks',
+      'developer lead generation github forks',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub has three primary engagement signals: stars, watches, and forks. Of the three, forks are the strongest buying signal by a significant margin. When a developer forks a repository, they are not bookmarking it — they are actively building with it, contributing to it, or evaluating it for production use. If that repository is yours or a competitor\'s, that fork is a sales trigger.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Fork Signals Beat Star Signals',
+      },
+      {
+        type: 'p',
+        content:
+          'Stars are easy and low-commitment. A developer can star a repo from a tweet they scrolled past in 10 seconds. Stars are still useful — they represent interest — but they do not require intent to use.',
+      },
+      {
+        type: 'p',
+        content:
+          'Forks require intent. A developer who forks your SDK is probably trying to run the code locally, make a modification, or understand it deeply enough to submit a PR. That person is two or three steps closer to being a paying customer than someone who starred it.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Star = "This looks interesting"',
+          'Fork = "I am actively working with this"',
+          'Fork of a competitor repo = "I am evaluating what to build on — reach me now"',
+          'Fork + new commits within 48 hours = "I am already building — highest priority lead"',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Types of Fork Signals and What They Mean',
+      },
+      {
+        type: 'h3',
+        content: 'Your Own Repository Forks',
+      },
+      {
+        type: 'p',
+        content:
+          'A fork of your own repo is the warmest possible signal. The developer is already building with your product, is likely already using or planning to use it, and may have a specific customization need. This is a perfect moment for a low-pressure "how\'s it going with the fork?" outreach from DevRel or a founder.',
+      },
+      {
+        type: 'h3',
+        content: 'Competitor Repository Forks',
+      },
+      {
+        type: 'p',
+        content:
+          'A fork of a direct competitor\'s repo means the developer is in evaluation mode. They are hands-on with a competing product. This is the ideal moment to offer a comparison, a migration guide, or a "have you tried us?" outreach. The timing matters — reach them before they commit deep to the competitor\'s stack.',
+      },
+      {
+        type: 'h3',
+        content: 'Complementary Tool Forks',
+      },
+      {
+        type: 'p',
+        content:
+          'If a developer forks a repo that is commonly used alongside your product (an SDK, a framework, an integration library), they are building in your ecosystem. They may not know your product yet, but they are exactly your ICP. These forks are the best source of net-new pipeline from GitHub.',
+      },
+      {
+        type: 'h2',
+        content: 'How to Extract Fork Leads from the GitHub API',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+import time
+
+headers = {"Authorization": "Bearer YOUR_TOKEN"}
+
+def get_fork_leads(owner, repo, since_days=7):
+    """Get developers who forked a repo in the last N days."""
+    leads = []
+    url = f"https://api.github.com/repos/{owner}/{repo}/forks"
+
+    for page in range(1, 20):
+        resp = requests.get(url, headers=headers, params={
+            "sort": "newest",
+            "page": page,
+            "per_page": 100
+        })
+        forks = resp.json()
+        if not forks:
+            break
+
+        for fork in forks:
+            # Each fork is a repo; the owner is the developer who forked
+            forker_login = fork["owner"]["login"]
+
+            # Enrich with full profile
+            profile_resp = requests.get(
+                f"https://api.github.com/users/{forker_login}",
+                headers=headers
+            )
+            profile = profile_resp.json()
+
+            leads.append({
+                "login": profile["login"],
+                "name": profile.get("name"),
+                "email": profile.get("email"),
+                "company": profile.get("company"),
+                "location": profile.get("location"),
+                "followers": profile["followers"],
+                "bio": profile.get("bio"),
+                "fork_created_at": fork["created_at"],
+            })
+            time.sleep(0.1)  # respect rate limits
+
+    return leads
+
+# Example: get leads from people who forked a competitor's SDK
+competitor_fork_leads = get_fork_leads("competitor-org", "competitor-sdk")
+print(f"Found {len(competitor_fork_leads)} fork leads")`,
+      },
+      {
+        type: 'h2',
+        content: 'Combining Fork Signals with Commit Activity',
+      },
+      {
+        type: 'p',
+        content:
+          'A fork with no subsequent commits may indicate passive curiosity. A fork with active commits in the first 48 hours means the developer is building right now. You can filter for high-intent forks by checking whether the forked repo has been pushed to recently:',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `from datetime import datetime, timedelta
+
+def filter_active_forks(forks):
+    """Return only forks with commits in the last 48 hours."""
+    cutoff = datetime.utcnow() - timedelta(hours=48)
+    active = []
+    for fork in forks:
+        pushed_at = datetime.fromisoformat(fork["pushed_at"].replace("Z", ""))
+        if pushed_at > cutoff:
+            active.append(fork)
+    return active`,
+      },
+      {
+        type: 'h2',
+        content: 'Scaling Fork Lead Generation with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'The manual approach above works for monitoring one or two repos. If you want to track fork signals across your own repos, competitor repos, and ecosystem repos simultaneously — and have those leads pushed into your CRM in real time — that is what GitLeads automates.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Add any repository to GitLeads as a tracked repo (your own, competitor, or complementary)',
+          'GitLeads monitors for new forks in real time using the GitHub API + webhooks',
+          'Each new forker\'s profile is enriched: name, email, company, followers, bio, top languages',
+          'The lead is pushed to your configured destination: HubSpot, Slack, Salesforce, Pipedrive, Clay, Lemlist, or webhook',
+          'Your sales team or outreach sequence reaches the developer within hours of the fork',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads tracks both stargazer and fork signals on tracked repositories. You can configure whether to push only forks, only stars, or both — and set minimum follower thresholds to filter for higher-influence developers.',
+      },
+      {
+        type: 'h2',
+        content: 'What to Say to Fork Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'Developer outreach that references a specific action converts much better than generic outreach. For fork leads, the context is clear:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Your own fork: "Hey {name}, I saw you forked {repo} — happy to answer any questions or help if you hit any snags. What are you building?"',
+          'Competitor fork: "Hey {name}, I noticed you\'ve been working with {competitor}. We built {product} as an alternative — here\'s how we compare: [link]. Worth 15 minutes?"',
+          'Ecosystem fork: "Hey {name}, I saw you\'re building with {ecosystem_tool}. We integrate natively with it — [demo link]. Might save you some boilerplate."',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'Fork signals are the highest-quality GitHub leads available. They represent active, hands-on intent — not passive browsing. Building a pipeline from fork activity is one of the fastest ways to add warm, context-rich developer leads to your sales process.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: turn GitHub stargazers into leads, GitHub buying signals for sales teams, competitor repo stargazers as leads, GitHub signal monitoring.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

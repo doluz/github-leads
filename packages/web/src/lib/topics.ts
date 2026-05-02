@@ -696,6 +696,67 @@ export const TOPICS: Topic[] = [
 
   // SST / Wasp
   topic('wasp-lang-developers', 'Wasp', 'Wasp Developers', 16000),
+
+  // Mobile UI frameworks (2026 growth)
+  topic('jetpack-compose-developers', 'Jetpack Compose', 'Jetpack Compose Developers', 61000),
+  topic('swiftui-developers', 'SwiftUI', 'SwiftUI Developers', 54000),
+
+  // Infrastructure / networking
+  topic('opentofu-developers', 'OpenTofu', 'OpenTofu Developers', 28000),
+  topic('podman-developers', 'Podman', 'Podman Developers', 38000),
+  topic('tailscale-developers', 'Tailscale', 'Tailscale Developers', 61000),
+  topic('headscale-developers', 'Headscale', 'Headscale Developers', 18000),
+  topic('netbird-developers', 'NetBird', 'NetBird Developers', 22000),
+
+  // Databases (new entrants)
+  topic('surrealdb-developers', 'SurrealDB', 'SurrealDB Developers', 29000),
+
+  // Animation / UI motion
+  topic('framer-motion-developers', 'Framer Motion', 'Framer Motion Developers', 44000),
+  topic('gsap-developers', 'GSAP', 'GSAP Developers', 48000),
+
+  // Load testing / QA
+  topic('k6-load-testing-developers', 'k6', 'k6 Developers', 31000),
+  topic('locust-developers', 'Locust', 'Locust Developers', 24000),
+
+  // Data orchestration (gaps)
+  topic('dagster-developers', 'Dagster', 'Dagster Developers', 34000),
+  topic('mage-ai-developers', 'Mage AI', 'Mage AI Developers', 21000),
+  topic('mlflow-developers', 'MLflow', 'MLflow Developers', 54000),
+
+  // Observability (new entrants)
+  topic('signoz-developers', 'SigNoz', 'SigNoz Developers', 19000),
+  topic('grafana-alloy-developers', 'Grafana Alloy', 'Grafana Alloy Developers', 16000),
+
+  // Billing / monetization infrastructure
+  topic('lago-developers', 'Lago (Billing)', 'Lago Developers', 14000),
+
+  // AI small models / agent frameworks
+  topic('smolagents-developers', 'smolagents', 'smolagents Developers', 16000),
+  topic('mem0-developers', 'Mem0', 'Mem0 Developers', 22000),
+  topic('continue-dev-developers', 'Continue.dev', 'Continue.dev Developers', 28000),
+
+  // Python web frameworks (gaps)
+  topic('litestar-developers', 'Litestar', 'Litestar Developers', 21000),
+  topic('starlette-developers', 'Starlette', 'Starlette Developers', 48000),
+
+  // Developer docs tools
+  topic('mintlify-developers', 'Mintlify', 'Mintlify Developers', 19000),
+
+  // API tooling (gaps)
+  topic('openapi-generator-developers', 'OpenAPI Generator', 'OpenAPI Generator Developers', 38000),
+
+  // Rust web frameworks
+  topic('leptos-developers', 'Leptos', 'Leptos Developers', 18000),
+
+  // Cloudflare AI ecosystem (2026 growth)
+  topic('cloudflare-ai-developers', 'Cloudflare AI', 'Cloudflare AI Developers', 24000),
+
+  // Frontend frameworks (new)
+  topic('svelte-5-developers', 'Svelte 5', 'Svelte 5 Developers', 31000),
+
+  // Evidence BI
+  topic('evidence-dev-developers', 'Evidence (BI)', 'Evidence BI Developers', 14000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(
