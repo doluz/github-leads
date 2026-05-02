@@ -560,6 +560,58 @@ export const TOPICS: Topic[] = [
   // API management (gaps)
   topic('hurl-developers', 'Hurl', 'Hurl Developers', 21000),
   topic('scalar-api-developers', 'Scalar', 'Scalar Developers', 17000),
+
+  // Developer personas (high-value GTM)
+  topic('founding-engineers', 'Founding Engineers', 'Founding Engineers', 31000),
+  topic('technical-writers', 'Developer Technical Writers', 'Developer Technical Writers', 44000),
+  topic('open-source-founders', 'Open Source Founders', 'Open Source Founders', 24000),
+  topic('ai-product-managers', 'AI Product Managers', 'AI Product Managers', 18000),
+  topic('prompt-engineers', 'Prompt Engineers', 'Prompt Engineers', 42000),
+
+  // SDK / API tooling
+  topic('sdk-developers', 'SDK Developers', 'SDK Developers', 67000),
+  topic('openapi-spec-developers', 'OpenAPI', 'OpenAPI Developers', 78000),
+  topic('swagger-developers', 'Swagger', 'Swagger Developers', 89000),
+  topic('speakeasy-sdk-developers', 'Speakeasy SDK', 'Speakeasy SDK Developers', 17000),
+  topic('api-design-developers', 'API Design', 'API Design Developers', 38000),
+
+  // Cloud IDEs / online editors
+  topic('replit-developers', 'Replit', 'Replit Developers', 38000),
+  topic('stackblitz-developers', 'StackBlitz', 'StackBlitz Developers', 29000),
+  topic('codesandbox-developers', 'CodeSandbox', 'CodeSandbox Developers', 24000),
+  topic('gitpod-developers', 'Gitpod', 'Gitpod Developers', 21000),
+
+  // AI coding assistants
+  topic('github-copilot-developers', 'GitHub Copilot', 'GitHub Copilot Developers', 54000),
+  topic('sourcegraph-developers', 'Sourcegraph', 'Sourcegraph Developers', 34000),
+  topic('tabnine-developers', 'Tabnine', 'Tabnine Developers', 28000),
+
+  // MCP / agentic (2026 growth)
+  topic('mcp-server-developers', 'MCP Servers', 'MCP Server Developers', 41000),
+
+  // JS build tooling (gaps)
+  topic('swc-developers', 'SWC (Speedy Web Compiler)', 'SWC Developers', 38000),
+  topic('rspack-developers', 'Rspack', 'Rspack Developers', 24000),
+  topic('monorepo-developers', 'Monorepo', 'Monorepo Developers', 54000),
+
+  // Static site generators
+  topic('hugo-developers', 'Hugo', 'Hugo Developers', 61000),
+  topic('gatsby-developers', 'Gatsby', 'Gatsby Developers', 48000),
+  topic('jekyll-developers', 'Jekyll', 'Jekyll Developers', 34000),
+  topic('eleventy-developers', 'Eleventy (11ty)', 'Eleventy Developers', 21000),
+
+  // CMS (new)
+  topic('payload-cms-developers', 'Payload CMS', 'Payload CMS Developers', 19000),
+  topic('storyblok-developers', 'Storyblok', 'Storyblok Developers', 21000),
+
+  // Editor tooling
+  topic('codemirror-developers', 'CodeMirror', 'CodeMirror Developers', 28000),
+  topic('tiptap-developers', 'Tiptap', 'Tiptap Developers', 24000),
+  topic('obsidian-plugin-developers', 'Obsidian Plugins', 'Obsidian Plugin Developers', 19000),
+
+  // CI / build systems
+  topic('dagger-ci-developers', 'Dagger CI', 'Dagger CI Developers', 23000),
+  topic('bazel-developers', 'Bazel', 'Bazel Developers', 29000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(

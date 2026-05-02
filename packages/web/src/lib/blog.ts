@@ -17927,6 +17927,524 @@ if __name__ == '__main__':
       },
     ],
   },
+
+  // ── Blog post 97 ──────────────────────────────────────────────────────────
+  {
+    slug: 'mcp-developer-leads-github',
+    title: 'How to Find MCP (Model Context Protocol) Developer Leads on GitHub',
+    description:
+      'MCP is the fastest-growing protocol in AI tooling in 2026. Learn how to find MCP server and client developers on GitHub and turn them into qualified pipeline for your developer tool.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 9,
+    keywords: [
+      'mcp developer leads',
+      'model context protocol developers',
+      'find mcp developers github',
+      'mcp server leads',
+      'ai tool developer leads',
+      'github leads for mcp',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'The Model Context Protocol (MCP) went from a niche Anthropic spec to the dominant standard for connecting AI agents to external tools in under six months. As of mid-2026, GitHub hosts thousands of MCP server repositories — and every developer building one is a potential customer for developer tools, AI infrastructure, and anything that makes building agentic applications easier. This post shows you exactly how to find those developers and route them into your pipeline.',
+      },
+      {
+        type: 'h2',
+        content: 'Why MCP Developers Are High-Value Leads',
+      },
+      {
+        type: 'p',
+        content:
+          'MCP developers are a uniquely valuable segment for multiple reasons. First, they are early adopters by definition — they are building on a protocol that is less than 18 months old, which means they have a high tolerance for new tooling and low attachment to legacy stacks. Second, MCP server development typically means integrating a data source or SaaS product into an AI agent workflow, making MCP developers natural prospects for API platforms, data connectors, database tools, and anything that exposes an API. Third, many MCP builders are technical founders or senior engineers with purchasing authority.',
+      },
+      {
+        type: 'h2',
+        content: 'Method 1: Search GitHub for MCP Server Repositories',
+      },
+      {
+        type: 'p',
+        content:
+          'The most direct approach is to search GitHub for repositories that implement the MCP server protocol. The pattern is consistent: MCP servers typically include a package dependency on the MCP SDK and expose tool definitions. Here are the key search queries:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find repositories using the official MCP TypeScript SDK
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/repositories?q=@modelcontextprotocol/sdk+in:file&sort=updated"
+
+# Find Python MCP servers
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/repositories?q=mcp-python+in:file+language:python&sort=updated"
+
+# Find repos tagged with the mcp topic
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/repositories?q=topic:mcp-server&sort=updated&per_page=100"
+
+# Find repos mentioning model-context-protocol in README
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/repositories?q=model-context-protocol+in:readme&sort=updated"`,
+      },
+      {
+        type: 'p',
+        content:
+          'Each of these queries returns repos with owner data. From there, you fetch the owner profile to get name, email, company, location, and follower count. GitLeads automates this entire pipeline — you configure a keyword signal for terms like "mcp-server", "modelcontextprotocol", or "@modelcontextprotocol/sdk" and receive enriched lead profiles in your CRM within minutes of a new repo being created or updated.',
+      },
+      {
+        type: 'h2',
+        content: 'Method 2: Monitor the MCP Awesome List for New Entries',
+      },
+      {
+        type: 'p',
+        content:
+          'The awesome-mcp-servers repository on GitHub is a community-curated list of MCP server implementations. New entries are added via pull requests almost daily. Every PR author is a developer who just shipped an MCP server — that is a buying signal. You can monitor this repo directly:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Get recent pull requests on the awesome-mcp-servers list
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/repos/punkpeye/awesome-mcp-servers/pulls?state=all&sort=created&direction=desc&per_page=50"
+
+# Each PR author is a new MCP developer — fetch their profile
+# PR response includes .user.login → GET /users/{login} for enriched data`,
+      },
+      {
+        type: 'h2',
+        content: 'Method 3: GitHub Issues Mentioning MCP Pain Points',
+      },
+      {
+        type: 'p',
+        content:
+          'Developers building MCP servers encounter specific friction points: authentication, long-running connections, streaming responses, tool schema validation. Searching GitHub Issues for these terms surfaces developers who are actively struggling — and actively looking for solutions. That is the highest-intent lead category:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find issues mentioning MCP authentication problems
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=mcp+authentication+is:issue+is:open&sort=created&order=desc"
+
+# Find issues asking about MCP deployment
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=mcp+server+deploy+is:issue&sort=created"
+
+# Find discussions about MCP tooling
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=model-context-protocol+tooling+is:issue"`,
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads keyword signals let you monitor phrases like "mcp server", "model context protocol", or "@modelcontextprotocol" across all GitHub Issues, PRs, and Discussions in real time. Every matching event creates an enriched lead profile pushed to your CRM automatically.',
+      },
+      {
+        type: 'h2',
+        content: 'Method 4: Star and Fork Monitoring on Core MCP Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'The official MCP repos (modelcontextprotocol/sdk, modelcontextprotocol/servers) have hundreds of stars per day. Each new stargazer is a developer who just discovered the protocol and is likely evaluating it. The forks are even more valuable — forking the SDK means active development. GitLeads lets you track any public repository as a signal source: every new star or fork pushes an enriched lead profile to Slack, HubSpot, Pipedrive, or any destination in your stack.',
+      },
+      {
+        type: 'h2',
+        content: 'Segmenting MCP Leads by Build Context',
+      },
+      {
+        type: 'p',
+        content:
+          'Not all MCP developers have the same buyer profile. Segmenting by what they are building multiplies conversion rates. Common segments based on GitHub repo context:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Database MCP servers (PostgreSQL, SQLite, MongoDB adapters) — prospects for database tooling, ORM products, query optimization tools',
+          'File system / local data MCP servers — prospects for storage APIs, file management SaaS, document processing tools',
+          'SaaS connector MCP servers (Notion, Linear, Jira) — prospects for workflow automation, API management, iPaaS platforms',
+          'Code execution / sandbox MCP servers — prospects for cloud IDE, compute APIs, sandbox infrastructure',
+          'Search / retrieval MCP servers — prospects for vector databases, search APIs, embedding services',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Automating MCP Lead Collection with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'Manual API calls do not scale. GitLeads replaces this entire workflow: add a keyword signal for "mcp-server" or "modelcontextprotocol", select which GitHub event types to monitor (issues, PRs, code, commit messages), and pick a destination. Every matching event creates a lead with name, GitHub username, email (when public), bio, company, location, followers, top languages, and the exact signal context that triggered the match.',
+      },
+      {
+        type: 'p',
+        content:
+          'Unlike a one-time export, GitLeads monitors continuously. A developer who stars an MCP repo on Monday and opens an issue about authentication on Wednesday creates two separate leads — both with full context — pushed to your pipeline automatically. Start with 50 free MCP leads per month at gitleads.app.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: how to find AI agent developer leads on GitHub, GitHub keyword monitoring for sales, GitHub intent data for B2B sales, find LLM engineer leads on GitHub.',
+      },
+    ],
+  },
+
+  // ── Blog post 98 ──────────────────────────────────────────────────────────
+  {
+    slug: 'github-releases-buying-signals',
+    title: 'GitHub Releases as Buying Signals: How to Find Developers Who Just Shipped',
+    description:
+      'When a developer cuts a new release on GitHub, they are in active build mode with real production stakes. Learn how to use GitHub release events to find warm developer leads who are ready to buy.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 8,
+    keywords: [
+      'github releases buying signals',
+      'github release events leads',
+      'find developers who just shipped',
+      'github developer buying signals',
+      'github lead generation signals',
+      'developer sales prospecting github',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Every developer signal has a different temperature. A star is warm — casual interest. A fork is warmer — active evaluation. But a release is hot: someone just shipped production code, which means they have a real project, real users, and real operational problems to solve. GitHub processes hundreds of thousands of releases per month, and every one of them is a potential buying signal for your developer tool.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Releases Signal Purchase Intent',
+      },
+      {
+        type: 'p',
+        content:
+          'Think about what happens when a developer cuts a release. They have spent weeks or months building something. The project has reached a milestone they consider worth versioning. If it is a v1.0.0, they are launching. If it is a patch release, they are actively maintaining. In both cases: the developer is operating at the intersection of "building seriously" and "shipping to real users." That is exactly when they need monitoring, error tracking, deployment infrastructure, CI/CD tooling, analytics, and everything else that goes with production workloads.',
+      },
+      {
+        type: 'h2',
+        content: 'How to Monitor GitHub Releases via API',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub exposes releases through two main endpoints. The repository releases endpoint lists all releases for a given repo, while the events API streams release events across public GitHub activity:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Get releases for a specific repo
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/repos/{owner}/{repo}/releases?per_page=100"
+
+# Get recent public release events across GitHub
+# (GitHub public events stream — paginate with polling)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/events?per_page=100"
+# Filter for type: "ReleaseEvent" in response
+
+# Get release events for a specific organization
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/orgs/{org}/events" | jq '[.[] | select(.type=="ReleaseEvent")]'`,
+      },
+      {
+        type: 'p',
+        content:
+          'The ReleaseEvent payload includes: the release tag (v1.0.0, v2.3.1), the release name, whether it is a prerelease, the repository full name, and — critically — the actor who published the release. That actor is your lead. Fetch their profile for email, company, bio, and follower count.',
+      },
+      {
+        type: 'h2',
+        content: 'Filtering for High-Signal Releases',
+      },
+      {
+        type: 'p',
+        content:
+          'Not all releases are equal. A developer pushing a v0.0.1 on a brand-new toy project is a different prospect than a maintainer releasing v3.2.0 of a project with 5,000 stars. Filtering for quality raises your conversion rate dramatically:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Repository star count > 100 — filters out abandoned or pre-launch projects',
+          'Semantic version ≥ v1.0.0 — signals production-ready projects, not just experiments',
+          'Release is not a prerelease — production releases only',
+          'Repo was last pushed within 90 days — filters stale repos with automated releases',
+          'Actor has at least 10 followers — filters bots and inactive accounts',
+          'Actor bio or company field is non-empty — filters personal scripts vs. professional projects',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Matching Releases to Your ICP',
+      },
+      {
+        type: 'p',
+        content:
+          'The release event alone tells you the developer is active. The repository context tells you what they are building and whether they match your ICP. Parse the repo topics, language, and README to qualify leads before they hit your CRM:',
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+
+def qualify_release_lead(owner, repo, actor_login, token):
+    headers = {"Authorization": f"Bearer {token}"}
+
+    # Get repo metadata
+    repo_data = requests.get(
+        f"https://api.github.com/repos/{owner}/{repo}",
+        headers=headers
+    ).json()
+
+    # Get actor profile
+    actor = requests.get(
+        f"https://api.github.com/users/{actor_login}",
+        headers=headers
+    ).json()
+
+    icp_score = 0
+    topics = repo_data.get("topics", [])
+
+    # Score by relevant topics
+    high_value_topics = {"kubernetes", "docker", "terraform", "rust", "go", "python", "typescript"}
+    icp_score += len(high_value_topics & set(topics)) * 10
+
+    # Score by repo influence
+    stars = repo_data.get("stargazers_count", 0)
+    if stars > 500: icp_score += 20
+    elif stars > 100: icp_score += 10
+
+    # Score by actor profile quality
+    if actor.get("company"): icp_score += 15
+    if actor.get("email"): icp_score += 20
+    if actor.get("followers", 0) > 50: icp_score += 10
+
+    return {
+        "actor": actor_login,
+        "email": actor.get("email"),
+        "company": actor.get("company"),
+        "repo": f"{owner}/{repo}",
+        "stars": stars,
+        "topics": topics,
+        "icp_score": icp_score,
+    }`,
+      },
+      {
+        type: 'h2',
+        content: 'Release-Based Outreach Templates That Work',
+      },
+      {
+        type: 'p',
+        content:
+          'Because you know exactly what the developer just shipped, your outreach can be hyper-relevant. A generic "I saw you\'re on GitHub" message converts poorly. A message referencing their specific release converts at 3-5x the rate:',
+      },
+      {
+        type: 'callout',
+        content:
+          '"Hey {name} — saw you just released v2.0.0 of {repo-name}. Congrats on shipping. At that scale ({stars} stars) you\'re probably hitting [relevant problem your tool solves]. Happy to show you how {your product} helps projects like yours — takes 5 minutes to set up."',
+      },
+      {
+        type: 'p',
+        content:
+          'The signal context is the hook. You are not cold-pitching — you are responding to a public action the developer took. That changes the dynamic entirely.',
+      },
+      {
+        type: 'h2',
+        content: 'Automating Release Signal Monitoring with GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'Building a GitHub release monitor from scratch requires handling webhooks or polling, managing rate limits, enriching profiles, deduplicating leads, and routing to your CRM. GitLeads does all of this. You configure which repository topics or keywords should trigger a lead, and release activity from matching repositories automatically creates enriched profiles pushed to HubSpot, Slack, Apollo, Clay, Pipedrive, Salesforce, or any other destination in your stack.',
+      },
+      {
+        type: 'p',
+        content:
+          'Start free at gitleads.app — 50 release-triggered leads per month, no credit card required.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: GitHub buying signals for sales teams, turn GitHub stargazers into leads, GitHub pull request signals for sales intelligence, monitor GitHub issues for sales, GitHub star tracking tools.',
+      },
+    ],
+  },
+
+  // ── Blog post 99 ──────────────────────────────────────────────────────────
+  {
+    slug: 'github-competitor-repo-monitoring',
+    title: 'GitHub Competitor Repo Monitoring: Find Developers Ready to Switch Tools',
+    description:
+      'Your competitor\'s GitHub repository is a live lead list — every star, issue, and PR is a signal. Learn how to monitor competitor repos on GitHub to find developers who are evaluating alternatives.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 9,
+    keywords: [
+      'github competitor repo monitoring',
+      'competitor github leads',
+      'find developers switching tools',
+      'github competitive intelligence sales',
+      'monitor competitor github',
+      'github competitor analysis leads',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'If you sell a developer tool, your competitor\'s GitHub repository is the highest-quality lead list you can access. Every developer who stars their repo is evaluating the same problem space you operate in. Every developer who opens an issue with "how do I migrate" or "alternative to" is actively considering a switch. Every developer who forks it is building something with it — and may be one bad experience away from switching. This post covers how to systematically turn competitor GitHub activity into pipeline.',
+      },
+      {
+        type: 'h2',
+        content: 'The Three Competitor Signals That Matter',
+      },
+      {
+        type: 'p',
+        content:
+          'Not all competitor GitHub activity has equal sales value. Prioritize these three signal types in descending order of conversion potential:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Pain-point issues — developers opening issues describing problems, bugs, or missing features are frustrated users. If those problems are things your product solves, they are your warmest possible leads.',
+          'Migration-intent issues and PRs — anyone searching for or opening an issue containing "migrate from", "alternatives to", "moving away", or "switch to" has already decided to leave. They just need to know where to go.',
+          'New stargazers — developers who just starred a competitor repo are in the awareness stage. They know the problem exists; they just found one solution. You have a window to show them a better one before they commit.',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Monitoring Competitor Stargazers',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub\'s stargazers endpoint returns the full list of users who starred a repository, sorted by when they starred. For competitor repos with tens of thousands of stars, the most actionable leads are the recent ones — developers who starred in the last 7-30 days, when your competitor is still fresh in their mind:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Get recent stargazers (with star timestamp using Accept header)
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  -H "Accept: application/vnd.github.star+json" \\
+  "https://api.github.com/repos/{competitor-owner}/{competitor-repo}/stargazers?per_page=100"
+
+# Response includes starred_at timestamp — filter for last 30 days
+# Each .user.login → GET /users/{login} for enriched profile`,
+      },
+      {
+        type: 'h2',
+        content: 'Finding Pain-Point Issues on Competitor Repos',
+      },
+      {
+        type: 'p',
+        content:
+          'Issues where developers express frustration or describe limitations are gold. The GitHub Issues search API lets you query a specific repo for terms that signal pain:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find open issues expressing pain on a competitor repo
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=repo:{owner}/{repo}+is:issue+is:open+slow+OR+broken+OR+doesn%27t+work&sort=created"
+
+# Find migration intent issues
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=repo:{owner}/{repo}+is:issue+migrate+OR+alternative+OR+switch&sort=created"
+
+# Find feature requests that reveal unmet needs
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/issues?q=repo:{owner}/{repo}+is:issue+label:enhancement&sort=reactions-%2B1-desc"`,
+      },
+      {
+        type: 'p',
+        content:
+          'For each issue author, fetch their profile. The developer who opened a frustration-laden issue on your competitor\'s repo and has a public email address is a lead you should contact within 24 hours. The pain is fresh; the timing is right.',
+      },
+      {
+        type: 'h2',
+        content: 'Monitoring Competitor Discussions for Switch Intent',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub Discussions (if enabled on the competitor\'s repo) contain longer-form conversations that often reveal deeper intent. Developers comparing tools, asking about migration paths, or asking whether features are on the roadmap are much further along the evaluation process than casual issue reporters:',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# GitHub Discussions require GraphQL API
+query {
+  repository(owner: "competitor-owner", name: "competitor-repo") {
+    discussions(first: 50, orderBy: {field: CREATED_AT, direction: DESC}) {
+      nodes {
+        title
+        author { login }
+        createdAt
+        comments(first: 5) {
+          nodes {
+            author { login }
+            body
+          }
+        }
+      }
+    }
+  }
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Building a Competitor Intelligence Dashboard',
+      },
+      {
+        type: 'p',
+        content:
+          'Rather than running these queries manually, a sustainable competitor intelligence workflow monitors continuously and filters for intent signals. The key metrics to track per competitor repo:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'New stargazers per day — baseline growth rate signals market momentum',
+          'New open issues with frustration keywords — leading indicator of churn risk',
+          'New issues with migration/alternative keywords — directly actionable leads',
+          'PR merge rate — if PRs pile up without merging, contributors are frustrated (and looking for alternatives)',
+          'Time to first response on issues — if response times are increasing, support is degrading (opportunity for you)',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Outreach Approach for Competitor Leads',
+      },
+      {
+        type: 'callout',
+        content:
+          'Competitor leads require a different outreach frame than regular warm leads. Never attack the competitor by name in cold outreach — it reads as desperate. Instead, lead with the problem: "I saw you\'re working with [tech category]. We solve [specific limitation]. Here\'s how it compares to what you might be using now."',
+      },
+      {
+        type: 'p',
+        content:
+          'The signal context matters here: if you know they opened a pain-point issue, reference the category of problem without identifying the specific issue (which feels invasive). If they starred a competitor repo recently, it is fine to mention: "I noticed you\'ve been exploring [tech category] — we have a solution that [key differentiator]."',
+      },
+      {
+        type: 'h2',
+        content: 'How GitLeads Handles Competitor Repo Monitoring',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads lets you add any public GitHub repository as a tracked repo — including competitor repos. New stargazers and forks from those repos automatically create enriched lead profiles pushed to your CRM, Slack, or outreach tool. You can also configure keyword signals that watch Issues, PRs, and Discussions across any repo for terms like "alternative", "migrate", or "switch" — every matching event creates a lead with full context.',
+      },
+      {
+        type: 'p',
+        content:
+          'The result is a fully automated competitor intelligence pipeline: no manual API calls, no rate limit management, no enrichment scripts. Just qualified leads delivered to the tools you already use, with the signal context attached.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: competitor repo stargazers as leads, GitHub buying signals for sales teams, turn GitHub stargazers into leads, GitHub competitor intelligence, monitor GitHub issues for sales.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
