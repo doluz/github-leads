@@ -18956,6 +18956,724 @@ query {
       },
     ],
   },
+  // ── New posts (2026-05-02) ──────────────────────────────────────────────────
+
+  {
+    slug: 'push-github-leads-to-zapier',
+    title: 'Push GitHub Leads to Zapier: Automate Your Developer Outreach Pipeline',
+    description:
+      'Connect GitLeads to Zapier and automatically route new GitHub developer signals — stargazers, keyword mentions, issue activity — to your CRM, email sequences, or any of 6,000+ Zapier-connected apps.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 8,
+    keywords: [
+      'push github leads to zapier',
+      'github leads zapier',
+      'zapier github integration',
+      'github developer leads automation',
+      'github lead generation zapier',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'Zapier connects 6,000+ apps. GitLeads captures developer intent signals from GitHub in real time. Together, they give you a no-code pipeline that automatically routes warm developer leads into whatever tool your sales or marketing team already lives in — without writing a single line of code.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Zapier + GitLeads Is a Growth Team Power Move',
+      },
+      {
+        type: 'p',
+        content:
+          'Most developer GTM teams struggle with the same problem: GitHub signals are valuable but fragmented. A new star on your competitor\'s repo, a developer asking "how do I migrate from X to Y?" in a GitHub issue, a contributor opening their fifth PR on a project in your space — these are buying signals. Without automation, they disappear. Zapier + GitLeads closes that gap without requiring engineering resources.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'New stargazer on a tracked repo → create a contact in HubSpot or Salesforce',
+          'Keyword match in a GitHub issue → add to an email sequence in Mailchimp or Klaviyo',
+          'New lead with verified email → post to a #sales-signals Slack channel',
+          'Lead from target company → create a deal in Pipedrive',
+          'High-follower developer → add to a cold outreach list in Apollo or Clay',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How GitLeads Sends Data to Zapier',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads uses webhooks to push lead data to external systems the moment a signal is detected. To connect to Zapier, you use a "Webhooks by Zapier" trigger — the most flexible entry point in Zapier\'s ecosystem. Every new lead GitLeads captures fires a POST request to your Zapier webhook URL with a full JSON payload.',
+      },
+      {
+        type: 'h3',
+        content: 'Step 1: Create a Zapier Webhook Trigger',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Log into Zapier and click "Create Zap"',
+          'Search for "Webhooks by Zapier" as your trigger app',
+          'Choose "Catch Hook" as the trigger event',
+          'Copy the Zapier webhook URL shown on screen',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Step 2: Configure GitLeads to POST to Zapier',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Log into GitLeads and open Settings → Integrations',
+          'Select "Webhook / Custom HTTP" from the integrations list',
+          'Paste your Zapier webhook URL into the endpoint field',
+          'Choose which signal types should trigger the webhook (stargazers, keyword matches, or both)',
+          'Click Save — GitLeads will send a test payload to Zapier',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Step 3: Map Lead Fields in Zapier',
+      },
+      {
+        type: 'p',
+        content:
+          'Once Zapier receives the test payload, you can map GitLeads fields to any downstream app. The GitLeads payload includes:',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `{
+  "event": "new_lead",
+  "signal_type": "stargazer",
+  "repo": "your-org/your-repo",
+  "lead": {
+    "github_username": "alexchen",
+    "name": "Alex Chen",
+    "email": "alex@example.com",
+    "bio": "Building developer tools at Series B startup",
+    "company": "DevCorp",
+    "location": "San Francisco, CA",
+    "followers": 1840,
+    "top_languages": ["TypeScript", "Go", "Python"],
+    "profile_url": "https://github.com/alexchen",
+    "starred_at": "2026-05-02T14:23:11Z"
+  },
+  "signal_context": "Starred your-org/your-repo on 2026-05-02"
+}`,
+      },
+      {
+        type: 'h2',
+        content: 'Popular Zapier Workflows for GitHub Leads',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Lead → HubSpot Contact',
+      },
+      {
+        type: 'p',
+        content:
+          'The most common workflow. Map GitLeads fields to HubSpot contact properties: email → Email, name → First/Last Name, company → Company, github_username → a custom GitHub Username property. Add a tag like "github-signal" or the repo name so your sales team can filter by source.',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Lead → Slack Notification',
+      },
+      {
+        type: 'p',
+        content:
+          'Use a "Send Channel Message" action in Slack. Format the message to include the developer\'s name, GitHub profile URL, signal context, and email. Post to a dedicated #github-signals or #warm-leads channel. Your sales team sees new signals in real time without logging into another tool.',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Lead → Google Sheets Row',
+      },
+      {
+        type: 'p',
+        content:
+          'A simple but powerful workflow for teams that manage outreach manually. Each new lead gets a row in a Google Sheet with columns for name, email, GitHub profile, signal type, signal context, and a "Contacted?" checkbox. Great for solo founders and small teams.',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Lead → Email Sequence',
+      },
+      {
+        type: 'p',
+        content:
+          'If you use Mailchimp, ActiveCampaign, ConvertKit, or any other email marketing tool on Zapier, you can add new GitHub leads directly to a segmented list or automation. Trigger a developer-specific welcome sequence the moment someone stars your repo or mentions your keyword.',
+      },
+      {
+        type: 'callout',
+        content:
+          'Zapier\'s "Filter" step is your best friend here. Add a filter between the GitLeads trigger and your CRM action to only create contacts when email is present, follower count is above a threshold, or the lead is in a specific country. This keeps your CRM clean without touching any code.',
+      },
+      {
+        type: 'h2',
+        content: 'Filtering and Enriching Leads in Zapier',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads already enriches each lead with GitHub data before the webhook fires. But Zapier lets you add a second enrichment layer using built-in steps or other connected apps:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Use Zapier\'s built-in "Formatter" to normalize names, extract first name, or format dates',
+          'Add a Clearbit or Hunter.io lookup step if you need additional company enrichment',
+          'Use a "Code by Zapier" step to compute a lead score from follower count and signal type',
+          'Add a delay and a LinkedIn lookup to qualify leads before they hit your CRM',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'What Signal Types Can You Route Through Zapier?',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads supports two core signal families, both of which can trigger Zapier workflows:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Stargazer signals — a developer stars one of your tracked repos (your own repo, a competitor\'s repo, or a complementary OSS project)',
+          'Keyword signals — a developer mentions a specific keyword in a GitHub issue, pull request, discussion, README, or commit message',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'You can create separate Zapier webhooks for each signal type and route them to different workflows. For example, stargazers go to your top-of-funnel Mailchimp list, while keyword matches (higher intent) go directly to your CRM as qualified leads.',
+      },
+      {
+        type: 'h2',
+        content: 'GitLeads + Zapier vs. Direct CRM Integration',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads also offers native integrations to HubSpot, Salesforce, Pipedrive, and 10+ other tools. The native integrations are faster to set up and handle edge cases like deduplication automatically. Use Zapier when you need to route to a tool that doesn\'t have a native GitLeads connector, or when you need multi-step logic (filter + enrich + notify) that goes beyond a simple push.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads is free for up to 50 leads per month. No credit card required. Paid plans start at $49/month. See pricing for details.',
+      },
+      {
+        type: 'h2',
+        content: 'Common Questions',
+      },
+      {
+        type: 'h3',
+        content: 'Does GitLeads support Zapier natively?',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads connects to Zapier via its webhook integration. Any tool with a "Webhooks by Zapier" trigger — which includes essentially all Zapier-connected apps as a downstream step — is compatible with GitLeads.',
+      },
+      {
+        type: 'h3',
+        content: 'How fast is the Zapier trigger?',
+      },
+      {
+        type: 'p',
+        content:
+          'GitLeads fires webhooks within seconds of detecting a GitHub signal. Zapier on paid plans processes triggers in near real time (under 2 minutes). On Zapier\'s free plan, triggers run every 15 minutes.',
+      },
+      {
+        type: 'h3',
+        content: 'Can I test the integration before going live?',
+      },
+      {
+        type: 'p',
+        content:
+          'Yes. GitLeads includes a "Send Test Payload" button in the webhook settings. This fires a sample lead payload to your Zapier webhook URL so you can map fields and test your Zap without waiting for a real signal.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: push GitHub leads to HubSpot, push GitHub leads to Slack, push GitHub leads to Clay, GitHub lead automation with n8n, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+
+  {
+    slug: 'push-github-leads-to-n8n',
+    title: 'Push GitHub Leads to n8n: Build a Custom Developer Lead Workflow',
+    description:
+      'Use GitLeads webhooks with n8n to build fully custom GitHub lead automation. Route new stargazers and keyword signals into any n8n-connected tool — self-hosted, no per-task fees.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 8,
+    keywords: [
+      'push github leads to n8n',
+      'github leads n8n',
+      'n8n github workflow',
+      'github developer leads automation',
+      'n8n github integration',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'n8n is a self-hostable workflow automation platform with 400+ integrations and a fair-code license. If your team already runs n8n — or wants full control over automation infrastructure without per-task Zapier costs — connecting GitLeads to n8n gives you a powerful, customizable GitHub lead pipeline.',
+      },
+      {
+        type: 'h2',
+        content: 'Why n8n for GitHub Lead Automation?',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Self-hosted option: your lead data stays on your infrastructure',
+          'No per-task pricing: unlimited executions on self-hosted plans',
+          'Code nodes: write JavaScript or Python when you need custom logic',
+          'Native HTTP Request node handles any webhook payload including GitLeads',
+          '400+ integrations: most CRMs, email tools, databases, and APIs are covered',
+          'Open source: inspect and modify the platform code itself',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'Architecture: GitLeads → n8n Webhook → Your CRM',
+      },
+      {
+        type: 'p',
+        content:
+          'The integration works through n8n\'s built-in Webhook node. GitLeads fires a POST request to your n8n webhook URL every time a new GitHub signal is captured. n8n receives the payload and executes the rest of your workflow — enrichment, filtering, CRM writes, Slack notifications, or any combination.',
+      },
+      {
+        type: 'code',
+        language: 'text',
+        content: `GitLeads detects signal
+        ↓
+  POST /webhook/{your-n8n-id}
+        ↓
+  n8n Webhook node receives payload
+        ↓
+  [Optional] IF node: filter by email present / follower count
+        ↓
+  [Optional] HTTP Request: enrich with Clearbit or Hunter.io
+        ↓
+  [Branch A] HubSpot: Create/Update Contact
+  [Branch B] Slack: Send channel message
+  [Branch C] Postgres: INSERT into leads table`,
+      },
+      {
+        type: 'h2',
+        content: 'Step-by-Step: Connect GitLeads to n8n',
+      },
+      {
+        type: 'h3',
+        content: 'Step 1: Create a Webhook Node in n8n',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Open your n8n instance and create a new workflow',
+          'Add a "Webhook" node as the trigger',
+          'Set HTTP Method to POST',
+          'Set Response Mode to "Respond to Webhook"',
+          'Copy the "Test URL" (for testing) or "Production URL" (for live use)',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Step 2: Configure GitLeads Webhook',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Open GitLeads Settings → Integrations',
+          'Select "Webhook / Custom HTTP"',
+          'Paste your n8n webhook URL',
+          'Select which signal types to forward (stargazers, keyword matches, or both)',
+          'Click "Send Test Payload" to fire a sample event to n8n',
+          'Return to n8n — click "Listen for Test Event" then trigger the test in GitLeads',
+        ],
+      },
+      {
+        type: 'h3',
+        content: 'Step 3: Map Lead Fields in n8n',
+      },
+      {
+        type: 'p',
+        content:
+          'Once n8n receives the test payload, all GitLeads fields are available as expressions. The payload structure is:',
+      },
+      {
+        type: 'code',
+        language: 'json',
+        content: `{
+  "event": "new_lead",
+  "signal_type": "keyword_match",
+  "keyword": "looking for observability tool",
+  "repo": "open-telemetry/opentelemetry-go",
+  "issue_url": "https://github.com/open-telemetry/opentelemetry-go/issues/4821",
+  "lead": {
+    "github_username": "sarahkdev",
+    "name": "Sarah K.",
+    "email": "sarah@example.com",
+    "bio": "SRE at a fintech startup. Building observable systems.",
+    "company": "FinCo",
+    "location": "Berlin, Germany",
+    "followers": 1190,
+    "top_languages": ["Go", "Python", "Bash"],
+    "profile_url": "https://github.com/sarahkdev"
+  },
+  "signal_context": "Mentioned 'looking for observability tool' in issue #4821"
+}`,
+      },
+      {
+        type: 'p',
+        content:
+          'In n8n expressions, access these as: `{{ $json.lead.email }}`, `{{ $json.lead.name }}`, `{{ $json.signal_context }}`, etc.',
+      },
+      {
+        type: 'h2',
+        content: 'Example n8n Workflows for GitHub Leads',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Lead → HubSpot Contact (with deduplication)',
+      },
+      {
+        type: 'p',
+        content:
+          'Use n8n\'s HubSpot node with the "Upsert Contact" operation. Map email to the HubSpot email field. Set a custom property "github_signal_source" to `{{ $json.signal_context }}` to track where each contact came from. n8n will create a new contact or update an existing one if the email already exists.',
+      },
+      {
+        type: 'h3',
+        content: 'GitHub Lead → Filter → Postgres Database',
+      },
+      {
+        type: 'p',
+        content:
+          'Add an IF node between the Webhook and Postgres nodes. Condition: `{{ $json.lead.email }}` is not empty AND `{{ $json.lead.followers }}` greater than 100. Only leads meeting both conditions get inserted into your Postgres leads table. This keeps your database clean without manual review.',
+      },
+      {
+        type: 'h3',
+        content: 'Multi-Branch: CRM + Slack + Airtable',
+      },
+      {
+        type: 'p',
+        content:
+          'n8n supports parallel branches from a single trigger. Send the same lead payload to: (1) a CRM upsert, (2) a Slack message to your #sales-signals channel, and (3) an Airtable row for your marketing team to track outreach. All three happen simultaneously on every new GitHub signal.',
+      },
+      {
+        type: 'h2',
+        content: 'Advanced: Using n8n Code Nodes for Lead Scoring',
+      },
+      {
+        type: 'p',
+        content:
+          'n8n\'s Code node (JavaScript) lets you compute a lead score before writing to your CRM. Here\'s a simple scoring function:',
+      },
+      {
+        type: 'code',
+        language: 'javascript',
+        content: `// n8n Code node: compute lead score
+const lead = $input.first().json.lead;
+const signalType = $input.first().json.signal_type;
+
+let score = 0;
+
+// Signal type weight
+if (signalType === 'keyword_match') score += 40;
+if (signalType === 'stargazer') score += 20;
+
+// Follower count
+if (lead.followers > 1000) score += 30;
+else if (lead.followers > 500) score += 20;
+else if (lead.followers > 100) score += 10;
+
+// Email present
+if (lead.email) score += 20;
+
+// Company present
+if (lead.company) score += 10;
+
+return [{ json: { ...lead, lead_score: score } }];`,
+      },
+      {
+        type: 'h2',
+        content: 'n8n Cloud vs. Self-Hosted for GitLeads',
+      },
+      {
+        type: 'p',
+        content:
+          'Both n8n Cloud and self-hosted n8n work identically with GitLeads webhooks. The choice depends on your team:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'n8n Cloud: fastest setup, managed infrastructure, starts at $20/month for 2,500 executions',
+          'Self-hosted (Docker): unlimited executions, full data ownership, requires a server or VPS',
+          'Self-hosted (Railway/Render): easy self-hosted deployment without managing infra directly',
+        ],
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads webhooks work with any HTTP endpoint. If your n8n instance is behind a firewall, use a reverse proxy (Caddy, Nginx) or an ngrok tunnel during development to expose your webhook URL publicly.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: push GitHub leads to Zapier, push GitHub leads to HubSpot, push GitHub leads to Clay, GitHub lead automation workflows, GitHub buying signals for sales teams.',
+      },
+    ],
+  },
+
+  {
+    slug: 'github-code-search-lead-generation',
+    title: 'Using GitHub Code Search to Find Developer Leads (2026 Guide)',
+    description:
+      'GitHub\'s code search indexes billions of files. Learn how to use GitHub code search to identify developers actively using specific libraries, APIs, and tools — and turn them into qualified leads.',
+    publishedAt: '2026-05-02',
+    updatedAt: '2026-05-02',
+    readingTime: 10,
+    keywords: [
+      'github code search leads',
+      'find developer leads github code search',
+      'github code search lead generation',
+      'github search api lead generation',
+      'github prospecting code search',
+    ],
+    sections: [
+      {
+        type: 'p',
+        content:
+          'GitHub Code Search is one of the most underused lead generation tools available to developer-tool companies. While most teams look for leads in stargazers or user profiles, code search lets you find developers who are actively using a specific library, importing a particular SDK, or calling an API you care about — right now, in production code. This guide covers the mechanics of GitHub code search and how to turn it into a repeatable lead generation workflow.',
+      },
+      {
+        type: 'h2',
+        content: 'Why Code Search Is a Better Signal Than Profile Search',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub profile search (the /search/users endpoint) tells you what languages a developer uses. Code search tells you what they\'re actually building today. A developer with "Python" in their profile could be writing Django, building ML pipelines, or automating spreadsheets. A developer whose code contains `import openai` and `client = OpenAI()` is unambiguously building an OpenAI integration — right now.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Profile search: intent inferred from bio and language history',
+          'Code search: intent proven by current codebase state',
+          'Stargazer search: intent inferred from interest (starring a repo)',
+          'Code search: intent proven by active implementation',
+        ],
+      },
+      {
+        type: 'p',
+        content:
+          'For developer-tool companies, code search surfaces developers at the most actionable moment: when they are actively integrating a related tool. That is the right time to reach out.',
+      },
+      {
+        type: 'h2',
+        content: 'How GitHub Code Search Works',
+      },
+      {
+        type: 'p',
+        content:
+          'GitHub\'s code search indexes the default branch of public repositories. It supports full-text search across file contents, with filters for language, filename, repo topic, organization, and more. The search interface is available at github.com/search?type=code and via the REST API at /search/code.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find repos using the OpenAI Python SDK
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/code?q=from+openai+import+OpenAI+language:python&per_page=30"
+
+# Find files that import a specific npm package
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/code?q=require%28%27your-package-name%27%29+language:javascript"
+
+# Find config files that reference a specific API endpoint
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/code?q=api.yourcompany.com+filename:.env.example"
+
+# Find repos using your competitor's SDK
+curl -H "Authorization: Bearer YOUR_TOKEN" \\
+  "https://api.github.com/search/code?q=import+CompetitorSDK+language:typescript"`,
+      },
+      {
+        type: 'h2',
+        content: 'Practical Code Search Queries for Lead Generation',
+      },
+      {
+        type: 'h3',
+        content: 'Find Users of a Competitor SDK',
+      },
+      {
+        type: 'p',
+        content:
+          'If your product replaces or improves on a competitor, search for active users of their SDK. Each result is a repository maintained by a developer who is already bought in on the problem your product solves. They just haven\'t found you yet.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find Python repos importing competitor library
+q=import competitor_library language:python
+
+# Find Node.js repos installing competitor package
+q=require('competitor-package') language:javascript
+
+# Find Go repos using competitor module
+q=competitor.io/sdk language:go`,
+      },
+      {
+        type: 'h3',
+        content: 'Find Developers Experiencing the Problem You Solve',
+      },
+      {
+        type: 'p',
+        content:
+          'Search for code comments and TODOs that describe the pain point your product addresses. Developers who have written a TODO note about a problem are actively aware of it and looking for solutions.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find developers who have TODOs about rate limiting (good for rate limit tools)
+q=TODO rate+limit+handling language:python
+
+# Find developers manually parsing webhook payloads (good for webhook infrastructure tools)
+q=TODO verify+webhook+signature language:javascript
+
+# Find developers fighting with observability (good for monitoring tools)
+q=TODO add+tracing language:go`,
+      },
+      {
+        type: 'h3',
+        content: 'Find Direct API Users',
+      },
+      {
+        type: 'p',
+        content:
+          'If developers call your API directly (or an API in your space), searching for API base URLs in code reveals active users. This also works for environment variable names specific to your product.',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        content: `# Find repos hardcoding your API URL (or competitor's)
+q=api.yourcompany.com
+
+# Find repos with your API key environment variable
+q=YOUR_API_KEY filename:.env.example
+
+# Find repos importing your npm package
+q=@yourcompany/sdk language:typescript`,
+      },
+      {
+        type: 'h2',
+        content: 'Extracting Lead Data from Code Search Results',
+      },
+      {
+        type: 'p',
+        content:
+          'The code search API returns repository metadata and file path, not user data. To get to the lead (the developer), you need to follow a multi-step enrichment chain:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Code search returns: repo name, file path, and repository owner',
+          'Fetch /repos/{owner}/{repo} to get full repo metadata including owner login',
+          'Fetch /users/{owner} to get the developer\'s public profile: email, bio, company, location',
+          'If the repo is owned by an org, fetch /orgs/{org}/members to find individual contributors',
+          'For contributor emails, fetch /repos/{owner}/{repo}/commits to extract commit author emails',
+        ],
+      },
+      {
+        type: 'code',
+        language: 'python',
+        content: `import requests
+
+GITHUB_TOKEN = "your_token"
+HEADERS = {"Authorization": f"Bearer {GITHUB_TOKEN}", "Accept": "application/vnd.github+json"}
+
+def get_leads_from_code_search(query: str) -> list[dict]:
+    """Search GitHub code and return enriched lead profiles."""
+    search_url = f"https://api.github.com/search/code?q={query}&per_page=30"
+    results = requests.get(search_url, headers=HEADERS).json()
+
+    leads = []
+    seen_owners = set()
+
+    for item in results.get("items", []):
+        owner = item["repository"]["owner"]["login"]
+        if owner in seen_owners:
+            continue
+        seen_owners.add(owner)
+
+        # Get full user profile
+        user = requests.get(f"https://api.github.com/users/{owner}", headers=HEADERS).json()
+
+        if user.get("email"):
+            leads.append({
+                "github_username": owner,
+                "name": user.get("name"),
+                "email": user.get("email"),
+                "company": user.get("company"),
+                "location": user.get("location"),
+                "bio": user.get("bio"),
+                "followers": user.get("followers"),
+                "profile_url": user.get("html_url"),
+                "source_repo": item["repository"]["full_name"],
+                "source_file": item["path"],
+            })
+
+    return leads`,
+      },
+      {
+        type: 'h2',
+        content: 'Rate Limits and Scale Considerations',
+      },
+      {
+        type: 'p',
+        content:
+          'The code search API is the most rate-limited GitHub endpoint. Authenticated requests are limited to 10 requests per minute for code search (vs. 30/min for user search). Each page returns up to 30 results, and only the first 1,000 results are accessible per query. To get around the 1,000-result cap, split your query by language, date range, or repository topic.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Use `language:python`, `language:typescript` etc. to split by language',
+          'Use `pushed:>2026-01-01` to filter for recently active repos',
+          'Use `stars:>10` to filter for repos with meaningful adoption',
+          'Deduplicate by repository owner to avoid contacting the same person multiple times',
+          'Respect GitHub\'s Terms of Service — do not scrape aggressively or store excessive data',
+        ],
+      },
+      {
+        type: 'h2',
+        content: 'How GitLeads Automates This Entire Process',
+      },
+      {
+        type: 'p',
+        content:
+          'Building and maintaining a code search pipeline takes real engineering work: managing tokens, handling rate limits, writing enrichment logic, deduplicating leads, and pushing to your CRM. GitLeads automates this continuously. Instead of running a script once, GitLeads monitors GitHub signals 24/7 and delivers enriched leads to your existing tools the moment they appear.',
+      },
+      {
+        type: 'p',
+        content:
+          'With GitLeads keyword signals, you define the search terms that match your ICP (e.g., `import competitor_sdk`, `TODO: replace with better auth`, `looking for observability`). GitLeads runs those searches continuously across GitHub issues, PRs, discussions, and code, enriches each matching developer profile, and pushes the lead to HubSpot, Slack, Clay, or your CRM via a native integration or webhook.',
+      },
+      {
+        type: 'callout',
+        content:
+          'GitLeads is free for up to 50 leads per month. No credit card required. Paid plans start at $49/month and include keyword signal monitoring, stargazer tracking, and native CRM integrations.',
+      },
+      {
+        type: 'p',
+        content:
+          'Related reading: how to find leads on GitHub, GitHub signal monitoring, GitHub buying signals for sales teams, GitHub keyword monitoring for sales, monitor GitHub issues for sales.',
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

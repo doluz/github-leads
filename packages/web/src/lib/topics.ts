@@ -650,6 +650,52 @@ export const TOPICS: Topic[] = [
   topic('haystack-ai-developers', 'Haystack AI', 'Haystack AI Developers', 17000),
   topic('pydantic-ai-developers', 'PydanticAI', 'PydanticAI Developers', 19000),
   topic('instructor-developers', 'Instructor (LLM)', 'Instructor Developers', 21000),
+
+  // Data visualization & notebooks
+  topic('jupyter-developers', 'Jupyter', 'Jupyter Notebook Developers', 147000),
+  topic('streamlit-developers', 'Streamlit', 'Streamlit Developers', 89000),
+  topic('gradio-developers', 'Gradio', 'Gradio Developers', 54000),
+  topic('dash-plotly-developers', 'Dash (Plotly)', 'Dash Plotly Developers', 41000),
+  topic('metabase-developers', 'Metabase', 'Metabase Developers', 48000),
+  topic('superset-developers', 'Apache Superset', 'Apache Superset Developers', 37000),
+  topic('observable-developers', 'Observable', 'Observable Developers', 24000),
+
+  // Mapping & geospatial
+  topic('leaflet-developers', 'Leaflet.js', 'Leaflet.js Developers', 61000),
+  topic('mapbox-developers', 'Mapbox', 'Mapbox Developers', 54000),
+  topic('deck-gl-developers', 'deck.gl', 'deck.gl Developers', 21000),
+  topic('openstreetmap-developers', 'OpenStreetMap', 'OpenStreetMap Developers', 38000),
+
+  // Low-code / no-code platforms
+  topic('retool-developers', 'Retool', 'Retool Developers', 67000),
+  topic('appsmith-developers', 'Appsmith', 'Appsmith Developers', 41000),
+  topic('tooljet-developers', 'ToolJet', 'ToolJet Developers', 28000),
+  topic('budibase-developers', 'Budibase', 'Budibase Developers', 24000),
+
+  // Messaging / bot platforms
+  topic('discord-bot-developers', 'Discord Bots', 'Discord Bot Developers', 89000),
+  topic('telegram-bot-developers', 'Telegram Bots', 'Telegram Bot Developers', 73000),
+  topic('slack-app-developers', 'Slack Apps', 'Slack App Developers', 54000),
+  topic('github-app-developers', 'GitHub Apps', 'GitHub App Developers', 31000),
+
+  // Project management integrations
+  topic('linear-developers', 'Linear', 'Linear Developers', 38000),
+  topic('notion-api-developers', 'Notion API', 'Notion API Developers', 47000),
+
+  // AI execution / sandbox
+  topic('e2b-developers', 'E2B (Code Execution)', 'E2B Developers', 19000),
+  topic('composio-developers', 'Composio', 'Composio Developers', 16000),
+  topic('daytona-developers', 'Daytona', 'Daytona Developers', 14000),
+
+  // Deployment & hosting
+  topic('sst-developers', 'SST (Ion)', 'SST Developers', 34000),
+  topic('encore-developers', 'Encore.dev', 'Encore.dev Developers', 18000),
+
+  // NixOS ecosystem
+  topic('nixos-developers', 'NixOS', 'NixOS Developers', 44000),
+
+  // SST / Wasp
+  topic('wasp-lang-developers', 'Wasp', 'Wasp Developers', 16000),
 ];
 
 export const TOPICS_MAP: Record<string, Topic> = Object.fromEntries(
